@@ -1,0 +1,335 @@
+// @import './normalize.css';
+$topFontSize: 12px;
+$topFontFamily:SimSun;
+$topAndNavColor:#666;
+$topAndFooterBgColor:#d2d2d2;
+$activeBgColor:#B90101;
+$navAndTitleAndSearchFontSize:20px;
+$inputColor:#aaa;
+$navAndClassifyFontFamily:'Microsoft YaHei';
+$navClassifyBgColor:#D5D0C8;
+$navClassifyColor:#fdfdfd;
+$navClassifyChildAndTitleColor:#040404;
+$navClassifyH3FontSize:18px;
+$navClassifyLiAndproSpanAndDlAndTimeFontSize:14px;
+$proH4AndbottomH4AndDtAndServiceFontSize:16px;
+$proBoxBgColor:#DF8487;
+$proBottomBgColor:#EEE;
+$bottomColor:#d4d4d4;
+$telFontFamily:Arial;
+$telFontSize:36px;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: $navAndClassifyFontFamily;
+}
+
+input,
+a,
+button,
+img {
+    outline: none;
+    border: none;
+}
+
+.clearfloat {
+    clear: both;
+    content: "";
+}
+
+.containe {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+body,
+html {
+    background-color: #000;
+    width: 100%;
+    min-width: 1200px;
+}
+
+a {
+    text-decoration: none;
+    color: $topAndNavColor;
+    font-size: $topFontSize;
+}
+
+li {
+    list-style: none;
+}
+
+@mixin border-radius($size) {
+    -webkit-border-radius: $size;
+    -moz-border-radius: $size;
+    -ms-border-radius: $size;
+    -o-border-radius: $size;
+    border-radius: $size;
+}
+
+
+/*header*/
+
+#header {
+    width: 100%;
+    /*top*/
+    .top {
+        width: 100%;
+        height: 30px;
+        background-color: $topAndFooterBgColor;
+        color: $topAndNavColor;
+        .left {
+            float: left;
+            height: 30px;
+            >a {
+                line-height: 30px;
+                margin-right: 17px;
+            }
+            >span {
+                margin-left: 16px;
+            }
+        }
+        .shop {
+            float: right;
+            overflow: hidden;
+            height: 30px;
+            li {
+                float: left;
+                height: 30px;
+                margin: 0 9px;
+                a {
+                    line-height: 30px;
+                }
+                sup {
+                    background-color: #DD9931;
+                    @include border-radius(10px);
+                    display: block;
+                    float: right;
+                    text-align: center;
+                    width: 13px;
+                }
+            }
+            li:nth-of-type(3),
+            li:nth-of-type(5) {
+                line-height: 30px;
+            }
+        }
+        img {
+            display: block;
+            float: left;
+            margin: 7px 5px 0 0;
+        }
+        a {
+            font-family: $topFontFamily;
+        }
+    }
+    /*top end*/
+    /*nav*/
+    .nav {
+        width: 100%;
+        height: 60px;
+        background-color: $proBottomBgColor;
+        font-family: $navAndClassifyFontFamily;
+        .active {
+            background-color: $activeBgColor;
+            color: $navClassifyColor;
+        }
+        .menu {
+            position: relative;
+            float: left;
+            h2 {
+                height: 60px;
+                width: 216px;
+                line-height: 60px;
+                text-align: center;
+                font-weight: normal;
+                font-size: $navAndTitleAndSearchFontSize;
+                cursor: pointer;
+            }
+            .submenu {
+                width: 216px;
+                padding-bottom: 23px;
+                position: absolute;
+                background-color: rgba(214, 208, 200, 0.5);
+                z-index: 10;
+                display: none;
+                a,
+                h3 {
+                    color: $navClassifyChildAndTitleColor;
+                    font-weight: normal;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                }
+                >li {
+                    margin: 26px 0 26px 14px;
+                    h3 {
+                        font-size: $navClassifyH3FontSize;
+                    }
+                    ul {
+                        overflow: hidden;
+                        li {
+                            float: left;
+                            margin-top: 7px;
+                            width: 64px;
+                        }
+                    }
+                }
+                >li:nth-of-type(2),
+                >li:nth-of-type(4),
+                >li:nth-of-type(6) {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                    i {
+                        display: block;
+                        height: 2px;
+                        width: 162px;
+                        margin-left: 13px;
+                        border-top: 1px dashed $navClassifyChildAndTitleColor;
+                    }
+                }
+            }
+        }
+        .subnav {
+            float: left;
+            height: 60px;
+            margin-left: 55px - 38px;
+            li {
+                float: left;
+                height: 60px;
+                line-height: 60px;
+                a {
+                    font-size: $navAndTitleAndSearchFontSize;
+                    display: block;
+                    height: 100%;
+                    margin: 0 39px 0 39px;
+                }
+            }
+            li:hover {
+                @extend .active;
+                a {
+                    color: $navClassifyColor;
+                }
+            }
+        }
+    }
+    /*nav end*/
+}
+
+
+/*header end*/
+
+
+/*footer*/
+
+#footer {
+    width: 100%;
+    height: 345px;
+    .footer_head {
+        @extend .containe;
+        height: 72px;
+        border-bottom: 1px solid $topAndFooterBgColor;
+        margin-bottom: 32px;
+        li {
+            float: left;
+            height: 72px;
+            width: 217px;
+            margin-left: 21px;
+            a {
+                color: $bottomColor;
+            }
+            * {
+                float: left;
+            }
+            img {
+                margin-top: 13px;
+                margin-right: 8px;
+            }
+            h4 {
+                margin-top: 15px;
+                margin-bottom: 3px;
+                a {
+                    font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                }
+            }
+            span {
+                a {
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                }
+            }
+        }
+        li:last-of-type {
+            width: 200px;
+        }
+    }
+    .footer_main {
+        @extend .containe;
+        overflow: hidden;
+        height: 190px;
+        dt,
+        a,
+        span,
+        small {
+            color: $bottomColor;
+        }
+        dl {
+            float: left;
+            margin: 0 77px 0 22px;
+        }
+        dl:last-of-type {
+            margin-right: 0;
+        }
+        dt {
+            font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+            font-weight: bold;
+        }
+        dd {
+            margin: 4px 0;
+        }
+        a {
+            font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+        }
+        >div {
+            float: right;
+            margin-right: 73px;
+            width: 244px;
+            * {
+                display: block;
+            }
+            .tel {
+                font-size: $telFontSize;
+            }
+            small {
+                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                text-align: center;
+                margin: 23px auto;
+            }
+            a {
+                width: 224px;
+                height: 35px;
+                border: 2px solid $bottomColor;
+                font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                font-weight: bold;
+                line-height: 35px;
+                margin: 0 auto;
+                img {
+                    float: left;
+                    margin: 7px 14px 0 31px;
+                }
+            }
+        }
+    }
+    .copyright {
+        width: 100%;
+        height: 50px;
+        background-color: $topAndFooterBgColor;
+        p {
+            line-height: 50px;
+            text-align: center;
+            font-family: $topFontFamily;
+            font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+            color: #010101;
+        }
+    }
+}
+
+
+/*footer end*/

@@ -1,0 +1,263 @@
+// @import './public.min.css';
+$topFontSize: 12px;
+$topFontFamily:SimSun;
+$topAndNavColor:#666;
+$topAndFooterBgColor:#d2d2d2;
+$activeBgColor:#B90101;
+$navAndTitleAndSearchFontSize:20px;
+$inputColor:#aaa;
+$navAndClassifyFontFamily:'Microsoft YaHei';
+$navClassifyBgColor:#D5D0C8;
+$navClassifyColor:#fdfdfd;
+$navClassifyChildAndTitleColor:#040404;
+$navClassifyH3FontSize:18px;
+$navClassifyLiAndproSpanAndDlAndTimeFontSize:14px;
+$proH4AndbottomH4AndDtAndServiceFontSize:16px;
+$proBoxBgColor:#DF8487;
+$proBottomBgColor:#EEE;
+$bottomColor:#d4d4d4;
+$telFontFamily:Arial;
+$telFontSize:36px;
+@mixin border-radius($size) {
+    -webkit-border-radius: $size;
+    -moz-border-radius: $size;
+    -ms-border-radius: $size;
+    -o-border-radius: $size;
+    border-radius: $size;
+}
+
+.imgblock {
+    display: block;
+}
+
+#middle {
+    width: 100%;
+    background: url(../images/body_bgimg.png) repeat-y;
+    background-size: 100%;
+    padding-bottom: 1px;
+    /*轮播图banner*/
+    .wrapper {
+        height: 600px;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 100px;
+        .banner {
+            width: 1920px;
+            position: absolute;
+            ul {
+                z-index: 2;
+                position: relative;
+                li {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: none;
+                }
+                li:first-child {
+                    display: block;
+                }
+            }
+            img {
+                width: 100%;
+                @extend .imgblock;
+            }
+            ol {
+                position: absolute;
+                width: 75px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                top: 570px;
+                margin: 0 auto;
+                z-index: 2;
+                li {
+                    list-style: none;
+                    width: 15px;
+                    height: 15px;
+                    margin: 0 5px;
+                    float: left;
+                    -webkit-border-radius: 15px;
+                    -moz-border-radius: 15px;
+                    -ms-border-radius: 15px;
+                    -o-border-radius: 15px;
+                    border-radius: 15px;
+                    background-color: #999999;
+                    cursor: pointer;
+                }
+                li:hover,
+                li.active {
+                    background-color: $activeBgColor;
+                }
+            }
+        }
+    }
+    /*轮播图banner end*/
+    /*new_goods*/
+    .new_goods,
+    .hot_goods,
+    .re_goods,
+    .boom_goods {
+        width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        background-color: $proBoxBgColor;
+        @include border-radius(10px);
+        padding: 9px 0 9px 9px;
+        border: 3px solid #FCBEC0;
+        margin-bottom: 124px;
+        h3 {
+            @include border-radius(5px);
+            background-color: $proBoxBgColor;
+            width: 150px;
+            height: 36px;
+            border: 3px solid #FCBEC0;
+            border-bottom: none;
+            text-align: center;
+            top: -39px;
+            left: 55px;
+            position: absolute;
+            a {
+                display: block;
+                color: $navClassifyChildAndTitleColor;
+                font-size: $navAndTitleAndSearchFontSize;
+                line-height: 38px;
+                height: 100%;
+                width: 100%;
+            }
+        }
+        ul {
+            @include border-radius(10px);
+            padding: 11px 0;
+            padding-left: 12px;
+            width: 1180px;
+            background-color: #fff;
+            overflow: hidden;
+            li {
+                float: left;
+                border: 1px solid $topAndFooterBgColor;
+                width: 291px;
+                cursor: pointer;
+                a {
+                    display: block;
+                    width: 100%;
+                }
+                img {
+                    width: 100%;
+                    margin: 0 auto;
+                    display: block;
+                }
+                div {
+                    background-color: $proBottomBgColor;
+                    width: 100%;
+                    height: 75px;
+                    border-top: 1px solid $topAndFooterBgColor;
+                    color: $topAndNavColor;
+                    h4 {
+                        font-weight: normal;
+                        font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                        margin-top: 6px;
+                        padding-left: 40px;
+                    }
+                    .market_price,
+                    .member_price {
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                        margin-bottom: 3px;
+                        padding-left: 40px;
+                    }
+                    .member_price {
+                        color: $activeBgColor;
+                        span {
+                            font-weight: bolder;
+                        }
+                    }
+                }
+            }
+            li:first-of-type {
+                width: 293px;
+                border: none;
+                img {
+                    height: 549.4px;
+                }
+            }
+            li:hover {
+                border-color: $activeBgColor;
+                h4 {
+                    color: #fffefe;
+                }
+                div {
+                    background-color: $activeBgColor;
+                    border-color: $activeBgColor;
+                    .market_price,
+                    .member_price {
+                        color: #fffefe;
+                    }
+                }
+            }
+        }
+    }
+    /*new_goods end*/
+}
+
+
+/*tbody*/
+
+.tbody {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    .logo {
+        width: 224px;
+        height: 141px;
+        float: left;
+        margin-right: 90px;
+    }
+    .containe>div:nth-of-type(2) {
+        float: left;
+        width: 405px;
+        padding-top: 31px;
+    }
+    .search {
+        height: 33px;
+        width: 397px;
+        background-color: $activeBgColor;
+        margin: 5px 0 0 5px;
+        input {
+            height: 26px;
+            width: 317px;
+            color: #B0B0B0;
+            margin: 3px 0 0 3px;
+            display: block;
+            float: left;
+            padding-left: 5px;
+        }
+        button {
+            background-color: $activeBgColor;
+            color: #fff;
+            font-size: $navAndTitleAndSearchFontSize;
+            line-height: 33px;
+            height: 33px;
+            width: 72px;
+            cursor: pointer;
+            display: block;
+            float: left;
+        }
+    }
+    .header_ad {
+        float: right;
+        a {
+            display: block;
+            float: left;
+        }
+        a:first-of-type {
+            margin-top: -20px;
+        }
+        a:last-of-type {
+            margin-top: 30px;
+        }
+    }
+}
+
+
+/*tbody end*/

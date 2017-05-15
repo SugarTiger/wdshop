@@ -1,0 +1,272 @@
+CSS命名规则
+　　头：header
+　　内容：content/containe
+　　尾：footer
+　　导航：nav
+　　侧栏：sidebar
+　　栏目：column
+　　页面外围控制整体布局宽度：wrapper
+　　左右中：left right center
+　　登录条：loginbar
+　　标志：logo
+　　广告：banner
+　　页面主体：main
+　　热点：hot
+　　新闻：news
+　　下载：download
+　　子导航：subnav
+　　菜单：menu
+　　子菜单：submenu
+　　搜索：search
+　　友情链接：friendlink
+　　页脚：footer
+　　版权：copyright
+　　滚动：scroll
+　　内容：content
+　　标签页：tab
+　　文章列表：list
+　　提示信息：msg
+　　小技巧：tips
+　　栏目标题：title
+　　加入：joinus
+　　指南：guild
+　　服务：service
+　　注册：regsiter
+　　状态：status
+　　投票：vote
+　　合作伙伴：partner
+XHTML文件中id的命名
+(1)页面结构
+　　容器: container
+　　页头：header
+　　内容：content/container
+　　页面主体：main
+　　页尾：footer
+　　导航：nav
+　　侧栏：sidebar
+　　栏目：column
+　　页面外围控制整体布局宽度：wrapper
+　　左右中：left right center
+(2)导航
+　　导航：nav
+　　主导航：mainbav
+　　子导航：subnav
+　　顶导航：topnav
+　　边导航：sidebar
+　　左导航：leftsidebar
+　　右导航：rightsidebar
+　　菜单：menu
+　　子菜单：submenu
+　　标题: title
+　　摘要: summary
+(3)功能
+　　标志：logo
+　　广告：banner
+　　登陆：login
+　　登录条：loginbar
+　　注册：regsiter
+　　搜索：search
+　　功能区：shop
+　　标题：title
+　　加入：joinus
+　　状态：status
+　　按钮：btn
+　　滚动：scroll
+　　标签页：tab
+　　文章列表：list
+　　提示信息：msg
+　　当前的: current
+　　小技巧：tips
+　　图标: icon
+　　注释：note
+　　指南：guild
+　　服务：service
+　　热点：hot
+　　新闻：news
+　　下载：download
+　　投票：vote
+　　合作伙伴：partner
+　　友情链接：link
+　　版权：copyright
+
+
+
+
+CSS+DIV的命名规则：
+　　登录条:loginBar
+　　标志:logo
+　　侧栏:sideBar
+　　广告:banner
+　　导航:nav
+　　子导航:subNav
+　　菜单:menu
+　　子菜单:subMenu
+　　搜索:search
+　　滚动:scroll
+　　页面主体:main
+　　内容:content
+　　标签页:tab
+　　文章列表:list
+　　提示信息:msg
+　　小技巧:tips
+　　栏目标题:title
+　　友情链接:friendLink
+　　页脚:footer
+　　加入:joinus
+　　指南:guild
+　　服务:service
+　　热点:hot
+　　新闻:news
+　　下载:download
+　　注册:regsiter
+　　状态:status
+　　按钮:btn
+　　投票:vote
+　　合作伙伴:partner
+　　版权:copyRight
+　　1.CSSID的命名
+　　外套:wrap
+　　主导航:mainNav
+　　子导航:subnav
+　　页脚:footer
+　　整个页面:content
+　　页眉:header
+　　页脚:footer
+　　商标:label
+　　标题:title
+　　主导航:mainNav(globalNav)
+　　顶导航:topnav
+　　边导航:sidebar
+　　左导航:leftsideBar
+　　右导航:rightsideBar
+　　旗志:logo
+　　标语:banner
+　　菜单内容1:menu1Content
+　　菜单容量:menuContainer
+　　子菜单:submenu
+　　边导航图标:sidebarIcon
+　　注释:note
+　　面包屑:breadCrumb(即页面所处位置导航提示)
+　　容器:container
+　　内容:content
+　　搜索:search
+　　登陆:login
+　　功能区:shop(如购物车，收银台)
+　　当前的current
+　　2.样式文件命名
+　　主要的:master.css
+　　布局版面:layout.css
+　　专栏:columns.css
+　　文字:font.css
+　　打印样式:print.css
+　　主题:themes.css
+说明：均为class，需要扩展，则在当前命名内以“_“(下划线)后缀自定名称。
+我习惯称列表页为list，新闻列表则为newslist，图片列表为piclist，
+内容页为view，
+/**/
+整体大框架：#wrapper
+大框架内：#inwrapper
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+顶部及banner：.top
+顶部及banner内：.intop
+Logo：.logo
+Banner：.banner
+导航：.menu
+导航内：.inmenu
+        .Menuul
+        .Menuul li
+        .Menuul li a
+下拉菜单：.inmenu_xiala
+          .Inmenu_xialaul
+          .Inmenu_xialaul li
+          .Inmenu_xialaul li a
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+主体内容：.mainWrapper
+主体内容内：.inmainwrapper
+左侧拦：.sideleft
+左侧内：.insideleft
+右侧栏：.sideright
+右侧内：.insideright
+中间：.sidecenter
+中间内：.insidecenter
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+底部：.foot
+底部内：.infoot
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*其他命名*/
+搜索：.search
+搜索内：.insearch
+搜索条：.searchselect
+搜索按钮：.serachbuttom
+输入文本框：.input
+.select
+/*表格样式*/
+表格整体框架：.listbox
+表格的宽度：.listbox-table
+表格头部文字样式：.listbox-header
+表格正文文字样式：.listbox-entry
+/*通用型*/
+通用：.GM/*这个有点郁闷,英文太差...*/
+通用内：.INGM
+通用左浮动：.GMfl(GM FLOAT LEFT)
+通用右浮动：.GMfr(GM FLOAT RIGHT)
+/*通用图片样式*/
+通用图片样式：.img
+/*清除浮动*/
+清除所有浮动：.clear
+清除左侧浮动：.clearleft
+清除右侧浮动：.clearright
+/*文字样式*/
+文字：.font
+/*新闻列表*/
+新闻列表：.fontnews
+/*View页字体总样式*/
+VIEW页字体：.fontview
+
+商　标：　　label
+标　题：　　title
+主导航：　　mainbav（globalnav）
+顶导航：　　topnav
+边导航：　　sidebar
+左导航：　　leftsidebar
+右导航：　　rightsidebar
+旗　志：　　logo
+标　语：　　banner
+菜单内容1： menu1 content
+菜单容量：　menu container
+子菜单：　　submenu
+边导航图标：sidebarIcon
+注释：　　　note
+面包屑：　　breadcrumb(即页面所处位置导航提示）
+容器：　　　container
+内容：　　　content
+搜索：　　　search
+登陆：　　　Login
+功能区：　　shop(如购物车，收银台)
+当前的　　　current
+报头：　　　masthead 
+摘要, 概要　 summary或general
+左边的浮动照图片 photoleft 
+右边的浮动图片 photoright
+标题　　　title
+条目底端　　　 entrybottom
+更多　　　 extended或.more 
+容器背景 containerbg
+服务　　 service
+服务链接　　 servicelink
+线　　 line
+文本　　 text
+右边　　 rightside
+版权　　 copyright
+新闻　　 news
+书皮　　 wrapper
+介绍　　intro-part1
+专栏　　 column
+路径　　 pathways
+片断　　 section
+模块　　 module
+上导航　　 subnav
+2.另外在编辑样式表时可用的注释可这样写：
+<-- Footer -->
+内容区
+<-- End Footer -->
