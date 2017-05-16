@@ -21,7 +21,7 @@ $telFontSize:36px;
 * {
     margin: 0;
     padding: 0;
-    font-family: $navAndClassifyFontFamily;
+    // font-family: $navAndClassifyFontFamily;
 }
 
 input,
@@ -124,6 +124,55 @@ li {
         }
     }
     /*top end*/
+    /*tbody*/
+    .tbody {
+        width: 100%;
+        height: 160px;
+        overflow: hidden;
+        .logo {
+            width: 224px;
+            height: 141px;
+            float: left;
+        }
+        h1 {
+            float: left;
+            width: 395px;
+            height: 73px;
+            margin: 46px 133px 0 46px;
+        }
+        .containe>div:nth-of-type(2) {
+            float: left;
+            width: 397px;
+            height: 44px;
+            margin-top: 58px;
+        }
+        .search {
+            height: 44px;
+            width: 397px;
+            background-color: $activeBgColor;
+            input {
+                height: 39px;
+                width: 317px;
+                color: #B0B0B0;
+                margin: 3px 0 0 3px;
+                display: block;
+                float: left;
+                padding-left: 5px;
+            }
+            button {
+                background-color: $activeBgColor;
+                color: #fff;
+                font-size: $navAndTitleAndSearchFontSize;
+                line-height: 44px;
+                height: 44px;
+                width: 72px;
+                cursor: pointer;
+                display: block;
+                float: left;
+            }
+        }
+    }
+    /*tbody end*/
     /*nav*/
     .nav {
         width: 100%;
@@ -137,6 +186,10 @@ li {
         .menu {
             position: relative;
             float: left;
+            .active {
+                background-color: $activeBgColor;
+                color: $navClassifyColor;
+            }
             h2 {
                 height: 60px;
                 width: 216px;
@@ -145,12 +198,17 @@ li {
                 font-weight: normal;
                 font-size: $navAndTitleAndSearchFontSize;
                 cursor: pointer;
+                color: $topAndNavColor;
+            }
+            h2:hover {
+                background-color: $activeBgColor;
+                color: $navClassifyColor;
             }
             .submenu {
                 width: 216px;
                 padding-bottom: 23px;
                 position: absolute;
-                background-color: rgba(214, 208, 200, 0.5);
+                background-color: rgba(214, 208, 200, 0.91);
                 z-index: 10;
                 display: none;
                 a,
@@ -216,6 +274,34 @@ li {
 
 
 /*header end*/
+
+
+/*middle*/
+
+#middle {
+    background-color: #fff;
+    overflow: hidden;
+    .addr {
+        @extend .containe;
+        overflow: hidden;
+        margin: 15px auto 30px auto;
+        li {
+            float: left;
+            a {
+                color: $topAndNavColor;
+                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+            }
+        }
+        li:last-of-type {
+            a {
+                color: $activeBgColor;
+            }
+        }
+    }
+}
+
+
+/*middle end*/
 
 
 /*footer*/

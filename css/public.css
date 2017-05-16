@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Microsoft YaHei";
 }
 
 input,
@@ -17,7 +16,7 @@ img {
   content: "";
 }
 
-.containe, #footer .footer_head, #footer .footer_main {
+.containe, #middle .addr, #footer .footer_head, #footer .footer_main {
   width: 1200px;
   margin: 0 auto;
 }
@@ -44,6 +43,8 @@ li {
   width: 100%;
   /*top*/
   /*top end*/
+  /*tbody*/
+  /*tbody end*/
   /*nav*/
   /*nav end*/
 }
@@ -113,6 +114,60 @@ li {
   font-family: SimSun;
 }
 
+#header .tbody {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+}
+
+#header .tbody .logo {
+  width: 224px;
+  height: 141px;
+  float: left;
+}
+
+#header .tbody h1 {
+  float: left;
+  width: 395px;
+  height: 73px;
+  margin: 46px 133px 0 46px;
+}
+
+#header .tbody .containe > div:nth-of-type(2), #header .tbody #middle .addr > div:nth-of-type(2), #middle #header .tbody .addr > div:nth-of-type(2), #header .tbody #footer .footer_head > div:nth-of-type(2), #footer #header .tbody .footer_head > div:nth-of-type(2), #header .tbody #footer .footer_main > div:nth-of-type(2), #footer #header .tbody .footer_main > div:nth-of-type(2) {
+  float: left;
+  width: 397px;
+  height: 44px;
+  margin-top: 58px;
+}
+
+#header .tbody .search {
+  height: 44px;
+  width: 397px;
+  background-color: #B90101;
+}
+
+#header .tbody .search input {
+  height: 39px;
+  width: 317px;
+  color: #B0B0B0;
+  margin: 3px 0 0 3px;
+  display: block;
+  float: left;
+  padding-left: 5px;
+}
+
+#header .tbody .search button {
+  background-color: #B90101;
+  color: #fff;
+  font-size: 20px;
+  line-height: 44px;
+  height: 44px;
+  width: 72px;
+  cursor: pointer;
+  display: block;
+  float: left;
+}
+
 #header .nav {
   width: 100%;
   height: 60px;
@@ -130,6 +185,11 @@ li {
   float: left;
 }
 
+#header .nav .menu .active, #header .nav .menu .subnav li:hover, #header .nav .subnav .menu li:hover {
+  background-color: #B90101;
+  color: #fdfdfd;
+}
+
 #header .nav .menu h2 {
   height: 60px;
   width: 216px;
@@ -138,13 +198,19 @@ li {
   font-weight: normal;
   font-size: 20px;
   cursor: pointer;
+  color: #666;
+}
+
+#header .nav .menu h2:hover {
+  background-color: #B90101;
+  color: #fdfdfd;
 }
 
 #header .nav .menu .submenu {
   width: 216px;
   padding-bottom: 23px;
   position: absolute;
-  background-color: rgba(214, 208, 200, 0.5);
+  background-color: rgba(214, 208, 200, 0.91);
   z-index: 10;
   display: none;
 }
@@ -215,6 +281,31 @@ li {
 }
 
 /*header end*/
+/*middle*/
+#middle {
+  background-color: #fff;
+  overflow: hidden;
+}
+
+#middle .addr {
+  overflow: hidden;
+  margin: 15px auto 30px auto;
+}
+
+#middle .addr li {
+  float: left;
+}
+
+#middle .addr li a {
+  color: #666;
+  font-size: 14px;
+}
+
+#middle .addr li:last-of-type a {
+  color: #B90101;
+}
+
+/*middle end*/
 /*footer*/
 #footer {
   width: 100%;

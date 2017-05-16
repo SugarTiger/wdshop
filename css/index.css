@@ -268,34 +268,34 @@
   color: #fffefe;
 }
 
-/*tbody*/
-.tbody {
+/*in_tbody*/
+.in_tbody {
   width: 100%;
   height: 160px;
   overflow: hidden;
 }
 
-.tbody .logo {
+.in_tbody .logo {
   width: 224px;
   height: 141px;
   float: left;
   margin-right: 90px;
 }
 
-.tbody .containe > div:nth-of-type(2) {
+.in_tbody .containe > div:nth-of-type(2) {
   float: left;
   width: 405px;
   padding-top: 31px;
 }
 
-.tbody .search {
+.in_tbody .search {
   height: 33px;
   width: 397px;
   background-color: #B90101;
   margin: 5px 0 0 5px;
 }
 
-.tbody .search input {
+.in_tbody .search input {
   height: 26px;
   width: 317px;
   color: #B0B0B0;
@@ -305,7 +305,7 @@
   padding-left: 5px;
 }
 
-.tbody .search button {
+.in_tbody .search button {
   background-color: #B90101;
   color: #fff;
   font-size: 20px;
@@ -317,21 +317,21 @@
   float: left;
 }
 
-.tbody .header_ad {
+.in_tbody .header_ad {
   float: right;
 }
 
-.tbody .header_ad a {
+.in_tbody .header_ad a {
   display: block;
   float: left;
 }
 
-.tbody .header_ad a:first-of-type {
+.in_tbody .header_ad a:first-of-type {
   margin-top: -20px;
 }
 
-.tbody .header_ad a:last-of-type {
+.in_tbody .header_ad a:last-of-type {
   margin-top: 30px;
 }
 
-/*tbody end*/
+/*in_tbody end*/

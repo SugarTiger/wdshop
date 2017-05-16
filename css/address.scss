@@ -1,0 +1,245 @@
+$topFontSize: 12px;
+$topFontFamily:SimSun;
+$topAndNavColor:#666;
+$topAndFooterBgColor:#d2d2d2;
+$activeBgColor:#B90101;
+$navAndTitleAndSearchFontSize:20px;
+$inputColor:#aaa;
+$navAndClassifyFontFamily:'Microsoft YaHei';
+$navClassifyBgColor:#D5D0C8;
+$navClassifyColor:#fdfdfd;
+$navClassifyChildAndTitleColor:#040404;
+$navClassifyH3FontSize:18px;
+$navClassifyLiAndproSpanAndDlAndTimeFontSize:14px;
+$proH4AndbottomH4AndDtAndServiceFontSize:16px;
+$proBoxBgColor:#DF8487;
+$proBottomBgColor:#EEE;
+$bottomColor:#d4d4d4;
+$telFontFamily:Arial;
+$telFontSize:36px;
+#middle {
+    .sidebar {
+        width: 168px;
+        float: left;
+        margin-right: 10px;
+        background-color: $proBottomBgColor;
+        h2 {
+            background-color: $activeBgColor;
+            width: 168px;
+            height: 66px;
+            display: block;
+            width: 100%;
+            text-align: center;
+            line-height: 66px;
+            color: #fff;
+            font-size: $navClassifyH3FontSize;
+        }
+        >ul {
+            width: 168px;
+            background-color: #000;
+            padding-top: 28px;
+            padding-bottom: 1px;
+            a {
+                color: #fff;
+                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+            }
+            >li {
+                margin-bottom: 28px;
+                .active {
+                    background-color: $activeBgColor;
+                }
+                h3 {
+                    height: 25px;
+                    a {
+                        line-height: 25px;
+                        display: block;
+                        font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                        color: #fff;
+                        padding-left: 22px;
+                        width: 146px;
+                        height: 100%;
+                    }
+                }
+                h3:hover {
+                    background-color: $activeBgColor;
+                }
+                >ul {
+                    li {
+                        height: 25px;
+                        line-height: 25px;
+                        a {
+                            display: block;
+                            padding-left: 22px;
+                            line-height: 25px;
+                            width: 146px;
+                            height: 100%;
+                        }
+                    }
+                    li:hover {
+                        background-color: $activeBgColor;
+                    }
+                }
+            }
+        }
+    }
+    .main {
+        width: 1020px;
+        float: left;
+        border: 1px solid $topAndFooterBgColor;
+        .add_button {
+            margin: 25px 0 22px 28px;
+            line-height: 35px;
+            button {
+                cursor: pointer;
+                height: 35px;
+                line-height: 35px;
+                width: 147px;
+                text-align: center;
+                color: #fff;
+                font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                font-weight: bold;
+                background-color: $activeBgColor;
+            }
+            >span {
+                color: $topAndNavColor;
+                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                margin-left: 20px;
+            }
+        }
+        .add_addr {
+            width: 960px;
+            margin-left: 28px;
+            border: 1px solid #E5E5E5;
+            padding: 15px 0 26px 0;
+            >h3 {
+                color: #222;
+                font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                font-weight: bold;
+                margin-left: 24px;
+            }
+            >form {
+                >div {
+                    margin-top: 10px;
+                    overflow: hidden;
+                    label {
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                        color: $topAndNavColor;
+                        line-height: 27px;
+                        text-align: right;
+                        display: block;
+                        float: left;
+                        width: 80px;
+                    }
+                    input {
+                        height: 25px;
+                        border: 1px solid #b5b5b5;
+                        color: $topAndNavColor;
+                        padding-left: 5px;
+                        display: block;
+                        float: left;
+                    }
+                    >span {
+                        color: $activeBgColor;
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                        margin-left: 10px;
+                    }
+                    #addruser {
+                        width: 157px;
+                    }
+                    #area {
+                        width: 190px;
+                    }
+                    #addr_details {
+                        width: 392px;
+                    }
+                    #phone,
+                    #tel {
+                        width: 182px;
+                    }
+                    #email {
+                        width: 295px;
+                    }
+                }
+                >button {
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    color: #fff;
+                    height: 27px;
+                    width: 157px;
+                    line-height: 27px;
+                    text-align: center;
+                    background-color: $activeBgColor;
+                    margin: 24px 0 0 21px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .addrs {
+            border: 1px solid #E5E5E5;
+            width: 937px;
+            margin: 14px 0 0 28px;
+            padding: 15px 0 0 23px;
+            font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+            position: relative;
+            h4 {
+                color: #222;
+                font-weight: bold;
+            }
+            ul {
+                margin-top: 18px;
+                padding-bottom: 10px;
+                li {
+                    height: 25px;
+                    line-height: 25px;
+                    color: $topAndNavColor;
+                }
+            }
+            button {
+                position: absolute;
+                top: 5px;
+                right: 9px;
+                cursor: pointer;
+                background-color: transparent;
+            }
+            .edit,
+            .default {
+                position: absolute;
+                color: #1d8298;
+                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                cursor: pointer;
+                right: 30px;
+                bottom: 11px;
+            }
+            .default {
+                right: 100px;
+            }
+        }
+        >div:last-of-type {
+            margin-top: 28px;
+            margin-bottom: 26px;
+            button {
+                background-color: #D72828;
+            }
+        }
+    }
+    .page {
+        float: right;
+        margin: 20px 28px 29px 0;
+        li {
+            float: left;
+            margin: 0 6px;
+        }
+        .on {
+            a {
+                color: $activeBgColor;
+            }
+        }
+        li:hover {
+            a {
+                color: $activeBgColor;
+            }
+        }
+        a {
+            font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+        }
+    }
+}
