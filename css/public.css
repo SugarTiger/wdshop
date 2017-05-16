@@ -43,6 +43,8 @@ li {
   width: 100%;
   /*top*/
   /*top end*/
+  /*in_tbody*/
+  /*in_tbody end*/
   /*tbody*/
   /*tbody end*/
   /*nav*/
@@ -114,6 +116,71 @@ li {
   font-family: SimSun;
 }
 
+#header .in_tbody {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+}
+
+#header .in_tbody .logo {
+  width: 224px;
+  height: 141px;
+  float: left;
+  margin-right: 90px;
+}
+
+#header .in_tbody .containe > div:nth-of-type(2), #header .in_tbody #middle .addr > div:nth-of-type(2), #middle #header .in_tbody .addr > div:nth-of-type(2), #header .in_tbody #footer .footer_head > div:nth-of-type(2), #footer #header .in_tbody .footer_head > div:nth-of-type(2), #header .in_tbody #footer .footer_main > div:nth-of-type(2), #footer #header .in_tbody .footer_main > div:nth-of-type(2) {
+  float: left;
+  width: 405px;
+  padding-top: 31px;
+}
+
+#header .in_tbody .search {
+  height: 33px;
+  width: 397px;
+  background-color: #B90101;
+  margin: 5px 0 0 5px;
+}
+
+#header .in_tbody .search input {
+  height: 26px;
+  width: 317px;
+  color: #B0B0B0;
+  margin: 3px 0 0 3px;
+  display: block;
+  float: left;
+  padding-left: 5px;
+}
+
+#header .in_tbody .search button {
+  background-color: #B90101;
+  color: #fff;
+  font-size: 20px;
+  line-height: 33px;
+  height: 33px;
+  width: 72px;
+  cursor: pointer;
+  display: block;
+  float: left;
+}
+
+#header .in_tbody .header_ad {
+  float: right;
+}
+
+#header .in_tbody .header_ad a {
+  display: block;
+  float: left;
+}
+
+#header .in_tbody .header_ad a:first-of-type {
+  margin-top: -20px;
+}
+
+#header .in_tbody .header_ad a:last-of-type {
+  margin-top: 30px;
+}
+
 #header .tbody {
   width: 100%;
   height: 160px;
@@ -177,6 +244,9 @@ li {
 
 #header .nav .active, #header .nav .subnav li:hover {
   background-color: #B90101;
+}
+
+#header .nav .active a, #header .nav .subnav li:hover a {
   color: #fdfdfd;
 }
 
@@ -299,6 +369,14 @@ li {
 #middle .addr li a {
   color: #666;
   font-size: 14px;
+}
+
+#middle .addr li:last-of-type {
+  width: 135px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #B90101;
 }
 
 #middle .addr li:last-of-type a {
