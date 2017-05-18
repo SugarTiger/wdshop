@@ -16,7 +16,7 @@ img {
   content: "";
 }
 
-.containe, #middle .addr, #footer .footer_head, #footer .footer_main {
+.containe, #middle .crumbs, #footer .footer_head, #footer .footer_main {
   width: 1200px;
   margin: 0 auto;
 }
@@ -129,7 +129,7 @@ li {
   margin-right: 90px;
 }
 
-#header .in_tbody .containe > div:nth-of-type(2), #header .in_tbody #middle .addr > div:nth-of-type(2), #middle #header .in_tbody .addr > div:nth-of-type(2), #header .in_tbody #footer .footer_head > div:nth-of-type(2), #footer #header .in_tbody .footer_head > div:nth-of-type(2), #header .in_tbody #footer .footer_main > div:nth-of-type(2), #footer #header .in_tbody .footer_main > div:nth-of-type(2) {
+#header .in_tbody .containe > div:nth-of-type(2), #header .in_tbody #middle .crumbs > div:nth-of-type(2), #middle #header .in_tbody .crumbs > div:nth-of-type(2), #header .in_tbody #footer .footer_head > div:nth-of-type(2), #footer #header .in_tbody .footer_head > div:nth-of-type(2), #header .in_tbody #footer .footer_main > div:nth-of-type(2), #footer #header .in_tbody .footer_main > div:nth-of-type(2) {
   float: left;
   width: 405px;
   padding-top: 31px;
@@ -200,7 +200,7 @@ li {
   margin: 46px 133px 0 46px;
 }
 
-#header .tbody .containe > div:nth-of-type(2), #header .tbody #middle .addr > div:nth-of-type(2), #middle #header .tbody .addr > div:nth-of-type(2), #header .tbody #footer .footer_head > div:nth-of-type(2), #footer #header .tbody .footer_head > div:nth-of-type(2), #header .tbody #footer .footer_main > div:nth-of-type(2), #footer #header .tbody .footer_main > div:nth-of-type(2) {
+#header .tbody .containe > div:nth-of-type(2), #header .tbody #middle .crumbs > div:nth-of-type(2), #middle #header .tbody .crumbs > div:nth-of-type(2), #header .tbody #footer .footer_head > div:nth-of-type(2), #footer #header .tbody .footer_head > div:nth-of-type(2), #header .tbody #footer .footer_main > div:nth-of-type(2), #footer #header .tbody .footer_main > div:nth-of-type(2) {
   float: left;
   width: 397px;
   height: 44px;
@@ -357,21 +357,21 @@ li {
   overflow: hidden;
 }
 
-#middle .addr {
+#middle .crumbs {
   overflow: hidden;
   margin: 15px auto 30px auto;
 }
 
-#middle .addr li {
+#middle .crumbs li {
   float: left;
 }
 
-#middle .addr li a {
+#middle .crumbs li a {
   color: #666;
   font-size: 14px;
 }
 
-#middle .addr li:last-of-type {
+#middle .crumbs li:last-of-type {
   width: 135px;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -379,7 +379,7 @@ li {
   color: #B90101;
 }
 
-#middle .addr li:last-of-type a {
+#middle .crumbs li:last-of-type a {
   color: #B90101;
 }
 
