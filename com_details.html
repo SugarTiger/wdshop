@@ -170,14 +170,18 @@
         <div class="containe">
             <div class="section_top">
                 <div class="pro_img">
-                    <a href="images/pro3_1.png">
-                        <img src="images/pro3_1.png" alt="">
-                    </a>
+                    <div class="img_box">
+                        <img src="images/prow.png" alt="">
+                        <div class="zoom"></div>
+                    </div>
+                    <div class="bigimg">
+                        <img src="images/prow.png" alt="">
+                    </div>
                     <div class="img_wrap">
                         <ul>
-                            <li><img src="images/pro3_1_1.png"></li>
-                            <li><img src="images/pro3_1_2.png"></li>
-                            <li><img src="images/pro3_1_3.png"></li>
+                            <li class="active"><img src="images/prow1.png"></li>
+                            <li><img src="images/prow2.png"></li>
+                            <li><img src="images/prow3.png"></li>
                         </ul>
                         <span class="prev"><img src="images/prev_icon.png" alt=""></span>
                         <span class="next"><img src="images/next_icon_on.png" alt=""></span>
@@ -187,8 +191,8 @@
                     <h2>文的电饭煲&nbsp;&nbsp;电饭锅&nbsp;&nbsp;4L容量全景视窗 一键柴火饭CFXB40FC8040-75</h2>
                     <p>【文的】4L容量，7段聪明大火力，米饭Q弹饱满，远红外陶晶加厚内胆，加热均匀不粘耐用，时尚金属机身【4月13-14日钜惠日好礼送不停】点击了解>></p>
                     <div class="price">
-                        <p>价格<span>￥399.00</span></p>
-                        <p>促销价<span>￥299.00</span></p>
+                        <p><small>价格</small><span>￥399.00</span></p>
+                        <p><small>促销价</small><span><em>￥</em>299.00</span></p>
                     </div>
                     <ul>
                         <li>月销量：<span>325</span></li>
@@ -204,16 +208,16 @@
                     </div>
                     <div class="count">
                         <h3>数量</h3>
-                        <input type="text" value="1">
+                        <input id="count" type="text" value="1">
                         <span>
-                            <button>+</button>
-                            <button>-</button>
+                            <button class="add">+</button>
+                            <button class="minus">-</button>
                         </span>
                     </div>
                     <div class="shopping">
                         <a href="#">立即购买</a>
                         <a href="#" class="shoppingcart">加入购物车</a>
-                        <a href="#">加入收藏</a>
+                        <a href="#"><img src="images/love_icon.png" alt="">加入收藏</a>
                     </div>
                     <div class="service">
                         <h3>服务承诺</h3>
@@ -231,11 +235,11 @@
             <div class="shop_area">
                 <form class="shop_search">
                     <input type="text" value="搜本店">
-                    <button><img src="images/search_icon2.png"></button>
+                    <button type="submit"><img src="images/search_icon2.png"></button>
                 </form>
-                <ul class="menu">
-                    <li>商品详情</li>
-                    <li>累计评价（<span>17856</span>）</li>
+                <ul>
+                    <li><a href="#">商品详情</a></li>
+                    <li class="active"><a href="#">累计评价（17856）</a></li>
                 </ul>
             </div>
             <div class="section_bottom">
@@ -245,43 +249,344 @@
                         <form>
                             <label for="keyword">关键字：</label>
                             <input type="text" id="keyword" />
-                            <label for="begin">价格：</label>
+                            <label for="begin">价&nbsp;&nbsp;&nbsp;格：</label>
                             <input type="text" id="begin" />
                             <label for="end">到</label>
                             <input type="text" id="end" />
                             <a href="#">搜索</a>
                         </form>
                     </div>
+                    <div class="custom_service">
+                        <h3>客服中心</h3>
+                        <div>
+                            <h5>工作时间</h5>
+                            <span>周一至周五 9:00-18:00</span>
+                            <span>周六至周日 8:30-24:00</span>
+                            <span>客服电话：400 880 6638</span>
+                        </div>
+                    </div>
+                    <div class="hot_ad">
+                        <h3>店内热销</h3>
+                        <ul>
+                            <li>
+                                <a href="shop_list.html"><img src="images/pro4.png" alt=""></a>
+                                <p>1热销<span>17689</span>件<span>￥299.00</span></p>
+                            </li>
+                            <li>
+                                <a href="shop_list.html"><img src="images/pro5.png" alt=""></a>
+                                <p>1热销<span>17689</span>件<span>￥299.00</span></p>
+                            </li>
+                            <li>
+                                <a href="shop_list.html"><img src="images/pro8.png" alt=""></a>
+                                <p>1热销<span>17689</span>件<span>￥299.00</span></p>
+                            </li>
+                            <li>
+                                <a href="shop_list.html"><img src="images/pro8.png" alt=""></a>
+                                <p>1热销<span>17689</span>件<span>￥299.00</span></p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="custom_service">
-                    <h3>客服中心</h3>
-                    <h5>工作时间</h5>
-                    <span>周一至周五 9:00-18:00</span>
-                    <span>周六至周日 8:30-24:00</span>
-                    <span>客服电话：400 880 6638</span>
-                </div>
-                <div class="hot_ad">
-                    <h3>店内热销</h3>
-                    <ul>
+                <div class="main">
+                    <h3>商品评价</h3>
+                    <div class="summary">
+                        <div class="grade">
+                            <h5>好评度</h5>
+                            <span>97%</span>
+                        </div>
+                        <ul>
+                            <li>电饭煲不错(2305)</li>
+                            <li>外观漂亮(1525)</li>
+                            <li>内胆不错(1305)</li>
+                            <li>煮饭速度快(977)</li>
+                            <li>煮的饭很香(2134)</li>
+                            <li>一般(125)</li>
+                            <li>功能多(957)</li>
+                            <li>使用方便(1368)</li>
+                            <li>预约功能(778)</li>
+                            <li>还可以吧(362)</li>
+                        </ul>
+                    </div>
+                    <ul class="sort">
+                        <li><a href="#">全部评价(1.2万+)</a></li>
+                        <li><a href="#">晒图(500)</a></li>
+                        <li><a href="#">追评(30+)</a></li>
+                        <li><a href="#">好评(1.1万+)</a></li>
+                        <li><a href="#">中评(300+)</a></li>
+                        <li><a href="#">差评(200+)</a></li>
+                        <li><a href="#">推荐排序 <img src="images/arrows_icon3.png" alt=""></a></li>
+                    </ul>
+                    <ul class="estimate">
                         <li>
-                            <a href="shop_list.html"><img src="images/pro4.png" alt=""></a>
-                            <p>1热销<span>17689</span>件<span>￥299.00</span></p>
+                            <div class="user_info">
+                                <a href="user.html">
+                                    <img src="images/head_icon1.png" alt=""> 大***L
+                                </a>
+                                <p>钻石会员</p>
+                            </div>
+                            <div class="estimate_main">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                                <p>很好，美观，妈妈喜欢</p>
+                                <span>4L全景视窗 2017-04-14 14:52</span>
+                                <span class="good"><img src="images/good_icon.png" alt="">0</span>
+                                <span class="msg"><img src="images/m_icon.png" alt="">0</span>
+                            </div>
                         </li>
                         <li>
-                            <a href="shop_list.html"><img src="images/pro5.png" alt=""></a>
-                            <p>1热销<span>17689</span>件<span>￥299.00</span></p>
+                            <div class="user_info">
+                                <a href="user.html">
+                                    <img src="images/head_icon2.png" alt=""> 在***6
+                                </a>
+                                <p>银牌会员</p>
+                            </div>
+                            <div class="estimate_main">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                                <p>这个锅真的太好了，一点毛病没有</p>
+                                <span>4L全景视窗 2017-04-14 14:52</span>
+                                <span class="good"><img src="images/good_icon.png" alt="">0</span>
+                                <span class="msg"><img src="images/m_icon.png" alt="">0</span>
+                                <div>
+                                    <h4>[ 购买后一天追评 ]</h4>
+                                    <p>好</p>
+                                </div>
+                            </div>
                         </li>
                         <li>
-                            <a href="shop_list.html"><img src="images/pro8.png" alt=""></a>
-                            <p>1热销<span>17689</span>件<span>￥299.00</span></p>
+                            <div class="user_info">
+                                <a href="user.html">
+                                    <img src="images/head_icon1.png" alt=""> 大***L
+                                </a>
+                                <p>钻石会员</p>
+                            </div>
+                            <div class="estimate_main">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                                <p>很好，美观，妈妈喜欢</p>
+                                <span>4L全景视窗 2017-04-14 14:52</span>
+                                <span class="good"><img src="images/good_icon.png" alt="">0</span>
+                                <span class="msg"><img src="images/m_icon.png" alt="">0</span>
+                            </div>
                         </li>
                         <li>
-                            <a href="shop_list.html"><img src="images/pro8.png" alt=""></a>
-                            <p>1热销<span>17689</span>件<span>￥299.00</span></p>
+                            <div class="user_info">
+                                <a href="user.html">
+                                    <img src="images/head_icon2.png" alt=""> 在***6
+                                </a>
+                                <p>银牌会员</p>
+                            </div>
+                            <div class="estimate_main">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                                <p>这个锅真的太好了，一点毛病没有</p>
+                                <span>4L全景视窗 2017-04-14 14:52</span>
+                                <span class="good"><img src="images/good_icon.png" alt="">0</span>
+                                <span class="msg"><img src="images/m_icon.png" alt="">0</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="user_info">
+                                <a href="user.html">
+                                    <img src="images/head_icon1.png" alt=""> 大***L
+                                </a>
+                                <p>钻石会员</p>
+                            </div>
+                            <div class="estimate_main">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                                <p>很好，美观，妈妈喜欢</p>
+                                <span>4L全景视窗 2017-04-14 14:52</span>
+                                <span class="good"><img src="images/good_icon.png" alt="">0</span>
+                                <span class="msg"><img src="images/m_icon.png" alt="">0</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="user_info">
+                                <a href="user.html">
+                                    <img src="images/head_icon2.png" alt=""> 在***6
+                                </a>
+                                <p>银牌会员</p>
+                            </div>
+                            <div class="estimate_main">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                                <p>这个锅真的太好了，一点毛病没有</p>
+                                <span>4L全景视窗 2017-04-14 14:52</span>
+                                <span class="good"><img src="images/good_icon.png" alt="">0</span>
+                                <span class="msg"><img src="images/m_icon.png" alt="">0</span>
+                                <div>
+                                    <h4>[ 购买后一天追评 ]</h4>
+                                    <p>好</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="user_info">
+                                <a href="user.html">
+                                    <img src="images/head_icon1.png" alt=""> 大***L
+                                </a>
+                                <p>钻石会员</p>
+                            </div>
+                            <div class="estimate_main">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                                <p>很好，美观，妈妈喜欢</p>
+                                <span>4L全景视窗 2017-04-14 14:52</span>
+                                <span class="good"><img src="images/good_icon.png" alt="">0</span>
+                                <span class="msg"><img src="images/m_icon.png" alt="">0</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="user_info">
+                                <a href="user.html">
+                                    <img src="images/head_icon2.png" alt=""> 在***6
+                                </a>
+                                <p>银牌会员</p>
+                            </div>
+                            <div class="estimate_main">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                                <p>这个锅真的太好了，一点毛病没有</p>
+                                <span>4L全景视窗 2017-04-14 14:52</span>
+                                <span class="good"><img src="images/good_icon.png" alt="">0</span>
+                                <span class="msg"><img src="images/m_icon.png" alt="">0</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="user_info">
+                                <a href="user.html">
+                                    <img src="images/head_icon1.png" alt=""> 大***L
+                                </a>
+                                <p>钻石会员</p>
+                            </div>
+                            <div class="estimate_main">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                                <p>很好，美观，妈妈喜欢</p>
+                                <span>4L全景视窗 2017-04-14 14:52</span>
+                                <span class="good"><img src="images/good_icon.png" alt="">0</span>
+                                <span class="msg"><img src="images/m_icon.png" alt="">0</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="user_info">
+                                <a href="user.html">
+                                    <img src="images/head_icon1.png" alt=""> 大***L
+                                </a>
+                                <p>钻石会员</p>
+                            </div>
+                            <div class="estimate_main">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                                <p>很好，美观，妈妈喜欢</p>
+                                <span>4L全景视窗 2017-04-14 14:52</span>
+                                <span class="good"><img src="images/good_icon.png" alt="">0</span>
+                                <span class="msg"><img src="images/m_icon.png" alt="">0</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="user_info">
+                                <a href="user.html">
+                                    <img src="images/head_icon2.png" alt=""> 在***6
+                                </a>
+                                <p>银牌会员</p>
+                            </div>
+                            <div class="estimate_main">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                                <p>这个锅真的太好了，一点毛病没有</p>
+                                <span>4L全景视窗 2017-04-14 14:52</span>
+                                <span class="good"><img src="images/good_icon.png" alt="">0</span>
+                                <span class="msg"><img src="images/m_icon.png" alt="">0</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="user_info">
+                                <a href="user.html">
+                                    <img src="images/head_icon1.png" alt=""> 大***L
+                                </a>
+                                <p>钻石会员</p>
+                            </div>
+                            <div class="estimate_main">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                                <p>很好，美观，妈妈喜欢</p>
+                                <span>4L全景视窗 2017-04-14 14:52</span>
+                                <span class="good"><img src="images/good_icon.png" alt="">0</span>
+                                <span class="msg"><img src="images/m_icon.png" alt="">0</span>
+                            </div>
                         </li>
                     </ul>
+                    <ul class="page">
+                        <li><a href="#">上一页</a></li>
+                        <li class="on"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">. . .</a></li>
+                        <li><a href="#">下一页</a></li>
+                    </ul>
                 </div>
-                <div class="main"></div>
             </div>
         </div>
     </div>

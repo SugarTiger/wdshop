@@ -17,3 +17,433 @@ $proBottomBgColor:#EEE;
 $bottomColor:#d4d4d4;
 $telFontFamily:Arial;
 $telFontSize:36px;
+#middle {
+    .section_top {
+        overflow: hidden;
+        .pro_img {
+            width: 473px;
+            height: 588px;
+            position: relative;
+            float: left;
+            .img_box {
+                width: 100%;
+                height: 476px;
+                border: 1px solid $topAndFooterBgColor;
+                position: relative;
+                cursor: crosshair;
+                margin-bottom: 24px;
+                img {
+                    display: block;
+                }
+                .zoom {
+                    width: 118.75px;
+                    height: 119px;
+                    background-color: rgba(185, 175, 175, 0.4);
+                    position: absolute;
+                    top: 0;
+                }
+            }
+            .bigimg {
+                position: absolute;
+                width: 100%;
+                height: 476px;
+                border: 1px solid $topAndFooterBgColor;
+                top: 0;
+                left: 500px;
+                display: none;
+                >img {
+                    position: absolute;
+                }
+            }
+            .img_wrap {
+                width: 100%;
+                height: 86px;
+                overflow: hidden;
+                position: relative;
+                ul {
+                    width: 412px;
+                    margin: 0 auto;
+                    overflow: hidden;
+                    li {
+                        float: left;
+                        cursor: pointer;
+                        width: 85px;
+                        height: 84px;
+                        border: 1px solid $topAndFooterBgColor;
+                        margin: 0 8px;
+                        img {
+                            display: block;
+                            width: 100%;
+                        }
+                    }
+                    .active {
+                        border: 1px solid $activeBgColor;
+                    }
+                }
+                .prev,
+                .next {
+                    width: 30px;
+                    height: 86px;
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    cursor: pointer;
+                    >img {
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                }
+                .prev::after,
+                .next::after {
+                    content: '';
+                    height: 100%;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                .next {
+                    right: 0;
+                }
+            }
+        }
+        .details {
+            width: 697px;
+            margin-left: 28px;
+            float: left;
+            padding-top: 15px;
+            >h2 {
+                font-size: $navClassifyH3FontSize;
+                color: #000;
+                margin: 0 0 5px 24px;
+            }
+            >p {
+                color: $activeBgColor;
+                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                width: 543px;
+                line-height: 25px;
+                margin-left: 24px;
+            }
+            .price {
+                background-color: #e5e5e5;
+                padding: 46px 24px;
+                margin: 5px 0 27px 0;
+                >p {
+                    color: $topAndNavColor;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    >small {
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                        display: inline-block;
+                        width: 78px;
+                    }
+                }
+                p:last-of-type {
+                    height: 47px;
+                    line-height: 47px;
+                    small {
+                        vertical-align: top;
+                    }
+                    span {
+                        color: $activeBgColor;
+                        font-size: $telFontSize;
+                        font-weight: bold;
+                        em {
+                            font-size: $navClassifyH3FontSize;
+                            font-style: normal;
+                        }
+                    }
+                }
+            }
+            >ul {
+                border: {
+                    top: 1px solid #E5E5E5;
+                    bottom: 1px solid #E5E5E5;
+                }
+                height:42px;
+                width:100%;
+                margin-bottom: 15px;
+                li {
+                    float: left;
+                    line-height: 42px;
+                    color: $topAndNavColor;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    margin: 0 23px;
+                }
+                li:first-of-type {
+                    margin-left: 85px;
+                }
+            }
+            .color {
+                overflow: hidden;
+                margin-bottom: 20px;
+                >h3 {
+                    margin: 14px 0 0 24px;
+                    float: left;
+                    color: $topAndNavColor;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    vertical-align: middle;
+                    width: 75px;
+                }
+                >ul {
+                    float: left;
+                    li {
+                        float: left;
+                        width: 45px;
+                        height: 44px;
+                        border: 1px solid $topAndFooterBgColor;
+                        cursor: pointer;
+                        margin: 0 5px;
+                        img {
+                            display: block;
+                            width: 100%;
+                            margin-top: 3px;
+                        }
+                    }
+                }
+            }
+            .count {
+                overflow: hidden;
+                margin-bottom: 20px;
+                >h3 {
+                    margin: 14px 0 0 24px;
+                    float: left;
+                    color: $topAndNavColor;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    vertical-align: middle;
+                    width: 75px;
+                }
+                input {
+                    float: left;
+                    line-height: 39px;
+                    border: 1px solid $topAndFooterBgColor;
+                    border-right: none;
+                    text-align: center;
+                    width: 54px;
+                    margin-left: 5px;
+                    color: $topAndNavColor;
+                    font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                }
+                span {
+                    float: left;
+                    width: 16px;
+                    height: 39px;
+                    .add,
+                    .minus {
+                        text-align: center;
+                        line-height: 20px;
+                        font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                        color: $topAndNavColor;
+                        background-color: transparent;
+                        float: left;
+                        width: 16px;
+                        height: 20px;
+                        border: 1px solid $topAndFooterBgColor;
+                        cursor: pointer;
+                    }
+                    .add {
+                        border-bottom: none;
+                    }
+                    .minus {
+                        height: 21px;
+                    }
+                }
+            }
+            .shopping {
+                overflow: hidden;
+                margin: 0 0 30px 104px;
+                >a {
+                    display: block;
+                    float: left;
+                    height: 51px;
+                    line-height: 51px;
+                    text-align: center;
+                    border: 1px solid $activeBgColor;
+                    width: 188px;
+                    font-size: $navClassifyH3FontSize;
+                    background-color: #FDE1E1;
+                    margin-right: 11px;
+                }
+                a:first-of-type {
+                    background-color: $activeBgColor;
+                    color: #fff;
+                }
+                a:last-of-type {
+                    width: 122px;
+                    img {
+                        vertical-align: middle;
+                        margin-right: 9px;
+                    }
+                }
+            }
+            .service {
+                overflow: hidden;
+                margin-bottom: 20px;
+                >h3 {
+                    margin: 0 0 0 24px;
+                    float: left;
+                    color: $topAndNavColor;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    vertical-align: middle;
+                    width: 75px;
+                }
+                ul {
+                    overflow: hidden;
+                    width: 465px;
+                    li {
+                        float: left;
+                        color: $topAndNavColor;
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                        width: 113px;
+                        margin-bottom: 8px;
+                    }
+                }
+            }
+        }
+    }
+    .shop_area {
+        height: 45px;
+        width: 100%;
+        background-color: #000;
+        .shop_search {
+            width: 151px;
+            height: 24px;
+            margin: 10px 70px 0 51px;
+            float: left;
+            input {
+                width: 117px;
+                height: 22px;
+                border: 1px solid #B5B5B5;
+                border-right: none;
+                float: left;
+                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                color: $topAndNavColor;
+                padding-left: 5px;
+            }
+            button {
+                float: left;
+                img {
+                    display: block;
+                }
+            }
+        }
+        >ul {
+            li {
+                float: left;
+                height: 45px;
+                line-height: 45px;
+                margin-right: 10px;
+                a {
+                    display: block;
+                    height: 100%;
+                    color: #fff;
+                    text-align: center;
+                    font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                    padding: 0 32px;
+                }
+            }
+            li:hover {
+                a {
+                    background-color: $activeBgColor;
+                }
+            }
+            .active {
+                a {
+                    background-color: $activeBgColor;
+                }
+            }
+        }
+    }
+    .section_bottom {
+        .sidebar {
+            background-color: #F7F6F6;
+            width: 252px;
+            padding-top: 27px;
+            .local_search {
+                width: 252px;
+                >h3 {
+                    background-color: #000;
+                    height: 55px;
+                    line-height: 55px;
+                    padding-left: 6px;
+                    width: 246px;
+                    color: #fff;
+                    font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                }
+                form {
+                    border: 1px solid #B5B5B5;
+                    border-top: none;
+                    width: 250px;
+                    padding: 14px 0 23px 0;
+                    overflow: hidden;
+                    text-align: center;
+                    >label {
+                        color: $topAndNavColor;
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                        float: left;
+                        margin-left: 28px;
+                    }
+                    >input {
+                        height: 21px;
+                        border: 1px solid $proBottomBgColor;
+                        float: left;
+                        margin-bottom: 13px;
+                        color: $topAndNavColor;
+                        padding-left: 5px;
+                    }
+                    label:last-of-type {
+                        margin: 0 6px;
+                    }
+                    #keyword {
+                        width: 130px;
+                        clear: right;
+                    }
+                    #begin,
+                    #end {
+                        width: 48px;
+                    }
+                    #begin {
+                        margin-left: 2px;
+                    }
+                    a {
+                        color: #000;
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                        display: block;
+                        clear: both;
+                    }
+                }
+            }
+            .custom_service {
+                width: 252px;
+                margin-top: 56px;
+                >h3 {
+                    background-color: #000;
+                    height: 55px;
+                    line-height: 55px;
+                    padding-left: 6px;
+                    width: 246px;
+                    color: #fff;
+                    font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                }
+                >div {
+                    border: 1px solid #B5B5B5;
+                    border-top: none;
+                    width: 250px;
+                    padding: 12px 0 20px 0;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    color: $topAndNavColor;
+                    >h5 {
+                        margin-left: 5px;
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                        color: $topAndNavColor;
+                    }
+                    >span {
+                        display: block;
+                        margin-left: 33px;
+                        margin-top: 12px;
+                    }
+                    span:last-of-type {
+                        margin-top: 3px;
+                    }
+                }
+            }
+        }
+    }
+}
