@@ -1,0 +1,286 @@
+$topFontSize: 12px;
+$topFontFamily:SimSun;
+$topAndNavColor:#666;
+$topAndFooterBgColor:#d2d2d2;
+$activeBgColor:#B90101;
+$navAndTitleAndSearchFontSize:20px;
+$inputColor:#aaa;
+$navAndClassifyFontFamily:'Microsoft YaHei';
+$navClassifyBgColor:#D5D0C8;
+$navClassifyColor:#fdfdfd;
+$navClassifyChildAndTitleColor:#040404;
+$navClassifyH3FontSize:18px;
+$navClassifyLiAndproSpanAndDlAndTimeFontSize:14px;
+$proH4AndbottomH4AndDtAndServiceFontSize:16px;
+$proBoxBgColor:#DF8487;
+$proBottomBgColor:#EEE;
+$bottomColor:#d4d4d4;
+$telFontFamily:Arial;
+$telFontSize:36px;
+@mixin border-radius($size) {
+    -webkit-border-radius: $size;
+    -moz-border-radius: $size;
+    -ms-border-radius: $size;
+    -o-border-radius: $size;
+    border-radius: $size;
+}
+
+#middle {
+    .containe {
+        >h2 {
+            height: 40px;
+            line-height: 40px;
+            padding-left: 37px;
+            width: calc(100% - 37px);
+            background-color: $proBottomBgColor;
+            font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+            color: #000;
+        }
+        .title {
+            height: 35px;
+            width: 100%;
+            li {
+                line-height: 35px;
+                float: left;
+                font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                color: $topAndNavColor;
+                margin-left: 10px;
+            }
+            li:nth-child(n) {
+                width: 165px;
+                text-align: center;
+            }
+            li:first-of-type {
+                width: 372px;
+                text-align: left;
+                margin-left: 36px;
+            }
+        }
+        .pro_list {
+            display: block;
+            border: 1px solid #BFBFBF;
+            width: calc(100% - 2px);
+            margin-bottom: 70px;
+            li {
+                overflow: hidden;
+                margin: 21px 0;
+                div:first-child {
+                    margin-left: 36px;
+                    width: 372px;
+                    float: left;
+                    >a {
+                        float: left;
+                        display: block;
+                        width: 112px;
+                        height: 112px;
+                        border: 1px solid $topAndFooterBgColor;
+                        >img {
+                            display: block;
+                            width: 100%;
+                        }
+                    }
+                    >div {
+                        float: left;
+                        width: 237px;
+                        margin-left: 20px;
+                        >a {
+                            line-height: 23px;
+                            display: block;
+                            margin-bottom: 24px;
+                            font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                            color: $topAndNavColor;
+                        }
+                        >p {
+                            margin-top: 5px;
+                            font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                            color: $topAndNavColor;
+                            img {
+                                vertical-align: middle;
+                                margin-right: 8px;
+                            }
+                        }
+                        p:first-of-type {
+                            color: #556fb5;
+                        }
+                    }
+                }
+                >span {
+                    display: block;
+                    width: 165px;
+                    float: left;
+                    margin-left: 10px;
+                    text-align: center;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    color: $topAndNavColor;
+                    a {
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                        color: #1d8298;
+                    }
+                }
+            }
+        }
+        .summary {
+            border-top: 1px solid $activeBgColor;
+            position: relative;
+            width: calc(100% - 17px);
+            padding: 20px 0 23px 17px;
+            ;
+            background-color: $proBottomBgColor;
+            >h3 {
+                position: absolute;
+                width: 165px;
+                height: 40px;
+                line-height: 40px;
+                border-bottom: 3px solid $activeBgColor;
+                text-align: center;
+                font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                color: #000;
+                left: 0;
+                top: -42px;
+            }
+            .grade {
+                border: 1px solid #aaa;
+                width: 88px;
+                height: 134px;
+                padding-left: 45px;
+                margin-right: 11px;
+                float: left;
+                >h5 {
+                    font-weight: normal;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    color: #333;
+                    margin-top: 38px;
+                }
+                >span {
+                    font-weight: bold;
+                    font-size: 40px;
+                    color: $activeBgColor;
+                    display: block;
+                    i {
+                        font-style: normal;
+                        font-size: 24px;
+                        font-weight: normal;
+                    }
+                }
+            }
+            >ul {
+                overflow: hidden;
+                float: left;
+                width: 789px;
+                margin-top: 19px;
+                li {
+                    float: left;
+                    margin: 5px 5px 5px 0;
+                    border: 1px solid $topAndFooterBgColor;
+                    color: #999;
+                    height: 20px;
+                    padding: 0 10px;
+                    line-height: 20px;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    background-color: #fff;
+                }
+            }
+        }
+        .summary:after {
+            clear: both;
+            content: '';
+            display: block;
+        }
+        .edit_com {
+            width: calc(100% - 356px);
+            background-color: #FDFAF4;
+            border: 1px solid #BFBFBF;
+            padding: 45px 178px 36px 178px;
+            color: $topAndNavColor;
+            font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+            margin-bottom: 33px;
+            >form {
+                overflow: hidden;
+                label {
+                    span {
+                        color: $activeBgColor;
+                        margin-right: 9px;
+                    }
+                }
+                .grading {
+                    width: 245px;
+                    overflow: hidden;
+                    >label {
+                        float: left;
+                    }
+                    .describe,
+                    .mer_serve,
+                    .log_serve {
+                        width: 178px;
+                        float: right;
+                        overflow: hidden;
+                        height: 25px;
+                        h6 {
+                            font-weight: normal;
+                            float: left;
+                            text-align: right;
+                            width: 70px;
+                            line-height: 18px;
+                        }
+                        ul {
+                            overflow: hidden;
+                            float: right;
+                            li {
+                                float: left;
+                                width: 18px;
+                                height: 18px;
+                                margin: 0 1px;
+                                background-image: url(../images/kx_icon.png);
+                                background-position: top;
+                                background-repeat: no-repeat;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+                .com_txt {
+                    width: 841px;
+                    label {
+                        vertical-align: top;
+                        span {
+                            vertical-align: top;
+                        }
+                    }
+                    textarea {
+                        border: 1px solid #BFBFBF;
+                        width: 744px;
+                        height: 149px;
+                        padding-left: 5px;
+                        resize: none;
+                        color: $topAndNavColor;
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    }
+                }
+                >span {
+                    display: block;
+                    width: calc(100% - 9px);
+                    text-align: right;
+                    margin-top: 5px;
+                    height: 38px;
+                    line-height: 38px;
+                    padding-right: 9px;
+                }
+                .sub {
+                    display: block;
+                    color: #fff;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    font-weight: bold;
+                    width: 102px;
+                    height: 31px;
+                    background-color: $activeBgColor;
+                    text-align: center;
+                    line-height: 31px;
+                    @include border-radius(5px);
+                    float: right;
+                    margin-right: 9px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

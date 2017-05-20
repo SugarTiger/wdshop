@@ -1,0 +1,302 @@
+#middle .containe > h2 {
+  height: 40px;
+  line-height: 40px;
+  padding-left: 37px;
+  width: calc(100% - 37px);
+  background-color: #EEE;
+  font-size: 16px;
+  color: #000;
+}
+
+#middle .containe .title {
+  height: 35px;
+  width: 100%;
+}
+
+#middle .containe .title li {
+  line-height: 35px;
+  float: left;
+  font-size: 16px;
+  color: #666;
+  margin-left: 10px;
+}
+
+#middle .containe .title li:nth-child(n) {
+  width: 165px;
+  text-align: center;
+}
+
+#middle .containe .title li:first-of-type {
+  width: 372px;
+  text-align: left;
+  margin-left: 36px;
+}
+
+#middle .containe .pro_list {
+  display: block;
+  border: 1px solid #BFBFBF;
+  width: calc(100% - 2px);
+  margin-bottom: 70px;
+}
+
+#middle .containe .pro_list li {
+  overflow: hidden;
+  margin: 21px 0;
+}
+
+#middle .containe .pro_list li div:first-child {
+  margin-left: 36px;
+  width: 372px;
+  float: left;
+}
+
+#middle .containe .pro_list li div:first-child > a {
+  float: left;
+  display: block;
+  width: 112px;
+  height: 112px;
+  border: 1px solid #d2d2d2;
+}
+
+#middle .containe .pro_list li div:first-child > a > img {
+  display: block;
+  width: 100%;
+}
+
+#middle .containe .pro_list li div:first-child > div {
+  float: left;
+  width: 237px;
+  margin-left: 20px;
+}
+
+#middle .containe .pro_list li div:first-child > div > a {
+  line-height: 23px;
+  display: block;
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: #666;
+}
+
+#middle .containe .pro_list li div:first-child > div > p {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #666;
+}
+
+#middle .containe .pro_list li div:first-child > div > p img {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+#middle .containe .pro_list li div:first-child > div p:first-of-type {
+  color: #556fb5;
+}
+
+#middle .containe .pro_list li > span {
+  display: block;
+  width: 165px;
+  float: left;
+  margin-left: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+#middle .containe .pro_list li > span a {
+  font-size: 14px;
+  color: #1d8298;
+}
+
+#middle .containe .summary {
+  border-top: 1px solid #B90101;
+  position: relative;
+  width: calc(100% - 17px);
+  padding: 20px 0 23px 17px;
+  background-color: #EEE;
+}
+
+#middle .containe .summary > h3 {
+  position: absolute;
+  width: 165px;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 3px solid #B90101;
+  text-align: center;
+  font-size: 16px;
+  color: #000;
+  left: 0;
+  top: -42px;
+}
+
+#middle .containe .summary .grade {
+  border: 1px solid #aaa;
+  width: 88px;
+  height: 134px;
+  padding-left: 45px;
+  margin-right: 11px;
+  float: left;
+}
+
+#middle .containe .summary .grade > h5 {
+  font-weight: normal;
+  font-size: 14px;
+  color: #333;
+  margin-top: 38px;
+}
+
+#middle .containe .summary .grade > span {
+  font-weight: bold;
+  font-size: 40px;
+  color: #B90101;
+  display: block;
+}
+
+#middle .containe .summary .grade > span i {
+  font-style: normal;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+#middle .containe .summary > ul {
+  overflow: hidden;
+  float: left;
+  width: 789px;
+  margin-top: 19px;
+}
+
+#middle .containe .summary > ul li {
+  float: left;
+  margin: 5px 5px 5px 0;
+  border: 1px solid #d2d2d2;
+  color: #999;
+  height: 20px;
+  padding: 0 10px;
+  line-height: 20px;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+#middle .containe .summary:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+#middle .containe .edit_com {
+  width: calc(100% - 356px);
+  background-color: #FDFAF4;
+  border: 1px solid #BFBFBF;
+  padding: 45px 178px 36px 178px;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 33px;
+}
+
+#middle .containe .edit_com > form {
+  overflow: hidden;
+}
+
+#middle .containe .edit_com > form label span {
+  color: #B90101;
+  margin-right: 9px;
+}
+
+#middle .containe .edit_com > form .grading {
+  width: 245px;
+  overflow: hidden;
+}
+
+#middle .containe .edit_com > form .grading > label {
+  float: left;
+}
+
+#middle .containe .edit_com > form .grading .describe,
+#middle .containe .edit_com > form .grading .mer_serve,
+#middle .containe .edit_com > form .grading .log_serve {
+  width: 178px;
+  float: right;
+  overflow: hidden;
+  height: 25px;
+}
+
+#middle .containe .edit_com > form .grading .describe h6,
+#middle .containe .edit_com > form .grading .mer_serve h6,
+#middle .containe .edit_com > form .grading .log_serve h6 {
+  font-weight: normal;
+  float: left;
+  text-align: right;
+  width: 70px;
+  line-height: 18px;
+}
+
+#middle .containe .edit_com > form .grading .describe ul,
+#middle .containe .edit_com > form .grading .mer_serve ul,
+#middle .containe .edit_com > form .grading .log_serve ul {
+  overflow: hidden;
+  float: right;
+}
+
+#middle .containe .edit_com > form .grading .describe ul li,
+#middle .containe .edit_com > form .grading .mer_serve ul li,
+#middle .containe .edit_com > form .grading .log_serve ul li {
+  float: left;
+  width: 18px;
+  height: 18px;
+  margin: 0 1px;
+  background-image: url(../images/kx_icon.png);
+  background-position: top;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+#middle .containe .edit_com > form .com_txt {
+  width: 841px;
+}
+
+#middle .containe .edit_com > form .com_txt label {
+  vertical-align: top;
+}
+
+#middle .containe .edit_com > form .com_txt label span {
+  vertical-align: top;
+}
+
+#middle .containe .edit_com > form .com_txt textarea {
+  border: 1px solid #BFBFBF;
+  width: 744px;
+  height: 149px;
+  padding-left: 5px;
+  resize: none;
+  color: #666;
+  font-size: 14px;
+}
+
+#middle .containe .edit_com > form > span {
+  display: block;
+  width: calc(100% - 9px);
+  text-align: right;
+  margin-top: 5px;
+  height: 38px;
+  line-height: 38px;
+  padding-right: 9px;
+}
+
+#middle .containe .edit_com > form .sub {
+  display: block;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  width: 102px;
+  height: 31px;
+  background-color: #B90101;
+  text-align: center;
+  line-height: 31px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  float: right;
+  margin-right: 9px;
+  cursor: pointer;
+}

@@ -2,14 +2,31 @@ $(function() {
     // 导航下拉
     // toggle() 方法在 jQuery 版本 1.8 中被废弃，在版本 1.9 中被移除。
     (function() {
-        $('.menu>h2').click(function() {
-            $('.submenu').slideToggle();
+        function menter() {
+            $('.menu>h2>img').attr('src', 'images/arrows_icon2w.png');
+        }
+
+        function mleave() {
+            $('.menu>h2>img').attr('src', 'images/arrows_icon2.png');
+        }
+        $('.menu').on('mouseleave', mleave);
+        $('.menu').on('mouseenter', menter);
+        $('.menu').click(function() {
+            $('.submenu').slideToggle(350);
             var atclass = $('.menu>h2').attr('class');
-            $('.menu>h2>img').attr('src', atclass ? 'images/arrows_icon2.png' : 'images/arrows_icon.png');
-            $('.menu>h2').attr('class', atclass ? '' : 'active')
-        });
-        $('.submenu').click(function() {
-            $('.menu>h2').trigger("click");
+            if (atclass) {
+                $('.menu').on('mouseleave', mleave);
+                $('.menu').on('mouseenter', menter);
+                setTimeout(function() {
+                    $('.menu>h2>img').attr('src', 'images/arrows_icon2.png');
+                    $('.menu>h2').attr('class', '');
+                }, 350);
+            } else {
+                $('.menu').off('mouseleave');
+                $('.menu').off('mouseenter');
+                $('.menu>h2>img').attr('src', 'images/arrows_icon.png');
+                $('.menu>h2').attr('class', 'active');
+            }
         });
     })();
     // 搜索框默认提示
@@ -31,49 +48,51 @@ $(function() {
         $('.sidebar').css('height', mainHeight + 70 + 'px');
     })();
     // 放大镜效果
-    function zoom(scale) {
-        //scale控制缩放比例的产量
-        var img_boxW = $('.img_box').innerWidth();
-        var img_boxH = $('.img_box').innerHeight();
-        var imgOffT = $('.img_box>img').offset().top;
-        var imgOffL = $('.img_box>img').offset().left;
-        // 配置放大镜镜片大小
-        var zoomW = $('.zoom').css('width', img_boxW / scale + 'px').innerWidth();
-        var zoomH = $('.zoom').css('height', img_boxH / scale + 'px').innerHeight();
-        // 设置放大镜窗口大小
-        $('.bigimg').css('width', img_boxW + 'px');
-        $('.bigimg').css('height', img_boxH + 'px');
-        $('.bigimg>img').css('width', img_boxW * scale + 'px');
-        $('.bigimg>img').css('height', img_boxH * scale + 'px');
-        $('.img_box').mouseenter(function() {
-            $('.bigimg').fadeIn("fast");
-            $('.zoom').fadeIn("fast");
-        });
-        $('.img_box').mouseleave(function() {
-            $('.bigimg').fadeOut("fast");
-            $('.zoom').fadeOut("fast");
-        });
-        $('.img_box').mousemove(function(event) {
-            $('.bigimg>img').attr('src', $('.img_box>img').attr('src'));
-            var dw = event.pageX - imgOffL - zoomW / 2;
-            var dh = event.pageY - imgOffT - zoomH / 2;
-            if (dw <= 0) {
-                dw = 0;
-            } else if (dw >= img_boxW - zoomW + 1) {
-                dw = img_boxW - zoomW + 1;
-            }
-            if (dh <= 0) {
-                dh = 0;
-            } else if (dh >= img_boxH - zoomH) {
-                dh = img_boxH - zoomH;
-            }
-            $('.zoom').css('left', dw + 'px');
-            $('.zoom').css('top', dh + 'px');
-            $('.bigimg>img').css('left', -dw * scale + 'px');
-            $('.bigimg>img').css('top', -dh * scale + 'px');
-        });
-    };
-    zoom(2);
+    $('.img_box img').load(function() {
+        function zoom(scale) {
+            //scale控制缩放比例的产量
+            var img_boxW = $('.img_box').innerWidth();
+            var img_boxH = $('.img_box').innerHeight();
+            var imgOffT = $('.img_box>img').offset().top;
+            var imgOffL = $('.img_box>img').offset().left;
+            // 配置放大镜镜片大小
+            var zoomW = $('.zoom').css('width', img_boxW / scale + 'px').innerWidth();
+            var zoomH = $('.zoom').css('height', img_boxH / scale + 'px').innerHeight();
+            // 设置放大镜窗口大小
+            $('.bigimg').css('width', img_boxW + 'px');
+            $('.bigimg').css('height', img_boxH + 'px');
+            $('.bigimg>img').css('width', img_boxW * scale + 'px');
+            $('.bigimg>img').css('height', img_boxH * scale + 'px');
+            $('.img_box').mouseenter(function() {
+                $('.bigimg').fadeIn("fast");
+                $('.zoom').fadeIn("fast");
+            });
+            $('.img_box').mouseleave(function() {
+                $('.bigimg').fadeOut("fast");
+                $('.zoom').fadeOut("fast");
+            });
+            $('.img_box').mousemove(function(event) {
+                $('.bigimg>img').attr('src', $('.img_box>img').attr('src'));
+                var dw = event.pageX - imgOffL - zoomW / 2;
+                var dh = event.pageY - imgOffT - zoomH / 2;
+                if (dw <= 0) {
+                    dw = 0;
+                } else if (dw >= img_boxW - zoomW + 1) {
+                    dw = img_boxW - zoomW + 1;
+                }
+                if (dh <= 0) {
+                    dh = 0;
+                } else if (dh >= img_boxH - zoomH) {
+                    dh = img_boxH - zoomH;
+                }
+                $('.zoom').css('left', dw + 'px');
+                $('.zoom').css('top', dh + 'px');
+                $('.bigimg>img').css('left', -dw * scale + 'px');
+                $('.bigimg>img').css('top', -dh * scale + 'px');
+            });
+        };
+        zoom(2);
+    });
     // 商品详情图片
     (function() {
         function getSrc() {
