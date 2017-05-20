@@ -17,6 +17,14 @@ $proBottomBgColor:#EEE;
 $bottomColor:#d4d4d4;
 $telFontFamily:Arial;
 $telFontSize:36px;
+@mixin border-radius($size) {
+    -webkit-border-radius: $size;
+    -moz-border-radius: $size;
+    -ms-border-radius: $size;
+    -o-border-radius: $size;
+    border-radius: $size;
+}
+
 #middle {
     .section_top {
         overflow: hidden;
@@ -36,21 +44,19 @@ $telFontSize:36px;
                     display: block;
                 }
                 .zoom {
-                    width: 118.75px;
-                    height: 119px;
                     background-color: rgba(185, 175, 175, 0.4);
                     position: absolute;
                     top: 0;
+                    display: none;
                 }
             }
             .bigimg {
                 position: absolute;
-                width: 100%;
-                height: 476px;
                 border: 1px solid $topAndFooterBgColor;
                 top: 0;
                 left: 500px;
                 display: none;
+                overflow: hidden;
                 >img {
                     position: absolute;
                 }
@@ -73,7 +79,8 @@ $telFontSize:36px;
                         margin: 0 8px;
                         img {
                             display: block;
-                            width: 100%;
+                            width: 98%;
+                            margin: 0 auto;
                         }
                     }
                     .active {
@@ -88,20 +95,19 @@ $telFontSize:36px;
                     position: absolute;
                     top: 0;
                     cursor: pointer;
-                    >img {
-                        display: inline-block;
-                        vertical-align: middle;
-                    }
                 }
-                .prev::after,
-                .next::after {
-                    content: '';
-                    height: 100%;
-                    display: inline-block;
-                    vertical-align: middle;
+                .prev {
+                    background: url(../images/prev_icon.png) no-repeat center;
+                }
+                .prev:hover {
+                    background-image: url(../images/prev_icon_on.png);
                 }
                 .next {
                     right: 0;
+                    background: url(../images/next_icon.png) no-repeat center;
+                }
+                .next:hover {
+                    background-image: url(../images/next_icon_on.png);
                 }
             }
         }
@@ -197,6 +203,12 @@ $telFontSize:36px;
                             margin-top: 3px;
                         }
                     }
+                    .active {
+                        border: 1px solid $activeBgColor;
+                    }
+                    li:hover {
+                        border: 1px solid $activeBgColor;
+                    }
                 }
             }
             .count {
@@ -265,7 +277,7 @@ $telFontSize:36px;
                     background-color: $activeBgColor;
                     color: #fff;
                 }
-                a:last-of-type {
+                .add_love {
                     width: 122px;
                     img {
                         vertical-align: middle;
@@ -356,6 +368,8 @@ $telFontSize:36px;
             background-color: #F7F6F6;
             width: 252px;
             padding-top: 27px;
+            float: left;
+            margin-right: 10px;
             .local_search {
                 width: 252px;
                 >h3 {
@@ -374,6 +388,7 @@ $telFontSize:36px;
                     padding: 14px 0 23px 0;
                     overflow: hidden;
                     text-align: center;
+                    background-color: #fff;
                     >label {
                         color: $topAndNavColor;
                         font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
@@ -429,6 +444,7 @@ $telFontSize:36px;
                     padding: 12px 0 20px 0;
                     font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
                     color: $topAndNavColor;
+                    background-color: #fff;
                     >h5 {
                         margin-left: 5px;
                         font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
@@ -441,6 +457,277 @@ $telFontSize:36px;
                     }
                     span:last-of-type {
                         margin-top: 3px;
+                    }
+                }
+            }
+            .hot_ad {
+                width: 252px;
+                margin-top: 56px;
+                >h3 {
+                    background-color: #000;
+                    height: 55px;
+                    line-height: 55px;
+                    padding-left: 6px;
+                    width: 246px;
+                    color: #fff;
+                    font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                }
+                ul {
+                    border: 1px solid #B5B5B5;
+                    border-top: none;
+                    background-color: #fff;
+                    padding-top: 45px;
+                    li {
+                        margin-bottom: 90px;
+                        a {
+                            display: block;
+                            width: 100%;
+                            img {
+                                display: block;
+                                width: 100%;
+                            }
+                        }
+                        p {
+                            font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                            color: $topAndNavColor;
+                            height: 20px;
+                            line-height: 20px;
+                            width: 85%;
+                            margin: 33px 0 0 12px;
+                            span {
+                                color: $activeBgColor;
+                                font-weight: bold;
+                                display: block;
+                                float: right;
+                                line-height: 20px;
+                            }
+                            em {
+                                color: #fff;
+                                background-color: $activeBgColor;
+                                @include border-radius(20px);
+                                display: block;
+                                font-style: normal;
+                                width: 20px;
+                                height: 20px;
+                                text-align: center;
+                                float: left;
+                                margin-right: 3px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .main {
+            overflow: hidden;
+            width: 937px;
+            padding-top: 27px;
+            >h3 {
+                height: 49px;
+                width: 906px;
+                padding-left: 31px;
+                color: $navClassifyChildAndTitleColor;
+                font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                line-height: 49px;
+                background-color: #E5E5E5;
+            }
+            .summary {
+                width: 100%;
+                overflow: hidden;
+                .grade {
+                    border: 1px solid #aaa;
+                    width: 88px;
+                    height: 134px;
+                    padding-left: 45px;
+                    margin-right: 11px;
+                    float: left;
+                    >h5 {
+                        font-weight: normal;
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                        color: #333;
+                        margin-top: 38px;
+                    }
+                    >span {
+                        font-weight: bold;
+                        font-size: 40px;
+                        color: $activeBgColor;
+                        display: block;
+                        i {
+                            font-style: normal;
+                            font-size: 24px;
+                            font-weight: normal;
+                        }
+                    }
+                }
+                >ul {
+                    overflow: hidden;
+                    float: left;
+                    width: 789px;
+                    margin-top: 19px;
+                    li {
+                        float: left;
+                        margin: 5px 5px 5px 0;
+                        border: 1px solid $topAndFooterBgColor;
+                        color: #999;
+                        height: 20px;
+                        padding: 0 10px;
+                        line-height: 20px;
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    }
+                }
+            }
+            .sort {
+                width: calc(100% - 28px);
+                height: 35px;
+                padding: 0 14px;
+                background-color: #F2F2F2;
+                li {
+                    height: 35px;
+                    float: left;
+                    margin: 0 21px;
+                    a {
+                        line-height: 35px;
+                        display: block;
+                        height: 100%;
+                        color: $topAndNavColor;
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    }
+                }
+                li:last-of-type {
+                    float: right;
+                }
+            }
+            .estimate {
+                width: 100%;
+                >li {
+                    width: 100%;
+                    border-bottom: 1px solid #DCDCDC;
+                    margin-bottom: 8px;
+                    overflow: hidden;
+                    .user_info {
+                        float: left;
+                        margin-left: 23px;
+                        a {
+                            font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                            overflow: hidden;
+                            display: block;
+                            line-height: 35px;
+                            margin-bottom: 4px;
+                            img {
+                                display: block;
+                                width: 35px;
+                                height: 35px;
+                                @include border-radius(35px);
+                                float: left;
+                                margin-right: 5px;
+                            }
+                        }
+                        p {
+                            font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                            color: $topAndNavColor;
+                        }
+                    }
+                    .estimate_main {
+                        float: right;
+                        width: 725px;
+                        margin-top: 8px;
+                        padding-bottom: 7px;
+                        .ori_estimate {
+                            position: relative;
+                            >ul {
+                                height: 18px;
+                                margin-bottom: 9px;
+                                li {
+                                    float: left;
+                                    width: 18px;
+                                    height: 18px;
+                                    background-image: url(../images/hx_icon.png)
+                                }
+                            }
+                            >p {
+                                color: #030303;
+                                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                                line-height: 30px;
+                            }
+                            >span {
+                                color: $topAndNavColor;
+                                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                                line-height: 38px;
+                            }
+                            .good,
+                            .msg {
+                                position: absolute;
+                                cursor: pointer;
+                                bottom: 7px;
+                                line-height: 25px;
+                                color: $topAndNavColor;
+                                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                                img {
+                                    vertical-align: top;
+                                    margin-right: 5px;
+                                }
+                            }
+                            .good {
+                                left: 612px;
+                            }
+                            .msg {
+                                left: 671px;
+                            }
+                        }
+                        .add_estimate {
+                            border-top: 1px solid #DCDCDC;
+                            padding: 8px 0 12px 0;
+                            >h4 {
+                                color: $topAndNavColor;
+                                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                                font-weight: normal;
+                                line-height: 30px;
+                            }
+                            >p {
+                                color: #030303;
+                                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                                line-height: 30px;
+                            }
+                        }
+                    }
+                }
+                >li:first-of-type {
+                    padding-top: 20px;
+                }
+            }
+            .page {
+                width: 100%;
+                margin-top: 35px;
+                text-align: center;
+                ul {
+                    display: inline-block;
+                    li {
+                        height: 17px;
+                        float: left;
+                        margin: 0 6px;
+                    }
+                    a {
+                        display: block;
+                        line-height: 17px;
+                        text-align: center;
+                        padding: 0 5px;
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    }
+                    .on {
+                        a {
+                            background-color: $activeBgColor;
+                            color: #fff;
+                        }
+                    }
+                    li:hover {
+                        a {
+                            background-color: $activeBgColor;
+                            color: #fff;
+                        }
+                    }
+                    li:nth-last-of-type(2) :hover {
+                        background-color: transparent;
+                        color: $topAndNavColor;
                     }
                 }
             }
