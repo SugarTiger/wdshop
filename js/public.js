@@ -182,4 +182,15 @@ $(function() {
             love = !love;
         });
     })();
+    // 搜索本店
+    $('.shop_search>input').focus(function() {
+        if ($(this).val() == '搜本店') {
+            $(this).attr('value', '');
+        }
+    });
+    $('.shop_search>input').blur(function() {
+        if ($(this).val() == '') {
+            $(this).attr('value', '搜本店');
+        }
+    });
 });

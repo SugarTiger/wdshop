@@ -199,8 +199,8 @@ $telFontSize:36px;
                         margin: 0 5px;
                         img {
                             display: block;
-                            width: 100%;
-                            margin-top: 3px;
+                            width: 97%;
+                            margin: 0 auto;
                         }
                     }
                     .active {
@@ -225,6 +225,7 @@ $telFontSize:36px;
                 input {
                     float: left;
                     line-height: 39px;
+                    height: 39px;
                     border: 1px solid $topAndFooterBgColor;
                     border-right: none;
                     text-align: center;
@@ -394,6 +395,7 @@ $telFontSize:36px;
                         font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
                         float: left;
                         margin-left: 28px;
+                        line-height: 23px;
                     }
                     >input {
                         height: 21px;

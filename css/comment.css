@@ -269,6 +269,7 @@
   resize: none;
   color: #666;
   font-size: 14px;
+  outline: none;
 }
 
 #middle .containe .edit_com > form > span {
