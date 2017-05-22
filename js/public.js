@@ -1,3 +1,29 @@
+// 输入框默认提示
+function placeholder(obj, val, isPwd) {
+    obj.focus(function() {
+        if ($(this).val() == val) {
+            $(this).attr('value', '');
+            if (isPwd) {
+                $(this)[0].type = 'password';
+            }
+        }
+    });
+    obj.blur(function() {
+        if ($(this).val() == '') {
+            $(this).attr('value', val);
+            if (isPwd) {
+                $(this)[0].type = 'text';
+            }
+        }
+    });
+}
+// 验证码
+var yzm = [
+    { src: 'images/yzm1.png', alt: 'bcsm' },
+    { src: 'images/yzm2.png', alt: 'gfrf' },
+    { src: 'images/yzm3.png', alt: 'qeyu' },
+    { src: 'images/yzm4.png', alt: 'afea' }
+];
 $(function() {
     // 导航下拉
     // toggle() 方法在 jQuery 版本 1.8 中被废弃，在版本 1.9 中被移除。

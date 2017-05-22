@@ -1,0 +1,141 @@
+$topFontSize: 12px;
+$topFontFamily:SimSun;
+$topAndNavColor:#666;
+$topAndFooterBgColor:#d2d2d2;
+$activeBgColor:#B90101;
+$navAndTitleAndSearchFontSize:20px;
+$inputColor:#aaa;
+$navAndClassifyFontFamily:'Microsoft YaHei';
+$navClassifyBgColor:#D5D0C8;
+$navClassifyColor:#fdfdfd;
+$navClassifyChildAndTitleColor:#040404;
+$navClassifyH3FontSize:18px;
+$navClassifyLiAndproSpanAndDlAndTimeFontSize:14px;
+$proH4AndbottomH4AndDtAndServiceFontSize:16px;
+$proBoxBgColor:#DF8487;
+$proBottomBgColor:#EEE;
+$bottomColor:#d4d4d4;
+$telFontFamily:Arial;
+$telFontSize:36px;
+#middle {
+    background-color: $proBottomBgColor;
+    padding: 84px 0;
+    .main {
+        width: 892px;
+        background-color: #fff;
+        margin: 0 auto;
+        padding: 21px 0 33px 0;
+        .title {
+            color: $activeBgColor;
+            font-size: $navAndTitleAndSearchFontSize;
+            border-bottom: 3px solid $activeBgColor;
+            width: calc(100% - 26px);
+            padding-left: 26px;
+            font-weight: normal;
+            height: 46px;
+            line-height: 46px;
+        }
+        .register {
+            width: 446px;
+            margin: 38px auto 0 auto;
+            >div {
+                margin-bottom: 8px;
+                width: 100%;
+                height: 38px;
+                >label {
+                    float: left;
+                    height: 38px;
+                    line-height: 38px;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    color: $activeBgColor;
+                    width: 73px;
+                    margin-right: 10px;
+                }
+                >input {
+                    float: left;
+                    height: 38px;
+                    background-color: $proBottomBgColor;
+                    color: $topAndNavColor;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    width: 357px;
+                    padding-left: 6px;
+                }
+            }
+            .yicon {
+                >input {
+                    text-align: center;
+                    width: 112px;
+                }
+                >span {
+                    float: left;
+                    cursor: pointer;
+                }
+                >span:first-of-type {
+                    width: 87px;
+                    height: 38px;
+                    margin: 0 19px;
+                    img {
+                        width: 100%;
+                    }
+                }
+                >span:last-of-type {
+                    margin-top: 20px;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    color: $topAndNavColor;
+                }
+            }
+            .userdeal {
+                text-align: center;
+                height: 19px;
+                line-height: 19px;
+                width: 203px;
+                margin: 14px auto 29px auto;
+                >label {
+                    height: 19px;
+                    line-height: 19px;
+                    width: auto;
+                    float: left;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    color: $topAndNavColor;
+                }
+                >span {
+                    display: block;
+                    height: 14px;
+                    width: 14px;
+                    background: url(../images/checkbox_true.png) no-repeat;
+                    cursor: pointer;
+                    float: left;
+                    margin: 2.5px 9px 0 0;
+                }
+                >input {
+                    display: none;
+                }
+                a {
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    float: left;
+                    color: $activeBgColor;
+                }
+            }
+            >input {
+                width: 391px;
+                height: 54px;
+                margin: 0 auto 45px auto;
+                color: #fff;
+                font-size: $navAndTitleAndSearchFontSize;
+                background-color: $activeBgColor;
+                cursor: pointer;
+                display: block;
+            }
+            >p {
+                width: calc(100% - 42px);
+                padding-left: 42px;
+                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                color: $topAndNavColor;
+                a {
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    color: $activeBgColor;
+                }
+            }
+        }
+    }
+}
