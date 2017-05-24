@@ -8,7 +8,7 @@ $(function() {
                 if (i > yzmlen - 1) {
                     i = 0;
                 }
-                $('.yicon>span>img').attr({ src: yzm[i].src, alt: yzm[i].alt });
+                $(this).find('img').attr({ src: yzm[i].src, alt: yzm[i].alt });
                 i++;
             });
         });

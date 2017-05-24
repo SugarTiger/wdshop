@@ -8,27 +8,18 @@ $(function() {
                 if (i > yzmlen - 1) {
                     i = 0;
                 }
-                $('.yicon>span>img').attr({ src: yzm[i].src, alt: yzm[i].alt });
+                $(this).find('img').attr({ src: yzm[i].src, alt: yzm[i].alt });
                 i++;
             });
         });
     })();
     placeholder($('.yicon>input'), '验证码');
-    // 提交表单时验证
-    $('.userdeal>span').click(function() {
-        if ($('#userdeal').is(':checked')) {
-            $('.userdeal>span').css('background-image', 'url(images/checkbox_false.png)');
-            $('#userdeal').attr('checked', false);
-        } else {
-            $('.userdeal>span').css('background-image', 'url(images/checkbox_true.png)');
-            $('#userdeal').attr('checked', 'checked');
-        }
-    });
-    $('.userdeal>label').click(function() {
-        if ($('#userdeal').is(':checked')) {
-            $('.userdeal>span').css('background-image', 'url(images/checkbox_false.png)');
-        } else {
-            $('.userdeal>span').css('background-image', 'url(images/checkbox_true.png)');
+    // 复选框
+    $('.userdeal>span,.userdeal>label').click(function(e) {
+        var ischecked = $('#userdeal').is(':checked');
+        $('.userdeal>span').css('background-image', ischecked ? 'url(images/checkbox_false.png)' : 'url(images/checkbox_true.png)');
+        if (e.target.tagName == 'SPAN') {
+            $('#userdeal').attr('checked', !ischecked);
         }
     });
     $('.register').submit(function() {
