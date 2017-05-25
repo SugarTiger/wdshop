@@ -360,6 +360,7 @@
 
 #middle .shop_area .shop_search button {
   float: left;
+  cursor: pointer;
 }
 
 #middle .shop_area .shop_search button img {
