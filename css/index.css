@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .imgblock, #middle .wrapper .banner img {
   display: block;
 }
@@ -8,10 +7,6 @@
   background: url(../images/body_bgimg.png) repeat-y;
   background-size: 100%;
   padding-bottom: 1px;
-  /*轮播图banner*/
-  /*轮播图banner end*/
-  /*new_goods*/
-  /*new_goods end*/
 }
 
 #middle .wrapper {

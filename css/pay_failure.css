@@ -37,7 +37,8 @@
   background-color: #C5C5C5;
 }
 
-#middle .containe .thead .progressbar li a {
+#middle .containe .thead .progressbar li > span,
+#middle .containe .thead .progressbar li > h5 {
   position: absolute;
   font-size: 14px;
   top: 0;
@@ -47,7 +48,7 @@
   text-align: center;
 }
 
-#middle .containe .thead .progressbar li a:first-of-type {
+#middle .containe .thead .progressbar li > span {
   width: 31px;
   line-height: 31px;
   height: 31px;
@@ -62,21 +63,22 @@
   margin: auto;
 }
 
-#middle .containe .thead .progressbar li a:last-of-type {
+#middle .containe .thead .progressbar li > h5 {
   color: #666;
   top: 26px;
   width: 100%;
+  font-weight: normal;
 }
 
 #middle .containe .thead .progressbar .on {
   background-color: #B90101;
 }
 
-#middle .containe .thead .progressbar .on a:first-of-type {
+#middle .containe .thead .progressbar .on > span {
   background-color: #B90101;
 }
 
-#middle .containe .thead .progressbar .on a:last-of-type {
+#middle .containe .thead .progressbar .on > h5 {
   color: #B90101;
 }
 
@@ -84,11 +86,11 @@
   background-color: #FFDEDE;
 }
 
-#middle .containe .thead .progressbar .done a:first-of-type {
+#middle .containe .thead .progressbar .done > span {
   background-color: #FFDEDE;
 }
 
-#middle .containe .thead .progressbar .done a:last-of-type {
+#middle .containe .thead .progressbar .done > h5 {
   color: #FFDEDE;
 }
 

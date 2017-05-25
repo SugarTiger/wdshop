@@ -18,9 +18,7 @@ $(function() {
     $('.userdeal>span,.userdeal>label').click(function(e) {
         var ischecked = $('#userdeal').is(':checked');
         $('.userdeal>span').css('background-image', ischecked ? 'url(images/checkbox_false.png)' : 'url(images/checkbox_true.png)');
-        if (e.target.tagName == 'SPAN') {
-            $('#userdeal').attr('checked', !ischecked);
-        }
+        (e.target.tagName == 'SPAN') && $('#userdeal').attr('checked', !ischecked);
     });
     $('.register').submit(function() {
         // 会员名

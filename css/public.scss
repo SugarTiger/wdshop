@@ -67,12 +67,10 @@ li {
     border-radius: $size;
 }
 
-
-/*header*/
-
+//header
 #header {
     width: 100%;
-    /*top*/
+    //top
     .top {
         width: 100%;
         height: 30px;
@@ -123,8 +121,8 @@ li {
             font-family: $topFontFamily;
         }
     }
-    /*top end*/
-    /*in_tbody*/
+    //top end
+    //in_tbody
     .in_tbody {
         width: 100%;
         height: 160px;
@@ -180,8 +178,8 @@ li {
             }
         }
     }
-    /*in_tbody end*/
-    /*tbody*/
+    //in_tbody end
+    //tbody
     .tbody {
         width: 100%;
         height: 160px;
@@ -229,8 +227,8 @@ li {
             }
         }
     }
-    /*tbody end*/
-    /*nav*/
+    //tbody end
+    //nav
     .nav {
         width: 100%;
         height: 60px;
@@ -328,7 +326,7 @@ li {
             }
         }
     }
-    /*nav end*/
+    //nav end
     // 登录注册页头部css
     .lore_tbody {
         width: 100%;
@@ -388,12 +386,8 @@ li {
     // 登录注册页头部css end
 }
 
-
-/*header end*/
-
-
-/*middle*/
-
+//header end
+//middle
 #middle {
     background-color: #fff;
     overflow: hidden;
@@ -419,14 +413,53 @@ li {
             }
         }
     }
+    // 猜你喜欢
+    .you_like {
+        text-align: center;
+        margin: 35px 0 60px 0;
+        >h3 {
+            height: 38px;
+            line-height: 38px;
+            padding-left: 18px;
+            background-color: $proBottomBgColor;
+            font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+            color: $topAndNavColor;
+            text-align: left;
+        }
+        >ul {
+            overflow: hidden;
+            display: inline-block;
+            margin-top: 20px;
+            li {
+                float: left;
+                margin: 0 10px;
+                a {
+                    display: block;
+                    img {
+                        display: block;
+                        width: 100%;
+                    }
+                }
+                span {
+                    display: block;
+                    text-align: center;
+                    font-size: 24px;
+                    color: #a40a0a;
+                    margin-top: 25px;
+                }
+            }
+            li:first-of-type {
+                margin-left: 0px;
+            }
+            li:last-of-type {
+                margin-right: 0px;
+            }
+        }
+    }
 }
 
-
-/*middle end*/
-
-
-/*footer*/
-
+//middle end
+//footer
 #footer {
     width: 100%;
     height: 345px;
@@ -538,5 +571,4 @@ li {
     }
 }
 
-
-/*footer end*/
+//footer end

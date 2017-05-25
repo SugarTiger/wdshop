@@ -54,7 +54,8 @@ $telFontSize:36px;
                     height: 7px;
                     @include border-radius(3px);
                     background-color: #C5C5C5;
-                    a {
+                    >span,
+                    >h5 {
                         position: absolute;
                         font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
                         top: 0;
@@ -63,7 +64,7 @@ $telFontSize:36px;
                         right: 0;
                         text-align: center;
                     }
-                    a:first-of-type {
+                    >span {
                         width: 31px;
                         line-height: 31px;
                         height: 31px;
@@ -73,27 +74,28 @@ $telFontSize:36px;
                         font-weight: bold;
                         margin: auto;
                     }
-                    a:last-of-type {
+                    >h5 {
                         color: $topAndNavColor;
                         top: 26px;
                         width: 100%;
+                        font-weight: normal;
                     }
                 }
                 .on {
                     background-color: $activeBgColor;
-                    a:first-of-type {
+                    >span {
                         background-color: $activeBgColor;
                     }
-                    a:last-of-type {
+                    >h5 {
                         color: $activeBgColor;
                     }
                 }
                 .done {
                     background-color: #FFDEDE;
-                    a:first-of-type {
+                    >span {
                         background-color: #FFDEDE;
                     }
-                    a:last-of-type {
+                    >h5 {
                         color: #FFDEDE;
                     }
                 }
