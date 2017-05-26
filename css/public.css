@@ -335,7 +335,7 @@ li {
   font-size: 20px;
   display: block;
   height: 100%;
-  margin: 0 39px 0 39px;
+  padding: 0 39px 0 39px;
 }
 
 #header .nav .subnav li:hover a {

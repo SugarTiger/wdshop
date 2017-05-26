@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/public.css">
+    <link rel="stylesheet" type="text/css" href="css/shop_cart.css">
+    <title>购物车</title>
+</head>
+
+<body>
+    <div id="header">
+        <div class="top">
+            <div class="containe">
+                <div class="left">
+                    <a href="index.html"><img src="images/home_icon.png" alt="">文的首页</a>
+                    |
+                    <span class="loginzt">
+                        <a href="login.html">登录</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="register.html">免费注册</a>
+                    </span>
+                </div>
+                <ul class="shop">
+                    <li><a href="order.html">我的订单</a></li>
+                    <li><a href="user.html">我的文的</a></li>
+                    <li>|</li>
+                    <li><a href="shop_cart.html">购物车</a><sup>0</sup></li>
+                    <li>|</li>
+                    <li>
+                        <a href="user.html"><img src="images/favorite_icon.png" alt="">收藏夹</a>
+                    </li>
+                    <li><a href="user.html">服务中心</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="tbody">
+            <div class="containe">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logo02.png" alt="文的电器">
+                    </a>
+                </div>
+                <h1>
+                    <a href="index.html"><img src="images/logo_title02.png" alt=""></a>
+                </h1>
+                <div>
+                    <form class="search">
+                        <input type="text" name="search" value="电饭煲">
+                        <button>搜索</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="containe">
+                <div class="menu">
+                    <h2>所有产品分类 <img src="images/arrows_icon2.png" alt=""></h2>
+                    <ul class="submenu">
+                        <li>
+                            <h3>厨房小电</h3>
+                            <ul>
+                                <li>
+                                    <a href="shop_list.html">电饭煲</a>
+                                </li>
+                                <li>
+                                    <a href="shop_list.html">电磁炉炉</a>
+                                </li>
+                                <li>
+                                    <a href="shop_list.html">电压力锅</a>
+                                </li>
+                                <li>
+                                    <a href="shop_list.html">电火锅</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><i></i></li>
+                        <li>
+                            <h3>炊具炖锅</h3>
+                            <ul>
+                                <li>
+                                    <a href="shop_list.html">烹任锅具</a>
+                                </li>
+                                <li>
+                                    <a href="shop_list.html">炒锅</a>
+                                </li>
+                                <li>
+                                    <a href="shop_list.html">压力锅</a>
+                                </li>
+                                <li>
+                                    <a href="shop_list.html">蒸锅</a>
+                                </li>
+                                <li>
+                                    <a href="shop_list.html">炖锅</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><i></i></li>
+                        <li>
+                            <h3>养生水杯</h3>
+                            <ul>
+                                <li>
+                                    <a href="shop_list.html">电热水壶</a>
+                                </li>
+                                <li>
+                                    <a href="shop_list.html">养生壶</a>
+                                </li>
+                                <li>
+                                    <a href="shop_list.html">豆浆机</a>
+                                </li>
+                                <li>
+                                    <a href="shop_list.html">保温壶</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><i></i></li>
+                        <li>
+                            <h3>热卖产品</h3>
+                            <ul>
+                                <li>
+                                    <a href="shop_list.html">电饭煲</a>
+                                </li>
+                                <li>
+                                    <a href="shop_list.html">电压力锅</a>
+                                </li>
+                                <li>
+                                    <a href="shop_list.html">炖锅</a>
+                                </li>
+                                <li>
+                                    <a href="shop_list.html">电热水壶</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="subnav">
+                    <li>
+                        <a href="index.html">首页</a>
+                    </li>
+                    <li>
+                        <a href="shop_list.html">厨房小电</a>
+                    </li>
+                    <li>
+                        <a href="shop_list.html">炊具炖锅</a>
+                    </li>
+                    <li>
+                        <a href="shop_list.html">养生水杯</a>
+                    </li>
+                    <li>
+                        <a href="shop_list.html">爆款推荐</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="middle">
+        <ul class="crumbs">
+            <li><a href="index.html">首页></a></li>
+            <li><a href="shop_cart.html">我的购物车</a></li>
+        </ul>
+        <div class="containe">
+            <div class="shop_cart">
+                <div class="cart_nav">
+                    <ul>
+                        <li class="active">全部商品</li>
+                        <li>降价商品</li>
+                        <li>库存紧张</li>
+                    </ul>
+                    <div class="dc">
+                        <span>配送至</span>
+                        <select>
+                            <option value="北京朝阳区三环内">北京朝阳区三环内</option>
+                        </select>
+                    </div>
+                </div>
+                <ul class="title">
+                    <li class="all_select">
+                        <span></span>
+                        <input type="checkbox" name="userdeal" checked="checked" id="userdeal">
+                        <h3>全选</h3>
+                    </li>
+                    <li>商品</li>
+                    <li>单价</li>
+                    <li>数量</li>
+                    <li>小计</li>
+                    <li>操作</li>
+                </ul>
+                <div class="cart_main">
+                    <div class="items">
+                        <div class="all_select">
+                            <span></span>
+                            <input type="checkbox" name="userdeal" checked="checked" id="userdeal">
+                            <h3>苏珀尔旗舰店</h3>
+                        </div>
+                        <ul class="item">
+                            <li class="checked">
+                                <div class="all_select">
+                                    <span></span>
+                                    <input type="checkbox" name="userdeal" checked="checked" id="userdeal">
+                                </div>
+                                <div class="info">
+                                    <a href="pro_details.html">
+                                        <img src="images/prow1.png" alt="">
+                                    </a>
+                                    <div>
+                                        <a href="pro_details.html">苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭</a>
+                                        <p><img src="images/7_icon.png" alt="">支持7天无理由退货</p>
+                                        <p><img src="images/bao_icon.png" alt="">选廷保</p>
+                                    </div>
+                                    <span class="color">颜色分类：<span>黑色</span></span>
+                                </div>
+                                <span class="price">￥299.00</span>
+                                <div class="count">
+                                    <button class="minus">-</button>
+                                    <input id="count" type="text" value="1">
+                                    <button class="add">+</button>
+                                </div>
+                                <div class="subtotal">
+                                    <em>299.00</em>
+                                    <span>5.3kg</span>
+                                </div>
+                                <div class="handle">
+                                    <span class="del">删除</span>
+                                    <span class="to_mylove">移到我的收藏</span>
+                                    <span class="attention">加到我的关注</span>
+                                </div>
+                            </li>
+                            <li class="checked">
+                                <div class="all_select">
+                                    <span></span>
+                                    <input type="checkbox" name="userdeal" checked="checked" id="userdeal">
+                                </div>
+                                <div class="info">
+                                    <a href="pro_details.html">
+                                        <img src="images/prow1.png" alt="">
+                                    </a>
+                                    <div>
+                                        <a href="pro_details.html">苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭</a>
+                                        <p><img src="images/7_icon.png" alt="">支持7天无理由退货</p>
+                                        <p><img src="images/bao_icon.png" alt="">选廷保</p>
+                                    </div>
+                                    <span class="color">颜色分类：<span>黑色</span></span>
+                                </div>
+                                <span class="price">￥299.00</span>
+                                <div class="count">
+                                    <button class="minus">-</button>
+                                    <input id="count" type="text" value="1">
+                                    <button class="add">+</button>
+                                </div>
+                                <div class="subtotal">
+                                    <em>299.00</em>
+                                    <span>5.3kg</span>
+                                </div>
+                                <div class="handle">
+                                    <span class="del">删除</span>
+                                    <span class="to_mylove">移到我的收藏</span>
+                                    <span class="attention">加到我的关注</span>
+                                </div>
+                            </li>
+                            <li class="checked">
+                                <div class="all_select">
+                                    <span></span>
+                                    <input type="checkbox" name="userdeal" checked="checked" id="userdeal">
+                                </div>
+                                <div class="info">
+                                    <a href="pro_details.html">
+                                        <img src="images/prow1.png" alt="">
+                                    </a>
+                                    <div>
+                                        <a href="pro_details.html">苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭</a>
+                                        <p><img src="images/7_icon.png" alt="">支持7天无理由退货</p>
+                                        <p><img src="images/bao_icon.png" alt="">选廷保</p>
+                                    </div>
+                                    <span class="color">颜色分类：<span>黑色</span></span>
+                                </div>
+                                <span class="price">￥299.00</span>
+                                <div class="count">
+                                    <button class="minus">-</button>
+                                    <input id="count" type="text" value="1">
+                                    <button class="add">+</button>
+                                </div>
+                                <div class="subtotal">
+                                    <em>299.00</em>
+                                    <span>5.3kg</span>
+                                </div>
+                                <div class="handle">
+                                    <span class="del">删除</span>
+                                    <span class="to_mylove">移到我的收藏</span>
+                                    <span class="attention">加到我的关注</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="items">
+                        <div class="all_select">
+                            <span></span>
+                            <input type="checkbox" name="userdeal" checked="checked" id="userdeal">
+                            <h3>美的旗舰店</h3>
+                        </div>
+                        <ul class="item">
+                            <li>
+                                <div class="all_select">
+                                    <span></span>
+                                    <input type="checkbox" name="userdeal" checked="checked" id="userdeal">
+                                </div>
+                                <div class="info">
+                                    <a href="pro_details.html">
+                                        <img src="images/prow1.png" alt="">
+                                    </a>
+                                    <div>
+                                        <a href="pro_details.html">苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭</a>
+                                        <p><img src="images/7_icon.png" alt="">支持7天无理由退货</p>
+                                        <p><img src="images/bao_icon.png" alt="">选廷保</p>
+                                    </div>
+                                    <span class="color">颜色分类：<span>黑色</span></span>
+                                </div>
+                                <span class="price">￥299.00</span>
+                                <div class="count">
+                                    <button class="minus">-</button>
+                                    <input id="count" type="text" value="1">
+                                    <button class="add">+</button>
+                                </div>
+                                <div class="subtotal">
+                                    <em>299.00</em>
+                                    <span>5.3kg</span>
+                                </div>
+                                <div class="handle">
+                                    <span class="del">删除</span>
+                                    <span class="to_mylove">移到我的收藏</span>
+                                    <span class="attention">加到我的关注</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="all_select">
+                                    <span></span>
+                                    <input type="checkbox" name="userdeal" checked="checked" id="userdeal">
+                                </div>
+                                <div class="info">
+                                    <a href="pro_details.html">
+                                        <img src="images/prow1.png" alt="">
+                                    </a>
+                                    <div>
+                                        <a href="pro_details.html">苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭</a>
+                                        <p><img src="images/7_icon.png" alt="">支持7天无理由退货</p>
+                                        <p><img src="images/bao_icon.png" alt="">选廷保</p>
+                                    </div>
+                                    <span class="color">颜色分类：<span>黑色</span></span>
+                                </div>
+                                <span class="price">￥299.00</span>
+                                <div class="count">
+                                    <button class="minus">-</button>
+                                    <input id="count" type="text" value="1">
+                                    <button class="add">+</button>
+                                </div>
+                                <div class="subtotal">
+                                    <em>299.00</em>
+                                    <span>5.3kg</span>
+                                </div>
+                                <div class="handle">
+                                    <span class="del">删除</span>
+                                    <span class="to_mylove">移到我的收藏</span>
+                                    <span class="attention">加到我的关注</span>
+                                </div>
+                            </li>
+                            <li class="checked">
+                                <div class="all_select">
+                                    <span></span>
+                                    <input type="checkbox" name="userdeal" checked="checked" id="userdeal">
+                                </div>
+                                <div class="info">
+                                    <a href="pro_details.html">
+                                        <img src="images/prow1.png" alt="">
+                                    </a>
+                                    <div>
+                                        <a href="pro_details.html">苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭</a>
+                                        <p><img src="images/7_icon.png" alt="">支持7天无理由退货</p>
+                                        <p><img src="images/bao_icon.png" alt="">选廷保</p>
+                                    </div>
+                                    <span class="color">颜色分类：<span>黑色</span></span>
+                                </div>
+                                <span class="price">￥299.00</span>
+                                <div class="count">
+                                    <button class="minus">-</button>
+                                    <input id="count" type="text" value="1">
+                                    <button class="add">+</button>
+                                </div>
+                                <div class="subtotal">
+                                    <em>299.00</em>
+                                    <span>5.3kg</span>
+                                </div>
+                                <div class="handle">
+                                    <span class="del">删除</span>
+                                    <span class="to_mylove">移到我的收藏</span>
+                                    <span class="attention">加到我的关注</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="result">
+                        <div class="handler">
+                            <div class="all_select">
+                                <span></span>
+                                <input type="checkbox" name="userdeal" checked="checked" id="userdeal">
+                                <h3>全选</h3>
+                            </div>
+                            <span class="del_check">删除选中产品</span>
+                            <span class="like_check">移到我的收藏</span>
+                        </div>
+                        <div class="sum">
+                            <span>已选商品<em>4</em>件<img src="images/arrows_icon4.png" alt=""></span>
+                            <span>合计(不含运费)：<em>1196.00</em></span>
+                        </div>
+                        <a href="confirm_order.html">
+                            结算
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="you_like">
+                <h3>猜你喜欢</h3>
+                <ul>
+                    <li>
+                        <a href="shop_list.html"><img src="images/pro4.png" alt=""></a><span>￥299.00</span></li>
+                    <li>
+                        <a href="shop_list.html"><img src="images/pro5.png" alt=""></a><span>￥299.00</span></li>
+                    <li>
+                        <a href="shop_list.html"><img src="images/pro8.png" alt=""></a><span>￥299.00</span></li>
+                    <li>
+                        <a href="shop_list.html"><img src="images/pro8.png" alt=""></a><span>￥299.00</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <ul class="footer_head">
+            <li>
+                <a href="#"><img src="images/b_icon1.png" alt=""></a>
+                <h4><a href="#">正品保障</a></h4><br/>
+                <span><a href="#">正品保障，提供发票</a></span>
+            </li>
+            <li>
+                <a href="#"><img src="images/b_icon2.png" alt=""></a>
+                <h4><a href="#">急速物流</a></h4><br/>
+                <span><a href="#">急速物流，急速送达</a></span>
+            </li>
+            <li>
+                <a href="#"><img src="images/b_icon3.png" alt=""></a>
+                <h4><a href="#">无忧售后</a></h4><br/>
+                <span><a href="#">七天无理由退换货</a></span>
+            </li>
+            <li>
+                <a href="#"><img src="images/b_icon4.png" alt=""></a>
+                <h4><a href="#">特色服务</a></h4><br/>
+                <span><a href="#">为您呈现不一样的服务</a></span>
+            </li>
+            <li>
+                <a href="#"><img src="images/b_icon5.png" alt=""></a>
+                <h4><a href="#">帮助中心</a></h4><br/>
+                <span><a href="#">你的购物管家</a></span>
+            </li>
+        </ul>
+        <div class="footer_main">
+            <dl>
+                <dt>购物指南</dt>
+                <dd><a href="user.html">购物需知</a></dd>
+                <dd><a href="user.html">交易条款</a></dd>
+                <dd><a href="user.html">购物流程</a></dd>
+            </dl>
+            <dl>
+                <dt>支付方式</dt>
+                <dd><a href="user.html">银行卡支付</a></dd>
+                <dd><a href="user.html">支付宝支付</a></dd>
+                <dd><a href="user.html">微信支付</a></dd>
+                <dd><a href="user.html">快捷支付</a></dd>
+            </dl>
+            <dl>
+                <dt>客户服务</dt>
+                <dd><a href="user.html">服务中心</a></dd>
+                <dd><a href="user.html">24小时服务</a></dd>
+                <dd><a href="user.html">联系客服</a></dd>
+            </dl>
+            <dl>
+                <dt>关于我们</dt>
+                <dd><a href="user.html">平价介绍</a></dd>
+                <dd><a href="user.html">招商加盟</a></dd>
+                <dd><a href="user.html">申请加入</a></dd>
+                <dd><a href="user.html">联系我们</a></dd>
+                <dd><a href="user.html">新闻中心</a></dd>
+            </dl>
+            <dl>
+                <dt>常见问题</dt>
+                <dd><a href="user.html">下单后可以修改订单吗？</a></dd>
+                <dd><a href="user.html">订单如保取消</a></dd>
+                <dd><a href="user.html">出货后几可以到货</a></dd>
+            </dl>
+            <div>
+                <span class="tel">400-876-0703</span>
+                <small>周一到周五：9:00-18:00</small>
+                <a href="user.html">
+                    <img src="images/msg_icon.png" alt=""> 24小时客服热线
+                </a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p class="containe">
+                京公网安备 11000002000001号京ICP证030173号违法和不良信息举报电话：010-59922822
+            </p>
+        </div>
+    </div>
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/shop_cart.js"></script>
+</body>
+
+</html>

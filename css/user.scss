@@ -1,0 +1,261 @@
+$topFontSize: 12px;
+$topFontFamily:SimSun;
+$topAndNavColor:#666;
+$topAndFooterBgColor:#d2d2d2;
+$activeBgColor:#B90101;
+$navAndTitleAndSearchFontSize:20px;
+$inputColor:#aaa;
+$navAndClassifyFontFamily:'Microsoft YaHei';
+$navClassifyBgColor:#D5D0C8;
+$navClassifyColor:#fdfdfd;
+$navClassifyChildAndTitleColor:#040404;
+$navClassifyH3FontSize:18px;
+$navClassifyLiAndproSpanAndDlAndTimeFontSize:14px;
+$proH4AndbottomH4AndDtAndServiceFontSize:16px;
+$proBoxBgColor:#DF8487;
+$proBottomBgColor:#EEE;
+$bottomColor:#d4d4d4;
+$telFontFamily:Arial;
+$telFontSize:36px;
+@mixin border-radius($size) {
+    -webkit-border-radius: $size;
+    -moz-border-radius: $size;
+    -ms-border-radius: $size;
+    -o-border-radius: $size;
+    border-radius: $size;
+}
+
+#middle {
+    .containe {
+        overflow: hidden;
+        .sidebar {
+            width: 168px;
+            float: left;
+            margin-right: 17px;
+            background-color: $proBottomBgColor;
+            h2 {
+                background-color: $activeBgColor;
+                width: 168px;
+                height: 66px;
+                display: block;
+                width: 100%;
+                text-align: center;
+                line-height: 66px;
+                color: #fff;
+                font-size: $navClassifyH3FontSize;
+            }
+            >ul {
+                width: 168px;
+                background-color: #000;
+                padding-top: 28px;
+                padding-bottom: 1px;
+                a {
+                    color: #fff;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                }
+                >li {
+                    margin-bottom: 28px;
+                    .active {
+                        background-color: $activeBgColor;
+                    }
+                    h3 {
+                        height: 25px;
+                        a {
+                            line-height: 25px;
+                            display: block;
+                            font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                            color: #fff;
+                            padding-left: 22px;
+                            width: 146px;
+                            height: 100%;
+                        }
+                    }
+                    h3:hover {
+                        background-color: $activeBgColor;
+                    }
+                    >ul {
+                        li {
+                            height: 25px;
+                            line-height: 25px;
+                            a {
+                                display: block;
+                                padding-left: 22px;
+                                line-height: 25px;
+                                width: 146px;
+                                height: 100%;
+                            }
+                        }
+                        li:hover {
+                            background-color: $activeBgColor;
+                        }
+                    }
+                }
+            }
+        }
+        .main {
+            float: left;
+            width: 1015px;
+            .user_info {
+                padding: 29px 0 24px 31px;
+                background-color: $proBottomBgColor;
+                overflow: hidden;
+                .head {
+                    width: 122px;
+                    float: left;
+                    >span {
+                        display: block;
+                        width: 122px;
+                        height: 122px;
+                        @include border-radius(61px);
+                        background: url(../images/user_h.png) no-repeat;
+                    }
+                    >a {
+                        display: block;
+                        text-align: center;
+                        color: #1d8298;
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                        margin-top: 16px;
+                    }
+                }
+                .info {
+                    float: left;
+                    margin-left: 35px;
+                    >h3 {
+                        color: #ab5e04;
+                        font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                        margin-bottom: 22px;
+                    }
+                    >span,
+                    >p {
+                        display: block;
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                        color: $topAndNavColor;
+                        line-height: 27px;
+                    }
+                    >p {
+                        margin-bottom: 37px;
+                        >span {
+                            margin-right: 28px;
+                        }
+                    }
+                    >div {
+                        a {
+                            color: #000;
+                            font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                            margin-right: 22px;
+                            img {
+                                vertical-align: middle;
+                                margin-right: 3px;
+                            }
+                        }
+                    }
+                }
+            }
+            .my_order {
+                margin-top: 30px;
+                >h2 {
+                    height: 40px;
+                    line-height: 40px;
+                    padding-left: 37px;
+                    width: calc(100% - 37px);
+                    background-color: $proBottomBgColor;
+                    font-weight: normal;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    color: #000;
+                }
+                .order_list {
+                    display: block;
+                    border: 1px solid #BFBFBF;
+                    width: calc(100% - 2px);
+                    li {
+                        overflow: hidden;
+                        padding: 21px 0;
+                        border-top: 1px solid #BFBFBF;
+                        border-bottom: 1px solid #BFBFBF;
+                        font-size: $topFontSize;
+                        div:first-child {
+                            margin-left: 36px;
+                            width: 534px;
+                            float: left;
+                            >a {
+                                float: left;
+                                display: block;
+                                width: 112px;
+                                height: 112px;
+                                border: 1px solid $topAndFooterBgColor;
+                                >img {
+                                    display: block;
+                                    width: 100%;
+                                }
+                            }
+                            >div {
+                                float: left;
+                                width: 237px;
+                                margin-left: 30px;
+                                >a {
+                                    line-height: 23px;
+                                    display: block;
+                                    margin-bottom: 24px;
+                                    font-size: $topFontSize;
+                                    color: $topAndNavColor;
+                                }
+                                >p {
+                                    margin-top: 5px;
+                                    font-size: $topFontSize;
+                                    color: $topAndNavColor;
+                                    img {
+                                        vertical-align: middle;
+                                        margin-right: 8px;
+                                    }
+                                }
+                                p:first-of-type {
+                                    color: #556fb5;
+                                }
+                            }
+                            .color {
+                                line-height: 23px;
+                                color: $topAndNavColor;
+                                margin-left: 35px;
+                            }
+                        }
+                        .price,
+                        .count {
+                            width: 130px;
+                            float: left;
+                            line-height: 23px;
+                            text-align: center;
+                            color: $topAndNavColor;
+                            a {
+                                font-size: $topFontSize;
+                                color: #1d8298;
+                            }
+                        }
+                        .count {
+                            width: 80px;
+                        }
+                        .handle {
+                            float: left;
+                            width: 87px;
+                            margin: 0 51px 0 10px;
+                            color: $topAndNavColor;
+                            .del,
+                            .to_mylove,
+                            .attention {
+                                cursor: pointer;
+                                line-height: 26px;
+                                text-align: left;
+                                display: block;
+                            }
+                        }
+                        >em {
+                            font-style: normal;
+                            font-weight: bold;
+                            color: #000;
+                            line-height: 23px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

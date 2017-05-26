@@ -1,0 +1,336 @@
+$topFontSize: 12px;
+$topFontFamily:SimSun;
+$topAndNavColor:#666;
+$topAndFooterBgColor:#d2d2d2;
+$activeBgColor:#B90101;
+$navAndTitleAndSearchFontSize:20px;
+$inputColor:#aaa;
+$navAndClassifyFontFamily:'Microsoft YaHei';
+$navClassifyBgColor:#D5D0C8;
+$navClassifyColor:#fdfdfd;
+$navClassifyChildAndTitleColor:#040404;
+$navClassifyH3FontSize:18px;
+$navClassifyLiAndproSpanAndDlAndTimeFontSize:14px;
+$proH4AndbottomH4AndDtAndServiceFontSize:16px;
+$proBoxBgColor:#DF8487;
+$proBottomBgColor:#EEE;
+$bottomColor:#d4d4d4;
+$telFontFamily:Arial;
+$telFontSize:36px;
+#middle {
+    .containe {
+        .all_select {
+            overflow: hidden;
+            >span {
+                display: block;
+                height: 12px;
+                width: 12px;
+                background: url(../images/checkbox_false2.png) no-repeat;
+                cursor: pointer;
+                float: left;
+                margin-right: 6px;
+            }
+            >input {
+                display: none;
+            }
+            >h3 {
+                float: left;
+                color: $topAndNavColor;
+                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                cursor: pointer;
+                font-weight: normal;
+            }
+        }
+        .shop_cart {
+            .cart_nav {
+                height: 42px;
+                line-height: 42px;
+                ul {
+                    float: left;
+                    li {
+                        float: left;
+                        height: 38px;
+                        line-height: 38px;
+                        font-size: $navAndTitleAndSearchFontSize;
+                        color: #010101;
+                        width: 135px;
+                        border-bottom: 4px solid transparent;
+                        text-align: center;
+                        cursor: pointer;
+                    }
+                    .active {
+                        color: $activeBgColor;
+                        border-bottom: 4px solid $activeBgColor;
+                    }
+                    li:hover {
+                        color: $activeBgColor;
+                        border-bottom: 4px solid $activeBgColor;
+                    }
+                }
+                ul::after {
+                    clear: both;
+                    content: '';
+                    display: block;
+                }
+                .dc {
+                    float: right;
+                    span,
+                    select {
+                        color: $topAndNavColor;
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    }
+                    select {
+                        margin-left: 10px;
+                    }
+                }
+            }
+            .title {
+                height: 50px;
+                background-color: #E5E5E5;
+                width: calc(100% - 56px);
+                padding: 0 28px;
+                margin-bottom: 7px;
+                li {
+                    float: left;
+                    line-height: 50px;
+                    color: $topAndNavColor;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                }
+                .all_select {
+                    width: 170px;
+                    >span {
+                        margin-top: 19px;
+                    }
+                }
+                li:nth-of-type(2) {
+                    width: 456px;
+                }
+                li:nth-of-type(3) {
+                    width: 171px;
+                    text-align: center;
+                }
+                li:nth-of-type(4) {
+                    width: 83px;
+                    text-align: center;
+                }
+                li:nth-of-type(5) {
+                    width: 115px;
+                    text-align: right;
+                }
+                li:nth-of-type(6) {
+                    width: 87px;
+                    text-align: left;
+                    margin-left: 62px;
+                }
+            }
+            .cart_main {
+                .items {
+                    .all_select {
+                        width: calc(100% - 28px);
+                        padding-left: 28px;
+                        height: 30px;
+                        line-height: 30px;
+                        span {
+                            margin-top: 9px;
+                        }
+                    }
+                    .item {
+                        border-top: 1px solid #aaa;
+                        width: 100%;
+                        >li {
+                            overflow: hidden;
+                            padding: 20px 0 21px 41px;
+                            font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                            color: $topAndNavColor;
+                            border: 1px solid #BFBFBF;
+                            .all_select,
+                            .info,
+                            .color,
+                            .price,
+                            .count,
+                            .subtotal,
+                            .handle {
+                                float: left;
+                            }
+                            .all_select {
+                                width: auto;
+                                padding-left: 0;
+                                span {
+                                    margin: 2px 0 0 0;
+                                }
+                            }
+                            .info {
+                                overflow: hidden;
+                                width: 601px;
+                                >a {
+                                    float: left;
+                                    border: 1px solid $topAndFooterBgColor;
+                                    width: 112px;
+                                    height: 112px;
+                                    margin: 0 18px 0 12px;
+                                    img {
+                                        display: block;
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+                                }
+                                >div {
+                                    float: left;
+                                    width: 237px;
+                                    >a {
+                                        line-height: 23px;
+                                        display: block;
+                                        margin-bottom: 22px;
+                                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                                        color: $topAndNavColor;
+                                    }
+                                    >p {
+                                        margin-top: 5px;
+                                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                                        color: $topAndNavColor;
+                                        img {
+                                            vertical-align: middle;
+                                            margin-right: 8px;
+                                        }
+                                    }
+                                    p:first-of-type {
+                                        color: #556fb5;
+                                    }
+                                }
+                            }
+                            .color,
+                            .price {
+                                line-height: 23px;
+                            }
+                            .color {
+                                margin-left: 32px;
+                            }
+                            .price {
+                                width: 171px;
+                                text-align: center;
+                            }
+                            .count {
+                                width: 83px;
+                                color: #030303;
+                                .minus,
+                                .add {
+                                    width: 19px;
+                                    height: 22px;
+                                    line-height: 22px;
+                                    text-align: center;
+                                    border: 1px solid $topAndFooterBgColor;
+                                    font-size: $navClassifyH3FontSize;
+                                    float: left;
+                                    cursor: pointer;
+                                    background-color: #fff;
+                                }
+                                input {
+                                    float: left;
+                                    background-color: #fff;
+                                    width: 45px;
+                                    height: 20px;
+                                    line-height: 20px;
+                                    text-align: center;
+                                    border-top: 1px solid $topAndFooterBgColor;
+                                    border-bottom: 1px solid $topAndFooterBgColor;
+                                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                                }
+                            }
+                            .subtotal {
+                                width: 115px;
+                                em,
+                                span {
+                                    display: block;
+                                    text-align: right;
+                                    line-height: 23px;
+                                }
+                                em {
+                                    font-style: normal;
+                                    font-weight: bold;
+                                    color: #000;
+                                }
+                            }
+                            .handle {
+                                margin-left: 62px;
+                                width: 87px;
+                                .del,
+                                .to_mylove,
+                                .attention {
+                                    cursor: pointer;
+                                    line-height: 26px;
+                                    text-align: left;
+                                    display: block;
+                                }
+                            }
+                        }
+                        .checked {
+                            background-color: #F8EBD7;
+                            border-left: none;
+                            border-right: none;
+                            .all_select {
+                                span {
+                                    background-image: url(../images/checkbox_true2.png);
+                                }
+                            }
+                        }
+                    }
+                }
+                .result {
+                    height: 48px;
+                    border: 1px solid $topAndFooterBgColor;
+                    line-height: 48px;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    color: $topAndNavColor;
+                    position: relative;
+                    margin-top: 30px;
+                    .handler {
+                        float: left;
+                        .all_select {
+                            margin-left: 26px;
+                            float: left;
+                            >span {
+                                margin: 18px 9px 0 0;
+                            }
+                            >h3 {
+                                color: #000;
+                            }
+                        }
+                        .del_check,
+                        .like_check {
+                            margin-left: 15px;
+                            cursor: pointer;
+                        }
+                    }
+                    .sum {
+                        float: right;
+                        padding-right: 135px;
+                        img {
+                            cursor: pointer;
+                        }
+                        em {
+                            font-style: normal;
+                            font-size: $navAndTitleAndSearchFontSize;
+                            color: $activeBgColor;
+                            font-weight: bold;
+                        }
+                        span:last-of-type {
+                            margin-left: 65px;
+                        }
+                    }
+                    >a {
+                        position: absolute;
+                        height: 50px;
+                        width: 106px;
+                        right: 0;
+                        top: -1px;
+                        background-color: $activeBgColor;
+                        color: #fff;
+                        font-size: $navClassifyH3FontSize;
+                        text-align: center;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
