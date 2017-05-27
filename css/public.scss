@@ -104,7 +104,8 @@ li {
                     display: block;
                     float: right;
                     text-align: center;
-                    width: 13px;
+                    min-width: 13px;
+                    padding: 0 2px;
                 }
             }
             li:nth-of-type(3),

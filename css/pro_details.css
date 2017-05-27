@@ -254,7 +254,7 @@
 }
 
 #middle .section_top .details .count span .add,
-#middle .section_top .details .count span .minus {
+#middle .section_top .details .count span .down {
   text-align: center;
   line-height: 20px;
   font-size: 16px;
@@ -271,7 +271,7 @@
   border-bottom: none;
 }
 
-#middle .section_top .details .count span .minus {
+#middle .section_top .details .count span .down {
   height: 21px;
 }
 

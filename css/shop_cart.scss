@@ -19,7 +19,8 @@ $telFontFamily:Arial;
 $telFontSize:36px;
 #middle {
     .containe {
-        .all_select {
+        .all_select,
+        .checkbox {
             overflow: hidden;
             >span {
                 display: block;
@@ -31,7 +32,7 @@ $telFontSize:36px;
                 margin-right: 6px;
             }
             >input {
-                display: none;
+                // display: none;
             }
             >h3 {
                 float: left;
@@ -143,7 +144,7 @@ $telFontSize:36px;
                             font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
                             color: $topAndNavColor;
                             border: 1px solid #BFBFBF;
-                            .all_select,
+                            .checkbox,
                             .info,
                             .color,
                             .price,
@@ -152,7 +153,7 @@ $telFontSize:36px;
                             .handle {
                                 float: left;
                             }
-                            .all_select {
+                            .checkbox {
                                 width: auto;
                                 padding-left: 0;
                                 span {
@@ -212,14 +213,14 @@ $telFontSize:36px;
                             .count {
                                 width: 83px;
                                 color: #030303;
-                                .minus,
+                                .down,
                                 .add {
                                     width: 19px;
                                     height: 22px;
-                                    line-height: 22px;
+                                    line-height: 20px;
                                     text-align: center;
                                     border: 1px solid $topAndFooterBgColor;
-                                    font-size: $navClassifyH3FontSize;
+                                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
                                     float: left;
                                     cursor: pointer;
                                     background-color: #fff;
@@ -265,9 +266,9 @@ $telFontSize:36px;
                         }
                         .checked {
                             background-color: #F8EBD7;
-                            border-left: none;
-                            border-right: none;
-                            .all_select {
+                            border-left: 1px solid #F8EBD7;
+                            border-right: 1px solid #F8EBD7;
+                            .checkbox {
                                 span {
                                     background-image: url(../images/checkbox_true2.png);
                                 }
@@ -313,7 +314,7 @@ $telFontSize:36px;
                             color: $activeBgColor;
                             font-weight: bold;
                         }
-                        span:last-of-type {
+                        .allprice {
                             margin-left: 65px;
                         }
                     }
@@ -330,6 +331,9 @@ $telFontSize:36px;
                         font-weight: bold;
                     }
                 }
+            }
+            .allchecked {
+                background-image: url(../images/checkbox_true2.png);
             }
         }
     }

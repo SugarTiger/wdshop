@@ -27,7 +27,7 @@
                     <li><a href="order.html">我的订单</a></li>
                     <li><a href="user.html">我的文的</a></li>
                     <li>|</li>
-                    <li><a href="shop_cart.html">购物车</a><sup>0</sup></li>
+                    <li><a href="shop_cart.html">购物车</a><sup></sup></li>
                     <li>|</li>
                     <li>
                         <a href="user.html"><img src="images/favorite_icon.png" alt="">收藏夹</a>
@@ -178,7 +178,7 @@
                 <ul class="title">
                     <li class="all_select">
                         <span></span>
-                        <input type="checkbox" name="userdeal" checked="checked" id="userdeal">
+                        <input type="checkbox">
                         <h3>全选</h3>
                     </li>
                     <li>商品</li>
@@ -188,15 +188,15 @@
                     <li>操作</li>
                 </ul>
                 <div class="cart_main">
-                    <div class="items">
+                    <!--<div class="items sber">
                         <div class="all_select">
-                            <span></span>
+                            <span class="allchecked"></span>
                             <input type="checkbox" name="userdeal" checked="checked" id="userdeal">
                             <h3>苏珀尔旗舰店</h3>
                         </div>
                         <ul class="item">
                             <li class="checked">
-                                <div class="all_select">
+                                <div class="checkbox">
                                     <span></span>
                                     <input type="checkbox" name="userdeal" checked="checked" id="userdeal">
                                 </div>
@@ -228,7 +228,7 @@
                                 </div>
                             </li>
                             <li class="checked">
-                                <div class="all_select">
+                                <div class="checkbox">
                                     <span></span>
                                     <input type="checkbox" name="userdeal" checked="checked" id="userdeal">
                                 </div>
@@ -260,7 +260,7 @@
                                 </div>
                             </li>
                             <li class="checked">
-                                <div class="all_select">
+                                <div class="checkbox">
                                     <span></span>
                                     <input type="checkbox" name="userdeal" checked="checked" id="userdeal">
                                 </div>
@@ -293,7 +293,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="items">
+                    <div class="items md">
                         <div class="all_select">
                             <span></span>
                             <input type="checkbox" name="userdeal" checked="checked" id="userdeal">
@@ -301,7 +301,7 @@
                         </div>
                         <ul class="item">
                             <li>
-                                <div class="all_select">
+                                <div class="checkbox">
                                     <span></span>
                                     <input type="checkbox" name="userdeal" checked="checked" id="userdeal">
                                 </div>
@@ -333,7 +333,7 @@
                                 </div>
                             </li>
                             <li>
-                                <div class="all_select">
+                                <div class="checkbox">
                                     <span></span>
                                     <input type="checkbox" name="userdeal" checked="checked" id="userdeal">
                                 </div>
@@ -365,7 +365,7 @@
                                 </div>
                             </li>
                             <li class="checked">
-                                <div class="all_select">
+                                <div class="checkbox">
                                     <span></span>
                                     <input type="checkbox" name="userdeal" checked="checked" id="userdeal">
                                 </div>
@@ -397,20 +397,20 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
+                    </div>-->
                     <div class="result">
                         <div class="handler">
                             <div class="all_select">
                                 <span></span>
-                                <input type="checkbox" name="userdeal" checked="checked" id="userdeal">
+                                <input type="checkbox" name="userdeal" checked="" id="userdeal">
                                 <h3>全选</h3>
                             </div>
                             <span class="del_check">删除选中产品</span>
                             <span class="like_check">移到我的收藏</span>
                         </div>
                         <div class="sum">
-                            <span>已选商品<em>4</em>件<img src="images/arrows_icon4.png" alt=""></span>
-                            <span>合计(不含运费)：<em>1196.00</em></span>
+                            <span class="num">已选商品<em>4</em>件<img src="images/arrows_icon4.png" alt=""></span>
+                            <span class="allprice">合计(不含运费)：<em>1196.00</em></span>
                         </div>
                         <a href="confirm_order.html">
                             结算

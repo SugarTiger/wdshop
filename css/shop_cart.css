@@ -1,8 +1,10 @@
-#middle .containe .all_select {
+#middle .containe .all_select,
+#middle .containe .checkbox {
   overflow: hidden;
 }
 
-#middle .containe .all_select > span {
+#middle .containe .all_select > span,
+#middle .containe .checkbox > span {
   display: block;
   height: 12px;
   width: 12px;
@@ -12,11 +14,8 @@
   margin-right: 6px;
 }
 
-#middle .containe .all_select > input {
-  display: none;
-}
-
-#middle .containe .all_select > h3 {
+#middle .containe .all_select > h3,
+#middle .containe .checkbox > h3 {
   float: left;
   color: #666;
   font-size: 14px;
@@ -147,7 +146,7 @@
   border: 1px solid #BFBFBF;
 }
 
-#middle .containe .shop_cart .cart_main .items .item > li .all_select,
+#middle .containe .shop_cart .cart_main .items .item > li .checkbox,
 #middle .containe .shop_cart .cart_main .items .item > li .info,
 #middle .containe .shop_cart .cart_main .items .item > li .color,
 #middle .containe .shop_cart .cart_main .items .item > li .price,
@@ -157,12 +156,12 @@
   float: left;
 }
 
-#middle .containe .shop_cart .cart_main .items .item > li .all_select {
+#middle .containe .shop_cart .cart_main .items .item > li .checkbox {
   width: auto;
   padding-left: 0;
 }
 
-#middle .containe .shop_cart .cart_main .items .item > li .all_select span {
+#middle .containe .shop_cart .cart_main .items .item > li .checkbox span {
   margin: 2px 0 0 0;
 }
 
@@ -232,14 +231,14 @@
   color: #030303;
 }
 
-#middle .containe .shop_cart .cart_main .items .item > li .count .minus,
+#middle .containe .shop_cart .cart_main .items .item > li .count .down,
 #middle .containe .shop_cart .cart_main .items .item > li .count .add {
   width: 19px;
   height: 22px;
-  line-height: 22px;
+  line-height: 20px;
   text-align: center;
   border: 1px solid #d2d2d2;
-  font-size: 18px;
+  font-size: 14px;
   float: left;
   cursor: pointer;
   background-color: #fff;
@@ -290,11 +289,11 @@
 
 #middle .containe .shop_cart .cart_main .items .item .checked {
   background-color: #F8EBD7;
-  border-left: none;
-  border-right: none;
+  border-left: 1px solid #F8EBD7;
+  border-right: 1px solid #F8EBD7;
 }
 
-#middle .containe .shop_cart .cart_main .items .item .checked .all_select span {
+#middle .containe .shop_cart .cart_main .items .item .checked .checkbox span {
   background-image: url(../images/checkbox_true2.png);
 }
 
@@ -347,7 +346,7 @@
   font-weight: bold;
 }
 
-#middle .containe .shop_cart .cart_main .result .sum span:last-of-type {
+#middle .containe .shop_cart .cart_main .result .sum .allprice {
   margin-left: 65px;
 }
 
@@ -362,4 +361,8 @@
   font-size: 18px;
   text-align: center;
   font-weight: bold;
+}
+
+#middle .containe .shop_cart .allchecked {
+  background-image: url(../images/checkbox_true2.png);
 }

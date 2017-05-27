@@ -1,3 +1,71 @@
+// 模拟商品的数据
+var proInfoArr = [{
+        proId: 'pro01',
+        storeName: '美的旗舰店',
+        storeCode: 'md',
+        isCheck: true,
+        proName: '苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭',
+        proImg: 'images/prow1.png',
+        proColor: '黑色',
+        proPrice: '￥299.00',
+        weight: 5.3
+    },
+    {
+        proId: 'pro02',
+        storeName: '美的旗舰店',
+        storeCode: 'md',
+        isCheck: true,
+        proName: '苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭',
+        proImg: 'images/pro5.png',
+        proColor: '黑色',
+        proPrice: '￥299.00',
+        weight: 5.3
+    },
+    {
+        proId: 'pro03',
+        storeName: '苏珀尔旗舰店',
+        storeCode: 'sber',
+        isCheck: true,
+        proName: '苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭',
+        proImg: 'images/pro6.png',
+        proColor: '黑色',
+        proPrice: '￥299.00',
+        weight: 5.3
+    },
+    {
+        proId: 'pro04',
+        storeName: '苏珀尔旗舰店',
+        storeCode: 'sber',
+        isCheck: true,
+        proName: '苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭',
+        proImg: 'images/pro7.png',
+        proColor: '黑色',
+        proPrice: '￥299.00',
+        weight: 5.3
+    },
+    {
+        proId: 'pro05',
+        storeName: '美的旗舰店',
+        storeCode: 'md',
+        isCheck: true,
+        proName: '苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭',
+        proImg: 'images/pro8.png',
+        proColor: '黑色',
+        proPrice: '￥299.00',
+        weight: 5.3
+    },
+    {
+        proId: 'pro06',
+        storeName: '苏珀尔旗舰店',
+        storeCode: 'sber',
+        isCheck: true,
+        proName: '苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭',
+        proImg: 'images/prow1.png',
+        proColor: '黑色',
+        proPrice: '￥299.00',
+        weight: 5.3
+    }
+];
 $(function() {
     var pro_main = $('.pro_main,.you_like');
     var com_main = $('.com_main');
@@ -13,51 +81,49 @@ $(function() {
         }
     });
     // 放大镜效果
-    $('.img_box img').load(function() {
-        function zoom(scale) {
-            //scale控制缩放比例的产量
-            var img_boxW = $('.img_box').innerWidth();
-            var img_boxH = $('.img_box').innerHeight();
-            var imgOffT = $('.img_box>img').offset().top;
-            var imgOffL = $('.img_box>img').offset().left;
-            // 配置放大镜镜片大小
-            var zoomW = $('.zoom').css('width', img_boxW / scale + 'px').innerWidth();
-            var zoomH = $('.zoom').css('height', img_boxH / scale + 'px').innerHeight();
-            // 设置放大镜窗口大小
-            $('.bigimg').css('width', img_boxW + 'px');
-            $('.bigimg').css('height', img_boxH + 'px');
-            $('.bigimg>img').css('width', img_boxW * scale + 'px');
-            $('.bigimg>img').css('height', img_boxH * scale + 'px');
-            $('.img_box').mouseenter(function() {
-                $('.bigimg').fadeIn("fast");
-                $('.zoom').fadeIn("fast");
-            });
-            $('.img_box').mouseleave(function() {
-                $('.bigimg').fadeOut("fast");
-                $('.zoom').fadeOut("fast");
-            });
-            $('.img_box').mousemove(function(event) {
-                $('.bigimg>img').attr('src', $('.img_box>img').attr('src'));
-                var dw = event.pageX - imgOffL - zoomW / 2;
-                var dh = event.pageY - imgOffT - zoomH / 2;
-                if (dw <= 0) {
-                    dw = 0;
-                } else if (dw >= img_boxW - zoomW + 1) {
-                    dw = img_boxW - zoomW + 1;
-                }
-                if (dh <= 0) {
-                    dh = 0;
-                } else if (dh >= img_boxH - zoomH) {
-                    dh = img_boxH - zoomH;
-                }
-                $('.zoom').css('left', dw + 'px');
-                $('.zoom').css('top', dh + 'px');
-                $('.bigimg>img').css('left', -dw * scale + 'px');
-                $('.bigimg>img').css('top', -dh * scale + 'px');
-            });
-        };
-        zoom(2);
-    });
+    function zoom(scale) {
+        //scale控制缩放比例的产量
+        var img_boxW = $('.img_box').innerWidth();
+        var img_boxH = $('.img_box').innerHeight();
+        var imgOffT = $('.img_box>img').offset().top;
+        var imgOffL = $('.img_box>img').offset().left;
+        // 配置放大镜镜片大小
+        var zoomW = $('.zoom').css('width', img_boxW / scale + 'px').innerWidth();
+        var zoomH = $('.zoom').css('height', img_boxH / scale + 'px').innerHeight();
+        // 设置放大镜窗口大小
+        $('.bigimg').css('width', img_boxW + 'px');
+        $('.bigimg').css('height', img_boxH + 'px');
+        $('.bigimg>img').css('width', img_boxW * scale + 'px');
+        $('.bigimg>img').css('height', img_boxH * scale + 'px');
+        $('.img_box').mouseenter(function() {
+            $('.bigimg').fadeIn("fast");
+            $('.zoom').fadeIn("fast");
+        });
+        $('.img_box').mouseleave(function() {
+            $('.bigimg').fadeOut("fast");
+            $('.zoom').fadeOut("fast");
+        });
+        $('.img_box').mousemove(function(event) {
+            $('.bigimg>img').attr('src', $('.img_box>img').attr('src'));
+            var dw = event.pageX - imgOffL - zoomW / 2;
+            var dh = event.pageY - imgOffT - zoomH / 2;
+            if (dw <= 0) {
+                dw = 0;
+            } else if (dw >= img_boxW - zoomW + 1) {
+                dw = img_boxW - zoomW + 1;
+            }
+            if (dh <= 0) {
+                dh = 0;
+            } else if (dh >= img_boxH - zoomH) {
+                dh = img_boxH - zoomH;
+            }
+            $('.zoom').css('left', dw + 'px');
+            $('.zoom').css('top', dh + 'px');
+            $('.bigimg>img').css('left', -dw * scale + 'px');
+            $('.bigimg>img').css('top', -dh * scale + 'px');
+        });
+    };
+    zoom(2);
     // 商品详情图片
     (function() {
         function getSrc() {
@@ -127,7 +193,7 @@ $(function() {
         $('.add').click(function() {
             $('#count').attr('value', ++i);
         });
-        $('.minus').click(function() {
+        $('.down').click(function() {
             if (--i < 1) {
                 i = 1;
             }
@@ -149,4 +215,16 @@ $(function() {
     })();
     // 搜索本店
     placeholder($('.shop_search>input'), "搜本店");
+
+    // 加入购物车，添加到本地存储
+    (function() {
+        $('.shoppingcart').click(function() {
+            var i = Math.floor(Math.random() * 6);
+            var count = $('#count').val();
+            proInfoArr[i].count = parseInt(count);
+            addtoLocals(new Proinfo(proInfoArr[i]));
+            prosum();
+        });
+    })();
+
 });
