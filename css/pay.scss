@@ -1,0 +1,144 @@
+$topFontSize: 12px;
+$topFontFamily:SimSun;
+$topAndNavColor:#666;
+$topAndFooterBgColor:#d2d2d2;
+$activeBgColor:#B90101;
+$navAndTitleAndSearchFontSize:20px;
+$inputColor:#aaa;
+$navAndClassifyFontFamily:'Microsoft YaHei';
+$navClassifyBgColor:#D5D0C8;
+$navClassifyColor:#fdfdfd;
+$navClassifyChildAndTitleColor:#040404;
+$navClassifyH3FontSize:18px;
+$navClassifyLiAndproSpanAndDlAndTimeFontSize:14px;
+$proH4AndbottomH4AndDtAndServiceFontSize:16px;
+$proBoxBgColor:#DF8487;
+$proBottomBgColor:#EEE;
+$bottomColor:#d4d4d4;
+$telFontFamily:Arial;
+$telFontSize:36px;
+#middle {
+    .containe {
+        width: 100%;
+        background-color: $proBottomBgColor;
+        height: 600px;
+        .order_info {
+            width: 1140px;
+            margin: 0 auto;
+            .thead {
+                width: calc(100% - 24px);
+                overflow: hidden;
+                padding: 30px 12px;
+                color: $topAndNavColor;
+                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                .note {
+                    float: left;
+                    >h3 {
+                        line-height: 25px;
+                        float: left;
+                        font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                        >span {
+                            font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                        }
+                    }
+                    >p {
+                        line-height: 25px;
+                        float: left;
+                        clear: both;
+                    }
+                }
+                .msg {
+                    float: right;
+                    .money {
+                        line-height: 25px;
+                        display: block;
+                        >em {
+                            text-align: right;
+                            font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                            font-weight: bold;
+                            color: $activeBgColor;
+                            font-style: normal;
+                        }
+                    }
+                    >span:last-of-type {
+                        line-height: 25px;
+                        display: block;
+                        text-align: right;
+                        color: #1d8298;
+                        padding-right: 15px;
+                        background: url(../images/arrows_icon5.png) no-repeat right center;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .details {
+                width: calc(100% - 12px);
+                border-top: 1px solid #C9C9C9;
+                color: $topAndNavColor;
+                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                padding: 16px 0 0 12px;
+                >li {
+                    line-height: 25px;
+                    >h4 {
+                        color: $topAndNavColor;
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                        font-weight: normal;
+                        float: left;
+                        width: 85px;
+                    }
+                }
+                .pro_info {
+                    overflow: hidden;
+                    >ul {
+                        float: left;
+                    }
+                }
+            }
+        }
+        .wd_pay {
+            margin: 85px auto 32px auto;
+            width: 1200px;
+            position: relative;
+            background-color: #fff;
+            -webkit-box-shadow: 10px 10px 5px #888888;
+            -moz-box-shadow: 10px 10px 5px #888888;
+            -o-box-shadow: 10px 10px 5px #888888;
+            box-shadow: 10px 10px 5px #888888;
+            >h2 {
+                font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                color: #fff;
+                text-align: center;
+                width: 140px;
+                height: 41px;
+                line-height: 35px;
+                background: url(../images/pay_bg.png) no-repeat;
+                // position: absolute;
+            }
+            .pay_list {
+                li {
+                    line-height: 55px;
+                    height: 55px;
+                    color: #5a5a5a;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    >em {
+                        font-style: normal;
+                    }
+                    .checkbox {
+                        width: 21px;
+                        height: 55px;
+                        float: left;
+                        >span {
+                            display: block;
+                            width: 21px;
+                            height: 55px;
+                            background: url(../images/checkbox_true3.png) no-repeat center;
+                        }
+                        >input {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

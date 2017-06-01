@@ -1,0 +1,142 @@
+#middle .containe {
+  width: 100%;
+  background-color: #EEE;
+  height: 600px;
+}
+
+#middle .containe .order_info {
+  width: 1140px;
+  margin: 0 auto;
+}
+
+#middle .containe .order_info .thead {
+  width: calc(100% - 24px);
+  overflow: hidden;
+  padding: 30px 12px;
+  color: #666;
+  font-size: 14px;
+}
+
+#middle .containe .order_info .thead .note {
+  float: left;
+}
+
+#middle .containe .order_info .thead .note > h3 {
+  line-height: 25px;
+  float: left;
+  font-size: 16px;
+}
+
+#middle .containe .order_info .thead .note > h3 > span {
+  font-size: 14px;
+}
+
+#middle .containe .order_info .thead .note > p {
+  line-height: 25px;
+  float: left;
+  clear: both;
+}
+
+#middle .containe .order_info .thead .msg {
+  float: right;
+}
+
+#middle .containe .order_info .thead .msg .money {
+  line-height: 25px;
+  display: block;
+}
+
+#middle .containe .order_info .thead .msg .money > em {
+  text-align: right;
+  font-size: 16px;
+  font-weight: bold;
+  color: #B90101;
+  font-style: normal;
+}
+
+#middle .containe .order_info .thead .msg > span:last-of-type {
+  line-height: 25px;
+  display: block;
+  text-align: right;
+  color: #1d8298;
+  padding-right: 15px;
+  background: url(../images/arrows_icon5.png) no-repeat right center;
+  cursor: pointer;
+}
+
+#middle .containe .order_info .details {
+  width: calc(100% - 12px);
+  border-top: 1px solid #C9C9C9;
+  color: #666;
+  font-size: 14px;
+  padding: 16px 0 0 12px;
+}
+
+#middle .containe .order_info .details > li {
+  line-height: 25px;
+}
+
+#middle .containe .order_info .details > li > h4 {
+  color: #666;
+  font-size: 14px;
+  font-weight: normal;
+  float: left;
+  width: 85px;
+}
+
+#middle .containe .order_info .details .pro_info {
+  overflow: hidden;
+}
+
+#middle .containe .order_info .details .pro_info > ul {
+  float: left;
+}
+
+#middle .containe .wd_pay {
+  margin: 85px auto 32px auto;
+  width: 1200px;
+  position: relative;
+  background-color: #fff;
+  -webkit-box-shadow: 10px 10px 5px #888888;
+  -moz-box-shadow: 10px 10px 5px #888888;
+  -o-box-shadow: 10px 10px 5px #888888;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+#middle .containe .wd_pay > h2 {
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  width: 140px;
+  height: 41px;
+  line-height: 35px;
+  background: url(../images/pay_bg.png) no-repeat;
+}
+
+#middle .containe .wd_pay .pay_list li {
+  line-height: 55px;
+  height: 55px;
+  color: #5a5a5a;
+  font-size: 14px;
+}
+
+#middle .containe .wd_pay .pay_list li > em {
+  font-style: normal;
+}
+
+#middle .containe .wd_pay .pay_list li .checkbox {
+  width: 21px;
+  height: 55px;
+  float: left;
+}
+
+#middle .containe .wd_pay .pay_list li .checkbox > span {
+  display: block;
+  width: 21px;
+  height: 55px;
+  background: url(../images/checkbox_true3.png) no-repeat center;
+}
+
+#middle .containe .wd_pay .pay_list li .checkbox > input {
+  display: none;
+}
