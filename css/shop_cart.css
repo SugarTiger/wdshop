@@ -14,6 +14,11 @@
   margin-right: 6px;
 }
 
+#middle .containe .all_select > input,
+#middle .containe .checkbox > input {
+  display: none;
+}
+
 #middle .containe .all_select > h3,
 #middle .containe .checkbox > h3 {
   float: left;
@@ -21,6 +26,11 @@
   font-size: 14px;
   cursor: pointer;
   font-weight: normal;
+}
+
+#middle .containe .all_select .boxchecked,
+#middle .containe .checkbox .boxchecked {
+  background-image: url(../images/checkbox_true2.png);
 }
 
 #middle .containe .shop_cart .cart_nav {
@@ -361,8 +371,4 @@
   font-size: 18px;
   text-align: center;
   font-weight: bold;
-}
-
-#middle .containe .shop_cart .allchecked {
-  background-image: url(../images/checkbox_true2.png);
 }

@@ -32,7 +32,7 @@ $telFontSize:36px;
                 margin-right: 6px;
             }
             >input {
-                // display: none;
+                display: none;
             }
             >h3 {
                 float: left;
@@ -40,6 +40,9 @@ $telFontSize:36px;
                 font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
                 cursor: pointer;
                 font-weight: normal;
+            }
+            .boxchecked {
+                background-image: url(../images/checkbox_true2.png);
             }
         }
         .shop_cart {
@@ -332,9 +335,9 @@ $telFontSize:36px;
                     }
                 }
             }
-            .allchecked {
-                background-image: url(../images/checkbox_true2.png);
-            }
+            // .allchecked {
+            //     background-image: url(../images/checkbox_true2.png);
+            // }
         }
     }
 }

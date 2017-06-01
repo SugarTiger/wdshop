@@ -126,14 +126,14 @@ function getPro() {
     return JSON.parse(localStorage.getItem('shopCart'));
 }
 // 获得某个商品的所有信息
-function getProall(proid) {
-    var proItems = getPro();
-    for (key in proItems) {
-        if (proid == key) {
-            return proItems[key];
-        }
-    }
-}
+// function getProall(proid) {
+//     var proItems = getPro();
+//     for (key in proItems) {
+//         if (proid == key) {
+//             return proItems[key];
+//         }
+//     }
+// }
 // 获取购物车商品的总数量
 function prosum() {
     var proItems = getPro();

@@ -8,115 +8,183 @@ $(function() {
             $('.cart_main').prepend(Additemshtml(proItems[key], key));
         }
     }
-    //点击改变商品数目并更改本地存储数据
-    (function() {
-        $('.add').click(function() {
-            var i = parseInt($(this).prev().val());
-            var li = $(this).parent().parent();
-            var proId = li.find('input[type="hidden"]').val();
-            var pricesolo = li.find('.price').html().slice(1);
+    $('.items').each(function() {
+        if (!isAllChecked($(this))) {
+            $(this).find('.all_select>span').removeClass('boxchecked');
+            $(this).find('.all_select>input').attr('checked', false);
+            $('.title .all_select>span,.handler .all_select>span').removeClass('boxchecked');
+            $('.title .all_select>input,.handler .all_select>input').attr('checked', false);
+        }
+    });
+    //一系列操作
+    $('.add').click(function() {
+        var i = parseInt($(this).prev().val());
+        var li = $(this).parent().parent();
+        var proId = li.find('input[type="hidden"]').val();
+        var pricesolo = li.find('.price').html().slice(1);
+        // 增加数量
+        $(this).prev().attr('value', ++i);
+        li.find('.subtotal>em').html((pricesolo * i).toFixed(2));
+        li.find('.subtotal>span').html((getProAttr(proId, 'weight') * i).toFixed(1) + 'kg');
+        resultPro();
+        // 刷新本地存储和页头小标
+        updateProinfo(proId, 'count', i);
+        prosum();
+    });
+    $('.down').click(function() {
+        var i = parseInt($(this).next().val());
+        var li = $(this).parent().parent();
+        var pricesolo = li.find('.price').html().slice(1);
+        var proId = li.find('input[type="hidden"]').val();
 
-
-            // 增加数量
-            $(this).prev().attr('value', ++i);
+        // 减少数量
+        if (--i < 1) {
+            $(this).next().attr('value', 1);
+        } else {
+            $(this).next().attr('value', i);
             li.find('.subtotal>em').html((pricesolo * i).toFixed(2));
             li.find('.subtotal>span').html((getProAttr(proId, 'weight') * i).toFixed(1) + 'kg');
             resultPro();
-
             // 刷新本地存储和页头小标
             updateProinfo(proId, 'count', i);
             prosum();
-        });
-        $('.down').click(function() {
-            var i = parseInt($(this).next().val());
-            var li = $(this).parent().parent();
-            var pricesolo = li.find('.price').html().slice(1);
-            var proId = li.find('input[type="hidden"]').val();
-
-            // 减少数量
-            if (--i < 1) {
-                $(this).next().attr('value', 1);
-            } else {
-                $(this).next().attr('value', i);
-                li.find('.subtotal>em').html((pricesolo * i).toFixed(2));
-                li.find('.subtotal>span').html((getProAttr(proId, 'weight') * i).toFixed(1) + 'kg');
-                resultPro();
-                // 刷新本地存储和页头小标
-                updateProinfo(proId, 'count', i);
-                prosum();
-            }
-        });
-        // 点击复选框
-        $('.checkbox').click(function() {
-            var check = $(this).find('input');
-            var parent = $(this).parent();
-            if (check.is(':checked')) {
-                $(this).find('span').css('background-image', 'url(images/checkbox_false2.png)');
-                check.attr('checked', false);
-                parent.removeClass('checked');
-            } else {
-                $(this).find('span').css('background-image', 'url(images/checkbox_true2.png)');
-                check.attr('checked', true);
-                parent.addClass('checked');
-            }
-            resultPro();
-        });
-        // 点击全选框
-        $('.all_select').click(function() {
-            var check = $(this).find('input');
-            var parent = $(this).parent();
-            console.log(parent);
-            if (check.is(':checked')) {
-                $(this).find('span').css('background-image', 'url(images/checkbox_false2.png)');
-                check.attr('checked', false);
-                if (parent.attr('class') == 'title' || parent.attr('class') == 'handler') {
-                    $('.cart_main input[type="checkbox"]').attr('checked', false);
-                    $('.cart_main input[type="checkbox"]').prev().css('background-image', 'url(images/checkbox_false2.png)');
-                    $('.cart_main .item>li').removeClass('checked');
-                } else {
-                    parent.find('.item>li .checkbox>input').attr('checked', false);
-                    parent.find('.item>li').removeClass('checked');
-                }
-            } else {
-                $(this).find('span').css('background-image', 'url(images/checkbox_true2.png)');
-                check.attr('checked', true);
-                if (parent.attr('class') == 'title' || parent.attr('class') == 'handler') {
-                    $('.cart_main input[type="checkbox"]').attr('checked', true);
-                    $('.cart_main input[type="checkbox"]').prev().css('background-image', 'url(images/checkbox_true2.png)');
-                    $('.cart_main .item>li').addClass('checked');
-                } else {
-                    parent.find('.item>li .checkbox>input').attr('checked', true);
-                    parent.find('.item>li').addClass('checked');
-                }
-            }
-            // resultPro();
-        });
-        // 删除键
-        $('.del').click(function() {
-            var li = $(this).parent().parent();
-            if (li.siblings().length == 0) {
-                li.parent().parent().remove();
-            } else {
-                li.remove();
-            }
-            // 从本地存储中删除数据
-            delPro(li.find('input[type="hidden"]').val());
-            resultPro();
-        });
-        //计算合计
-        function resultPro() {
-            var sum = 0;
-            var num = 0;
-            $('.cart_main .checked').each(function() {
-                sum += parseFloat($(this).find('.subtotal>em').html());
-                num += parseInt($(this).find('.count>input').val());
-            });
-            $('.allprice em').html(sum.toFixed(2));
-            $('.sum .num em').html(num);
+        }
+    });
+    // 点击复选框
+    $('.checkbox').click(function() {
+        var check = $(this).find('input');
+        var parent = $(this).parent();
+        var gParent = parent.parent();
+        var proId = $(this).parent().find('input[type="hidden"]').val();
+        if (check.is(':checked')) {
+            $(this).find('span').removeClass('boxchecked');
+            check.attr('checked', false);
+            parent.removeClass('checked');
+        } else {
+            $(this).find('span').addClass('boxchecked');
+            check.attr('checked', true);
+            parent.addClass('checked');
+        }
+        // 如果全选了，就父容器的全选按钮也全选
+        if (isAllChecked(gParent)) {
+            gParent.parent().find('.all_select>span').addClass('boxchecked');
+            gParent.parent().find('.all_select>input').attr('checked', true);
+        } else {
+            gParent.parent().find('.all_select>span').removeClass('boxchecked');
+            gParent.parent().find('.all_select>input').attr('checked', false);
+        }
+        if (isAllChecked($('.items'))) {
+            $('.title .all_select>span,.handler .all_select>span').addClass('boxchecked');
+            $('.title .all_select>input,.handler .all_select>input').attr('checked', true);
+        } else {
+            $('.title .all_select>span,.handler .all_select>span').removeClass('boxchecked');
+            $('.title .all_select>input,.handler .all_select>input').attr('checked', false);
         }
         resultPro();
-    })();
+        updateProinfo(proId, 'isCheck', check.is(':checked'));
+    });
+    // 点击全选框
+    $('.all_select').click(function() {
+        var check = $(this).find('input');
+        var parent = $(this).parent();
+        if (check.is(':checked')) {
+            $(this).find('span').removeClass('boxchecked');
+            check.attr('checked', false);
+            if (parent.attr('class') == 'title' || parent.attr('class') == 'handler') {
+                $('.cart_main input[type="checkbox"]').attr('checked', false);
+                $('.cart_main input[type="checkbox"]').prev().removeClass('boxchecked');
+                $('.cart_main .item>li').removeClass('checked');
+                $('.cart_main').find('input[type="hidden"]').each(function() {
+                    updateProinfo($(this).val(), 'isCheck', false);
+                });
+            } else {
+                parent.find('.item>li .checkbox>span').removeClass('boxchecked');
+                parent.find('.item>li .checkbox>input').attr('checked', false);
+                parent.find('.item>li').removeClass('checked');
+                parent.find('input[type="hidden"]').each(function() {
+                    updateProinfo($(this).val(), 'isCheck', false);
+                });
+            }
+        } else {
+            $(this).find('span').addClass('boxchecked');
+            check.attr('checked', true);
+            if (parent.attr('class') == 'title' || parent.attr('class') == 'handler') {
+                $('.cart_main input[type="checkbox"]').attr('checked', true);
+                $('.cart_main input[type="checkbox"]').prev().addClass('boxchecked');
+                $('.cart_main .item>li').addClass('checked');
+                $('.cart_main').find('input[type="hidden"]').each(function() {
+                    updateProinfo($(this).val(), 'isCheck', true);
+                });
+            } else {
+                parent.find('.item>li .checkbox>span').addClass('boxchecked');
+                parent.find('.item>li .checkbox>input').attr('checked', true);
+                parent.find('.item>li').addClass('checked');
+                parent.find('input[type="hidden"]').each(function() {
+                    updateProinfo($(this).val(), 'isCheck', true);
+                });
+            }
+        }
+        // 如果全选了，就父容器的全选按钮也全选
+        if (isAllChecked($('.items'))) {
+            $('.title .all_select>span,.handler .all_select>span').addClass('boxchecked');
+            $('.title .all_select>input,.handler .all_select>input').attr('checked', true);
+        } else {
+            $('.title .all_select>span,.handler .all_select>span').removeClass('boxchecked');
+            $('.title .all_select>input,.handler .all_select>input').attr('checked', false);
+        }
+        resultPro();
+    });
+    // 删除键
+    $('.del').click(function() {
+        var li = $(this).parent().parent();
+        delFun(li);
+        resultPro();
+    });
+    // 批量删除
+    $('.del_check').click(function() {
+        $('.cart_main .item li').each(function() {
+            if ($(this).find('input[type="checkbox"]').is(':checked')) {
+                delFun($(this));
+            }
+        });
+        resultPro();
+    });
+    resultPro();
 });
+// 删除函数
+function delFun(obj) {
+    if (obj.siblings().length == 0) {
+        obj.parent().parent().remove();
+    } else {
+        obj.remove();
+    }
+    // 从本地存储中删除数据
+    delPro(obj.find('input[type="hidden"]').val());
+}
+//计算合计
+function resultPro() {
+    var sum = 0;
+    var num = 0;
+    $('.cart_main .checked').each(function() {
+        sum += parseFloat($(this).find('.subtotal>em').html());
+        num += parseInt($(this).find('.count>input').val());
+    });
+    $('.allprice em').html(sum.toFixed(2));
+    $('.sum .num em').html(num);
+}
+//判断一个集合里面发复选框是否都被选中了
+function isAllChecked(parent) {
+    var isAllChecked = true;
+    parent.find('input[type="checkbox"]').each(function() {
+        if (!$(this).is(':checked')) {
+            isAllChecked = false;
+            return false;
+        }
+    });
+    return isAllChecked;
+}
+
+
 // 判断购物车是否存在商店了
 function hasDom(domhtml) {
     var itemsArr = [];
@@ -132,16 +200,16 @@ function Additemshtml(obj, proId) {
     var weightsum = (obj.weight * obj.count).toFixed(1);
     var itemshtml = '<div class="items ' + obj.storeCode + '">\
    <div class="all_select">\
-       <span class="allchecked"></span>\
-       <input type="checkbox" name="userdeal" checked="checked" id="userdeal">\
+       <span class="boxchecked"></span>\
+       <input type="checkbox"  checked="checked" >\
        <h3>' + obj.storeName + '</h3>\
    </div>\
    <ul class="item">\
        <li class="' + (obj.isCheck ? 'checked' : '') + '">\
             <input type="hidden" value="' + proId + '">\
            <div class="checkbox">\
-               <span></span>\
-               <input type="checkbox"  checked="' + (obj.isCheck ? 'checked' : '') + '" >\
+               <span class="' + (obj.isCheck ? 'boxchecked' : '') + '"></span>\
+               <input type="checkbox" ' + (obj.isCheck ? 'checked="checked"' : '') + '" >\
            </div>\
            <div class="info">\
                <a href="pro_details.html">\
@@ -181,8 +249,8 @@ function Addlihtml(obj, proId) {
     var lihtml = '<li class="' + (obj.isCheck ? 'checked' : '') + '">\
     <input type="hidden" value="' + proId + '">\
            <div class="checkbox">\
-               <span></span>\
-               <input type="checkbox"  checked="' + (obj.isCheck ? 'checked' : '') + '" >\
+               <span class="' + (obj.isCheck ? 'boxchecked' : '') + '"></span>\
+               <input type="checkbox"  ' + (obj.isCheck ? 'checked="checked"' : '') + '" >\
            </div>\
            <div class="info">\
                <a href="pro_details.html">\
