@@ -192,20 +192,80 @@
             <div class="wd_pay">
                 <h2>文的支付</h2>
                 <ul class="pay_list">
+                    <li class="active">
+                        <div class="checkbox">
+                            <span class="checked"></span>
+                            <input type="checkbox" checked>
+                        </div>
+                        <span class="bank_name"><img src="images/js_icon.png" alt="">建设银行</span>
+                        <span class="card">储蓄卡（4665）</span>
+                        <span class="max">单笔限额1万</span>
+                        <em>优惠</em>
+                        <span class="highest">随机减最高999</span>
+                        <ul class="fav_list">
+                            <li>随机减最高999</li>
+                            <li>随机减最高888</li>
+                            <li>随机减最高777</li>
+                        </ul>
+                    </li>
                     <li>
                         <div class="checkbox">
                             <span></span>
                             <input type="checkbox">
                         </div>
-                        <span class="bank_name">建设银行</span>
+                        <span class="bank_name"><img src="images/zs_icon.png" alt="">招商银行</span>
+                        <span class="card">信用卡（6900）</span>
+                        <span class="max">单笔限额1万</span>
+                        <em>优惠</em>
+                        <span class="highest">随机减最高999</span>
+                        <ul class="fav_list">
+                            <li>随机减最高999</li>
+                            <li>随机减最高888</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="checkbox">
+                            <span></span>
+                            <input type="checkbox">
+                        </div>
+                        <span class="bank_name"><img src="images/js_icon.png" alt="">建设银行</span>
                         <span class="card">储蓄卡（4665）</span>
                         <span class="max">单笔限额1万</span>
                         <em>优惠</em>
                         <span class="highest">随机减最高999</span>
+                        <ul class="fav_list">
+                            <li>随机减最高999</li>
+                            <li>随机减最高888</li>
+                            <li>随机减最高777</li>
+                        </ul>
                     </li>
                 </ul>
+                <a class="add_card" href="javascript:void(0)">添加新卡/网银支付</a>
+                <form class="paying" method="POST">
+                    <label for="pay_pwd">请输入6位数字支付密码</label>
+                    <div>
+                        <div class="pwd">
+                            <input type="password" maxlength="1" id="pay_pwd">
+                            <input type="password" maxlength="1" readonly>
+                            <input type="password" maxlength="1" readonly>
+                            <input type="password" maxlength="1" readonly>
+                            <input type="password" maxlength="1" readonly>
+                            <input type="password" maxlength="1" readonly>
+                        </div>
+                        <a href="javascript:void(0)">忘记支付密码？</a>
+                    </div>
+                    <input type="submit" value="立即支付">
+                </form>
             </div>
-            <div class="pay_style"></div>
+            <div class="pay_style">
+                <h2>其它支付</h2>
+                <ul>
+                    <li><a href="javascript:void(0)">微信支付</a></li>
+                    <li><a href="javascript:void(0)">支付宝支付</a></li>
+                    <li><a href="javascript:void(0)">中国银联</a></li>
+                    <li><a href="javascript:void(0)">预付卡支付</a></li>
+                </ul>
+            </div>
         </div>
     </div>
     <div id="footer">
