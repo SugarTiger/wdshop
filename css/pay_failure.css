@@ -29,11 +29,6 @@
   position: relative;
   width: 205px;
   height: 7px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
   background-color: #C5C5C5;
 }
 
@@ -70,8 +65,21 @@
   font-weight: normal;
 }
 
+#middle .containe .thead .progressbar > li:first-of-type {
+  border-radius: 3px 0 0 3px;
+}
+
+#middle .containe .thead .progressbar > li:last-of-type {
+  border-radius: 0 3px 3px 0;
+}
+
 #middle .containe .thead .progressbar .on {
   background-color: #B90101;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
 }
 
 #middle .containe .thead .progressbar .on > span {

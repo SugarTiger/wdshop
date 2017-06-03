@@ -108,26 +108,26 @@
 }
 
 #middle .containe .shop_cart .title li:nth-of-type(2) {
-  width: 456px;
+  min-width: 456px;
 }
 
 #middle .containe .shop_cart .title li:nth-of-type(3) {
-  width: 171px;
+  min-width: 171px;
   text-align: center;
 }
 
 #middle .containe .shop_cart .title li:nth-of-type(4) {
-  width: 83px;
+  min-width: 83px;
   text-align: center;
 }
 
 #middle .containe .shop_cart .title li:nth-of-type(5) {
-  width: 115px;
+  min-width: 115px;
   text-align: right;
 }
 
 #middle .containe .shop_cart .title li:nth-of-type(6) {
-  width: 87px;
+  min-width: 87px;
   text-align: left;
   margin-left: 62px;
 }

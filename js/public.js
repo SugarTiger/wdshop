@@ -80,16 +80,20 @@ function Proinfo(obj) {
     this[obj.proId].proPrice = obj.proPrice;
     this[obj.proId].count = obj.count;
     this[obj.proId].weight = obj.weight;
-    this.getProId = function() {
-        return obj.proId;
-    }
-    this.getProInfo = function(key) {
-        return obj[key];
-    }
-    this.setProInfo = function(key, newval) {
-        this[obj.proId][key] = newval;
+}
+Proinfo.prototype.getProId = function() {
+    for (id in this) {
+        return id;
     }
 }
+Proinfo.prototype.getProInfo = function(key) {
+    var id = this.getProId();
+    return this[id][key];
+}
+Proinfo.prototype.setProInfo = function(key, newval) {
+    var id = this.getProId();
+    this[id][key] = newval;
+};
 // 加入购物车，加入本地存储
 function addtoLocals(obj) {
     var proItems = getPro();

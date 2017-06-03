@@ -35,12 +35,13 @@ $(function() {
                 alert('支付密码不能有空！');
                 notempt = false;
                 return false;
-            } else if (!/[0-9]/.test(val)) {
-                alert('支付密码要为数字！');
-                $(this).attr('value', '').siblings().attr('value', '');
-                notempt = false;
-                return false;
             }
+            // else if (!/[0-9]/.test(val)) {
+            //     alert('支付密码要为数字！');
+            //     $(this).attr('value', '').siblings().attr('value', '');
+            //     notempt = false;
+            //     return false;
+            // }
         });
         return notempt;
     });
