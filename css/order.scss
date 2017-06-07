@@ -1,0 +1,399 @@
+$topFontSize: 12px;
+$topFontFamily:SimSun;
+$topAndNavColor:#666;
+$topAndFooterBgColor:#d2d2d2;
+$activeBgColor:#B90101;
+$navAndTitleAndSearchFontSize:20px;
+$inputColor:#aaa;
+$navAndClassifyFontFamily:'Microsoft YaHei';
+$navClassifyBgColor:#D5D0C8;
+$navClassifyColor:#fdfdfd;
+$navClassifyChildAndTitleColor:#040404;
+$navClassifyH3FontSize:18px;
+$navClassifyLiAndproSpanAndDlAndTimeFontSize:14px;
+$proH4AndbottomH4AndDtAndServiceFontSize:16px;
+$proBoxBgColor:#DF8487;
+$proBottomBgColor:#EEE;
+$bottomColor:#d4d4d4;
+$telFontFamily:Arial;
+$telFontSize:36px;
+#middle {
+    .sidebar {
+        width: 168px;
+        float: left;
+        margin-right: 10px;
+        background-color: $proBottomBgColor;
+        h2 {
+            background-color: $activeBgColor;
+            width: 168px;
+            height: 66px;
+            display: block;
+            width: 100%;
+            text-align: center;
+            line-height: 66px;
+            color: #fff;
+            font-size: $navClassifyH3FontSize;
+        }
+        >ul {
+            width: 168px;
+            background-color: #000;
+            padding-top: 28px;
+            padding-bottom: 1px;
+            a {
+                color: #fff;
+                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+            }
+            >li {
+                margin-bottom: 28px;
+                .active {
+                    background-color: $activeBgColor;
+                }
+                h3 {
+                    height: 25px;
+                    a {
+                        line-height: 25px;
+                        display: block;
+                        font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                        color: #fff;
+                        padding-left: 22px;
+                        width: 146px;
+                        height: 100%;
+                    }
+                }
+                h3:hover {
+                    background-color: $activeBgColor;
+                }
+                >ul {
+                    li {
+                        height: 25px;
+                        line-height: 25px;
+                        a {
+                            display: block;
+                            padding-left: 22px;
+                            line-height: 25px;
+                            width: 146px;
+                            height: 100%;
+                        }
+                    }
+                    li:hover {
+                        background-color: $activeBgColor;
+                    }
+                }
+            }
+        }
+    }
+    .main {
+        margin-left: 10px;
+        float: left;
+        width: 1012px;
+        .order_nav {
+            width: 100%;
+            height: 47px;
+            background: $proBottomBgColor;
+            >li {
+                float: left;
+                font-size: 14px;
+                color: #000;
+                line-height: 47px;
+                height: 47px;
+                cursor: pointer;
+                padding: 0 30px;
+                margin-right: 18px;
+            }
+            >li:hover,
+            .active {
+                color: $activeBgColor;
+            }
+        }
+        .order_search {
+            float: right;
+            width: 275px;
+            height: 31px;
+            line-height: 31px;
+            background-color: $activeBgColor;
+            margin: 7px 0;
+            >input {
+                float: left;
+                width: 222px;
+                height: 25px;
+                color: #aaaaaa;
+                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                padding-left: 8px;
+                line-height: 25px;
+                outline: none;
+                margin: 3px 0 0 3px;
+            }
+            >button {
+                float: left;
+                background-color: $activeBgColor;
+                cursor: pointer;
+                color: #fff;
+                line-height: 31px;
+                height: 31px;
+                text-align: center;
+                width: 42px;
+            }
+        }
+        .title {
+            clear: both;
+            height: 43px;
+            background-color: #E5E5E5;
+            width: calc(100% - 46px);
+            padding: 0 23px;
+            margin-bottom: 7px;
+            li {
+                float: left;
+                line-height: 43px;
+                color: $topAndNavColor;
+                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+            }
+            .all_select {
+                width: 141px;
+                >span {
+                    margin-top: 16px;
+                }
+            }
+            li:nth-of-type(2) {
+                min-width: 244px;
+            }
+            li:nth-of-type(3) {
+                min-width: 125px;
+            }
+            li:nth-of-type(4) {
+                min-width: 83px;
+                text-align: center;
+            }
+            li:nth-of-type(5) {
+                min-width: 115px;
+                text-align: center;
+            }
+            li:nth-of-type(6) {
+                min-width: 146px;
+                text-align: center;
+            }
+            li:nth-of-type(7) {
+                min-width: 100px;
+                text-align: center;
+            }
+        }
+        .order_list {
+            >li {
+                overflow: hidden;
+                .order_thead {
+                    overflow: hidden;
+                    height: 35px;
+                    width: 100%;
+                    >li {
+                        height: 35px;
+                        line-height: 35px;
+                        float: left;
+                        color: $topAndNavColor;
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    }
+                    .time {
+                        margin-left: 23px;
+                        width: 207px;
+                    }
+                    .order_num {
+                        width: 303px;
+                        >span {
+                            color: #000;
+                        }
+                    }
+                    .store_name {
+                        cursor: pointer;
+                        color: #000;
+                    }
+                    .call_me {
+                        color: #000;
+                        cursor: pointer;
+                        margin-left: 95px;
+                    }
+                    .del {
+                        margin-right: 8px;
+                        float: right;
+                        cursor: pointer;
+                        img {
+                            vertical-align: middle;
+                        }
+                    }
+                }
+                .order_main {
+                    overflow: hidden;
+                    padding: 17px 0 17px 17px;
+                    width: calc(100% - 19px);
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    color: $topAndNavColor;
+                    border: 1px solid #BFBFBF;
+                    a {
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                        color: $topAndNavColor;
+                    }
+                    .checkbox,
+                    .info,
+                    .color,
+                    .price,
+                    .count,
+                    .detail,
+                    .handle {
+                        float: left;
+                    }
+                    .checkbox {
+                        width: auto;
+                        padding-left: 5px;
+                        span {
+                            margin: 2px 0 0 0;
+                        }
+                    }
+                    .info {
+                        overflow: hidden;
+                        width: 472px;
+                        margin-right: 20px;
+                        >a {
+                            float: left;
+                            border: 1px solid $topAndFooterBgColor;
+                            width: 94px;
+                            height: 94px;
+                            margin: 0 15px 0 8px;
+                            img {
+                                display: block;
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                        >div {
+                            float: left;
+                            width: 200px;
+                            >a {
+                                line-height: 19px;
+                                display: block;
+                                margin-bottom: 15px;
+                                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                                color: $topAndNavColor;
+                            }
+                            >p {
+                                margin-top: 5px;
+                                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                                color: $topAndNavColor;
+                                img {
+                                    vertical-align: middle;
+                                    margin-right: 8px;
+                                }
+                            }
+                            p:first-of-type {
+                                color: #556fb5;
+                            }
+                        }
+                        .color {
+                            width: 96px;
+                            margin-left: 45px;
+                        }
+                    }
+                    .color,
+                    .price {
+                        line-height: 19px;
+                    }
+                    .price {
+                        width: 103px;
+                        text-align: center;
+                        margin-right: 40px;
+                    }
+                    .count {
+                        width: 97px;
+                        text-align: center;
+                    }
+                    .detail {
+                        width: 81px;
+                        margin-right: 52px;
+                        >span,
+                        >a {
+                            display: block;
+                            text-align: center;
+                            line-height: 19px;
+                        }
+                    }
+                    .handle {
+                        width: 78px;
+                        .com,
+                        .buy {
+                            cursor: pointer;
+                            line-height: 19px;
+                            text-align: center;
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+        .shop {
+            overflow: hidden;
+            margin: 17px 0 0 8px;
+            float: left;
+            >li {
+                float: left;
+                margin-left: 5px;
+                border: 1px solid #DCDCDC;
+                padding: 0 10px;
+                height: 20px;
+                line-height: 20px;
+                text-align: center;
+                color: #666666;
+                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                cursor: pointer;
+            }
+            .all_select {
+                border: none;
+                >span {
+                    margin-top: 4px;
+                }
+            }
+        }
+        .all_select,
+        .checkbox {
+            overflow: hidden;
+            >span {
+                display: block;
+                height: 12px;
+                width: 12px;
+                background: url(../images/checkbox_false2.png) no-repeat;
+                cursor: pointer;
+                float: left;
+                margin-right: 6px;
+            }
+            >input {
+                display: none;
+            }
+            >h3 {
+                float: left;
+                color: $topAndNavColor;
+                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                cursor: pointer;
+                font-weight: normal;
+            }
+            .boxchecked {
+                background-image: url(../images/checkbox_true2.png);
+            }
+        }
+    }
+    .page {
+        float: right;
+        margin: 17px 28px 0 0;
+        li {
+            float: left;
+            margin: 0 6px;
+        }
+        .on {
+            a {
+                color: $activeBgColor;
+            }
+        }
+        li:hover {
+            a {
+                color: $activeBgColor;
+            }
+        }
+        a {
+            font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+        }
+    }
+}

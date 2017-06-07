@@ -36,12 +36,6 @@ $(function() {
                 notempt = false;
                 return false;
             }
-            // else if (!/[0-9]/.test(val)) {
-            //     alert('支付密码要为数字！');
-            //     $(this).attr('value', '').siblings().attr('value', '');
-            //     notempt = false;
-            //     return false;
-            // }
         });
         return notempt;
     });
@@ -61,18 +55,17 @@ $(function() {
             }
             $(this).prev().attr('value', '').focus();
         } else {
-            if (!/[0-9]/.test(gg)) {
-                $(this).val('');
-                $(this).focus();
-                return;
+            if ($(this).val() !== '') {
+                $(this).off('click');
+                $(this).next().removeAttr('readonly').focus();
             } else {
-                if ($(this).val() !== '') {
-                    $(this).off('click');
-                    $(this).next().removeAttr('readonly').focus();
-                } else {
-                    $(this).next().attr('readonly', true);
-                }
+                $(this).next().attr('readonly', true);
             }
+        }
+    });
+    $('.paying input[type="password"]').on('input', function() {
+        if (!/[0-9]/.test($(this).val())) {
+            this.value = '';
         }
     });
 });
