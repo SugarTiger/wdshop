@@ -54,11 +54,9 @@ $(function() {
             $("#right").hide();
         });
         // 焦点点击
-        $(".banner ol li").each(function() {
-            $(this).click(function() {
-                i = $(this).index();
-                active();
-            });
+        $(".banner ol li").click(function() {
+            i = $(this).index();
+            active();
         });
         // 控制轮播图的位置
         function bannerxy() {
@@ -70,11 +68,9 @@ $(function() {
         $(window).resize(bannerxy);
     })();
     // 商品栏点击跳转
-    $('.new_goods>ul li').each(function() {
-        $(this).click(function() {
-            var ahref = $(this).find('a').attr('href');
-            window.location = ahref;
-        });
+    $('.new_goods>ul li').click(function() {
+        var ahref = $(this).find('a').attr('href');
+        window.location = ahref;
     });
     // 修复在Safari浏览器商品排列问题
     (function() {

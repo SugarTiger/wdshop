@@ -3,14 +3,12 @@ $(function() {
     (function() {
         var i = 1;
         var yzmlen = yzm.length;
-        $('.yicon>span').each(function() {
-            $(this).click(function() {
-                if (i > yzmlen - 1) {
-                    i = 0;
-                }
-                $(this).find('img').attr({ src: yzm[i].src, alt: yzm[i].alt });
-                i++;
-            });
+        $('.yicon>span').click(function() {
+            if (i > yzmlen - 1) {
+                i = 0;
+            }
+            $('.yimg').find('img').attr({ src: yzm[i].src, alt: yzm[i].alt });
+            i++;
         });
     })();
     placeholder($('.yicon>input'), '验证码');
