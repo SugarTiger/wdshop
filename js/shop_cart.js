@@ -139,6 +139,7 @@ $(function() {
         var li = $(this).parent().parent();
         delFun(li);
         resultPro();
+        prosum();
     });
     // 批量删除
     $('.del_check').click(function() {
@@ -150,6 +151,7 @@ $(function() {
         resultPro();
     });
     resultPro();
+    prosum();
 });
 // 删除函数
 function delFun(obj) {
