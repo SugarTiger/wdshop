@@ -236,7 +236,6 @@
 
 #middle .containe .main .options > div .height_op {
   width: 921px;
-  overflow: hidden;
   padding: 8px 0 8px 6px;
   margin-left: 20px;
   z-index: 2;
@@ -253,12 +252,12 @@
   margin-right: 26px;
 }
 
-#middle .containe .main .options > div .height_op > ul {
+#middle .containe .main .options > div .height_op .type {
   overflow: hidden;
   float: left;
 }
 
-#middle .containe .main .options > div .height_op > ul > li {
+#middle .containe .main .options > div .height_op .type > li {
   cursor: pointer;
   border: 1px solid #D8D8D8;
   height: 24px;
@@ -269,6 +268,44 @@
   background: url(../images/arrows_icon9.png) no-repeat right;
   float: left;
   margin: 0 8.5px;
+}
+
+#middle .containe .main .options > div .height_op .type_list {
+  position: absolute;
+  left: -22px;
+  bottom: -207px;
+  width: 964px;
+  border: 1px solid #D8D8D8;
+  background: #fff;
+  display: none;
+}
+
+#middle .containe .main .options > div .height_op .type_list > ul {
+  display: none;
+  overflow: hidden;
+}
+
+#middle .containe .main .options > div .height_op .type_list > ul > li {
+  height: 23px;
+  line-height: 23px;
+  font-size: 14px;
+  color: #666;
+  padding: 0 5px;
+  float: left;
+  cursor: pointer;
+  margin: 10px 8px;
+}
+
+#middle .containe .main .options > div .height_op .type_list > ul .active,
+#middle .containe .main .options > div .height_op .type_list > ul > li:hover {
+  background-color: #B90101;
+  color: #fff;
+}
+
+#middle .containe .main .options > div .height_op::after {
+  content: '';
+  display: block;
+  clear: both;
 }
 
 #middle .containe .main .sort {

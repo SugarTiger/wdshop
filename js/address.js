@@ -64,5 +64,10 @@ $(function() {
             $(this).parent().find('span').html('邮箱地址输入有误！');
         }
     });
-
+    // 删除订单
+    $('.addrs>button').click(function() {
+        if (confirm('确定删除收货地址？')) {
+            $(this).parent().remove();
+        }
+    });
 });

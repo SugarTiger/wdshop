@@ -89,7 +89,8 @@ $telFontSize:36px;
         .add_button {
             margin: 25px 0 22px 28px;
             line-height: 35px;
-            button {
+            >a {
+                display: inline-block;
                 cursor: pointer;
                 height: 35px;
                 line-height: 35px;
@@ -106,7 +107,7 @@ $telFontSize:36px;
                 margin-left: 20px;
             }
         }
-        .add_addr {
+        #add_addr {
             width: 960px;
             margin-left: 28px;
             border: 1px solid #E5E5E5;

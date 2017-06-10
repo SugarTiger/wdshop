@@ -82,6 +82,7 @@ $(function() {
         }
         resultPro();
         updateProinfo(proId, 'isCheck', check.is(':checked'));
+        $('.sum .num em').html($('.cart_main li.checked').length);
     });
     // 点击全选框
     $('.all_select').click(function() {
@@ -133,13 +134,24 @@ $(function() {
             $('.title .all_select>input,.handler .all_select>input').attr('checked', false);
         }
         resultPro();
+        $('.sum .num em').html($('.cart_main li.checked').length);
     });
     // 删除键
     $('.del').click(function() {
         var li = $(this).parent().parent();
+        var parent = li.parent();
         delFun(li);
         resultPro();
         prosum();
+        if (isAllChecked(parent)) {
+            parent.parent().find('.all_select>span').addClass('boxchecked');
+            parent.parent().find('.all_select>input').attr('checked', true);
+        }
+        if (isAllChecked($('.items'))) {
+            $('.title .all_select>span,.handler .all_select>span').addClass('boxchecked');
+            $('.title .all_select>input,.handler .all_select>input').attr('checked', true);
+        }
+        $('.sum .num em').html($('.cart_main li.checked').length);
     });
     // 批量删除
     $('.del_check').click(function() {
@@ -149,9 +161,11 @@ $(function() {
             }
         });
         resultPro();
+        $('.sum .num em').html(0);
     });
     resultPro();
     prosum();
+    $('.sum .num em').html($('.cart_main li.checked').length);
 });
 // 删除函数
 function delFun(obj) {
@@ -172,7 +186,7 @@ function resultPro() {
         num += parseInt($(this).find('.count>input').val());
     });
     $('.allprice em').html(sum.toFixed(2));
-    $('.sum .num em').html(num);
+    // $('.sum .num em').html(num);
 }
 //判断一个集合里面发复选框是否都被选中了
 function isAllChecked(parent) {

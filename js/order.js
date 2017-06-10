@@ -6,6 +6,7 @@ $(function() {
         if (r === true) {
             $(this).parent().parent().remove();
         }
+        isAllC();
     });
     // 选择
     $('.checkbox').click(function() {
@@ -28,6 +29,7 @@ $(function() {
                     $(this).remove();
                 }
             });
+            isAllC();
         }
     });
 });

@@ -228,7 +228,6 @@ $telFontSize:36px;
                     }
                     .height_op {
                         width: 921px;
-                        overflow: hidden;
                         padding: 8px 0 8px 6px;
                         margin-left: 20px;
                         z-index: 2;
@@ -242,7 +241,7 @@ $telFontSize:36px;
                             float: left;
                             margin-right: 26px;
                         }
-                        >ul {
+                        .type {
                             overflow: hidden;
                             float: left;
                             >li {
@@ -253,12 +252,44 @@ $telFontSize:36px;
                                 font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
                                 color: $topAndNavColor;
                                 padding: 0 25px 0 9px;
-                                // padding: 0 9px;
                                 background: url(../images/arrows_icon9.png) no-repeat right;
                                 float: left;
                                 margin: 0 8.5px;
                             }
                         }
+                        .type_list {
+                            position: absolute;
+                            left: -22px;
+                            bottom: -207px;
+                            width: 964px;
+                            border: 1px solid #D8D8D8;
+                            background: #fff;
+                            display: none;
+                            >ul {
+                                display: none;
+                                overflow: hidden;
+                                >li {
+                                    height: 23px;
+                                    line-height: 23px;
+                                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                                    color: $topAndNavColor;
+                                    padding: 0 5px;
+                                    float: left;
+                                    cursor: pointer;
+                                    margin: 10px 8px;
+                                }
+                                .active,
+                                >li:hover {
+                                    background-color: $activeBgColor;
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                    .height_op::after {
+                        content: '';
+                        display: block;
+                        clear: both;
                     }
                 }
             }

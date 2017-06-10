@@ -129,6 +129,7 @@
   border: 1px solid #C9C9C9;
   border-bottom: none;
   position: relative;
+  cursor: pointer;
 }
 
 #middle .containe .wd_pay .pay_list > li .checkbox {
