@@ -26,8 +26,7 @@
 }
 
 #middle .main > form {
-  width: 391px;
-  margin: 34px auto 24px auto;
+  margin: 34px 0 24px 250.5px;
   height: 266px;
 }
 
@@ -35,6 +34,19 @@
   margin-bottom: 11px;
   width: 100%;
   height: 54px;
+}
+
+#middle .main > form > div .aw {
+  float: left;
+  font-style: normal;
+  font-size: 14px;
+  height: 54px;
+  line-height: 54px;
+  width: 240px;
+  padding-left: 10px;
+  background-color: #fff;
+  color: #B90101;
+  display: none;
 }
 
 #middle .main > form label {
@@ -57,22 +69,26 @@
   width: 326px;
 }
 
-#middle .main > form .loginname {
+#middle .main > form .loginname > label {
   background-color: #EEE;
 }
 
 #middle .main > form .loginname > input {
-  float: right;
+  float: left;
 }
 
 #middle .main > form .pwd {
   overflow: hidden;
-  background-color: #EEE;
   line-height: 54px;
 }
 
+#middle .main > form .pwd > label {
+  padding: 0 18px;
+  background-color: #EEE;
+}
+
 #middle .main > form .pwd > input {
-  float: right;
+  float: left;
 }
 
 #middle .main > form .yicon > input {
@@ -101,13 +117,18 @@
   color: #666;
 }
 
+#middle .main > form .yicon .aw {
+  padding-left: 18px;
+}
+
 #middle .main > form > input {
-  width: 100%;
+  width: 391px;
   color: #fff;
   font-size: 20px;
   background-color: #B90101;
   cursor: pointer;
   margin-top: 16px;
+  text-align: center;
 }
 
 #middle .main > p {

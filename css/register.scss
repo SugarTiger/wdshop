@@ -44,8 +44,8 @@ $telFontSize:36px;
             line-height: 46px;
         }
         .register {
-            width: 446px;
-            margin: 38px auto 0 auto;
+            // width: 446px;
+            margin: 38px 0 0 223px;
             >div {
                 margin-bottom: 8px;
                 width: 100%;
@@ -67,6 +67,16 @@ $telFontSize:36px;
                     font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
                     width: 357px;
                     padding-left: 6px;
+                }
+                .aw_text {
+                    float: left;
+                    height: 38px;
+                    line-height: 38px;
+                    color: $activeBgColor;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    margin-left: 10px;
+                    font-style: normal;
+                    display: none;
                 }
             }
             .yicon {
@@ -91,13 +101,16 @@ $telFontSize:36px;
                     font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
                     color: $topAndNavColor;
                 }
+                .aw_text {
+                    margin-left: 32px;
+                }
             }
             .userdeal {
                 text-align: center;
                 height: 19px;
                 line-height: 19px;
                 width: 203px;
-                margin: 14px auto 29px auto;
+                margin: 14px 0 29px 121.5px;
                 >label {
                     height: 19px;
                     line-height: 19px;
@@ -127,7 +140,7 @@ $telFontSize:36px;
             >input {
                 width: 391px;
                 height: 54px;
-                margin: 0 auto 45px auto;
+                margin: 0 0 45px 27.5px;
                 color: #fff;
                 font-size: $navAndTitleAndSearchFontSize;
                 background-color: $activeBgColor;

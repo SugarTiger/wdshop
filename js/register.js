@@ -18,52 +18,126 @@ $(function() {
         $('.userdeal>span').css('background-image', ischecked ? 'url(images/checkbox_false.png)' : 'url(images/checkbox_true.png)');
         (e.target.tagName == 'SPAN') && $('#userdeal').attr('checked', !ischecked);
     });
+
+    //注册验证
+    // 会员名
+    Check($("#username"), '会员名', function(obj) {
+        var that = obj[0];
+        var aw = obj.siblings('em');
+        var val = obj.val();
+        if (ishadval('username', val)) {
+            aw.html('此会员名已存在').css({ "color": "#B90101", "display": "block" });
+            that.checks = false;
+            return false;
+        }
+        return true;
+    });
+    // 手机
+    Check($("#phone"), '手机', function(obj) {
+        var that = obj[0];
+        var aw = obj.siblings('em');
+        var val = obj.val();
+        if (!(/^((\(\d{2,3}\))|(\d{3}\-))?13\d{9}$/.test(val))) {
+            aw.html('请填写正确的手机号').css({ "color": "#B90101", "display": "block" });
+            that.checks = false;
+            return false;
+        }
+        if (ishadval('phone', val)) {
+            aw.html('此手机号已存在').css({ "color": "#B90101", "display": "block" });
+            that.checks = false;
+            return false;
+        }
+        return true;
+    });
+    // 邮箱
+    Check($("#email"), '邮箱', function(obj) {
+        var that = obj[0];
+        var aw = obj.siblings('em');
+        var val = obj.val();
+        if (!(/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.test(val))) {
+            aw.html('请填写正确的邮箱号').css({ "color": "#B90101", "display": "block" });
+            that.checks = false;
+            return false;
+        }
+        if (ishadval('email', val)) {
+            aw.html('此邮箱号已存在').css({ "color": "#B90101", "display": "block" });
+            that.checks = false;
+            return false;
+        }
+        return true;
+    });
+    // 密码
+    Check($("#pwd"), '密码', function(obj) {
+        var that = obj[0];
+        var aw = obj.siblings('em');
+        var val = obj.val();
+        if (val.length < 8) {
+            aw.html('密码长度要大于8').css({ "color": "#B90101", "display": "block" });
+            that.checks = false;
+            return false;
+        }
+        return true;
+    });
+    //再次输入密码
+    Check($("#repwd"), '密码', function(obj) {
+        var that = obj[0];
+        var aw = obj.siblings('em');
+        var val = obj.val();
+        if (val.length < 8) {
+            aw.html('密码长度要大于8').css({ "color": "#B90101", "display": "block" });
+            that.checks = false;
+            return false;
+        } else if (val !== $("#pwd").val()) {
+            aw.html('两次输入的密码不相同').css({ "color": "#B90101", "display": "block" });
+            that.checks = false;
+            return false;
+        }
+        return true;
+    });
+    // 验证码
+    Check($("#yicon"), '验证码', function(obj) {
+        var that = obj[0];
+        var aw = obj.siblings('em');
+        var yyzm = $('.yimg>img').attr('alt');
+        var val = obj.val();
+        if (val.toLowerCase() !== yyzm) {
+            aw.html('验证码输入错误').css({ "color": "#B90101", "display": "block" });
+            that.checks = false;
+            $('.yimg').trigger('click');
+            return false;
+        }
+        return true;
+    });
+    // 提交
     $('.register').submit(function() {
         // 会员名
-        var username = $.trim($('#username').val());
-        if (username == '') {
-            alert('请填写**会员名**！');
+        if (!$("#username")[0].checks) {
+            $("#username").focus();
             return false;
         }
         // 手机
-        var phone = $.trim($('#phone').val());
-        if (phone == '') {
-            alert('请填写**手机号**！');
-            return false;
-        } else if (!(/^((\(\d{2,3}\))|(\d{3}\-))?13\d{9}$/.test(phone))) {
-            alert('请填写正确**手机号**！');
+        if (!$("#phone")[0].checks) {
+            $("#phone").focus();
             return false;
         }
         // 邮箱
-        var email = $.trim($('#email').val());;
-        if (email == '') {
-            alert('请填写**邮箱**！');
-            return false;
-        } else if (!(/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.test(email))) {
-            alert('请填写正确**邮箱地址**！');
+        if (!$("#email")[0].checks) {
+            $("#email").focus();
             return false;
         }
         // 密码
-        var pwd = $.trim($('#pwd').val());
-        var repwd = $.trim($('#repwd').val());
-        if (pwd == '') {
-            alert('请输入**密码**！');
+        if (!$("#repwd")[0].checks) {
+            $("#repwd").focus();
             return false;
-        } else if (pwd.length < 8) {
-            alert('密码长度要大于8！');
-            return false;
-        } else if (pwd !== repwd) {
-            alert('两次密码输入不相同');
+        }
+        // 确认密码
+        if (!$("#repwd")[0].checks) {
+            $("#repwd").focus();
             return false;
         }
         // 验证码
-        var yzm = $.trim($('#yicon').val());
-        var yyzm = $('.yicon>span>img').attr('alt');
-        if ($('#yicon').val() == '验证码') {
-            alert('请输入**验证码**!');
-            return false;
-        } else if (yzm.toLowerCase() !== yyzm) {
-            alert('验证码输入错误！');
+        if (!$("#yicon")[0].checks) {
+            $("#yicon").focus();
             return false;
         }
         // 用户协议
@@ -71,5 +145,68 @@ $(function() {
             alert('请阅读并同意《用户协议》！');
             return false;
         }
+        // 保存在本地存储
+        var obj = {
+            username: $('#username').val(),
+            phone: $('#phone').val(),
+            email: $('#email').val(),
+            pwd: md5($('#pwd').val()),
+        }
+        localStorage.setItem("wduserinfo", localStorage.getItem("wduserinfo") ? localStorage.getItem("wduserinfo") + "&" + JSON.stringify(obj) : JSON.stringify(obj));
+        return true;
     });
 });
+
+function Check(obj, target, func) {
+    if (obj.length === 0) {
+        console.error(obj.selector + '不存在');
+        return false;
+    } else if (typeof target !== 'string') {
+        console.error('target 的类型必须为string');
+        return false;
+    }
+    obj.focus(function() {
+        var aw = $(this).siblings('em');
+        aw.html("请输入" + target).css({ "color": "#666", "display": "block" });
+    }).blur(function() {
+        var aw = $(this).siblings('em');
+        var val = $(this).val();
+        if (val.indexOf(' ') > -1) {
+            aw.html(target + '不能包含空格').css({ "color": "#B90101", "display": "block" });
+            this.checks = false;
+        } else if (val === "" || val === "验证码") {
+            aw.html(target + '不能为空').css({ "color": "#B90101", "display": "block" });
+            this.checks = false;
+        } else if (func($(this))) {
+            aw.html(target + '输入正确').css({ "color": "#8ac007", "display": "block" });
+            this.checks = true;
+        }
+    });
+}
+//获取本地存储wduserinfo的某项数据
+function getLocalArr() {
+    var str = localStorage.getItem('wduserinfo');
+    if (!str) {
+        return;
+    }
+    var arr = str.split("&");
+    var i, arr2 = [];
+    for (i = 0; i < arr.length; i++) {
+        arr2[i] = JSON.parse(arr[i]);
+    }
+    return arr2;
+}
+
+function ishadval(key, value) {
+    var arr = getLocalArr();
+    if (arr) {
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i][key]) {
+                if (arr[i][key] == value) {
+                    return true;
+                }
+            }
+        }
+    }
+
+}

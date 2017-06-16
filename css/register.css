@@ -22,8 +22,7 @@
 }
 
 #middle .main .register {
-  width: 446px;
-  margin: 38px auto 0 auto;
+  margin: 38px 0 0 223px;
 }
 
 #middle .main .register > div {
@@ -52,6 +51,17 @@
   padding-left: 6px;
 }
 
+#middle .main .register > div .aw_text {
+  float: left;
+  height: 38px;
+  line-height: 38px;
+  color: #B90101;
+  font-size: 14px;
+  margin-left: 10px;
+  font-style: normal;
+  display: none;
+}
+
 #middle .main .register .yicon > input {
   text-align: center;
   width: 112px;
@@ -78,12 +88,16 @@
   color: #666;
 }
 
+#middle .main .register .yicon .aw_text {
+  margin-left: 32px;
+}
+
 #middle .main .register .userdeal {
   text-align: center;
   height: 19px;
   line-height: 19px;
   width: 203px;
-  margin: 14px auto 29px auto;
+  margin: 14px 0 29px 121.5px;
 }
 
 #middle .main .register .userdeal > label {
@@ -118,7 +132,7 @@
 #middle .main .register > input {
   width: 391px;
   height: 54px;
-  margin: 0 auto 45px auto;
+  margin: 0 0 45px 27.5px;
   color: #fff;
   font-size: 20px;
   background-color: #B90101;
