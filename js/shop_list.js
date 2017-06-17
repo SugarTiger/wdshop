@@ -10,8 +10,7 @@ $(function() {
         var i = Math.floor(Math.random() * 6);
         proInfoArr[i].count = 1;
         addtoLocals(new Proinfo(proInfoArr[i]));
-        // prosum();
-        console.log(prosum());
+        prosum();
     });
     // 点击高级选项
     // $('.type>li').hover(function() {
@@ -23,7 +22,12 @@ $(function() {
     //     $(this).css('background-image', 'url(images/arrows_icon9.png)');
     //     $(".type_list").css('display', 'none');
     // });
-    $('.type>li').click(function() {
+   	$("body").click(function(){
+   		$('.type_list').hide();
+   		$('.type>li').css('background-image', 'url(images/arrows_icon9.png)');
+   	});
+    $('.type>li').click(function(event) {
+    	event.stopPropagation(); 
         var i = $(this).index();
         var data_i = $(".type_list").attr('data_i');
         var listdisplay = $(".type_list").css('display');
@@ -43,6 +47,12 @@ $(function() {
         }
         $(".type_list").attr('data_i', i);
         $(".type_list>ul").eq(i).find('li').on('click', hclick).parent().siblings().find('>li').off('click', hclick);
+    });
+    $('#priceMin').on('input', function() {
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
+    $('#priceMax').on('input', function() {
+        this.value = this.value.replace(/[^0-9]/g, '');
     });
 });
 // 改变bg高度的函数

@@ -86,8 +86,6 @@
 
 #middle .main .order_nav > li {
   float: left;
-  font-size: 14px;
-  color: #000;
   line-height: 47px;
   height: 47px;
   cursor: pointer;
@@ -95,8 +93,13 @@
   margin-right: 18px;
 }
 
-#middle .main .order_nav > li:hover,
-#middle .main .order_nav .active {
+#middle .main .order_nav > li a {
+  font-size: 14px;
+  color: #000;
+}
+
+#middle .main .order_nav > li:hover > a,
+#middle .main .order_nav .active > a {
   color: #B90101;
 }
 

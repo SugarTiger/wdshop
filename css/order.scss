@@ -92,17 +92,21 @@ $telFontSize:36px;
             background: $proBottomBgColor;
             >li {
                 float: left;
-                font-size: 14px;
-                color: #000;
                 line-height: 47px;
                 height: 47px;
                 cursor: pointer;
                 padding: 0 30px;
                 margin-right: 18px;
+                a {
+                    font-size: 14px;
+                    color: #000;
+                }
             }
             >li:hover,
             .active {
-                color: $activeBgColor;
+                >a {
+                    color: $activeBgColor;
+                }
             }
         }
         .order_search {

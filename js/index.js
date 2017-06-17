@@ -107,4 +107,7 @@ $(function() {
             $('.new_goods ul li:first-of-type img,.hot_goods ul li:first-of-type img,.re_goods ul li:first-of-type img,.boom_goods ul li:first-of-type img').css('height', '548px');
         }
     })();
+    // 导航下拉
+    $('.menu').off('mouseleave');
+    $('.menu').off('mouseenter');
 });

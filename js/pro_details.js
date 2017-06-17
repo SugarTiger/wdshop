@@ -131,6 +131,9 @@ $(function() {
             }
             $('#count').attr('value', i);
         });
+        $('#count').on('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
     })();
     // 添加收藏
     (function() {
@@ -159,4 +162,8 @@ $(function() {
         });
     })();
 
+    // 店内搜索
+    $('#min,#max').on('input', function() {
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
 });

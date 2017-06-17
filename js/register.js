@@ -153,7 +153,8 @@ $(function() {
             pwd: md5($('#pwd').val()),
         }
         localStorage.setItem("wduserinfo", localStorage.getItem("wduserinfo") ? localStorage.getItem("wduserinfo") + "&" + JSON.stringify(obj) : JSON.stringify(obj));
-        return true;
+        location.href = "login.html";
+        return false;
     });
 });
 

@@ -107,6 +107,7 @@
   float: left;
   font-size: 14px;
   color: #666;
+  cursor: pointer;
 }
 
 #middle .main .register .userdeal > span {

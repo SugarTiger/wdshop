@@ -80,6 +80,7 @@ $telFontSize:36px;
                     float: right;
                     span,
                     select {
+                        outline: none;
                         color: $topAndNavColor;
                         font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
                     }

@@ -65,7 +65,6 @@ $(function() {
             }
         }
         if (obj.pwd !== pwd) {
-            console.log(obj.pwd, pwd);
             $('.pwd>em').html('密码或登录名错误').css({ "color": "#B90101", "display": "block" });
             return false;
         }
@@ -74,7 +73,8 @@ $(function() {
             $("#yicon").focus();
             return false;
         }
-        return true;
+        location.href = "user.html";
+        return false;
     });
 });
 

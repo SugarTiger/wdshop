@@ -452,12 +452,12 @@
   clear: right;
 }
 
-#middle .section_bottom .sidebar .local_search form #begin,
-#middle .section_bottom .sidebar .local_search form #end {
+#middle .section_bottom .sidebar .local_search form #min,
+#middle .section_bottom .sidebar .local_search form #max {
   width: 48px;
 }
 
-#middle .section_bottom .sidebar .local_search form #begin {
+#middle .section_bottom .sidebar .local_search form #min {
   margin-left: 2px;
 }
 

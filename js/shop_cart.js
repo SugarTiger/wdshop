@@ -16,6 +16,7 @@ $(function() {
             $('.title .all_select>input,.handler .all_select>input').attr('checked', false);
         }
     });
+    clearAllC();
     //一系列操作
     $('.add').click(function() {
         var i = parseInt($(this).prev().val());
@@ -49,6 +50,25 @@ $(function() {
             updateProinfo(proId, 'count', i);
             prosum();
         }
+    });
+    // 输入数量
+    $('.count>input').on('input', function() {
+        this.value = this.value.replace(/[^0-9]/g, "");
+    }).blur(function() {
+        if ($(this).val() === "") {
+            $(this).val(1);
+        }
+        var i = parseInt($(this).val());
+        var li = $(this).parent().parent();
+        var proId = li.find('input[type="hidden"]').val();
+        var pricesolo = li.find('.price').html().slice(1);
+        // 操作
+        li.find('.subtotal>em').html((pricesolo * i).toFixed(2));
+        li.find('.subtotal>span').html((getProAttr(proId, 'weight') * i).toFixed(1) + 'kg');
+        resultPro();
+        // 刷新本地存储和页头小标
+        updateProinfo(proId, 'count', i);
+        prosum();
     });
     // 点击复选框
     $('.checkbox').click(function() {
@@ -138,35 +158,53 @@ $(function() {
     });
     // 删除键
     $('.del').click(function() {
-        var li = $(this).parent().parent();
-        var parent = li.parent();
-        delFun(li);
-        resultPro();
-        prosum();
-        if (isAllChecked(parent)) {
-            parent.parent().find('.all_select>span').addClass('boxchecked');
-            parent.parent().find('.all_select>input').attr('checked', true);
+        var r = confirm('主人，你确定把我踢走吗？');
+        if (r) {
+            var li = $(this).parent().parent();
+            var parent = li.parent();
+            delFun(li);
+            resultPro();
+            prosum();
+            if (isAllChecked(parent)) {
+                parent.parent().find('.all_select>span').addClass('boxchecked');
+                parent.parent().find('.all_select>input').attr('checked', true);
+            }
+            if (isAllChecked($('.items'))) {
+                $('.title .all_select>span,.handler .all_select>span').addClass('boxchecked');
+                $('.title .all_select>input,.handler .all_select>input').attr('checked', true);
+            }
+            $('.sum .num em').html($('.cart_main li.checked').length);
+            clearAllC();
         }
-        if (isAllChecked($('.items'))) {
-            $('.title .all_select>span,.handler .all_select>span').addClass('boxchecked');
-            $('.title .all_select>input,.handler .all_select>input').attr('checked', true);
-        }
-        $('.sum .num em').html($('.cart_main li.checked').length);
     });
     // 批量删除
     $('.del_check').click(function() {
-        $('.cart_main .item li').each(function() {
-            if ($(this).find('input[type="checkbox"]').is(':checked')) {
-                delFun($(this));
+        if ($('.cart_main .checkbox .boxchecked').length !== 0) {
+            var r = confirm('去人批量删除商品？');
+            if (r) {
+                $('.cart_main .item li').each(function() {
+                    if ($(this).find('input[type="checkbox"]').is(':checked')) {
+                        delFun($(this));
+                    }
+                });
+                resultPro();
+                $('.sum .num em').html(0);
+                clearAllC();
             }
-        });
-        resultPro();
-        $('.sum .num em').html(0);
+        }
     });
     resultPro();
     prosum();
     $('.sum .num em').html($('.cart_main li.checked').length);
 });
+// 如果本地存储无商品条目，则取消全选
+function clearAllC() {
+    var clen = $(".cart_main").find('input[type="checkbox"]').length;
+    if (clen === 1) {
+        $(".all_select>span").removeClass('boxchecked');
+        $('.all_select>input').attr('checked', false);
+    }
+}
 // 删除函数
 function delFun(obj) {
     if (obj.siblings().length == 0) {
@@ -191,12 +229,17 @@ function resultPro() {
 //判断一个集合里面发复选框是否都被选中了
 function isAllChecked(parent) {
     var isAllChecked = true;
-    parent.find('input[type="checkbox"]').each(function() {
-        if (!$(this).is(':checked')) {
-            isAllChecked = false;
-            return false;
-        }
-    });
+    var pcheckbox = parent.find('input[type="checkbox"]');
+    if (pcheckbox.length !== 0) {
+        pcheckbox.each(function() {
+            if (!$(this).is(':checked')) {
+                isAllChecked = false;
+                return false;
+            }
+        });
+    } else if (pcheckbox.length === 0) {
+        return false;
+    }
     return isAllChecked;
 }
 

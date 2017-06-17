@@ -76,6 +76,7 @@
 
 #middle .containe .shop_cart .cart_nav .dc span,
 #middle .containe .shop_cart .cart_nav .dc select {
+  outline: none;
   color: #666;
   font-size: 14px;
 }

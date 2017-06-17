@@ -27,7 +27,8 @@ $(function() {
         thisHighest.trigger("click")
     });
     // 验证支付密码
-    $('.paying').submit(function() {
+    $('.paying').submit(function(event) {
+        // event.preventDefault;
         if ($('.pay_list .active').length === 0) {
             alert('请选择支付银行！');
             return false;
@@ -41,7 +42,9 @@ $(function() {
                 return false;
             }
         });
-        location.href = confirm('确认支付吗？') ? 'pay_success.html' : 'pay_failure.html';
+        if (notempt) {
+            location.href = confirm('确认支付吗？') ? 'pay_success.html' : 'pay_failure.html';
+        }
         return false;
     });
     // 点击获得焦点
@@ -60,9 +63,14 @@ $(function() {
         var gg = $(this).val();
         var keycode = event.keyCode || event.which;
         if (keycode === 8) {
-            $(this).attr('value', '').prev().focus();
+            if ($(this).index() !== 0) {
+                $(this).attr({ 'value': '', 'readonly': true }).prev().attr('readonly', false).focus();
+            }
         } else {
-            $(this).next().focus();
+            if ($(this).index() !== 5) {
+                $(this).attr('readonly', true).next().attr('readonly', false).focus();
+            }
+
         }
     });
     $('.paying input[type="password"]').on('input', function() {
