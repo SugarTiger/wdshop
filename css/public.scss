@@ -276,6 +276,9 @@ li {
                     font-weight: normal;
                     font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
                 }
+                a:hover{
+                    color:$activeBgColor;
+                }
                 >li {
                     margin: 26px 0 26px 14px;
                     h3 {

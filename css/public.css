@@ -286,6 +286,10 @@ li {
   font-size: 14px;
 }
 
+#header .nav .menu .submenu a:hover {
+  color: #B90101;
+}
+
 #header .nav .menu .submenu > li {
   margin: 26px 0 26px 14px;
 }

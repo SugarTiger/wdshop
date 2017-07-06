@@ -1,5 +1,9 @@
 $(function() {
     placeholder($('.order_search>input'), '商品名称/订单号/商品编码');
+    //order_nav效果
+    $('.order_nav>li').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    });
     // 删除
     $('.del').click(function() {
         var r = confirm("确定删除订单吗？");
