@@ -65,7 +65,7 @@ $(function () {
                 $(this).attr({ 'value': '', 'readonly': true }).prev().attr('readonly', false).focus();
             }
         } else if(keycode>=48&&keycode<=57 || keycode>=96&&keycode<=105){
-            if ($(this).index() !== 5) {
+            if ($(this).index() !== 5 && $(this).val()!=='') {
                 $(this).attr('readonly', true).next().attr('readonly', false).focus();
             }else{
                 $(this).blur();

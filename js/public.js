@@ -141,6 +141,9 @@ function getPro() {
 // 获取购物车商品的总数量
 function prosum() {
     var proItems = getPro();
+    if(proItems === null){
+        return;
+    }
     var sum = Object.keys(proItems).length;
     // for (key in proItems) {
     //     sum += proItems[key].count;
