@@ -141,10 +141,10 @@ function getPro() {
 // 获取购物车商品的总数量
 function prosum() {
     var proItems = getPro();
-    var sum = 0;
-    for (key in proItems) {
-        sum += proItems[key].count;
-    }
+    var sum = Object.keys(proItems).length;
+    // for (key in proItems) {
+    //     sum += proItems[key].count;
+    // }
     $('#header .shop>li>sup').html(sum);
     return sum;
 }

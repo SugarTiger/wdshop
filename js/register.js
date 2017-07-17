@@ -37,7 +37,7 @@ $(function() {
         var that = obj[0];
         var aw = obj.siblings('em');
         var val = obj.val();
-        if (!(/^((\(\d{2,3}\))|(\d{3}\-))?13\d{9}$/.test(val))) {
+        if (!(/(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}/.test(val))) {
             aw.html('请填写正确的手机号').css({ "color": "#B90101", "display": "block" });
             that.checks = false;
             return false;
@@ -54,7 +54,7 @@ $(function() {
         var that = obj[0];
         var aw = obj.siblings('em');
         var val = obj.val();
-        if (!(/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.test(val))) {
+        if (!(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/i.test(val))) {
             aw.html('请填写正确的邮箱号').css({ "color": "#B90101", "display": "block" });
             that.checks = false;
             return false;

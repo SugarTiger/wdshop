@@ -34,7 +34,6 @@ $(function() {
         var aw = obj.siblings('em');
         var yyzm = $.trim($('.yimg>img').attr('alt'));
         var val = obj.val();
-        console.log(yyzm.length, val.length);
         if (val.toLowerCase() !== yyzm) {
             aw.html('验证码输入错误').css({ "color": "#B90101", "display": "block" });
             that.checks = false;

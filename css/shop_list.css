@@ -27,10 +27,17 @@
   border-right: 1px solid #C9C9C9;
   width: calc(100% - 2px);
   height: 58px;
-  line-height: 58px;
   background-color: #D2D2D2;
   cursor: pointer;
   text-align: center;
+}
+
+#middle .containe .sideleft .bar > ul > li a {
+  display: block;
+  text-align: center;
+  height: 58px;
+  line-height: 58px;
+  width: 100%;
   color: #000;
   font-size: 14px;
 }
@@ -337,14 +344,24 @@
   height: 33px;
   line-height: 33px;
   float: left;
-  cursor: pointer;
   border: 1px solid #999;
+}
+
+#middle .containe .main .sort > ul > li > a {
+  font-size: 14px;
+  color: #666;
+  height: 33px;
+  line-height: 33px;
   padding: 0 25px 0 11px;
+  display: block;
   background: url(../images/arrows_icon10.png) no-repeat right;
 }
 
 #middle .containe .main .sort > ul .active {
   border-color: #fff;
+}
+
+#middle .containe .main .sort > ul .active a {
   text-align: center;
   padding: 0 17px;
   background-image: none;

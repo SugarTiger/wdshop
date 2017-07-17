@@ -121,18 +121,22 @@ $(function() {
     })();
     // 点击按钮添加商品数量
     (function() {
-        var i = 1;
         $('.add').click(function() {
-            $('#count').attr('value', ++i);
+            var val  = parseInt($('#count').val()) + 1;
+            $('#count').attr('value', val);
         });
         $('.down').click(function() {
-            if (--i < 1) {
-                i = 1;
+            var val  = parseInt($('#count').val()) - 1;
+            if (val < 1) {
+                val = 1;
             }
-            $('#count').attr('value', i);
+            $('#count').attr('value', val);
         });
         $('#count').on('input', function() {
             this.value = this.value.replace(/[^0-9]/g, '');
+            if(this.value === ''){
+                this.value = 1;
+            }
         });
     })();
     // 添加收藏
@@ -166,4 +170,24 @@ $(function() {
     $('#min,#max').on('input', function() {
         this.value = this.value.replace(/[^0-9]/g, '');
     });
+    // 排序
+    (function(){
+        var up = true;
+        $('.sort>li:last-of-type').click(function(){
+            var that = $(this);
+            $(this).find('img').attr('src',up?'images/arrows_icon3_2.png':'images/arrows_icon3.png'); 
+            if(up){
+                $(this).attr('class','on');
+            }else{
+                setTimeout(function(){
+                    that.attr('class','');
+                },500);
+            }
+            $(this).find('ul').slideToggle(500);
+           up = !up;
+        });
+        $('.sort>li:last-of-type>ul>li').click(function(){
+            console.log($('.sort>li:last-of-type>a').html($(this).text()+' <img src="images/arrows_icon3.png" alt="">'));
+        });
+    })();
 });

@@ -142,9 +142,10 @@ $telFontSize:36px;
                 border: 1px solid #aaa;
                 width: 88px;
                 height: 134px;
-                padding-left: 45px;
                 margin-right: 11px;
                 float: left;
+                width: 133px;
+                text-align: center;
                 >h5 {
                     font-weight: normal;
                     font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
@@ -172,12 +173,14 @@ $telFontSize:36px;
                     float: left;
                     margin: 5px 5px 5px 0;
                     border: 1px solid $topAndFooterBgColor;
-                    color: #999;
                     height: 20px;
-                    padding: 0 10px;
                     line-height: 20px;
-                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
                     background-color: #fff;
+                    >a {
+                        padding: 0 10px;
+                        color: #999;
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    }
                 }
             }
         }

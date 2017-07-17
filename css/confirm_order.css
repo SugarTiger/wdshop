@@ -176,8 +176,7 @@
   padding-right: 20px;
 }
 
-#middle .containe .main .site_info .site_list > li .default,
-#middle .containe .main .site_info .site_list > li .edit {
+#middle .containe .main .site_info .site_list > li .default {
   float: right;
   cursor: pointer;
   color: #010101;
@@ -187,6 +186,15 @@
 
 #middle .containe .main .site_info .site_list > li .edit {
   margin: 0 5px 0 19px;
+  float: right;
+}
+
+#middle .containe .main .site_info .site_list > li .edit > a {
+  cursor: pointer;
+  color: #010101;
+  height: 32px;
+  line-height: 32px;
+  font-size: 16px;
 }
 
 #middle .containe .main .site_info .site_list > li:hover {

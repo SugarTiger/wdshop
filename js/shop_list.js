@@ -49,10 +49,46 @@ $(function() {
         $(".type_list>ul").eq(i).find('li').on('click', hclick).parent().siblings().find('>li').off('click', hclick);
     });
     $('#priceMin').on('input', function() {
-        this.value = this.value.replace(/[^0-9]/g, '');
+        var temp =  this.value.replace(/[^0-9.]/g, '');
+        if(temp.indexOf('.')===0||temp.indexOf(0)===0){
+            this.value ='';
+            return;
+        }
+        var len2 = temp.length;
+        this.value = temp;
+        var d = temp[len2-1];
+        if(d === '.'){
+            if(this.value.slice(0,len2-1).indexOf('.')!==-1){
+                this.value = temp.slice(0,len2-1);
+            }
+        }
     });
     $('#priceMax').on('input', function() {
-        this.value = this.value.replace(/[^0-9]/g, '');
+        var temp =  this.value.replace(/[^0-9.]/g, '');
+        if(temp.indexOf('.')===0||temp.indexOf(0)===0){
+            this.value ='';
+            return;
+        }
+        var len2 = temp.length;
+        this.value = temp;
+        var d = temp[len2-1];
+        if(d === '.'){
+            if(this.value.slice(0,len2-1).indexOf('.')!==-1){
+                this.value = temp.slice(0,len2-1);
+            }
+        }
+    });
+    // 确定验证
+    $('#priceBtn').click(function(){
+        var min =$('#priceMin').val(),
+        max = $('#priceMax').val();
+        if(min === '' || max===''){
+            return;
+        }
+        if(parseFloat(min) > parseFloat(max)){
+            alert('价格错误');
+            return false;
+        }
     });
 });
 // 改变bg高度的函数

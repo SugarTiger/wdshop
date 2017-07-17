@@ -49,21 +49,18 @@ $telFontSize:36px;
                         border-right: 1px solid #C9C9C9;
                         width: calc(100% - 2px);
                         height: 58px;
-                        line-height: 58px;
                         background-color: #D2D2D2;
                         cursor: pointer;
                         text-align: center;
-                        color: #000;
-                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
-                        // a {
-                        //     display: block;
-                        //     text-align: center;
-                        //     height: 58px;
-                        //     line-height: 58px;
-                        //     width: 100%;
-                        //     color: #000;
-                        //     font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
-                        // }
+                        a {
+                            display: block;
+                            text-align: center;
+                            height: 58px;
+                            line-height: 58px;
+                            width: 100%;
+                            color: #000;
+                            font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                        }
                     }
                     >li:last-of-type {
                         border-bottom: 1px solid #C9C9C9;
@@ -317,17 +314,26 @@ $telFontSize:36px;
                         height: 33px;
                         line-height: 33px;
                         float: left;
-                        cursor: pointer;
                         border: 1px solid #999;
-                        padding: 0 25px 0 11px;
-                        background: url(../images/arrows_icon10.png) no-repeat right;
+                        >a{
+                            font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                            color: $topAndNavColor;
+                            height: 33px;
+                            line-height: 33px;
+                            padding: 0 25px 0 11px;
+                            display: block;
+                            background: url(../images/arrows_icon10.png) no-repeat right;
+                        }
                     }
                     .active {
                         border-color: #fff;
-                        text-align: center;
-                        padding: 0 17px;
-                        background-image: none;
-                        background-color: #fff;
+                        a{
+                            text-align: center;
+                            padding: 0 17px;
+                            background-image: none;
+                            background-color: #fff;
+                        }
+                        
                     }
                 }
             }

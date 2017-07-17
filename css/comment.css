@@ -132,9 +132,10 @@
   border: 1px solid #aaa;
   width: 88px;
   height: 134px;
-  padding-left: 45px;
   margin-right: 11px;
   float: left;
+  width: 133px;
+  text-align: center;
 }
 
 #middle .containe .summary .grade > h5 {
@@ -168,12 +169,15 @@
   float: left;
   margin: 5px 5px 5px 0;
   border: 1px solid #d2d2d2;
-  color: #999;
   height: 20px;
-  padding: 0 10px;
   line-height: 20px;
-  font-size: 14px;
   background-color: #fff;
+}
+
+#middle .containe .summary > ul li > a {
+  padding: 0 10px;
+  color: #999;
+  font-size: 14px;
 }
 
 #middle .containe .summary:after {

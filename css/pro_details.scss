@@ -371,8 +371,7 @@ $telFontSize:36px;
             background-color: #F7F6F6;
             width: 252px;
             padding-top: 27px;
-            float: left;
-            // margin-right: 10px;
+            float: left; // margin-right: 10px;
             .local_search {
                 width: 252px;
                 >h3 {
@@ -421,11 +420,18 @@ $telFontSize:36px;
                     #min {
                         margin-left: 2px;
                     }
-                    a {
+                    input:last-of-type {
+                        height: auto;
+                        border: none;
+                        float: none;
+                        margin: auto;
+                        padding: 0;
                         color: #000;
                         font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
                         display: block;
                         clear: both;
+                        background-color: transparent;
+                        cursor: pointer;
                     }
                 }
             }
@@ -521,8 +527,7 @@ $telFontSize:36px;
                     }
                 }
             }
-        }
-        // 商品评价
+        } // 商品评价
         .com_main {
             overflow: hidden;
             width: 937px;
@@ -546,9 +551,10 @@ $telFontSize:36px;
                     border: 1px solid #aaa;
                     width: 88px;
                     height: 134px;
-                    padding-left: 45px;
+                    width: 133px;
                     margin-right: 11px;
                     float: left;
+                    text-align: center;
                     >h5 {
                         font-weight: normal;
                         font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
@@ -576,11 +582,13 @@ $telFontSize:36px;
                         float: left;
                         margin: 5px 5px 5px 0;
                         border: 1px solid $topAndFooterBgColor;
-                        color: #999;
                         height: 20px;
-                        padding: 0 10px;
                         line-height: 20px;
-                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                        >a {
+                            padding: 0 10px;
+                            color: #999;
+                            font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                        }
                     }
                 }
             }
@@ -589,7 +597,7 @@ $telFontSize:36px;
                 height: 35px;
                 padding: 0 14px;
                 background-color: #F2F2F2;
-                li {
+                >li {
                     height: 35px;
                     float: left;
                     margin: 0 21px;
@@ -601,8 +609,39 @@ $telFontSize:36px;
                         font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
                     }
                 }
-                li:last-of-type {
+                >li:last-of-type {
                     float: right;
+                    position: relative;
+                    border: 1px solid #F2F2F2;
+                    height: 33px;
+                    >a {
+                        line-height: 33px;
+                    }
+                    >ul {
+                        display: none;
+                        position: absolute;
+                        border: 1px solid #999;
+                        border-top: none;
+                        left: -1px;
+                        z-index: 99;
+                        >li {
+                            cursor: pointer;
+                            min-width: 73px;
+                            height: 35px;
+                            line-height: 35px;
+                            color: $topAndNavColor;
+                            font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                            background-color: #fff;
+                        }
+                        >li:hover {
+                            background-color: #F2F2F2;
+                        }
+                    }
+                }
+                li.on {
+                    background-color: #fff;
+                    border: 1px solid #999;
+                    border-bottom-color: #fff;
                 }
             }
             .estimate {
@@ -615,20 +654,36 @@ $telFontSize:36px;
                     .user_info {
                         float: left;
                         margin-left: 23px;
-                        a {
+                        // a {
+                        //     font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                        //     overflow: hidden;
+                        //     display: block;
+                        //     line-height: 35px;
+                        //     margin-bottom: 4px;
+                        //     img {
+                        //         display: block;
+                        //         width: 35px;
+                        //         height: 35px;
+                        //         @include border-radius(35px);
+                        //         float: left;
+                        //         margin-right: 5px;
+                        //     }
+                        // }
+                        >img {
+                            display: block;
+                            width: 35px;
+                            height: 35px;
+                            @include border-radius(35px);
+                            float: left;
+                            margin-right: 5px;
+                        }
+                        >span {
                             font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
                             overflow: hidden;
                             display: block;
                             line-height: 35px;
                             margin-bottom: 4px;
-                            img {
-                                display: block;
-                                width: 35px;
-                                height: 35px;
-                                @include border-radius(35px);
-                                float: left;
-                                margin-right: 5px;
-                            }
+                            color: #666;
                         }
                         p {
                             font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
@@ -739,8 +794,7 @@ $telFontSize:36px;
                     }
                 }
             }
-        }
-        //商品详情
+        } //商品详情
         .pro_main {
             width: 946px;
             float: left;
