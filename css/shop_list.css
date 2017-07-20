@@ -190,16 +190,28 @@
 #middle .containe .main .options > div .option > ul > li {
   height: 23px;
   line-height: 23px;
-  font-size: 14px;
-  color: #666;
-  padding: 0 5px;
   float: left;
   margin: 0 8px;
   cursor: pointer;
 }
 
+#middle .containe .main .options > div .option > ul > li > a {
+  display: block;
+  height: 23px;
+  line-height: 23px;
+  margin: 0 5px;
+  font-size: 14px;
+  color: #666;
+}
+
 #middle .containe .main .options > div .option > ul .active,
 #middle .containe .main .options > div .option > ul > li:hover {
+  background-color: #B90101;
+  color: #fff;
+}
+
+#middle .containe .main .options > div .option > ul .active > a,
+#middle .containe .main .options > div .option > ul > li:hover > a {
   background-color: #B90101;
   color: #fff;
 }

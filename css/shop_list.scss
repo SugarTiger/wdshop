@@ -180,17 +180,26 @@ $telFontSize:36px;
                             >li {
                                 height: 23px;
                                 line-height: 23px;
-                                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
-                                color: $topAndNavColor;
-                                padding: 0 5px;
                                 float: left;
                                 margin: 0 8px;
                                 cursor: pointer;
+                                >a{
+                                    display: block;
+                                    height: 23px;
+                                    line-height: 23px;
+                                    margin: 0 5px;
+                                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                                    color: $topAndNavColor;
+                                }
                             }
                             .active,
                             >li:hover {
                                 background-color: $activeBgColor;
                                 color: #fff;
+                                >a{
+                                    background-color: $activeBgColor;
+                                    color: #fff;
+                                }
                             }
                         }
                         .price_range {

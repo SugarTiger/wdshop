@@ -1,3 +1,8 @@
+// 点击商品跳转
+$('.you_lisk>ul li').click(function() {
+        var ahref = $(this).find('a').attr('href');
+        window.location = ahref;
+    });
 // 输入框默认提示
 function placeholder(obj, val, isPwd) {
     obj.focus(function() {
@@ -142,7 +147,7 @@ function getPro() {
 function prosum() {
     var proItems = getPro();
     if(proItems === null){
-        return;
+        return 0;
     }
     var sum = Object.keys(proItems).length;
     // for (key in proItems) {

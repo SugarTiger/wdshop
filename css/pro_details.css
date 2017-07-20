@@ -944,7 +944,7 @@
 
 #middle .section_bottom .pro_main .article {
   width: calc(926px - 33px);
-  height: 125px;
+  padding-bottom: 7px;
   border: 1px solid #aaa;
   margin: 15px auto 6px auto;
   position: relative;
