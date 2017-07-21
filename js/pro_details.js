@@ -134,7 +134,7 @@ $(function() {
         });
         $('#count').on('input', function() {
             this.value = this.value.replace(/[^0-9]/g, '');
-            if(this.value === ''){
+            if(this.value === ''|| parseInt(this.value) === 0){
                 this.value = 1;
             }
         });

@@ -282,7 +282,10 @@ li {
                 >li {
                     margin: 26px 0 26px 14px;
                     h3 {
-                        font-size: $navClassifyH3FontSize;
+                        >a{
+                            font-size: $navClassifyH3FontSize;
+                            color: #040404;
+                        }
                     }
                     ul {
                         overflow: hidden;

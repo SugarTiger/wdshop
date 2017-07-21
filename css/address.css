@@ -179,7 +179,7 @@
   cursor: pointer;
 }
 
-#middle .main .addrs {
+#middle .main .addrs > li {
   border: 1px solid #E5E5E5;
   width: 937px;
   margin: 14px 0 0 28px;
@@ -188,23 +188,23 @@
   position: relative;
 }
 
-#middle .main .addrs h4 {
+#middle .main .addrs > li h4 {
   color: #222;
   font-weight: bold;
 }
 
-#middle .main .addrs ul {
+#middle .main .addrs > li ul {
   margin-top: 18px;
   padding-bottom: 10px;
 }
 
-#middle .main .addrs ul li {
+#middle .main .addrs > li ul li {
   height: 25px;
   line-height: 25px;
   color: #666;
 }
 
-#middle .main .addrs button {
+#middle .main .addrs > li button {
   position: absolute;
   top: 5px;
   right: 9px;
@@ -212,8 +212,8 @@
   background-color: transparent;
 }
 
-#middle .main .addrs .edit,
-#middle .main .addrs .default {
+#middle .main .addrs > li .edit,
+#middle .main .addrs > li .default {
   position: absolute;
   color: #1d8298;
   font-size: 14px;
@@ -222,8 +222,12 @@
   bottom: 11px;
 }
 
-#middle .main .addrs .default {
+#middle .main .addrs > li .default {
   right: 100px;
+}
+
+#middle .main .addrs > li.default span.default {
+  display: none;
 }
 
 #middle .main > div:last-of-type {

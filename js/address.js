@@ -65,9 +65,13 @@ $(function() {
         }
     });
     // 删除订单
-    $('.addrs>button').click(function() {
+    $('.addrs>li>button').click(function() {
         if (confirm('确定删除收货地址？')) {
             $(this).parent().remove();
         }
+    });
+    // 设置为默认地址
+    $(".addrs>li>span.default").click(function(){
+        $(this).parent().attr('class','default').siblings().removeClass('default');
     });
 });

@@ -294,8 +294,9 @@ li {
   margin: 26px 0 26px 14px;
 }
 
-#header .nav .menu .submenu > li h3 {
+#header .nav .menu .submenu > li h3 > a {
   font-size: 18px;
+  color: #040404;
 }
 
 #header .nav .menu .submenu > li ul {

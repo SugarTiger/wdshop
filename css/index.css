@@ -151,7 +151,6 @@
   float: left;
   border: 1px solid #d2d2d2;
   width: 291px;
-  cursor: pointer;
 }
 
 #middle .new_goods ul li a,
@@ -186,10 +185,17 @@
 #middle .hot_goods ul li div h4,
 #middle .re_goods ul li div h4,
 #middle .boom_goods ul li div h4 {
-  font-weight: normal;
-  font-size: 16px;
   margin-top: 6px;
   padding-left: 40px;
+}
+
+#middle .new_goods ul li div h4 > a,
+#middle .hot_goods ul li div h4 > a,
+#middle .re_goods ul li div h4 > a,
+#middle .boom_goods ul li div h4 > a {
+  font-weight: normal;
+  color: #666;
+  font-size: 16px;
 }
 
 #middle .new_goods ul li div .market_price,
@@ -241,10 +247,10 @@
   border-color: #B90101;
 }
 
-#middle .new_goods ul li:hover h4,
-#middle .hot_goods ul li:hover h4,
-#middle .re_goods ul li:hover h4,
-#middle .boom_goods ul li:hover h4 {
+#middle .new_goods ul li:hover h4 > a,
+#middle .hot_goods ul li:hover h4 > a,
+#middle .re_goods ul li:hover h4 > a,
+#middle .boom_goods ul li:hover h4 > a {
   color: #fffefe;
 }
 

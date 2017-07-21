@@ -148,7 +148,6 @@ $telFontSize:36px;
                 float: left;
                 border: 1px solid $topAndFooterBgColor;
                 width: 291px;
-                cursor: pointer;
                 a {
                     display: block;
                     width: 100%;
@@ -165,10 +164,13 @@ $telFontSize:36px;
                     border-top: 1px solid $topAndFooterBgColor;
                     color: $topAndNavColor;
                     h4 {
-                        font-weight: normal;
-                        font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
                         margin-top: 6px;
                         padding-left: 40px;
+                        >a{
+                            font-weight: normal;
+                            color: $topAndNavColor;
+                            font-size: $proH4AndbottomH4AndDtAndServiceFontSize;
+                        }
                     }
                     .market_price,
                     .member_price {
@@ -194,7 +196,9 @@ $telFontSize:36px;
             li:hover {
                 border-color: $activeBgColor;
                 h4 {
-                    color: #fffefe;
+                    >a{
+                        color: #fffefe;
+                    }
                 }
                 div {
                     background-color: $activeBgColor;

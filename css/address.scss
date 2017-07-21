@@ -175,43 +175,50 @@ $telFontSize:36px;
             }
         }
         .addrs {
-            border: 1px solid #E5E5E5;
-            width: 937px;
-            margin: 14px 0 0 28px;
-            padding: 15px 0 0 23px;
-            font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
-            position: relative;
-            h4 {
-                color: #222;
-                font-weight: bold;
-            }
-            ul {
-                margin-top: 18px;
-                padding-bottom: 10px;
-                li {
-                    height: 25px;
-                    line-height: 25px;
-                    color: $topAndNavColor;
+            >li {
+                border: 1px solid #E5E5E5;
+                width: 937px;
+                margin: 14px 0 0 28px;
+                padding: 15px 0 0 23px;
+                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                position: relative;
+                h4 {
+                    color: #222;
+                    font-weight: bold;
+                }
+                ul {
+                    margin-top: 18px;
+                    padding-bottom: 10px;
+                    li {
+                        height: 25px;
+                        line-height: 25px;
+                        color: $topAndNavColor;
+                    }
+                }
+                button {
+                    position: absolute;
+                    top: 5px;
+                    right: 9px;
+                    cursor: pointer;
+                    background-color: transparent;
+                }
+                .edit,
+                .default {
+                    position: absolute;
+                    color: #1d8298;
+                    font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    cursor: pointer;
+                    right: 30px;
+                    bottom: 11px;
+                }
+                .default {
+                    right: 100px;
                 }
             }
-            button {
-                position: absolute;
-                top: 5px;
-                right: 9px;
-                cursor: pointer;
-                background-color: transparent;
-            }
-            .edit,
-            .default {
-                position: absolute;
-                color: #1d8298;
-                font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
-                cursor: pointer;
-                right: 30px;
-                bottom: 11px;
-            }
-            .default {
-                right: 100px;
+            >li.default{
+                span.default{
+                    display: none;
+                }
             }
         }
         >div:last-of-type {

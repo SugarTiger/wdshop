@@ -67,11 +67,11 @@ $(function() {
         bannerxy();
         $(window).resize(bannerxy);
     })();
-    // 商品栏点击跳转
-    $('.new_goods>ul li').click(function() {
-        var ahref = $(this).find('a').attr('href');
-        window.location = ahref;
-    });
+    // // 商品栏点击跳转
+    // $('.new_goods>ul li').click(function() {
+    //     var ahref = $(this).find('a').attr('href');
+    //     window.location = ahref;
+    // });
     // 修复在Safari浏览器商品排列问题
     (function() {
         // 判断是否是Safari浏览器
