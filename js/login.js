@@ -19,11 +19,11 @@ $(function() {
         var that = obj[0];
         var aw = obj.siblings('em');
         var val = obj.val();
-        if (!(ishadval('phone', val) || ishadval('email', val))) {
-            aw.html('此登录名不存在').css({ "color": "#B90101", "display": "block" });
-            that.checks = false;
-            return false;
-        }
+        // if (!(ishadval('phone', val) || ishadval('email', val))) {
+        //     aw.html('此登录名不存在').css({ "color": "#B90101", "display": "block" });
+        //     that.checks = false;
+        //     return false;
+        // }
         return true;
     });
     Check($("#pwd"), '密码', function(obj) {
@@ -56,22 +56,13 @@ $(function() {
         }
         var loginname = $('#loginname').val();
         var pwd = md5($("#pwd").val());
-        var arr = getLocalArr();
-        for (var i = 0; i < arr.length; i++) {
-            if (arr[i].phone == loginname || arr[i].email == loginname) {
-                var obj = arr[i];
-                break;
-            }
-        }
-        if (obj.pwd !== pwd) {
-            $('.pwd>em').html('密码或登录名错误').css({ "color": "#B90101", "display": "block" });
-            return false;
-        }
+        
         // 验证码
         if (!$("#yicon")[0].checks) {
             $("#yicon").focus();
             return false;
         }
+        console.log(loginname,pwd)
         location.href = "user.html";
         return false;
     });

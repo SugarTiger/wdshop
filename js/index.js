@@ -43,13 +43,15 @@ $(function() {
             moveR();
         });
         // 自动轮播
-        var autoMove = setInterval(moveR, 3000);
+        var info_banner_time = window.info_banner_time || 3000
+        console.log(info_banner_time)
+        var autoMove = setInterval(moveR, info_banner_time);
         $(".banner").hover(function() {
             clearInterval(autoMove);
             $("#left").show();
             $("#right").show();
         }, function() {
-            autoMove = setInterval(moveR, 3000);
+            autoMove = setInterval(moveR, info_banner_time);
             $("#left").hide();
             $("#right").hide();
         });
@@ -67,11 +69,6 @@ $(function() {
         bannerxy();
         $(window).resize(bannerxy);
     })();
-    // // 商品栏点击跳转
-    // $('.new_goods>ul li').click(function() {
-    //     var ahref = $(this).find('a').attr('href');
-    //     window.location = ahref;
-    // });
     // 修复在Safari浏览器商品排列问题
     (function() {
         // 判断是否是Safari浏览器

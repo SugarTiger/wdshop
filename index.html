@@ -18,16 +18,17 @@
                     <a href="index.html"><img src="images/home_icon.png" alt="">文的首页</a>
                     |
                     <span class="loginzt">
-                        <a href="login.html">登录</a>
+                        <a href="login.html" v-if="!isLogin">登录</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="register.html">免费注册</a>
+                        <a  href="#" v-if="isLogin" @click="logout">退出登录</a>
+                        <a href="register.html" v-else>免费注册</a>
                     </span>
                 </div>
-                <ul class="shop">
+                <ul class="shop" v-if="isLogin">
                     <li><a href="order.html">我的订单</a></li>
                     <li><a href="user.html">我的文的</a></li>
                     <li>|</li>
-                    <li><a href="shop_cart.html">购物车</a><sup>0</sup></li>
+                    <li><a href="shop_cart.html">购物车</a><sup>{{cartCount}}</sup></li>
                     <li>|</li>
                     <li>
                         <a href="javascript:void(0)"><img src="images/favorite_icon.png" alt="">收藏夹</a>
@@ -40,7 +41,7 @@
             <div class="containe">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="images/logo02.png" alt="文的电器">
+                        <img :src="logoImg" alt="文的电器">
                     </a>
                 </div>
                 <div>
@@ -49,10 +50,10 @@
                             <img src="images/logo_title.png" alt="">
                         </a>
                     </h1>
-                    <form class="search">
-                        <input type="text" name="search" value="电饭煲">
-                        <button>搜索</button>
-                    </form>
+                    <div class="search">
+                        <input type="text" name="search" placeholder="请输入关键字搜索" v-model="keyWord">
+                        <button @click="searchPro">搜索</button>
+                    </div>
                 </div>
                 <div class="header_ad">
                     <a href="shop_list.html"><img src="images/pro1.png" alt=""></a>
@@ -62,7 +63,7 @@
         </div>
         <div class="nav">
             <div class="containe">
-                <div class="menu">
+                <div class="menu" style="visibility: hidden;">
                     <h2 class="active">所有产品分类 <img src="images/arrows_icon.png" alt=""></h2>
                     <ul class="submenu">
                         <li>
@@ -601,9 +602,9 @@
                 </a>
             </div>
         </div>
-        <div class="copyright">
+        <div class="copyright" id="fcopyright">
             <p class="containe">
-                京公网安备 11000002000001号京ICP证030173号违法和不良信息举报电话：010-59922822
+                {{footerText}}
             </p>
         </div>
     </div>
