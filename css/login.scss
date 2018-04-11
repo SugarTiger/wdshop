@@ -135,11 +135,13 @@ $telFontSize:36px;
             text-align: center;
             font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
             color: $topAndNavColor;
+            display: none;
         }
         .other {
             width: 100%;
             text-align: center;
             margin-bottom: 6px;
+            display: none;
             ul {
                 display: inline-block;
                 overflow: hidden;

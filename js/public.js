@@ -1,18 +1,18 @@
 // 每次跳转进行路由控制
-(function(){
-    var publicRouterList = ['register','login','index','shop_list','pro_details'];
-    var len = publicRouterList.length;
-    var isNext = false;
-    for(var i=0;i<len;i++){
-        if(location.href.indexOf(publicRouterList[i])!==-1){
-            isNext = true
-            break;
-        }
-    }
-    if(!isNext){
-        location.href = "http://localhost/wdshop/index.html";
-    }
-})()
+// (function(){
+//     var publicRouterList = ['register','login','index','shop_list','pro_details'];
+//     var len = publicRouterList.length;
+//     var isNext = false;
+//     for(var i=0;i<len;i++){
+//         if(location.href.indexOf(publicRouterList[i])!==-1){
+//             isNext = true
+//             break;
+//         }
+//     }
+//     if(!isNext){
+//         location.href = "http://localhost/wdshop/index.html";
+//     }
+// })()
 // 路由控制
 
 
