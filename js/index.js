@@ -1,79 +1,9 @@
-$(function() {
-    // 轮播图js
-    (function() {
-        // 添加焦点和左右箭头
-        function addOl(banner) {
-            var liImgs = $("." + banner).find("ul").find("li");
-            var ol = $("<ol></ol>");
-            liImgs.each(function(i) {
-                ol.append($("<li/>"));
-            });
-            $("." + banner).append(ol);
-            $(".banner ol li").eq(0).addClass("active");
-        };
-
-        function active() {
-            $(".banner ol li").eq(i).addClass("active").siblings().removeClass("active");
-            $(".banner ul li").eq(i).fadeIn(800).siblings().fadeOut(800);
-        }
-        // 后退
-        function moveL() {
-            i--;
-            if (i == -1) {
-                i = size - 1;
-            }
-            active();
-        }
-        // 前进
-        function moveR() {
-            i++;
-            if (i == size) {
-                i = 0;
-            }
-            active();
-        }
-        addOl("banner");
-        var i = 0;
-        var size = $(".banner ol li").length;
-        // 绑定左右控制
-        $("#left").click(function() {
-            moveL();
-        });
-        $("#right").click(function() {
-            moveR();
-        });
-        // 自动轮播
-        var info_banner_time = window.info_banner_time || 3000
-        console.log(info_banner_time)
-        var autoMove = setInterval(moveR, info_banner_time);
-        $(".banner").hover(function() {
-            clearInterval(autoMove);
-            $("#left").show();
-            $("#right").show();
-        }, function() {
-            autoMove = setInterval(moveR, info_banner_time);
-            $("#left").hide();
-            $("#right").hide();
-        });
-        // 焦点点击
-        $(".banner ol li").click(function() {
-            i = $(this).index();
-            active();
-        });
-        // 控制轮播图的位置
-        function bannerxy() {
-            var dw = document.documentElement.clientWidth;
-            var leftpx = -(1920 - dw) / 2 + 'px';
-            $('.banner').css('left', leftpx);
-        };
-        bannerxy();
-        $(window).resize(bannerxy);
-    })();
+$(function () {
     // 修复在Safari浏览器商品排列问题
-    (function() {
+    (function () {
         // 判断是否是Safari浏览器
         var safari = 0;
-        (function() {
+        (function () {
             var browserver = 0;
             var ua = navigator.userAgent;
             if (/AppleWebKit\/(\S+)/.test(ua)) {
@@ -108,3 +38,93 @@ $(function() {
     $('.menu').off('mouseleave');
     $('.menu').off('mouseenter');
 });
+new Vue({
+    el: "#wrapper",
+    data: {
+        bannerList: [],
+        info_banner_time: 3000,
+        imgServer: window.imgServer
+    },
+    mounted: function () {
+        var that = this;
+        // 请求网站基本信息
+        http.get('/public/getWdInfo', null, function (res) {
+            that.bannerList = res.data.info_banner
+            that.info_banner_time = res.data.info_banner_time * 1000;
+            that.$nextTick(that.initBanner)
+        })
+    },
+    methods: {
+        initBanner: function () {
+            var that = this;
+            // 轮播图js
+            // 添加焦点和左右箭头
+            function addOl(banner) {
+                var liImgs = $("." + banner).find("ul").find("li");
+                var ol = $("<ol></ol>");
+                liImgs.each(function (i) {
+                    ol.append($("<li/>"));
+                });
+                $("." + banner).append(ol);
+                $(".banner ol li").eq(0).addClass("active");
+            };
+
+            function active() {
+                $(".banner ol li").eq(i).addClass("active").siblings().removeClass("active");
+                $(".banner ul li").eq(i).fadeIn(800).siblings().fadeOut(800);
+            }
+            // 后退
+            function moveL() {
+                i--;
+                if (i == -1) {
+                    i = size - 1;
+                }
+                active();
+            }
+            // 前进
+            function moveR() {
+                i++;
+                if (i == size) {
+                    i = 0;
+                }
+                active();
+            }
+            addOl("banner");
+            var i = 0;
+            var size = $(".banner ol li").length;
+            // 绑定左右控制
+            $("#left").click(function () {
+                moveL();
+            });
+            $("#right").click(function () {
+                moveR();
+            });
+            // 自动轮播
+            var info_banner_time = that.info_banner_time
+            console.log(info_banner_time)
+            var autoMove = setInterval(moveR, info_banner_time);
+            $(".banner").hover(function () {
+                clearInterval(autoMove);
+                $("#left").show();
+                $("#right").show();
+            }, function () {
+                autoMove = setInterval(moveR, info_banner_time);
+                $("#left").hide();
+                $("#right").hide();
+            });
+            // 焦点点击
+            $(".banner ol li").click(function () {
+                i = $(this).index();
+                active();
+            });
+            // 控制轮播图的位置
+            function bannerxy() {
+                var dw = document.documentElement.clientWidth;
+                var leftpx = -(1920 - dw) / 2 + 'px';
+                $('.banner').css('left', leftpx);
+            };
+            bannerxy();
+            $(window).resize(bannerxy);
+        }
+    }
+})

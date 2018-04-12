@@ -121,13 +121,15 @@ $telFontSize:36px;
             @include border-radius(5px);
             background-color: $proBoxBgColor;
             width: 150px;
-            height: 36px;
+            height: 36px; 
             border: 3px solid #FCBEC0;
             border-bottom: none;
             text-align: center;
             top: -39px;
             left: 55px;
             position: absolute;
+            display: none;
+            
             a {
                 display: block;
                 color: $navClassifyChildAndTitleColor;

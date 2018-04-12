@@ -114,6 +114,7 @@
   top: -39px;
   left: 55px;
   position: absolute;
+  display: none;
 }
 
 #middle .new_goods h3 a,
