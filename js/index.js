@@ -39,22 +39,39 @@ $(function () {
     $('.menu').off('mouseenter');
 });
 new Vue({
-    el: "#wrapper",
+    el: "#middle",
     data: {
         bannerList: [],
         info_banner_time: 3000,
-        imgServer: window.imgServer
+        imgServer: window.imgServer,
+        proList:[]
     },
     mounted: function () {
         var that = this;
         // 请求网站基本信息
         http.get('/public/getWdInfo', null, function (res) {
-            that.bannerList = res.data.info_banner
+            res.data.info_banner.forEach(function(item,i){
+                that.bannerList.push({
+                    imgUrl : item,
+                    proId:res.data.banner_goods_id[i]
+                })
+            })
+            // that.bannerList = res.data.info_banner
             that.info_banner_time = res.data.info_banner_time * 1000;
             that.$nextTick(that.initBanner)
-        })
+        });
+        // 获取商品列表
+        this.getProList()
     },
     methods: {
+        getProList:function(){
+            var that = this;
+            http.get('/public/getProList', {
+                status:1
+            }, function (res) {
+                that.proList = res.data.list
+            })
+        },
         initBanner: function () {
             var that = this;
             // 轮播图js
