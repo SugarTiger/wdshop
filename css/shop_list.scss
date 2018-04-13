@@ -73,7 +73,7 @@ $telFontSize:36px;
                 }
             }
             .hot_pro {
-                margin-top: 34px;
+                margin-top: 15px;
                 width: 214px;
                 border: 1px solid #D2D2D2;
                 >h3 {
@@ -94,13 +94,15 @@ $telFontSize:36px;
                         margin: 56px auto 0 auto;
                         a {
                             display: block;
-                            width: 100%;
+                            width: 194px;
+                            min-height: 165px;
                             img {
                                 display: block;
                                 width: 100%;
                             }
                         }
                         >a:last-of-type {
+                            min-height: 0;
                             border-top: 1px solid #D2D2D2;
                             color: #666666;
                             padding: 8px 0 4px 0;
@@ -412,6 +414,7 @@ $telFontSize:36px;
                             width: 86px;
                             height: 22px;
                             line-height: 22px;
+                            cursor: pointer;
                         }
                         >a:first-of-type {}
                         .addshopcart {

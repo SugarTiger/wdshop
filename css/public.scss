@@ -245,6 +245,7 @@ li {
         .menu {
             position: relative;
             float: left;
+            visibility: hidden;
             .active {
                 background-color: $activeBgColor;
                 color: $navClassifyColor;

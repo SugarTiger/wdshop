@@ -247,6 +247,7 @@ li {
 #header .nav .menu {
   position: relative;
   float: left;
+  visibility: hidden;
 }
 
 #header .nav .menu .active, #header .nav .menu .subnav li:hover, #header .nav .subnav .menu li:hover {

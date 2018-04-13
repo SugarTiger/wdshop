@@ -63,7 +63,7 @@
         </div>
         <div class="nav">
             <div class="containe">
-                <div class="menu" style="visibility: hidden;">
+                <div class="menu">
                     <h2 class="active">所有产品分类 <img src="images/arrows_icon.png" alt=""></h2>
                     <ul class="submenu">
                         <li>
@@ -147,16 +147,16 @@
                         <a href="index.html">首页</a>
                     </li>
                     <li>
-                        <a href="shop_list.html">厨房小电</a>
+                        <a href="shop_list.html?type=商品列表">商品列表</a>
                     </li>
                     <li>
-                        <a href="shop_list.html">炊具炖锅</a>
+                        <a href="shop_list.html?type=炊具炖锅">炊具炖锅</a>
                     </li>
                     <li>
-                        <a href="shop_list.html">养生水杯</a>
+                        <a href="shop_list.html?type=厨房小电">厨房小电</a>
                     </li>
                     <li>
-                        <a href="shop_list.html">爆款推荐</a>
+                        <a href="shop_list.html?type=爆款推荐">爆款推荐</a>
                     </li>
                 </ul>
             </div>
@@ -179,9 +179,9 @@
                     <a href="pro_details.html"><img src="images/ad_new.png" alt=""></a>
                 </li>
                 <li v-for="(pro,i) in proList">
-                    <a :href="'pro_details.html?proId='+pro.goods_id"><img src="images/pro3.png" alt=""></a>
+                    <a :href="'pro_details.html?proId='+pro.goods_id"><img :src="imgServer+pro.goods_img[0]" alt=""></a>
                     <div>
-                        <h4><a href="pro_details.html">{{pro.goods_name}}</a></h4>
+                        <h4><a :href="'pro_details.html?proId='+pro.goods_id">{{pro.goods_name}}</a></h4>
                         <p class="market_price">￥ 市场价：<span>{{pro.goods_marketPrice}}</span></p>
                         <p class="member_price">￥ 会员价：<span>{{pro.goods_price}}</span></p>
                     </div>

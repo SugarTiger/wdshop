@@ -53,7 +53,7 @@
 }
 
 #middle .containe .sideleft .hot_pro {
-  margin-top: 34px;
+  margin-top: 15px;
   width: 214px;
   border: 1px solid #D2D2D2;
 }
@@ -81,7 +81,8 @@
 
 #middle .containe .sideleft .hot_pro > ul > li a {
   display: block;
-  width: 100%;
+  width: 194px;
+  min-height: 165px;
 }
 
 #middle .containe .sideleft .hot_pro > ul > li a img {
@@ -90,6 +91,7 @@
 }
 
 #middle .containe .sideleft .hot_pro > ul > li > a:last-of-type {
+  min-height: 0;
   border-top: 1px solid #D2D2D2;
   color: #666666;
   padding: 8px 0 4px 0;
@@ -462,6 +464,7 @@
   width: 86px;
   height: 22px;
   line-height: 22px;
+  cursor: pointer;
 }
 
 #middle .containe .main .pro_list > li .handle .addshopcart {

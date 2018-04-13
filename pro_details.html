@@ -163,15 +163,15 @@
     </div>
     <div id="middle">
         <ul class="crumbs">
-            <li><a href="shop_list.html">厨房小电></a></li>
+            <!-- <li><a href="shop_list.html">厨房小电></a></li>
             <li><a href="shop_list.html">电饭锅></a></li>
-            <li><a href="com_details.html">文的CFXB40FC8040-75</a></li>
+            <li><a href="com_details.html">文的CFXB40FC8040-75</a></li> -->
         </ul>
         <div class="containe">
             <div class="section_top">
                 <div class="pro_img">
                     <div class="img_box">
-                        <img src="images/prow1.png" alt="">
+                        <img :src="imgServer+proD.goods_img[0]" alt="">
                         <div class="zoom"></div>
                     </div>
                     <div class="bigimg">
@@ -179,35 +179,29 @@
                     </div>
                     <div class="img_wrap">
                         <ul>
-                            <li class="active"><img src="images/prow1.png"></li>
-                            <li><img src="images/prow2.png"></li>
-                            <li><img src="images/prow3.png"></li>
-                            <li><img src="images/prow2.png"></li>
-                            <li><img src="images/prow3.png"></li>
-                            <li><img src="images/prow2.png"></li>
-                            <li><img src="images/prow3.png"></li>
+                            <li :class="{active:i===0}" v-for="(imgUrl,i) in proD.goods_img"><img :src="imgServer+imgUrl"></li>
                         </ul>
                         <span class="prev"></span>
                         <span class="next"></span>
                     </div>
                 </div>
                 <div class="details">
-                    <h2>文的电饭煲&nbsp;&nbsp;电饭锅&nbsp;&nbsp;4L容量全景视窗 一键柴火饭CFXB40FC8040-75</h2>
-                    <p>【文的】4L容量，7段聪明大火力，米饭Q弹饱满，远红外陶晶加厚内胆，加热均匀不粘耐用，时尚金属机身【4月13-14日钜惠日好礼送不停】点击了解>></p>
+                    <h2>文的 {{proD.goods_type}} {{proD.goods_name}}</h2>
+                    <p>美好生活，从文的开始</p>
                     <div class="price">
-                        <p><small>价格</small><span>￥399.00</span></p>
-                        <p><small>促销价</small><span><em>￥</em>299.00</span></p>
+                        <p><small>市场价</small><span>￥{{proD.goods_marketPrice}}</span></p>
+                        <p><small>促销价</small><span><em>￥</em>{{proD.goods_price}}</span></p>
                     </div>
                     <ul>
                         <!-- <li>月销量：<span>325</span></li> -->
-                        <li>累计销量：<span>25263</span></li>
-                        <li>累计评价：<span>18920</span></li>
-                        <li>文的积分：<span>20</span></li>
+                        <li>累计销量：<span>{{proD.goods_sales}}</span></li>
+                        <li>库存剩余：<span>{{proD.goods_inventory}}</span></li>
+                        <li>文的积分：<span>{{proD.goods_integral}}</span></li>
                     </ul>
                     <div class="color">
                         <h3>颜色分类</h3>
                         <ul>
-                            <li><img src="images/pro3_1_1.png" alt=""></li>
+                            <li><img :src="imgServer+proD.goods_img[0]" alt=""></li>
                         </ul>
                     </div>
                     <div class="count">
@@ -248,7 +242,7 @@
             </div>
             <div class="section_bottom">
                 <div class="sidebar">
-                    <div class="local_search">
+                    <!-- <div class="local_search">
                         <h3>店内搜索</h3>
                         <form>
                             <label for="keyword">关键字：</label>
@@ -268,7 +262,7 @@
                             <span>周六至周日 8:30-24:00</span>
                             <span>客服电话：400 880 6638</span>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="hot_ad">
                         <h3>店内热销</h3>
                         <ul>
@@ -603,8 +597,8 @@
                     </div>
                 </div>
                 <div class="pro_main">
-                    <div class="details">
-                        <h4>品牌名称：<span>Midea/美的关注</span></h4>
+                    <div class="details" v-html="proD.goods_details">
+                        <!-- <h4>品牌名称：<span>Midea/美的关注</span></h4>
                         <h5>更多参数产品参数：</h5>
                         <ul>
                             <li>证书编号：<span>2013010718641760</span></li>
@@ -647,7 +641,7 @@
                         <p>划线价格：划线的价格可能是商品中的专柜价品牌价或正品零售指导价或该商品的曾经展示过的销售价等，仅供参考您 参考。</p>
                         <p>示划线价格：未划线的价格是商品在文的上的销售标价，具体的成交价格可能因会员使用优惠券、积分等发生变化，最终以订单结算页价格为准。</p>
                     </div>
-                    <span>*此说明仅当出现价格比较时有效，若商家单独对划线价格进行说明的，以商家的表述为准。</span>
+                    <span>*此说明仅当出现价格比较时有效，若商家单独对划线价格进行说明的，以商家的表述为准。</span> -->
                 </div>
             </div>
             <div class="you_like">
@@ -743,7 +737,7 @@
     </div>
     <script src="js/jquery-1.7.1.min.js"></script>
     <script src="js/public.js"></script>
-    <script src="js/pro_details.js"></script>
+    <script src="js/pro_details.js?v=1"></script>
 </body>
 
 </html>

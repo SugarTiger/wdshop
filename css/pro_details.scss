@@ -41,6 +41,8 @@ $telFontSize:36px;
                 cursor: crosshair;
                 margin-bottom: 24px;
                 img {
+                    width: 100%;
+                    height: 100%;
                     display: block;
                 }
                 .zoom {
@@ -472,7 +474,7 @@ $telFontSize:36px;
             }
             .hot_ad {
                 width: 252px;
-                margin-top: 56px;
+                // margin-top: 56px;
                 >h3 {
                     background-color: #000;
                     height: 55px;
@@ -798,6 +800,7 @@ $telFontSize:36px;
         .pro_main {
             width: 946px;
             float: left;
+            margin-top: 26px;
             .details {
                 width: calc(100% - 40px);
                 padding: 0 0 25px 40px;

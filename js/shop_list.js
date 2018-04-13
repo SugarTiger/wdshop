@@ -101,3 +101,77 @@ function hclick(obj) {
     $(".type_list").fadeOut();
     $('.type>li').css('background-image', 'url(images/arrows_icon9.png)');
 }
+new Vue({
+    el:"#middle",
+    data:{
+        proList:[],
+        hostList:[],
+        temList:[],
+        imgServer: window.imgServer
+    },
+    mounted:function(){
+        this.getProList();
+        this.getHosProList();
+    },
+    methods:{
+        getProList:function(){
+            var that = this;
+            var query = GetRequest();
+            if(query.type === '商品列表'||query.type === '爆款推荐'||!query.type) delete query.type;
+            http.get('/public/getProList',{
+                status:1,
+                type:query.type,
+                keyWord:query.keyword
+            },function(res){
+                that.proList = res.data.list;
+                that.temList = res.data.list;
+            })
+        },
+        getHosProList:function(){
+            var that = this;
+            http.get('/public/getProList',{
+                status:1
+            },function(res){
+                that.hostList = (res.data.list.sort(function(a,b){
+                    return b.goods_sales - a.goods_sales
+                })).slice(0,4);
+            })
+        },
+        toSubOrder:function(proId){
+            if(!getToken()){
+                alert('请先登录文的商城！');
+                location.href="login.html"
+                return;
+            }
+            var orderPro = [{qty:1,proId:proId}]
+            var href="confirm_order.html?orderPro=" + JSON.stringify(orderPro)
+            location.href = href
+        },
+        addshopcart:function(proId){
+            if(!getToken()){
+                alert('请先登录文的商城！');
+                location.href="login.html"
+                return;
+            }
+            console.log(proId);
+        },
+        proSort:function(){
+            this.proList=this.temList
+            this.proList.sort(function(a,b){
+                return a.goods_id - b.goods_id
+            });
+        },
+        sortSale:function(){
+            this.proList=this.temList
+            this.proList.sort(function(a,b){
+                return b.goods_sales - a.goods_sales
+            });
+        },
+        sortpri:function(){
+            this.proList=this.temList
+            this.proList.sort(function(a,b){
+                return b.goods_price - a.goods_price
+            });
+        }
+    }
+});
