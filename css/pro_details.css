@@ -293,6 +293,7 @@
   font-size: 18px;
   background-color: #FDE1E1;
   margin-right: 11px;
+  cursor: pointer;
 }
 
 #middle .section_top .details .shopping a:first-of-type {
@@ -395,6 +396,7 @@
 
 #middle .section_bottom {
   overflow: hidden;
+  padding-bottom: 30px;
 }
 
 #middle .section_bottom .sidebar {
@@ -550,7 +552,8 @@
 
 #middle .section_bottom .sidebar .hot_ad ul li a img {
   display: block;
-  width: 100%;
+  width: 230px;
+  margin: 0 auto;
 }
 
 #middle .section_bottom .sidebar .hot_ad ul li p {

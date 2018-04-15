@@ -166,7 +166,8 @@
 #middle .hot_goods ul li img,
 #middle .re_goods ul li img,
 #middle .boom_goods ul li img {
-  width: 100%;
+  width: 291px;
+  height: 196px;
   margin: 0 auto;
   display: block;
 }

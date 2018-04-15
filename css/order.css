@@ -187,6 +187,10 @@
   text-align: center;
 }
 
+#middle .main .order_list {
+  padding-bottom: 20px;
+}
+
 #middle .main .order_list > li {
   overflow: hidden;
 }
@@ -353,6 +357,10 @@
   line-height: 19px;
 }
 
+#middle .main .order_list > li .order_main .detail > a {
+  color: #556fb5;
+}
+
 #middle .main .order_list > li .order_main .handle {
   width: 78px;
 }
@@ -385,6 +393,7 @@
 }
 
 #middle .main .shop .all_select {
+  visibility: hidden;
   border: none;
 }
 

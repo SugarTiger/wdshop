@@ -15,52 +15,78 @@
         <div class="top">
             <div class="containe">
                 <div class="left">
-                    <a href="index.html"><img src="images/home_icon.png" alt="">文的首页</a>
+                    <a href="index.html">
+                        <img src="images/home_icon.png" alt="">文的首页</a>
                     |
                     <span class="loginzt">
-                        <a href="login.html">登录</a>
+                        <a href="login.html" v-if="!isLogin">登录</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="register.html">免费注册</a>
+                        <a href="#" v-if="isLogin" @click="logout">退出登录</a>
+                        <a href="register.html" v-else>免费注册</a>
                     </span>
                 </div>
-                <ul class="shop">
-                    <li><a href="order.html">我的订单</a></li>
-                    <li><a href="user.html">我的文的</a></li>
-                    <li>|</li>
-                    <li><a href="shop_cart.html">购物车</a><sup>0</sup></li>
+                <ul class="shop" v-if="isLogin">
+                    <li>
+                        <a href="order.html">我的订单</a>
+                    </li>
+                    <li>
+                        <a href="user.html">我的文的</a>
+                    </li>
                     <li>|</li>
                     <li>
-                        <a href="javascript:void(0)"><img src="images/favorite_icon.png" alt="">收藏夹</a>
+                        <a href="shop_cart.html">购物车</a>
+                        <sup>{{cartCount}}</sup>
                     </li>
-                    <li><a href="javascript:void(0)">服务中心</a></li>
+                    <li>|</li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <img src="images/favorite_icon.png" alt="">收藏夹</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">服务中心</a>
+                    </li>
                 </ul>
             </div>
         </div>
-        <div class="tbody">
+        <div class="in_tbody">
             <div class="containe">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="images/logo02.png" alt="文的电器">
+                        <img :src="logoImg" alt="文的电器">
                     </a>
                 </div>
-                <h1>
-                    <a href="index.html"><img src="images/logo_title02.png" alt=""></a>
-                </h1>
                 <div>
-                    <form class="search">
-                        <input type="text" name="search" value="电饭煲">
-                        <button>搜索</button>
-                    </form>
+                    <h1>
+                        <a href="index.html">
+                            <img src="images/logo_title.png" alt="">
+                        </a>
+                    </h1>
+                    <div class="search">
+                        <input type="text" name="search" placeholder="请输入关键字搜索" v-model="keyWord">
+                        <button @click="searchPro">搜索</button>
+                    </div>
+                </div>
+                <div class="header_ad">
+                    <a href="shop_list.html">
+                        <img src="images/pro1.png" alt="">
+                    </a>
+                    <a href="shop_list.html">
+                        <img src="images/pro2.png" alt="">
+                    </a>
                 </div>
             </div>
         </div>
         <div class="nav">
             <div class="containe">
                 <div class="menu">
-                    <h2>所有产品分类 <img src="images/arrows_icon2.png" alt=""></h2>
+                    <h2 class="active">所有产品分类
+                        <img src="images/arrows_icon.png" alt="">
+                    </h2>
                     <ul class="submenu">
                         <li>
-                            <h3>厨房小电</h3>
+                            <h3>
+                                <a href="shop_list.html">厨房小电</a>
+                            </h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">电饭煲</a>
@@ -76,9 +102,13 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><i></i></li>
                         <li>
-                            <h3>炊具炖锅</h3>
+                            <i></i>
+                        </li>
+                        <li>
+                            <h3>
+                                <a href="shop_list.html">炊具炖锅</a>
+                            </h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">烹任锅具</a>
@@ -97,9 +127,13 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><i></i></li>
                         <li>
-                            <h3>养生水杯</h3>
+                            <i></i>
+                        </li>
+                        <li>
+                            <h3>
+                                <a href="shop_list.html">养生水杯</a>
+                            </h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">电热水壶</a>
@@ -115,9 +149,13 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><i></i></li>
                         <li>
-                            <h3>热卖产品</h3>
+                            <i></i>
+                        </li>
+                        <li>
+                            <h3>
+                                <a href="shop_list.html">热卖产品</a>
+                            </h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">电饭煲</a>
@@ -139,17 +177,17 @@
                     <li>
                         <a href="index.html">首页</a>
                     </li>
-                    <li>
-                        <a href="shop_list.html">厨房小电</a>
+                    <li :class="{active:subnavText==='商品列表'}">
+                        <a href="shop_list.html?type=商品列表">商品列表</a>
                     </li>
-                    <li>
-                        <a href="shop_list.html">炊具炖锅</a>
+                    <li :class="{active:subnavText==='炊具炖锅'}">
+                        <a href="shop_list.html?type=炊具炖锅">炊具炖锅</a>
                     </li>
-                    <li>
-                        <a href="shop_list.html">养生水杯</a>
+                    <li :class="{active:subnavText==='厨房小电'}">
+                        <a href="shop_list.html?type=厨房小电">厨房小电</a>
                     </li>
-                    <li>
-                        <a href="shop_list.html">爆款推荐</a>
+                    <li :class="{active:subnavText==='爆款推荐'}">
+                        <a href="shop_list.html?type=爆款推荐">爆款推荐</a>
                     </li>
                 </ul>
             </div>
@@ -157,48 +195,67 @@
     </div>
     <div id="middle">
         <ul class="crumbs">
-            <li><a href="index.html">首页></a></li>
-            <li><a href="user.html">我的文的></a></li>
-            <li><a href="order.html">订单中心</a></li>
+            <li>
+                <a href="index.html">首页></a>
+            </li>
+            <li>
+                <a href="user.html">我的文的></a>
+            </li>
+            <li>
+                <a href="order.html">订单中心</a>
+            </li>
         </ul>
         <div class="containe">
             <div class="sidebar">
                 <h2>会员中心</h2>
                 <ul>
                     <li>
-                        <h3><a href="user.html">账户信息</a></h3>
+                        <h3>
+                            <a href="user.html">账户信息</a>
+                        </h3>
                         <ul>
-                            <li><a href="user.html">个人资料</a></li>
-                            <li><a href="user.html">修改密码</a></li>
-                            <li><a href="address.html">管理收货地址</a></li>
-                            <li><a href="user.html">消息中心</a></li>
+                            <li>
+                                <a href="user.html">个人资料</a>
+                            </li>
+                            <li>
+                                <a href="address.html">管理收货地址</a>
+                            </li>
                         </ul>
                     </li>
                     <li>
-                        <h3 class="active"><a href="order.html">订单中心</a></h3>
-                        <ul>
-                            <li><a href="order.html">全部订单</a></li>
-                            <li><a href="order.html">已完成</a></li>
-                            <li><a href="order.html">待付款</a></li>
-                            <li><a href="order.html">待收货</a></li>
-                        </ul>
+                        <h3 class="active">
+                            <a href="order.html">订单中心</a>
+                        </h3>
                     </li>
                 </ul>
             </div>
             <div class="main">
                 <ul class="order_nav">
-                    <li class="active"><a href="order.html">全部订单</a></li>
-                    <li><a href="javascript:void(0)">待收货</a></li>
-                    <li><a href="javascript:void(0)">待付款</a></li>
-                    <li><a href="javascript:void(0)">待评价</a></li>
-                    <li><a href="javascript:void(0)">已完成</a></li>
+                    <li  :class="{active:orderStatus===''}" @click="getStatus(null)">
+                        <a href="javascript:void(0)">全部订单</a>
+                    </li>
+                    <li :class="{active:orderStatus===1}"  @click="getStatus(1)">
+                        <a href="javascript:void(0)">待付款</a>
+                    </li>
+                    <li :class="{active:orderStatus===2}"  @click="getStatus(2)">
+                        <a href="javascript:void(0)">待发货</a>
+                    </li>
+                    <li :class="{active:orderStatus===3}"  @click="getStatus(3)">
+                        <a href="javascript:void(0)">待收货</a>
+                    </li>
+                    <li :class="{active:orderStatus===4}"  @click="getStatus(4)">
+                        <a href="javascript:void(0)">待评价</a>
+                    </li>
+                    <li :class="{active:orderStatus===5}"  @click="getStatus(5)">
+                        <a href="javascript:void(0)">已完成</a>
+                    </li>
                 </ul>
                 <div class="order_search">
-                    <input type="text" value="商品名称/订单号/商品编码">
-                    <button>搜索</button>
+                    <input type="text" placeholder="商品名称/订单号/商品类型" v-model="keyWords">
+                    <button @click="search">搜索</button>
                 </div>
                 <ul class="title">
-                    <li class="all_select">
+                    <li class="all_select" style="visibility: hidden;">
                         <span class=""></span>
                         <input type="checkbox">
                         <h3>全选</h3>
@@ -206,280 +263,193 @@
                     <li>商品</li>
                     <li>商品属性</li>
                     <li>数量</li>
-                    <li>金额</li>
+                    <li>单价</li>
                     <li>交易状态</li>
                     <li>操作</li>
                 </ul>
-                <ul class="order_list">
-                    <li>
+                <ul class="order_list" v-if="orderList.length!==0">
+                    <li v-for="(order,i) in orderList">
                         <ul class="order_thead">
-                            <li class="time">2017-2-15 &nbsp;20:16 :52</li>
-                            <li class="order_num">订单号：<span>15678239523</span></li>
-                            <li class="store_name">苏珀尔旗舰店</li>
-                            <li class="call_me">联系我</li>
-                            <li class="del"><img src="images/del_icon.png" alt=""></li>
+                            <li class="time">{{order.order_create_time | formTime}}</li>
+                            <li class="order_num">订单号：
+                                <span>{{order.order_id}}</span>
+                            </li>
+                            <li class="del" @click="removeOrder(order.order_id,i)">
+                                <img src="images/del_icon.png" alt="">
+                            </li>
                         </ul>
-                        <div class="order_main">
-                            <div class="checkbox">
+                        <div class="order_main" v-for="(pro,j) in order.proList" :key="j">
+                            <div class="checkbox" style="visibility: hidden;">
                                 <span class=""></span>
                                 <input type="checkbox">
                             </div>
                             <div class="info">
-                                <a href="pro_details.html">
-                                    <img src="images/prow1.png" alt="">
+                                <a :href="'pro_details.html?proId='+pro.goods_id">
+                                    <img :src="imgServer+pro.goods_img[0]" alt="">
                                 </a>
                                 <div>
-                                    <a href="pro_details.html">苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭</a>
-                                    <p><img src="images/7_icon.png" alt="">支持7天无理由退货</p>
-                                    <p><img src="images/bao_icon.png" alt="">选廷保</p>
+                                    <a :href="'pro_details.html?proId='+pro.goods_id">{{pro.goods_type}} {{pro.goods_name}}</a>
+                                    <p>
+                                        <img src="images/7_icon.png" alt="">支持7天无理由退货</p>
+                                    <p>
+                                        <img src="images/bao_icon.png" alt="">选廷保</p>
                                 </div>
-                                <span class="color">颜色分类：<span>黑色</span></span>
+                                <span class="color">颜色：
+                                    <span>{{pro.goods_color}}</span>
+                                </span>
                             </div>
-                            <span class="count">1</span>
-                            <span class="price">￥299.00</span>
-                            <div class="detail">
-                                <span class="status">已完成</span>
-                                <a href="order_details.html" class="order_detail">订单详情</a>
-                                <a href="order_details.html" class="ad">查看物流</a>
+                            <span class="count">{{pro.goods_quantity}}</span>
+                            <span class="price">￥{{pro.goods_price}}</span>
+                            <div class="detail" v-if="j===0">
+                                <span class="status">{{order.order_status|orderStatus}}</span>
+                                <a :href="'order_details.html?orderId='+order.order_id" class="order_detail">订单详情</a>
                             </div>
-                            <div class="handle">
-                                <a href="comment.html" class="com">追加评价</a>
-                                <a href="confirm_order.html" class="buy">再次购买</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <ul class="order_thead">
-                            <li class="time">2017-2-15 &nbsp;20:16 :52</li>
-                            <li class="order_num">订单号：<span>15678239523</span></li>
-                            <li class="store_name">苏珀尔旗舰店</li>
-                            <li class="call_me">联系我</li>
-                            <li class="del"><img src="images/del_icon.png" alt=""></li>
-                        </ul>
-                        <div class="order_main">
-                            <div class="checkbox">
-                                <span class=""></span>
-                                <input type="checkbox">
-                            </div>
-                            <div class="info">
-                                <a href="pro_details.html">
-                                    <img src="images/prow1.png" alt="">
-                                </a>
-                                <div>
-                                    <a href="pro_details.html">苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭</a>
-                                    <p><img src="images/7_icon.png" alt="">支持7天无理由退货</p>
-                                    <p><img src="images/bao_icon.png" alt="">选廷保</p>
-                                </div>
-                                <span class="color">颜色分类：<span>黑色</span></span>
-                            </div>
-                            <span class="count">1</span>
-                            <span class="price">￥299.00</span>
-                            <div class="detail">
-                                <span class="status">已完成</span>
-                                <a href="order_details.html" class="order_detail">订单详情</a>
-                                <a href="order_details.html" class="ad">查看物流</a>
-                            </div>
-                            <div class="handle">
-                                <a href="comment.html" class="com">追加评价</a>
-                                <a href="confirm_order.html" class="buy">再次购买</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <ul class="order_thead">
-                            <li class="time">2017-2-15 &nbsp;20:16 :52</li>
-                            <li class="order_num">订单号：<span>15678239523</span></li>
-                            <li class="store_name">苏珀尔旗舰店</li>
-                            <li class="call_me">联系我</li>
-                            <li class="del"><img src="images/del_icon.png" alt=""></li>
-                        </ul>
-                        <div class="order_main">
-                            <div class="checkbox">
-                                <span class=""></span>
-                                <input type="checkbox">
-                            </div>
-                            <div class="info">
-                                <a href="pro_details.html">
-                                    <img src="images/prow1.png" alt="">
-                                </a>
-                                <div>
-                                    <a href="pro_details.html">苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭</a>
-                                    <p><img src="images/7_icon.png" alt="">支持7天无理由退货</p>
-                                    <p><img src="images/bao_icon.png" alt="">选廷保</p>
-                                </div>
-                                <span class="color">颜色分类：<span>黑色</span></span>
-                            </div>
-                            <span class="count">1</span>
-                            <span class="price">￥299.00</span>
-                            <div class="detail">
-                                <span class="status">已完成</span>
-                                <a href="order_details.html" class="order_detail">订单详情</a>
-                                <a href="order_details.html" class="ad">查看物流</a>
-                            </div>
-                            <div class="handle">
-                                <a href="comment.html" class="com">追加评价</a>
-                                <a href="confirm_order.html" class="buy">再次购买</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <ul class="order_thead">
-                            <li class="time">2017-2-15 &nbsp;20:16 :52</li>
-                            <li class="order_num">订单号：<span>15678239523</span></li>
-                            <li class="store_name">苏珀尔旗舰店</li>
-                            <li class="call_me">联系我</li>
-                            <li class="del"><img src="images/del_icon.png" alt=""></li>
-                        </ul>
-                        <div class="order_main">
-                            <div class="checkbox">
-                                <span class=""></span>
-                                <input type="checkbox">
-                            </div>
-                            <div class="info">
-                                <a href="pro_details.html">
-                                    <img src="images/prow1.png" alt="">
-                                </a>
-                                <div>
-                                    <a href="pro_details.html">苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭</a>
-                                    <p><img src="images/7_icon.png" alt="">支持7天无理由退货</p>
-                                    <p><img src="images/bao_icon.png" alt="">选廷保</p>
-                                </div>
-                                <span class="color">颜色分类：<span>黑色</span></span>
-                            </div>
-                            <span class="count">1</span>
-                            <span class="price">￥299.00</span>
-                            <div class="detail">
-                                <span class="status">已完成</span>
-                                <a href="order_details.html" class="order_detail">订单详情</a>
-                                <a href="order_details.html" class="ad">查看物流</a>
-                            </div>
-                            <div class="handle">
-                                <a href="comment.html" class="com">追加评价</a>
-                                <a href="confirm_order.html" class="buy">再次购买</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <ul class="order_thead">
-                            <li class="time">2017-2-15 &nbsp;20:16 :52</li>
-                            <li class="order_num">订单号：<span>15678239523</span></li>
-                            <li class="store_name">苏珀尔旗舰店</li>
-                            <li class="call_me">联系我</li>
-                            <li class="del"><img src="images/del_icon.png" alt=""></li>
-                        </ul>
-                        <div class="order_main">
-                            <div class="checkbox">
-                                <span class=""></span>
-                                <input type="checkbox">
-                            </div>
-                            <div class="info">
-                                <a href="pro_details.html">
-                                    <img src="images/prow1.png" alt="">
-                                </a>
-                                <div>
-                                    <a href="pro_details.html">苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭</a>
-                                    <p><img src="images/7_icon.png" alt="">支持7天无理由退货</p>
-                                    <p><img src="images/bao_icon.png" alt="">选廷保</p>
-                                </div>
-                                <span class="color">颜色分类：<span>黑色</span></span>
-                            </div>
-                            <span class="count">1</span>
-                            <span class="price">￥299.00</span>
-                            <div class="detail">
-                                <span class="status">已完成</span>
-                                <a href="order_details.html" class="order_detail">订单详情</a>
-                                <a href="order_details.html" class="ad">查看物流</a>
-                            </div>
-                            <div class="handle">
-                                <a href="comment.html" class="com">追加评价</a>
-                                <a href="confirm_order.html" class="buy">再次购买</a>
+                            <div class="handle" :style="{marginLeft:  (j!==0&&order.order_status===4)?'135px':'auto'}">
+                                <a :href="'pay.html?orderId='+order.order_id" class="com" v-if="j===0&&order.order_status===1">去付款</a>
+                                <a href="javascript:void(0)" v-if="j===0&&(order.order_status===1||order.order_status===2)" @click="updateOrder(order.order_id,0,i)" class="com" style="color:red">取消订单</a>
+                                <a href="javascript:void(0)" v-if="j===0&&(order.order_status===3)" @click="updateOrder(order.order_id,4,i)" class="com">确认收货</a>
+                                <a href="javascript:void(0)" class="com" v-if="j===0&&(order.order_status===0||order.order_status===5)" @click="removeOrder(order.order_id,i)" style="color:red">删除订单</a>
+                                <a :href="'comment.html?proId='+pro.goods_id" v-if="order.order_status===4" class="com">去评价</a>
                             </div>
                         </div>
                     </li>
                 </ul>
-                <ul class="shop">
-                    <li class="all_select">
-                        <span class=""></span>
-                        <input type="checkbox">
-                        <h3>全选</h3>
-                    </li>
-                    <li>全并付款</li>
-                    <li>合并代付</li>
-                    <li>合并收货</li>
-                    <li class="select_del">删除</li>
-                </ul>
-                <ul class="page">
-                    <li><a href="#">上一页</a></li>
-                    <li class="on"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">. . .</a></li>
-                    <li><a href="#">下一页</a></li>
-                </ul>
+                <h5 style="text-align: center;" v-else>暂无相关订单</h5>
             </div>
         </div>
     </div>
     <div id="footer">
         <ul class="footer_head">
             <li>
-                <a href="#"><img src="images/b_icon1.png" alt=""></a>
-                <h4><a href="#">正品保障</a></h4><br/>
-                <span><a href="#">正品保障，提供发票</a></span>
+                <a href="#">
+                    <img src="images/b_icon1.png" alt="">
+                </a>
+                <h4>
+                    <a href="#">正品保障</a>
+                </h4>
+                <br/>
+                <span>
+                    <a href="#">正品保障，提供发票</a>
+                </span>
             </li>
             <li>
-                <a href="#"><img src="images/b_icon2.png" alt=""></a>
-                <h4><a href="#">急速物流</a></h4><br/>
-                <span><a href="#">急速物流，急速送达</a></span>
+                <a href="#">
+                    <img src="images/b_icon2.png" alt="">
+                </a>
+                <h4>
+                    <a href="#">急速物流</a>
+                </h4>
+                <br/>
+                <span>
+                    <a href="#">急速物流，急速送达</a>
+                </span>
             </li>
             <li>
-                <a href="#"><img src="images/b_icon3.png" alt=""></a>
-                <h4><a href="#">无忧售后</a></h4><br/>
-                <span><a href="#">七天无理由退换货</a></span>
+                <a href="#">
+                    <img src="images/b_icon3.png" alt="">
+                </a>
+                <h4>
+                    <a href="#">无忧售后</a>
+                </h4>
+                <br/>
+                <span>
+                    <a href="#">七天无理由退换货</a>
+                </span>
             </li>
             <li>
-                <a href="#"><img src="images/b_icon4.png" alt=""></a>
-                <h4><a href="#">特色服务</a></h4><br/>
-                <span><a href="#">为您呈现不一样的服务</a></span>
+                <a href="#">
+                    <img src="images/b_icon4.png" alt="">
+                </a>
+                <h4>
+                    <a href="#">特色服务</a>
+                </h4>
+                <br/>
+                <span>
+                    <a href="#">为您呈现不一样的服务</a>
+                </span>
             </li>
             <li>
-                <a href="#"><img src="images/b_icon5.png" alt=""></a>
-                <h4><a href="#">帮助中心</a></h4><br/>
-                <span><a href="#">你的购物管家</a></span>
+                <a href="#">
+                    <img src="images/b_icon5.png" alt="">
+                </a>
+                <h4>
+                    <a href="#">帮助中心</a>
+                </h4>
+                <br/>
+                <span>
+                    <a href="#">你的购物管家</a>
+                </span>
             </li>
         </ul>
         <div class="footer_main">
             <dl>
                 <dt>购物指南</dt>
-                <dd><a href="javascript:void(0)">购物需知</a></dd>
-                <dd><a href="javascript:void(0)">交易条款</a></dd>
-                <dd><a href="javascript:void(0)">购物流程</a></dd>
+                <dd>
+                    <a href="javascript:void(0)">购物需知</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">交易条款</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">购物流程</a>
+                </dd>
             </dl>
             <dl>
                 <dt>支付方式</dt>
-                <dd><a href="javascript:void(0)">银行卡支付</a></dd>
-                <dd><a href="javascript:void(0)">支付宝支付</a></dd>
-                <dd><a href="javascript:void(0)">微信支付</a></dd>
-                <dd><a href="javascript:void(0)">快捷支付</a></dd>
+                <dd>
+                    <a href="javascript:void(0)">银行卡支付</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">支付宝支付</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">微信支付</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">快捷支付</a>
+                </dd>
             </dl>
             <dl>
                 <dt>客户服务</dt>
-                <dd><a href="javascript:void(0)">服务中心</a></dd>
-                <dd><a href="javascript:void(0)">24小时服务</a></dd>
-                <dd><a href="javascript:void(0)">联系客服</a></dd>
+                <dd>
+                    <a href="javascript:void(0)">服务中心</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">24小时服务</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">联系客服</a>
+                </dd>
             </dl>
             <dl>
                 <dt>关于我们</dt>
-                <dd><a href="javascript:void(0)">平价介绍</a></dd>
-                <dd><a href="javascript:void(0)">招商加盟</a></dd>
-                <dd><a href="javascript:void(0)">申请加入</a></dd>
-                <dd><a href="javascript:void(0)">联系我们</a></dd>
-                <dd><a href="javascript:void(0)">新闻中心</a></dd>
+                <dd>
+                    <a href="javascript:void(0)">平价介绍</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">招商加盟</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">申请加入</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">联系我们</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">新闻中心</a>
+                </dd>
             </dl>
             <dl>
                 <dt>常见问题</dt>
-                <dd><a href="javascript:void(0)">下单后可以修改订单吗？</a></dd>
-                <dd><a href="javascript:void(0)">订单如保取消</a></dd>
-                <dd><a href="javascript:void(0)">出货后几可以到货</a></dd>
+                <dd>
+                    <a href="javascript:void(0)">下单后可以修改订单吗？</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">订单如保取消</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">出货后几可以到货</a>
+                </dd>
             </dl>
             <div>
                 <span class="tel">400-876-0703</span>

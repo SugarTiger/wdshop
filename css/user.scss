@@ -102,12 +102,11 @@ $telFontSize:36px;
                 .head {
                     width: 122px;
                     float: left;
-                    >span {
+                    >img{
                         display: block;
                         width: 122px;
                         height: 122px;
                         @include border-radius(61px);
-                        background: url(../images/user_h.png) no-repeat;
                     }
                     >a {
                         display: block;
@@ -153,6 +152,7 @@ $telFontSize:36px;
             }
             .my_order {
                 margin-top: 30px;
+                padding-bottom: 20px;
                 >h2 {
                     height: 40px;
                     line-height: 40px;
@@ -162,6 +162,41 @@ $telFontSize:36px;
                     font-weight: normal;
                     font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
                     color: #000;
+                }
+                .order_thead {
+                    overflow: hidden;
+                    height: 35px;
+                    width: 100%;
+                    >li {
+                        height: 35px;
+                        line-height: 35px;
+                        float: left;
+                        color: $topAndNavColor;
+                        font-size: $navClassifyLiAndproSpanAndDlAndTimeFontSize;
+                    }
+                    .time {
+                        margin-left: 23px;
+                        width: 350px;
+                    }
+                    .order_num {
+                        width: 303px;
+                        >span {
+                            color: #000;
+                        }
+                    }
+                    .store_name {
+                        color: #000;
+                        margin-right: 130px;
+                        >span{
+                            font-weight: bolder;
+                        }
+                    }
+                    .order_status{
+                        >span{
+                            font-weight: bolder;
+                        }
+                        color: #000;
+                    }
                 }
                 .order_list {
                     display: block;
@@ -173,9 +208,10 @@ $telFontSize:36px;
                         border-top: 1px solid #BFBFBF;
                         border-bottom: 1px solid #BFBFBF;
                         font-size: $topFontSize;
-                        div:first-child {
+                        position: relative;
+                        >div.orderPro {
                             margin-left: 36px;
-                            width: 534px;
+                            width: 490px;
                             float: left;
                             >a {
                                 float: left;
@@ -190,7 +226,7 @@ $telFontSize:36px;
                             }
                             >div {
                                 float: left;
-                                width: 237px;
+                                width: 180px;
                                 margin-left: 30px;
                                 >a {
                                     line-height: 23px;
@@ -220,10 +256,9 @@ $telFontSize:36px;
                         }
                         .price,
                         .count {
-                            width: 130px;
+                            width: 170px;
                             float: left;
                             line-height: 23px;
-                            text-align: center;
                             color: $topAndNavColor;
                             a {
                                 font-size: $topFontSize;
@@ -236,13 +271,17 @@ $telFontSize:36px;
                         .handle {
                             float: left;
                             width: 87px;
-                            margin: 0 51px 0 10px;
-                            color: $topAndNavColor;
+                            margin: 0 40px 0 30px;
+                            color: #1d8298;
+                            a{
+                                color: #1d8298; 
+                                line-height: 23px;
+                            }
                             .del,
                             .to_mylove,
                             .attention {
                                 cursor: pointer;
-                                line-height: 26px;
+                                line-height: 23px;
                                 text-align: left;
                                 display: block;
                             }

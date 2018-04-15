@@ -50,7 +50,7 @@ $(function () {
         if (htmltext.indexOf('商品详情') > -1) {
             pro_main.css('display', 'block');
             com_main.css('display', 'none');
-        } else if (htmltext.indexOf('累计评价') > -1) {
+        } else if (htmltext.indexOf('累计评论') > -1) {
             pro_main.css('display', 'none');
             com_main.css('display', 'block');
         }
@@ -63,30 +63,15 @@ $(function () {
             });
         });
     })();
-    // 点击按钮添加商品数量
-    (function () {
-        $('.add').click(function () {
-            var val = parseInt($('#count').val()) + 1;
-            $('#count').attr('value', val);
-        });
-        $('.down').click(function () {
-            var val = parseInt($('#count').val()) - 1;
-            if (val < 1) {
-                val = 1;
-            }
-            $('#count').attr('value', val);
-        });
-        $('#count').on('input', function () {
-            this.value = this.value.replace(/[^0-9]/g, '');
-            if (this.value === '' || parseInt(this.value) === 0) {
-                this.value = 1;
-            }
-        });
-    })();
     // 添加收藏
     (function () {
         var love = false;
         $(".add_love").click(function () {
+            if(!getToken()){
+                alert('请先登录文的商城');
+                location.href = "login.html";
+                return;
+            }
             var img = $(this).find('img');
             if (love) {
                 img.attr('src', 'images/love_icon.png');
@@ -97,7 +82,7 @@ $(function () {
         });
     })();
     // 搜索本店
-    placeholder($('.shop_search>input'), "搜本店");
+    // placeholder($('.shop_search>input'), "搜本店");
 
     // 加入购物车，添加到本地存储
     (function () {
@@ -142,7 +127,79 @@ new Vue({
         proD: {
             goods_img: []
         },
+        commontList:[],
+        hostList:[],
+        percen:0,
         imgServer: window.imgServer
+    },
+    methods: {
+        toSubOrder: function (proId) {
+            if (!getToken()) {
+                alert('请先登录文的商城！');
+                location.href = "login.html"
+                return;
+            }
+            var orderPro = [{
+                qty: Number($("#count").val()),
+                proId: proId
+            }]
+            var href = "confirm_order.html?orderPro=" + JSON.stringify(orderPro)
+            location.href = href
+        },
+        addshopcart: function (proId) {
+            if (!getToken()) {
+                alert('请先登录文的商城！');
+                location.href = "login.html"
+                return;
+            }
+            http.post('/updateCartPro',{
+                qty:parseInt($("#count").val()),
+                proId:proId,
+                type:1
+            },function(res){
+                
+            })
+        },
+        getProCommont:function(proId){
+            var that = this;
+            http.get('/public/getProComment',{
+                proId:proId
+            },function(res){
+                var total = 0,sum=0;
+                res.data.forEach(function(item){
+                    item.comment_date = (new Date(item.comment_date)).Format("yyyy-MM-dd");
+                    sum+=item.comment_fraction
+                    total+=5;
+                });
+                that.commontList = res.data;
+                that.commonTmpList = res.data;
+                that.percen = parseInt(sum/total*100)
+            })
+        },
+        commSortData:function(){
+            var that = this;
+            that.commontList=that.commonTmpList;
+            that.commontList.sort(function(a,b){
+                return b.comment_fraction - a.comment_fraction
+            })
+        },
+        commSortTime:function(){
+            var that = this;
+            that.commontList=that.commonTmpList;
+            that.commontList.sort(function(a,b){
+                return (new Date(b.comment_date)).getTime() - (new Date(a.comment_date)).getTime()
+            })
+        },
+        getHosProList:function(){
+            var that = this;
+            http.get('/public/getProList',{
+                status:1
+            },function(res){
+                that.hostList = (res.data.list.sort(function(a,b){
+                    return b.goods_sales - a.goods_sales
+                })).slice(0,4);
+            })
+        }
     },
     mounted: function () {
         var proId = GetRequest().proId;
@@ -158,6 +215,29 @@ new Vue({
         }, function (res) {
             that.proD = res.data.items;
             that.$nextTick(function () {
+                // 点击按钮添加商品数量
+                $('.add').click(function () {
+                    var val = parseInt($('#count').val()) + 1;
+                    if (val > res.data.items.goods_inventory) {
+                        val = res.data.items.goods_inventory
+                    } //最大库存数
+                    $('#count').attr('value', val);
+                });
+                $('.down').click(function () {
+                    var val = parseInt($('#count').val()) - 1;
+                    if (val < 1) {
+                        val = 1;
+                    }
+                    $('#count').attr('value', val);
+                });
+                $('#count').on('input', function () {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                    if (this.value === '' || parseInt(this.value) === 0) {
+                        this.value = 1;
+                    } else if (this.value > res.data.items.goods_inventory) {
+                        this.value = res.data.items.goods_inventory
+                    } //最大库存数
+                });
                 zoom(2);
                 // 商品详情图片
                 function getSrc() {
@@ -212,7 +292,9 @@ new Vue({
                         pageInit--;
                     }
                 });
-            })
+            });
+            that.getProCommont(res.data.items.goods_id);
+            that.getHosProList();
         })
     }
 })

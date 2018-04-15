@@ -1,14 +1,14 @@
 $(function() {
+    var ym = getYM();
+    $('.yimg>img').attr('src',ym.url).attr('alt',ym.alt);
     // 点击验证码更换
     (function() {
         var i = 1;
         var yzmlen = yzm.length;
         $('.yicon>span').click(function() {
-            if (i > yzmlen - 1) {
-                i = 0;
-            }
-            $('.yimg').find('img').attr({ src: yzm[i].src, alt: yzm[i].alt });
-            i++;
+            var ym = getYM();
+            $('.yimg>img').attr('src',ym.url).attr('alt',ym.alt);
+            return;
         });
     })();
     placeholder($('.loginname>input'), '手机号/邮箱');
@@ -19,11 +19,6 @@ $(function() {
         var that = obj[0];
         var aw = obj.siblings('em');
         var val = obj.val();
-        // if (!(ishadval('phone', val) || ishadval('email', val))) {
-        //     aw.html('此登录名不存在').css({ "color": "#B90101", "display": "block" });
-        //     that.checks = false;
-        //     return false;
-        // }
         return true;
     });
     Check($("#pwd"), '密码', function(obj) {
@@ -34,7 +29,7 @@ $(function() {
         var aw = obj.siblings('em');
         var yyzm = $.trim($('.yimg>img').attr('alt'));
         var val = obj.val();
-        if (val.toLowerCase() !== yyzm) {
+        if (val.toLowerCase() !== yyzm.toLowerCase()) {
             aw.html('验证码输入错误').css({ "color": "#B90101", "display": "block" });
             that.checks = false;
             $('.yimg').trigger('click');
@@ -62,8 +57,18 @@ $(function() {
             $("#yicon").focus();
             return false;
         }
-        console.log(loginname,pwd)
-        location.href = "user.html";
+        // 登录
+        http.post('/login',{
+            loginName:loginname,
+            pwd:pwd
+        },function(res){
+            if(res.status===1){
+                setToken(res.data.token)
+                location.href = "user.html";
+            }else{
+                alert(res.msg)
+            }
+        })
         return false;
     });
 });

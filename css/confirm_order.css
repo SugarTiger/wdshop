@@ -133,6 +133,7 @@
   float: right;
   font-size: 14px;
   color: #010101;
+  cursor: pointer;
 }
 
 #middle .containe .main .site_info .site_list {
@@ -438,10 +439,6 @@
   margin-left: 24px;
 }
 
-#middle .containe .main .order_info .items .result > div:first-of-type > form {
-  margin-top: 25px;
-}
-
 #middle .containe .main .order_info .items .result > div:first-of-type > form > textarea {
   margin-left: 5px;
   vertical-align: top;
@@ -545,4 +542,8 @@
   text-align: center;
   font-weight: bold;
   cursor: pointer;
+}
+
+#middle .containe .main .sub:disabled {
+  opacity: 0.5;
 }

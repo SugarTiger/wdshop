@@ -181,6 +181,7 @@ $telFontSize:36px;
             }
         }
         .order_list {
+            padding-bottom: 20px;
             >li {
                 overflow: hidden;
                 .order_thead {
@@ -315,6 +316,9 @@ $telFontSize:36px;
                             text-align: center;
                             line-height: 19px;
                         }
+                        >a{
+                            color: #556fb5;
+                        }
                     }
                     .handle {
                         width: 78px;
@@ -346,6 +350,7 @@ $telFontSize:36px;
                 cursor: pointer;
             }
             .all_select {
+                visibility: hidden;
                 border: none;
                 >span {
                     margin-top: 4px;

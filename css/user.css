@@ -92,7 +92,7 @@
   float: left;
 }
 
-#middle .containe .main .user_info .head > span {
+#middle .containe .main .user_info .head > img {
   display: block;
   width: 122px;
   height: 122px;
@@ -101,7 +101,6 @@
   -ms-border-radius: 61px;
   -o-border-radius: 61px;
   border-radius: 61px;
-  background: url(../images/user_h.png) no-repeat;
 }
 
 #middle .containe .main .user_info .head > a {
@@ -152,6 +151,7 @@
 
 #middle .containe .main .my_order {
   margin-top: 30px;
+  padding-bottom: 20px;
 }
 
 #middle .containe .main .my_order > h2 {
@@ -163,6 +163,50 @@
   font-weight: normal;
   font-size: 14px;
   color: #000;
+}
+
+#middle .containe .main .my_order .order_thead {
+  overflow: hidden;
+  height: 35px;
+  width: 100%;
+}
+
+#middle .containe .main .my_order .order_thead > li {
+  height: 35px;
+  line-height: 35px;
+  float: left;
+  color: #666;
+  font-size: 14px;
+}
+
+#middle .containe .main .my_order .order_thead .time {
+  margin-left: 23px;
+  width: 350px;
+}
+
+#middle .containe .main .my_order .order_thead .order_num {
+  width: 303px;
+}
+
+#middle .containe .main .my_order .order_thead .order_num > span {
+  color: #000;
+}
+
+#middle .containe .main .my_order .order_thead .store_name {
+  color: #000;
+  margin-right: 130px;
+}
+
+#middle .containe .main .my_order .order_thead .store_name > span {
+  font-weight: bolder;
+}
+
+#middle .containe .main .my_order .order_thead .order_status {
+  color: #000;
+}
+
+#middle .containe .main .my_order .order_thead .order_status > span {
+  font-weight: bolder;
 }
 
 #middle .containe .main .my_order .order_list {
@@ -177,15 +221,16 @@
   border-top: 1px solid #BFBFBF;
   border-bottom: 1px solid #BFBFBF;
   font-size: 12px;
+  position: relative;
 }
 
-#middle .containe .main .my_order .order_list li div:first-child {
+#middle .containe .main .my_order .order_list li > div.orderPro {
   margin-left: 36px;
-  width: 534px;
+  width: 490px;
   float: left;
 }
 
-#middle .containe .main .my_order .order_list li div:first-child > a {
+#middle .containe .main .my_order .order_list li > div.orderPro > a {
   float: left;
   display: block;
   width: 112px;
@@ -193,18 +238,18 @@
   border: 1px solid #d2d2d2;
 }
 
-#middle .containe .main .my_order .order_list li div:first-child > a > img {
+#middle .containe .main .my_order .order_list li > div.orderPro > a > img {
   display: block;
   width: 100%;
 }
 
-#middle .containe .main .my_order .order_list li div:first-child > div {
+#middle .containe .main .my_order .order_list li > div.orderPro > div {
   float: left;
-  width: 237px;
+  width: 180px;
   margin-left: 30px;
 }
 
-#middle .containe .main .my_order .order_list li div:first-child > div > a {
+#middle .containe .main .my_order .order_list li > div.orderPro > div > a {
   line-height: 23px;
   display: block;
   margin-bottom: 24px;
@@ -212,22 +257,22 @@
   color: #666;
 }
 
-#middle .containe .main .my_order .order_list li div:first-child > div > p {
+#middle .containe .main .my_order .order_list li > div.orderPro > div > p {
   margin-top: 5px;
   font-size: 12px;
   color: #666;
 }
 
-#middle .containe .main .my_order .order_list li div:first-child > div > p img {
+#middle .containe .main .my_order .order_list li > div.orderPro > div > p img {
   vertical-align: middle;
   margin-right: 8px;
 }
 
-#middle .containe .main .my_order .order_list li div:first-child > div p:first-of-type {
+#middle .containe .main .my_order .order_list li > div.orderPro > div p:first-of-type {
   color: #556fb5;
 }
 
-#middle .containe .main .my_order .order_list li div:first-child .color {
+#middle .containe .main .my_order .order_list li > div.orderPro .color {
   line-height: 23px;
   color: #666;
   margin-left: 35px;
@@ -235,10 +280,9 @@
 
 #middle .containe .main .my_order .order_list li .price,
 #middle .containe .main .my_order .order_list li .count {
-  width: 130px;
+  width: 170px;
   float: left;
   line-height: 23px;
-  text-align: center;
   color: #666;
 }
 
@@ -255,15 +299,20 @@
 #middle .containe .main .my_order .order_list li .handle {
   float: left;
   width: 87px;
-  margin: 0 51px 0 10px;
-  color: #666;
+  margin: 0 40px 0 30px;
+  color: #1d8298;
+}
+
+#middle .containe .main .my_order .order_list li .handle a {
+  color: #1d8298;
+  line-height: 23px;
 }
 
 #middle .containe .main .my_order .order_list li .handle .del,
 #middle .containe .main .my_order .order_list li .handle .to_mylove,
 #middle .containe .main .my_order .order_list li .handle .attention {
   cursor: pointer;
-  line-height: 26px;
+  line-height: 23px;
   text-align: left;
   display: block;
 }

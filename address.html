@@ -15,51 +15,78 @@
         <div class="top">
             <div class="containe">
                 <div class="left">
-                    <a href="index.html"><img src="images/home_icon.png" alt="">文的首页</a> |
+                    <a href="index.html">
+                        <img src="images/home_icon.png" alt="">文的首页</a>
+                    |
                     <span class="loginzt">
-                        <a href="login.html">登录</a>
+                        <a href="login.html" v-if="!isLogin">登录</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="register.html">免费注册</a>
+                        <a href="#" v-if="isLogin" @click="logout">退出登录</a>
+                        <a href="register.html" v-else>免费注册</a>
                     </span>
                 </div>
-                <ul class="shop">
-                    <li><a href="order.html">我的订单</a></li>
-                    <li><a href="user.html">我的文的</a></li>
-                    <li>|</li>
-                    <li><a href="shop_cart.html">购物车</a><sup>0</sup></li>
+                <ul class="shop" v-if="isLogin">
+                    <li>
+                        <a href="order.html">我的订单</a>
+                    </li>
+                    <li>
+                        <a href="user.html">我的文的</a>
+                    </li>
                     <li>|</li>
                     <li>
-                        <a href="javascript:void(0)"><img src="images/favorite_icon.png" alt="">收藏夹</a>
+                        <a href="shop_cart.html">购物车</a>
+                        <sup>{{cartCount}}</sup>
                     </li>
-                    <li><a href="javascript:void(0)">服务中心</a></li>
+                    <li>|</li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <img src="images/favorite_icon.png" alt="">收藏夹</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">服务中心</a>
+                    </li>
                 </ul>
             </div>
         </div>
-        <div class="tbody">
+        <div class="in_tbody">
             <div class="containe">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="images/logo02.png" alt="文的电器">
+                        <img :src="logoImg" alt="文的电器">
                     </a>
                 </div>
-                <h1>
-                    <a href="index.html"><img src="images/logo_title02.png" alt=""></a>
-                </h1>
                 <div>
-                    <form class="search">
-                        <input type="text" name="search" value="电饭煲">
-                        <button>搜索</button>
-                    </form>
+                    <h1>
+                        <a href="index.html">
+                            <img src="images/logo_title.png" alt="">
+                        </a>
+                    </h1>
+                    <div class="search">
+                        <input type="text" name="search" placeholder="请输入关键字搜索" v-model="keyWord">
+                        <button @click="searchPro">搜索</button>
+                    </div>
+                </div>
+                <div class="header_ad">
+                    <a href="shop_list.html">
+                        <img src="images/pro1.png" alt="">
+                    </a>
+                    <a href="shop_list.html">
+                        <img src="images/pro2.png" alt="">
+                    </a>
                 </div>
             </div>
         </div>
         <div class="nav">
             <div class="containe">
                 <div class="menu">
-                    <h2>所有产品分类 <img src="images/arrows_icon2.png" alt=""></h2>
+                    <h2 class="active">所有产品分类
+                        <img src="images/arrows_icon.png" alt="">
+                    </h2>
                     <ul class="submenu">
                         <li>
-                            <h3>厨房小电</h3>
+                            <h3>
+                                <a href="shop_list.html">厨房小电</a>
+                            </h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">电饭煲</a>
@@ -75,9 +102,13 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><i></i></li>
                         <li>
-                            <h3>炊具炖锅</h3>
+                            <i></i>
+                        </li>
+                        <li>
+                            <h3>
+                                <a href="shop_list.html">炊具炖锅</a>
+                            </h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">烹任锅具</a>
@@ -96,9 +127,13 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><i></i></li>
                         <li>
-                            <h3>养生水杯</h3>
+                            <i></i>
+                        </li>
+                        <li>
+                            <h3>
+                                <a href="shop_list.html">养生水杯</a>
+                            </h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">电热水壶</a>
@@ -114,9 +149,13 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><i></i></li>
                         <li>
-                            <h3>热卖产品</h3>
+                            <i></i>
+                        </li>
+                        <li>
+                            <h3>
+                                <a href="shop_list.html">热卖产品</a>
+                            </h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">电饭煲</a>
@@ -138,17 +177,17 @@
                     <li>
                         <a href="index.html">首页</a>
                     </li>
-                    <li>
-                        <a href="shop_list.html">厨房小电</a>
+                    <li :class="{active:subnavText==='商品列表'}">
+                        <a href="shop_list.html?type=商品列表">商品列表</a>
                     </li>
-                    <li>
-                        <a href="shop_list.html">炊具炖锅</a>
+                    <li :class="{active:subnavText==='炊具炖锅'}">
+                        <a href="shop_list.html?type=炊具炖锅">炊具炖锅</a>
                     </li>
-                    <li>
-                        <a href="shop_list.html">养生水杯</a>
+                    <li :class="{active:subnavText==='厨房小电'}">
+                        <a href="shop_list.html?type=厨房小电">厨房小电</a>
                     </li>
-                    <li>
-                        <a href="shop_list.html">爆款推荐</a>
+                    <li :class="{active:subnavText==='爆款推荐'}">
+                        <a href="shop_list.html?type=爆款推荐">爆款推荐</a>
                     </li>
                 </ul>
             </div>
@@ -156,183 +195,252 @@
     </div>
     <div id="middle">
         <ul class="crumbs">
-            <li><a href="index.html">首页></a></li>
-            <li><a href="user.html">我的文的></a></li>
-            <li><a href="order.html">订单中心</a></li>
+            <li>
+                <a href="index.html">首页></a>
+            </li>
+            <li>
+                <a href="user.html">我的文的></a>
+            </li>
+            <li>
+                <a href="order.html">订单中心</a>
+            </li>
         </ul>
         <div class="containe">
             <div class="sidebar">
                 <h2>会员中心</h2>
                 <ul>
                     <li>
-                        <h3><a href="user.html">账户信息</a></h3>
+                        <h3>
+                            <a href="user.html">账户信息</a>
+                        </h3>
                         <ul>
-                            <li><a href="user.html">个人资料</a></li>
-                            <li><a href="user.html">修改密码</a></li>
-                            <li class="active"><a href="address.html">管理收货地址</a></li>
-                            <li><a href="user.html">消息中心</a></li>
+                            <li class="active">
+                                <a href="user.html">个人资料</a>
+                            </li>
+                            <li>
+                                <a href="address.html">管理收货地址</a>
+                            </li>
                         </ul>
                     </li>
                     <li>
-                        <h3><a href="order.html">订单中心</a></h3>
-                        <ul>
-                            <li><a href="order.html">全部订单</a></li>
-                            <li><a href="order.html">已完成</a></li>
-                            <li><a href="order.html">待付款</a></li>
-                            <li><a href="order.html">待收货</a></li>
-                        </ul>
+                        <h3>
+                            <a href="order.html">订单中心</a>
+                        </h3>
+
                     </li>
                 </ul>
             </div>
             <div class="main">
                 <div class="add_button">
                     <a href="#add_addr">新增收货地址</a>
-                    <span>您已创建<span>2</span>个收货地址，最多可创建20个</span>
+                    <span>您已创建
+                        <span>{{addressList.length}}</span>个收货地址</span>
                 </div>
                 <div class="add_addr" id="add_addr">
                     <h3>添加收货地址</h3>
-                    <form>
+                    <div>
                         <div>
                             <label for="addruser"> *收货人：</label>
-                            <input type="text" id="addruser" />
+                            <input type="text" id="addruser" v-model="address_receiver" />
                             <span></span>
                         </div>
                         <div>
                             <label for="area">*所在地区：</label>
-                            <input type="text" id="area" />
+                            <input type="text" id="area" v-model="address_area" />
                             <span></span>
                         </div>
                         <div>
                             <label for="addr_details">*详细地址：</label>
-                            <input type="text" id="addr_details" />
+                            <input type="text" id="addr_details" v-model="address_details" />
                             <span></span>
                         </div>
                         <div>
                             <label for="phone">*手机号码：</label>
-                            <input type="text" id="phone" />
+                            <input type="text" id="phone" v-model="address_phone" />
                             <span></span>
                         </div>
                         <div>
                             <label for="tel"> 固定电话：</label>
-                            <input type="text" id="tel" />
+                            <input type="text" id="tel" v-model="address_call_phone" />
                             <span></span>
                         </div>
                         <div>
                             <label for="email">邮箱：</label>
-                            <input type="text" id="email" />
+                            <input type="text" id="email" v-model="address_email" />
                             <span></span>
                         </div>
-                        <button type="submit">保存收货地址</button>
-                    </form>
+                        <button @click="saveAddress" :disabled="!isCanSub">保存收货地址</button>
+                    </div>
                 </div>
                 <ul class="addrs">
-                    <li class="default">
-                        <h4>罗小迪 <span>湖北</span></h4>
+                    <li :class="{default:item.address_default}" v-for="(item,i) in addressList">
+                        <h4>{{item.address_receiver}}
+                            <span>{{item.address_area}}</span>
+                        </h4>
                         <ul>
-                            <li>收货人：<span>董小迎</span></li>
-                            <li>所在地区：<span>湖北武汉市武昌区中南路街道</span></li>
-                            <li>地址：<span>虎泉街工程大学</span></li>
-                            <li>手机：<span>188****7783</span></li>
-                            <li>固定电话：<span></span></li>
-                            <li>电子邮箱：<span></span></li>
+                            <li>收货人：
+                                <span>{{item.address_receiver}}</span>
+                            </li>
+                            <li>所在地区：
+                                <span>{{item.address_area}}</span>
+                            </li>
+                            <li>地址：
+                                <span>{{item.address_details}}</span>
+                            </li>
+                            <li>手机：
+                                <span>{{item.address_phone}}</span>
+                            </li>
+                            <li>固定电话：
+                                <span>{{item.address_call_phone}}</span>
+                            </li>
+                            <li>电子邮箱：
+                                <span>{{item.address_email}}</span>
+                            </li>
                         </ul>
-                        <button><img src="images/close_icon.png" /></button>
-                        <span class="edit">编辑</span>
-                        <span class="default">设为默认</span>
-                    </li>
-                    <li>
-                        <h4>罗小迪 <span>湖北</span></h4>
-                        <ul>
-                            <li>收货人：<span>董小迎</span></li>
-                            <li>所在地区：<span>湖北武汉市武昌区中南路街道</span></li>
-                            <li>地址：<span>虎泉街工程大学</span></li>
-                            <li>手机：<span>188****7783</span></li>
-                            <li>固定电话：<span></span></li>
-                            <li>电子邮箱：<span></span></li>
-                        </ul>
-                        <button><img src="images/close_icon.png" /></button>
-                        <span class="edit">编辑</span>
-                        <span class="default">设为默认</span>
+                        <button @click="removeAddress(item.address_id,i)">
+                            <img src="images/close_icon.png" />
+                        </button>
+                        <span @click="editAddress(item.address_id,i)" class="edit">编辑</span>
+                        <span @click="setDefault(item.address_id,i)" class="default">设为默认</span>
                     </li>
                 </ul>
-
-                <div class="add_button">
-                    <a href="#add_addr">新增收货地址</a>
-                    <span>您已创建<span>2</span>个收货地址，最多可创建20个</span>
-                </div>
-
             </div>
             <ul class="page">
-                <li><a href="#">上一页</a></li>
-                <li class="on"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">. . .</a></li>
-                <li><a href="#">下一页</a></li>
             </ul>
         </div>
     </div>
     <div id="footer">
         <ul class="footer_head">
             <li>
-                <a href="#"><img src="images/b_icon1.png" alt=""></a>
-                <h4><a href="#">正品保障</a></h4><br/>
-                <span><a href="#">正品保障，提供发票</a></span>
+                <a href="#">
+                    <img src="images/b_icon1.png" alt="">
+                </a>
+                <h4>
+                    <a href="#">正品保障</a>
+                </h4>
+                <br/>
+                <span>
+                    <a href="#">正品保障，提供发票</a>
+                </span>
             </li>
             <li>
-                <a href="#"><img src="images/b_icon2.png" alt=""></a>
-                <h4><a href="#">急速物流</a></h4><br/>
-                <span><a href="#">急速物流，急速送达</a></span>
+                <a href="#">
+                    <img src="images/b_icon2.png" alt="">
+                </a>
+                <h4>
+                    <a href="#">急速物流</a>
+                </h4>
+                <br/>
+                <span>
+                    <a href="#">急速物流，急速送达</a>
+                </span>
             </li>
             <li>
-                <a href="#"><img src="images/b_icon3.png" alt=""></a>
-                <h4><a href="#">无忧售后</a></h4><br/>
-                <span><a href="#">七天无理由退换货</a></span>
+                <a href="#">
+                    <img src="images/b_icon3.png" alt="">
+                </a>
+                <h4>
+                    <a href="#">无忧售后</a>
+                </h4>
+                <br/>
+                <span>
+                    <a href="#">七天无理由退换货</a>
+                </span>
             </li>
             <li>
-                <a href="#"><img src="images/b_icon4.png" alt=""></a>
-                <h4><a href="#">特色服务</a></h4><br/>
-                <span><a href="#">为您呈现不一样的服务</a></span>
+                <a href="#">
+                    <img src="images/b_icon4.png" alt="">
+                </a>
+                <h4>
+                    <a href="#">特色服务</a>
+                </h4>
+                <br/>
+                <span>
+                    <a href="#">为您呈现不一样的服务</a>
+                </span>
             </li>
             <li>
-                <a href="#"><img src="images/b_icon5.png" alt=""></a>
-                <h4><a href="#">帮助中心</a></h4><br/>
-                <span><a href="#">你的购物管家</a></span>
+                <a href="#">
+                    <img src="images/b_icon5.png" alt="">
+                </a>
+                <h4>
+                    <a href="#">帮助中心</a>
+                </h4>
+                <br/>
+                <span>
+                    <a href="#">你的购物管家</a>
+                </span>
             </li>
         </ul>
         <div class="footer_main">
             <dl>
                 <dt>购物指南</dt>
-                <dd><a href="javascript:void(0)">购物需知</a></dd>
-                <dd><a href="javascript:void(0)">交易条款</a></dd>
-                <dd><a href="javascript:void(0)">购物流程</a></dd>
+                <dd>
+                    <a href="javascript:void(0)">购物需知</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">交易条款</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">购物流程</a>
+                </dd>
             </dl>
             <dl>
                 <dt>支付方式</dt>
-                <dd><a href="javascript:void(0)">银行卡支付</a></dd>
-                <dd><a href="javascript:void(0)">支付宝支付</a></dd>
-                <dd><a href="javascript:void(0)">微信支付</a></dd>
-                <dd><a href="javascript:void(0)">快捷支付</a></dd>
+                <dd>
+                    <a href="javascript:void(0)">银行卡支付</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">支付宝支付</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">微信支付</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">快捷支付</a>
+                </dd>
             </dl>
             <dl>
                 <dt>客户服务</dt>
-                <dd><a href="javascript:void(0)">服务中心</a></dd>
-                <dd><a href="javascript:void(0)">24小时服务</a></dd>
-                <dd><a href="javascript:void(0)">联系客服</a></dd>
+                <dd>
+                    <a href="javascript:void(0)">服务中心</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">24小时服务</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">联系客服</a>
+                </dd>
             </dl>
             <dl>
                 <dt>关于我们</dt>
-                <dd><a href="javascript:void(0)">平价介绍</a></dd>
-                <dd><a href="javascript:void(0)">招商加盟</a></dd>
-                <dd><a href="javascript:void(0)">申请加入</a></dd>
-                <dd><a href="javascript:void(0)">联系我们</a></dd>
-                <dd><a href="javascript:void(0)">新闻中心</a></dd>
+                <dd>
+                    <a href="javascript:void(0)">平价介绍</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">招商加盟</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">申请加入</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">联系我们</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">新闻中心</a>
+                </dd>
             </dl>
             <dl>
                 <dt>常见问题</dt>
-                <dd><a href="javascript:void(0)">下单后可以修改订单吗？</a></dd>
-                <dd><a href="javascript:void(0)">订单如保取消</a></dd>
-                <dd><a href="javascript:void(0)">出货后几可以到货</a></dd>
+                <dd>
+                    <a href="javascript:void(0)">下单后可以修改订单吗？</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">订单如保取消</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">出货后几可以到货</a>
+                </dd>
             </dl>
             <div>
                 <span class="tel">400-876-0703</span>

@@ -15,24 +15,36 @@
         <div class="top">
             <div class="containe">
                 <div class="left">
-                    <a href="index.html"><img src="images/home_icon.png" alt="">文的首页</a>
+                    <a href="index.html">
+                        <img src="images/home_icon.png" alt="">文的首页</a>
                     |
                     <span class="loginzt">
-                        <a href="login.html">登录</a>
+                        <a href="login.html" v-if="!isLogin">登录</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="register.html">免费注册</a>
+                        <a href="#" v-if="isLogin" @click="logout">退出登录</a>
+                        <a href="register.html" v-else>免费注册</a>
                     </span>
                 </div>
-                <ul class="shop">
-                    <li><a href="order.html">我的订单</a></li>
-                    <li><a href="user.html">我的文的</a></li>
-                    <li>|</li>
-                    <li><a href="shop_cart.html">购物车</a><sup>0</sup></li>
+                <ul class="shop" v-if="isLogin">
+                    <li>
+                        <a href="order.html">我的订单</a>
+                    </li>
+                    <li>
+                        <a href="user.html">我的文的</a>
+                    </li>
                     <li>|</li>
                     <li>
-                        <a href="javascript:void(0)"><img src="images/favorite_icon.png" alt="">收藏夹</a>
+                        <a href="shop_cart.html">购物车</a>
+                        <sup>{{cartCount}}</sup>
                     </li>
-                    <li><a href="javascript:void(0)">服务中心</a></li>
+                    <li>|</li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <img src="images/favorite_icon.png" alt="">收藏夹</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">服务中心</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -40,7 +52,7 @@
             <div class="containe">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="images/logo02.png" alt="文的电器">
+                        <img :src="logoImg" alt="文的电器">
                     </a>
                 </div>
                 <div>
@@ -49,24 +61,32 @@
                             <img src="images/logo_title.png" alt="">
                         </a>
                     </h1>
-                    <form class="search">
-                        <input type="text" name="search" value="电饭煲">
-                        <button>搜索</button>
-                    </form>
+                    <div class="search">
+                        <input type="text" name="search" placeholder="请输入关键字搜索" v-model="keyWord">
+                        <button @click="searchPro">搜索</button>
+                    </div>
                 </div>
                 <div class="header_ad">
-                    <a href="shop_list.html"><img src="images/pro1.png" alt=""></a>
-                    <a href="shop_list.html"><img src="images/pro2.png" alt=""></a>
+                    <a href="shop_list.html">
+                        <img src="images/pro1.png" alt="">
+                    </a>
+                    <a href="shop_list.html">
+                        <img src="images/pro2.png" alt="">
+                    </a>
                 </div>
             </div>
         </div>
         <div class="nav">
             <div class="containe">
                 <div class="menu">
-                    <h2>所有产品分类 <img src="images/arrows_icon2.png" alt=""></h2>
+                    <h2 class="active">所有产品分类
+                        <img src="images/arrows_icon.png" alt="">
+                    </h2>
                     <ul class="submenu">
                         <li>
-                            <h3>厨房小电</h3>
+                            <h3>
+                                <a href="shop_list.html">厨房小电</a>
+                            </h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">电饭煲</a>
@@ -82,9 +102,13 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><i></i></li>
                         <li>
-                            <h3>炊具炖锅</h3>
+                            <i></i>
+                        </li>
+                        <li>
+                            <h3>
+                                <a href="shop_list.html">炊具炖锅</a>
+                            </h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">烹任锅具</a>
@@ -103,9 +127,13 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><i></i></li>
                         <li>
-                            <h3>养生水杯</h3>
+                            <i></i>
+                        </li>
+                        <li>
+                            <h3>
+                                <a href="shop_list.html">养生水杯</a>
+                            </h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">电热水壶</a>
@@ -121,9 +149,13 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><i></i></li>
                         <li>
-                            <h3>热卖产品</h3>
+                            <i></i>
+                        </li>
+                        <li>
+                            <h3>
+                                <a href="shop_list.html">热卖产品</a>
+                            </h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">电饭煲</a>
@@ -145,17 +177,17 @@
                     <li>
                         <a href="index.html">首页</a>
                     </li>
-                    <li class="active">
-                        <a href="shop_list.html">厨房小电</a>
+                    <li :class="{active:subnavText==='商品列表'}">
+                        <a href="shop_list.html?type=商品列表">商品列表</a>
                     </li>
-                    <li>
-                        <a href="shop_list.html">炊具炖锅</a>
+                    <li :class="{active:subnavText==='炊具炖锅'}">
+                        <a href="shop_list.html?type=炊具炖锅">炊具炖锅</a>
                     </li>
-                    <li>
-                        <a href="shop_list.html">养生水杯</a>
+                    <li :class="{active:subnavText==='厨房小电'}">
+                        <a href="shop_list.html?type=厨房小电">厨房小电</a>
                     </li>
-                    <li>
-                        <a href="shop_list.html">爆款推荐</a>
+                    <li :class="{active:subnavText==='爆款推荐'}">
+                        <a href="shop_list.html?type=爆款推荐">爆款推荐</a>
                     </li>
                 </ul>
             </div>
@@ -179,7 +211,9 @@
                     </div>
                     <div class="img_wrap">
                         <ul>
-                            <li :class="{active:i===0}" v-for="(imgUrl,i) in proD.goods_img"><img :src="imgServer+imgUrl"></li>
+                            <li :class="{active:i===0}" v-for="(imgUrl,i) in proD.goods_img">
+                                <img :src="imgServer+imgUrl">
+                            </li>
                         </ul>
                         <span class="prev"></span>
                         <span class="next"></span>
@@ -189,19 +223,34 @@
                     <h2>文的 {{proD.goods_type}} {{proD.goods_name}}</h2>
                     <p>美好生活，从文的开始</p>
                     <div class="price">
-                        <p><small>市场价</small><span>￥{{proD.goods_marketPrice}}</span></p>
-                        <p><small>促销价</small><span><em>￥</em>{{proD.goods_price}}</span></p>
+                        <p>
+                            <small>市场价</small>
+                            <span>￥{{proD.goods_marketPrice}}</span>
+                        </p>
+                        <p>
+                            <small>促销价</small>
+                            <span>
+                                <em>￥</em>{{proD.goods_price}}</span>
+                        </p>
                     </div>
                     <ul>
                         <!-- <li>月销量：<span>325</span></li> -->
-                        <li>累计销量：<span>{{proD.goods_sales}}</span></li>
-                        <li>库存剩余：<span>{{proD.goods_inventory}}</span></li>
-                        <li>文的积分：<span>{{proD.goods_integral}}</span></li>
+                        <li>累计销量：
+                            <span>{{proD.goods_sales}}</span>
+                        </li>
+                        <li>库存剩余：
+                            <span>{{proD.goods_inventory}}</span>
+                        </li>
+                        <li>文的积分：
+                            <span>{{proD.goods_integral}}</span>
+                        </li>
                     </ul>
                     <div class="color">
                         <h3>颜色分类</h3>
                         <ul>
-                            <li><img :src="imgServer+proD.goods_img[0]" alt=""></li>
+                            <li>
+                                <img :src="imgServer+proD.goods_img[0]" alt="">
+                            </li>
                         </ul>
                     </div>
                     <div class="count">
@@ -213,9 +262,10 @@
                         </span>
                     </div>
                     <div class="shopping">
-                        <a href="confirm_order.html">立即购买</a>
-                        <a href="javascript:void(0)" class="shoppingcart">加入购物车</a>
-                        <a href="javascript:void(0)" class="add_love"><img src="images/love_icon.png" alt="">加入收藏</a>
+                        <a @click="toSubOrder(proD.goods_id)">立即购买</a>
+                        <a @click="addshopcart(proD.goods_id)" class="shoppingcart">加入购物车</a>
+                        <a href="javascript:void(0)" class="add_love">
+                            <img src="images/love_icon.png" alt="">加入收藏</a>
                     </div>
                     <div class="service">
                         <h3>服务承诺</h3>
@@ -232,12 +282,16 @@
             </div>
             <div class="shop_area">
                 <form class="shop_search">
-                    <input type="text" value="搜本店">
-                    <button type="submit"><img src="images/search_icon2.png"></button>
+                    <!-- <input type="text" value="搜本店">
+                    <button type="submit"><img src="images/search_icon2.png"></button> -->
                 </form>
                 <ul>
-                    <li class="active"><a href="javascript:void(0)">商品详情</a></li>
-                    <li><a href="javascript:void(0)">累计评价（17856）</a></li>
+                    <li class="active">
+                        <a href="javascript:void(0)">商品详情</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">累计评论（{{commontList.length}}）</a>
+                    </li>
                 </ul>
             </div>
             <div class="section_bottom">
@@ -264,85 +318,129 @@
                         </div>
                     </div> -->
                     <div class="hot_ad">
-                        <h3>店内热销</h3>
+                        <h3>文的热销</h3>
                         <ul>
-                            <li>
-                                <a href="pro_details.html"><img src="images/pro4.png" alt=""></a>
-                                <p><em>1</em>热销17689件<span>￥299.00</span></p>
+                            <li v-for="(pro,index) in hostList">
+                                <a :href="'pro_details.html?proId='+pro.goods_id">
+                                    <img :src="imgServer+pro.goods_img[0]" alt="">
+                                </a>
+                                <p>
+                                    <em>{{index+1}}</em>热销{{pro.goods_sales}}件
+                                    <span>￥{{pro.goods_price}}</span>
+                                </p>
+                            </li>
+                            <!-- <li>
+                                <a href="pro_details.html">
+                                    <img src="images/pro5.png" alt="">
+                                </a>
+                                <p>
+                                    <em>2</em>热销17689件
+                                    <span>￥299.00</span>
+                                </p>
                             </li>
                             <li>
-                                <a href="pro_details.html"><img src="images/pro5.png" alt=""></a>
-                                <p><em>2</em>热销17689件<span>￥299.00</span></p>
+                                <a href="pro_details.html">
+                                    <img src="images/pro8.png" alt="">
+                                </a>
+                                <p>
+                                    <em>3</em>热销17689件
+                                    <span>￥299.00</span>
+                                </p>
                             </li>
                             <li>
-                                <a href="pro_details.html"><img src="images/pro8.png" alt=""></a>
-                                <p><em>3</em>热销17689件<span>￥299.00</span></p>
-                            </li>
-                            <li>
-                                <a href="pro_details.html"><img src="images/pro8.png" alt=""></a>
-                                <p><em>4</em>热销17689件<span>￥299.00</span></p>
-                            </li>
+                                <a href="pro_details.html">
+                                    <img src="images/pro8.png" alt="">
+                                </a>
+                                <p>
+                                    <em>4</em>热销17689件
+                                    <span>￥299.00</span>
+                                </p>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
                 <div class="com_main">
                     <h3>商品评价</h3>
-                    <div class="summary">
+                    <div class="summary" v-if="commontList.length!==0">
                         <div class="grade">
                             <h5>好评度</h5>
-                            <span>97<i>%</i></span>
+                            <span>{{percen}}
+                                <i>%</i>
+                            </span>
                         </div>
                         <ul>
-                            <li><a href="javascript:void(0)">电饭煲不错(2305)</a></li>
-                            <li><a href="javascript:void(0)">外观漂亮(1525)</a></li>
-                            <li><a href="javascript:void(0)">内胆不错(1305)</a></li>
-                            <li><a href="javascript:void(0)">煮饭速度快(977)</a></li>
-                            <li><a href="javascript:void(0)">煮的饭很香(2134)</a></li>
-                            <li><a href="javascript:void(0)">一般(125)</a></li>
-                            <li><a href="javascript:void(0)">功能多(957)</a></li>
-                            <li><a href="javascript:void(0)">使用方便(1368)</a></li>
-                            <li><a href="javascript:void(0)">预约功能(778)</a></li>
-                            <li><a href="javascript:void(0)">还可以吧(362)</a></li>
+                            <li>
+                                <a href="javascript:void(0)">电饭煲不错</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">外观漂亮</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">内胆不错</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">煮饭速度快</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">煮的饭很香</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">一般</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">功能多</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">使用方便</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">预约功能</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">还可以吧</a>
+                            </li>
                         </ul>
                     </div>
-                    <ul class="sort">
-                        <li><a href="#">全部评价(1.2万+)</a></li>
+                    <ul class="sort" v-if="commontList.length!==0">
+                        <!-- <li><a href="#">全部评价(1.2万+)</a></li>
                         <li><a href="#">晒图(500)</a></li>
                         <li><a href="#">追评(30+)</a></li>
                         <li><a href="#">好评(1.1万+)</a></li>
                         <li><a href="#">中评(300+)</a></li>
-                        <li><a href="#">差评(200+)</a></li>
+                        <li><a href="#">差评(200+)</a></li> -->
                         <li>
-                            <a href="javascript:void(0)">推荐排序 <img src="images/arrows_icon3.png" alt=""></a>
+                            <a href="javascript:void(0)">推荐排序
+                                <img src="images/arrows_icon3.png" alt="">
+                            </a>
                             <ul>
-                                <li>时间排序</li>
-                                <li>内容排序</li>
+                                <li @click="commSortTime">时间排序</li>
+                                <li @click="commSortData">评分排序</li>
                             </ul>
                         </li>
                     </ul>
-                    <ul class="estimate">
-                        <li>
+                    <ul class="estimate" v-if="commontList.length!==0">
+                        <li v-for="(item ,i) in commontList">
                             <div class="user_info">
-                                <img src="images/head_icon1.png" alt="">
-                                <span>大***L</span>
-                                <p>钻石会员</p>
+                                <img :src="imgServer+item.user_headurl" alt="">
+                                <span>{{item.user_name}}</span>
+                                <!-- <p>钻石会员</p> -->
                             </div>
                             <div class="estimate_main">
                                 <div class="ori_estimate">
                                     <ul>
+                                        <li v-for="n in item.comment_fraction"></li>
+                                        <!-- <li></li>
                                         <li></li>
                                         <li></li>
-                                        <li></li>
-                                        <li></li>
-                                        <li></li>
+                                        <li></li> -->
                                     </ul>
-                                    <p>很好，美观，妈妈喜欢</p>
-                                    <span>4L全景视窗 2017-04-14 14:52</span>
-                                    <span class="good"><img src="images/good_icon.png" alt="">0</span>
-                                    <span class="msg"><img src="images/m_icon.png" alt="">0</span>
+                                    <p>{{item.comment_content}}</p>
+                                    <span>{{proD.goods_name}} {{proD.goods_color}} {{item.comment_date}}</span>
+                                    <!-- <span class="good"><img src="images/good_icon.png" alt="">0</span>
+                                    <span class="msg"><img src="images/m_icon.png" alt="">0</span> -->
                                 </div>
                             </div>
-                        </li>
+                            <!-- </li>
                         <li>
                             <div class="user_info">
                                     <img src="images/head_icon2.png" alt=""><span>在***6</span>
@@ -583,17 +681,18 @@
                                     <span class="msg"><img src="images/m_icon.png" alt="">0</span>
                                 </div>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
-                    <div class="page">
-                        <ul>
+                    <div class="page" v-else>
+                        此商品暂无评论
+                        <!-- <ul>
                             <li><a href="#">上一页</a></li>
                             <li class="on"><a href="#">1</a></li>
                             <li><a href="#">2</a></li>
                             <li><a href="#">3</a></li>
                             <li><a href="#">. . .</a></li>
                             <li><a href="#">下一页</a></li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div>
                 <div class="pro_main">
@@ -642,9 +741,9 @@
                         <p>示划线价格：未划线的价格是商品在文的上的销售标价，具体的成交价格可能因会员使用优惠券、积分等发生变化，最终以订单结算页价格为准。</p>
                     </div>
                     <span>*此说明仅当出现价格比较时有效，若商家单独对划线价格进行说明的，以商家的表述为准。</span> -->
+                    </div>
                 </div>
-            </div>
-            <div class="you_like">
+                <!-- <div class="you_like">
                 <h3>猜你喜欢</h3>
                 <ul>
                     <li>
@@ -656,88 +755,159 @@
                     <li>
                         <a href="pro_details.html"><img src="images/pro8.png" alt=""></a><span>￥299.00</span></li>
                 </ul>
+            </div> -->
             </div>
         </div>
-    </div>
-    <div id="footer">
-        <ul class="footer_head">
-            <li>
-                <a href="#"><img src="images/b_icon1.png" alt=""></a>
-                <h4><a href="#">正品保障</a></h4><br/>
-                <span><a href="#">正品保障，提供发票</a></span>
-            </li>
-            <li>
-                <a href="#"><img src="images/b_icon2.png" alt=""></a>
-                <h4><a href="#">急速物流</a></h4><br/>
-                <span><a href="#">急速物流，急速送达</a></span>
-            </li>
-            <li>
-                <a href="#"><img src="images/b_icon3.png" alt=""></a>
-                <h4><a href="#">无忧售后</a></h4><br/>
-                <span><a href="#">七天无理由退换货</a></span>
-            </li>
-            <li>
-                <a href="#"><img src="images/b_icon4.png" alt=""></a>
-                <h4><a href="#">特色服务</a></h4><br/>
-                <span><a href="#">为您呈现不一样的服务</a></span>
-            </li>
-            <li>
-                <a href="#"><img src="images/b_icon5.png" alt=""></a>
-                <h4><a href="#">帮助中心</a></h4><br/>
-                <span><a href="#">你的购物管家</a></span>
-            </li>
-        </ul>
-        <div class="footer_main">
-            <dl>
-                <dt>购物指南</dt>
-                <dd><a href="javascript:void(0)">购物需知</a></dd>
-                <dd><a href="javascript:void(0)">交易条款</a></dd>
-                <dd><a href="javascript:void(0)">购物流程</a></dd>
-            </dl>
-            <dl>
-                <dt>支付方式</dt>
-                <dd><a href="javascript:void(0)">银行卡支付</a></dd>
-                <dd><a href="javascript:void(0)">支付宝支付</a></dd>
-                <dd><a href="javascript:void(0)">微信支付</a></dd>
-                <dd><a href="javascript:void(0)">快捷支付</a></dd>
-            </dl>
-            <dl>
-                <dt>客户服务</dt>
-                <dd><a href="javascript:void(0)">服务中心</a></dd>
-                <dd><a href="javascript:void(0)">24小时服务</a></dd>
-                <dd><a href="javascript:void(0)">联系客服</a></dd>
-            </dl>
-            <dl>
-                <dt>关于我们</dt>
-                <dd><a href="javascript:void(0)">平价介绍</a></dd>
-                <dd><a href="javascript:void(0)">招商加盟</a></dd>
-                <dd><a href="javascript:void(0)">申请加入</a></dd>
-                <dd><a href="javascript:void(0)">联系我们</a></dd>
-                <dd><a href="javascript:void(0)">新闻中心</a></dd>
-            </dl>
-            <dl>
-                <dt>常见问题</dt>
-                <dd><a href="javascript:void(0)">下单后可以修改订单吗？</a></dd>
-                <dd><a href="javascript:void(0)">订单如保取消</a></dd>
-                <dd><a href="javascript:void(0)">出货后几可以到货</a></dd>
-            </dl>
-            <div>
-                <span class="tel">400-876-0703</span>
-                <small>周一到周五：9:00-18:00</small>
-                <a href="javascript:void(0)">
-                    <img src="images/msg_icon.png" alt=""> 24小时客服热线
-                </a>
+        <div id="footer">
+            <ul class="footer_head">
+                <li>
+                    <a href="#">
+                        <img src="images/b_icon1.png" alt="">
+                    </a>
+                    <h4>
+                        <a href="#">正品保障</a>
+                    </h4>
+                    <br/>
+                    <span>
+                        <a href="#">正品保障，提供发票</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/b_icon2.png" alt="">
+                    </a>
+                    <h4>
+                        <a href="#">急速物流</a>
+                    </h4>
+                    <br/>
+                    <span>
+                        <a href="#">急速物流，急速送达</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/b_icon3.png" alt="">
+                    </a>
+                    <h4>
+                        <a href="#">无忧售后</a>
+                    </h4>
+                    <br/>
+                    <span>
+                        <a href="#">七天无理由退换货</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/b_icon4.png" alt="">
+                    </a>
+                    <h4>
+                        <a href="#">特色服务</a>
+                    </h4>
+                    <br/>
+                    <span>
+                        <a href="#">为您呈现不一样的服务</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/b_icon5.png" alt="">
+                    </a>
+                    <h4>
+                        <a href="#">帮助中心</a>
+                    </h4>
+                    <br/>
+                    <span>
+                        <a href="#">你的购物管家</a>
+                    </span>
+                </li>
+            </ul>
+            <div class="footer_main">
+                <dl>
+                    <dt>购物指南</dt>
+                    <dd>
+                        <a href="javascript:void(0)">购物需知</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:void(0)">交易条款</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:void(0)">购物流程</a>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>支付方式</dt>
+                    <dd>
+                        <a href="javascript:void(0)">银行卡支付</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:void(0)">支付宝支付</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:void(0)">微信支付</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:void(0)">快捷支付</a>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>客户服务</dt>
+                    <dd>
+                        <a href="javascript:void(0)">服务中心</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:void(0)">24小时服务</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:void(0)">联系客服</a>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>关于我们</dt>
+                    <dd>
+                        <a href="javascript:void(0)">平价介绍</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:void(0)">招商加盟</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:void(0)">申请加入</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:void(0)">联系我们</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:void(0)">新闻中心</a>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>常见问题</dt>
+                    <dd>
+                        <a href="javascript:void(0)">下单后可以修改订单吗？</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:void(0)">订单如保取消</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:void(0)">出货后几可以到货</a>
+                    </dd>
+                </dl>
+                <div>
+                    <span class="tel">400-876-0703</span>
+                    <small>周一到周五：9:00-18:00</small>
+                    <a href="javascript:void(0)">
+                        <img src="images/msg_icon.png" alt=""> 24小时客服热线
+                    </a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p class="containe">
+                    京公网安备 11000002000001号京ICP证030173号违法和不良信息举报电话：010-59922822
+                </p>
             </div>
         </div>
-        <div class="copyright">
-            <p class="containe">
-                京公网安备 11000002000001号京ICP证030173号违法和不良信息举报电话：010-59922822
-            </p>
-        </div>
-    </div>
-    <script src="js/jquery-1.7.1.min.js"></script>
-    <script src="js/public.js"></script>
-    <script src="js/pro_details.js?v=1"></script>
+        <script src="js/jquery-1.7.1.min.js"></script>
+        <script src="js/public.js"></script>
+        <script src="js/pro_details.js?v=1"></script>
 </body>
 
 </html>

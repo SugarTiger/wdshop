@@ -15,24 +15,36 @@
         <div class="top">
             <div class="containe">
                 <div class="left">
-                    <a href="index.html"><img src="images/home_icon.png" alt="">文的首页</a>
+                    <a href="index.html">
+                        <img src="images/home_icon.png" alt="">文的首页</a>
                     |
                     <span class="loginzt">
-                        <a href="login.html">登录</a>
+                        <a href="login.html" v-if="!isLogin">登录</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="register.html">免费注册</a>
+                        <a href="#" v-if="isLogin" @click="logout">退出登录</a>
+                        <a href="register.html" v-else>免费注册</a>
                     </span>
                 </div>
-                <ul class="shop">
-                    <li><a href="order.html">我的订单</a></li>
-                    <li><a href="user.html">我的文的</a></li>
-                    <li>|</li>
-                    <li><a href="shop_cart.html">购物车</a><sup>0</sup></li>
+                <ul class="shop" v-if="isLogin">
+                    <li>
+                        <a href="order.html">我的订单</a>
+                    </li>
+                    <li>
+                        <a href="user.html">我的文的</a>
+                    </li>
                     <li>|</li>
                     <li>
-                        <a href="javascript:void(0)"><img src="images/favorite_icon.png" alt="">收藏夹</a>
+                        <a href="shop_cart.html">购物车</a>
+                        <sup>{{cartCount}}</sup>
                     </li>
-                    <li><a href="javascript:void(0)">服务中心</a></li>
+                    <li>|</li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <img src="images/favorite_icon.png" alt="">收藏夹</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">服务中心</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -51,7 +63,8 @@
                     <h2>欢迎登录</h2>
                 </div>
                 <p>
-                    <a href="index.html">返回首页</a> | <a href="#">帮助中心</a>
+                    <a href="index.html">返回首页</a> |
+                    <a href="#">帮助中心</a>
                 </p>
             </div>
         </div>
@@ -59,23 +72,32 @@
     <div id="middle">
         <div class="main">
             <div class="title">
-                <a href="index.html"><img src="images/small_logo.png" alt=""></a>
-                <h3><a href="index.html">进入文的商城</a></h3>
+                <a href="index.html">
+                    <img src="images/small_logo.png" alt="">
+                </a>
+                <h3>
+                    <a href="index.html">进入文的商城</a>
+                </h3>
             </div>
             <form class="login" method="post">
                 <div class="loginname">
-                    <label for="loginname"><img src="images/user_icon.png" alt=""></label>
+                    <label for="loginname">
+                        <img src="images/user_icon.png" alt="">
+                    </label>
                     <input type="text" id="loginname" name="loginname" value="手机号/邮箱">
                     <em class="aw"></em>
                 </div>
                 <div class="pwd">
-                    <label for="pwd"><img src="images/pwd_icon.png" alt=""></label>
+                    <label for="pwd">
+                        <img src="images/pwd_icon.png" alt="">
+                    </label>
                     <input type="text" id="pwd" name="pwd" value="密码">
                     <em class="aw"></em>
                 </div>
                 <div class="yicon">
                     <input type="text" name="yicon" value="验证码" id="yicon">
-                    <span class="yimg "><img src="images/yzm1.png " alt="bcsm ">
+                    <span class="yimg ">
+                        <img>
                     </span>
                     <span>看不清，换一张</span>
                     <em class="aw"></em>
@@ -86,13 +108,19 @@
             <div class="other ">
                 <ul>
                     <li>
-                        <a href="# "><img src="images/qq_icon.png "></a>
+                        <a href="# ">
+                            <img src="images/qq_icon.png ">
+                        </a>
                     </li>
                     <li>
-                        <a href="# "><img src="images/wx_icon.png "></a>
+                        <a href="# ">
+                            <img src="images/wx_icon.png ">
+                        </a>
                     </li>
                     <li>
-                        <a href="# "><img src="images/zfb_icon.png "></a>
+                        <a href="# ">
+                            <img src="images/zfb_icon.png ">
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -105,64 +133,135 @@
     <div id="footer">
         <ul class="footer_head">
             <li>
-                <a href="#"><img src="images/b_icon1.png" alt=""></a>
-                <h4><a href="#">正品保障</a></h4><br/>
-                <span><a href="#">正品保障，提供发票</a></span>
+                <a href="#">
+                    <img src="images/b_icon1.png" alt="">
+                </a>
+                <h4>
+                    <a href="#">正品保障</a>
+                </h4>
+                <br/>
+                <span>
+                    <a href="#">正品保障，提供发票</a>
+                </span>
             </li>
             <li>
-                <a href="#"><img src="images/b_icon2.png" alt=""></a>
-                <h4><a href="#">急速物流</a></h4><br/>
-                <span><a href="#">急速物流，急速送达</a></span>
+                <a href="#">
+                    <img src="images/b_icon2.png" alt="">
+                </a>
+                <h4>
+                    <a href="#">急速物流</a>
+                </h4>
+                <br/>
+                <span>
+                    <a href="#">急速物流，急速送达</a>
+                </span>
             </li>
             <li>
-                <a href="#"><img src="images/b_icon3.png" alt=""></a>
-                <h4><a href="#">无忧售后</a></h4><br/>
-                <span><a href="#">七天无理由退换货</a></span>
+                <a href="#">
+                    <img src="images/b_icon3.png" alt="">
+                </a>
+                <h4>
+                    <a href="#">无忧售后</a>
+                </h4>
+                <br/>
+                <span>
+                    <a href="#">七天无理由退换货</a>
+                </span>
             </li>
             <li>
-                <a href="#"><img src="images/b_icon4.png" alt=""></a>
-                <h4><a href="#">特色服务</a></h4><br/>
-                <span><a href="#">为您呈现不一样的服务</a></span>
+                <a href="#">
+                    <img src="images/b_icon4.png" alt="">
+                </a>
+                <h4>
+                    <a href="#">特色服务</a>
+                </h4>
+                <br/>
+                <span>
+                    <a href="#">为您呈现不一样的服务</a>
+                </span>
             </li>
             <li>
-                <a href="#"><img src="images/b_icon5.png" alt=""></a>
-                <h4><a href="#">帮助中心</a></h4><br/>
-                <span><a href="#">你的购物管家</a></span>
+                <a href="#">
+                    <img src="images/b_icon5.png" alt="">
+                </a>
+                <h4>
+                    <a href="#">帮助中心</a>
+                </h4>
+                <br/>
+                <span>
+                    <a href="#">你的购物管家</a>
+                </span>
             </li>
         </ul>
         <div class="footer_main">
             <dl>
                 <dt>购物指南</dt>
-                <dd><a href="javascript:void(0)">购物需知</a></dd>
-                <dd><a href="javascript:void(0)">交易条款</a></dd>
-                <dd><a href="javascript:void(0)">购物流程</a></dd>
+                <dd>
+                    <a href="javascript:void(0)">购物需知</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">交易条款</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">购物流程</a>
+                </dd>
             </dl>
             <dl>
                 <dt>支付方式</dt>
-                <dd><a href="javascript:void(0)">银行卡支付</a></dd>
-                <dd><a href="javascript:void(0)">支付宝支付</a></dd>
-                <dd><a href="javascript:void(0)">微信支付</a></dd>
-                <dd><a href="javascript:void(0)">快捷支付</a></dd>
+                <dd>
+                    <a href="javascript:void(0)">银行卡支付</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">支付宝支付</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">微信支付</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">快捷支付</a>
+                </dd>
             </dl>
             <dl>
                 <dt>客户服务</dt>
-                <dd><a href="javascript:void(0)">服务中心</a></dd>
-                <dd><a href="javascript:void(0)">24小时服务</a></dd>
-                <dd><a href="javascript:void(0)">联系客服</a></dd>
+                <dd>
+                    <a href="javascript:void(0)">服务中心</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">24小时服务</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">联系客服</a>
+                </dd>
             </dl>
             <dl>
                 <dt>关于我们</dt>
-                <dd><a href="javascript:void(0)">平价介绍</a></dd>
-                <dd><a href="javascript:void(0)">招商加盟</a></dd>
-                <dd><a href="javascript:void(0)">申请加入</a></dd>
-                <dd><a href="javascript:void(0)">联系我们</a></dd>
-                <dd><a href="javascript:void(0)">新闻中心</a></dd>
+                <dd>
+                    <a href="javascript:void(0)">平价介绍</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">招商加盟</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">申请加入</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">联系我们</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">新闻中心</a>
+                </dd>
             </dl>
             <dl>
                 <dt>常见问题</dt>
-                <dd><a href="javascript:void(0)">下单后可以修改订单吗？</a></dd>
-                <dd><a href="javascript:void(0)">订单如保取消</a></dd>
-                <dd><a href="javascript:void(0)">出货后几可以到货</a></dd>
+                <dd>
+                    <a href="javascript:void(0)">下单后可以修改订单吗？</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">订单如保取消</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">出货后几可以到货</a>
+                </dd>
             </dl>
             <div>
                 <span class="tel">400-876-0703</span>

@@ -56,7 +56,6 @@ new Vue({
                     proId:res.data.banner_goods_id[i]
                 })
             })
-            // that.bannerList = res.data.info_banner
             that.info_banner_time = res.data.info_banner_time * 1000;
             that.$nextTick(that.initBanner)
         });
@@ -118,7 +117,6 @@ new Vue({
             });
             // 自动轮播
             var info_banner_time = that.info_banner_time
-            console.log(info_banner_time)
             var autoMove = setInterval(moveR, info_banner_time);
             $(".banner").hover(function () {
                 clearInterval(autoMove);

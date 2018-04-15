@@ -11,150 +11,188 @@
 </head>
 
 <body>
-    <div id="header">
-        <div class="top">
-            <div class="containe">
-                <div class="left">
-                    <a href="index.html"><img src="images/home_icon.png" alt="">文的首页</a>
-                    |
-                    <span class="loginzt">
-                        <a href="login.html">登录</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="register.html">免费注册</a>
-                    </span>
+        <div id="header">
+                <div class="top">
+                    <div class="containe">
+                        <div class="left">
+                            <a href="index.html">
+                                <img src="images/home_icon.png" alt="">文的首页</a>
+                            |
+                            <span class="loginzt">
+                                <a href="login.html" v-if="!isLogin">登录</a>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="#" v-if="isLogin" @click="logout">退出登录</a>
+                                <a href="register.html" v-else>免费注册</a>
+                            </span>
+                        </div>
+                        <ul class="shop" v-if="isLogin">
+                            <li>
+                                <a href="order.html">我的订单</a>
+                            </li>
+                            <li>
+                                <a href="user.html">我的文的</a>
+                            </li>
+                            <li>|</li>
+                            <li>
+                                <a href="shop_cart.html">购物车</a>
+                                <sup>{{cartCount}}</sup>
+                            </li>
+                            <li>|</li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img src="images/favorite_icon.png" alt="">收藏夹</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">服务中心</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <ul class="shop">
-                    <li><a href="order.html">我的订单</a></li>
-                    <li><a href="user.html">我的文的</a></li>
-                    <li>|</li>
-                    <li><a href="shop_cart.html">购物车</a><sup>0</sup></li>
-                    <li>|</li>
-                    <li>
-                        <a href="javascript:void(0)"><img src="images/favorite_icon.png" alt="">收藏夹</a>
-                    </li>
-                    <li><a href="javascript:void(0)">服务中心</a></li>
-                </ul>
+                <div class="in_tbody">
+                    <div class="containe">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img :src="logoImg" alt="文的电器">
+                            </a>
+                        </div>
+                        <div>
+                            <h1>
+                                <a href="index.html">
+                                    <img src="images/logo_title.png" alt="">
+                                </a>
+                            </h1>
+                            <div class="search">
+                                <input type="text" name="search" placeholder="请输入关键字搜索" v-model="keyWord">
+                                <button @click="searchPro">搜索</button>
+                            </div>
+                        </div>
+                        <div class="header_ad">
+                            <a href="shop_list.html">
+                                <img src="images/pro1.png" alt="">
+                            </a>
+                            <a href="shop_list.html">
+                                <img src="images/pro2.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav">
+                    <div class="containe">
+                        <div class="menu">
+                            <h2 class="active">所有产品分类
+                                <img src="images/arrows_icon.png" alt="">
+                            </h2>
+                            <ul class="submenu">
+                                <li>
+                                    <h3>
+                                        <a href="shop_list.html">厨房小电</a>
+                                    </h3>
+                                    <ul>
+                                        <li>
+                                            <a href="shop_list.html">电饭煲</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">电磁炉炉</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">电压力锅</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">电火锅</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <i></i>
+                                </li>
+                                <li>
+                                    <h3>
+                                        <a href="shop_list.html">炊具炖锅</a>
+                                    </h3>
+                                    <ul>
+                                        <li>
+                                            <a href="shop_list.html">烹任锅具</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">炒锅</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">压力锅</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">蒸锅</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">炖锅</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <i></i>
+                                </li>
+                                <li>
+                                    <h3>
+                                        <a href="shop_list.html">养生水杯</a>
+                                    </h3>
+                                    <ul>
+                                        <li>
+                                            <a href="shop_list.html">电热水壶</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">养生壶</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">豆浆机</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">保温壶</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <i></i>
+                                </li>
+                                <li>
+                                    <h3>
+                                        <a href="shop_list.html">热卖产品</a>
+                                    </h3>
+                                    <ul>
+                                        <li>
+                                            <a href="shop_list.html">电饭煲</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">电压力锅</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">炖锅</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">电热水壶</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="subnav">
+                            <li>
+                                <a href="index.html">首页</a>
+                            </li>
+                            <li :class="{active:subnavText==='商品列表'}">
+                                <a href="shop_list.html?type=商品列表">商品列表</a>
+                            </li>
+                            <li :class="{active:subnavText==='炊具炖锅'}">
+                                <a href="shop_list.html?type=炊具炖锅">炊具炖锅</a>
+                            </li>
+                            <li :class="{active:subnavText==='厨房小电'}">
+                                <a href="shop_list.html?type=厨房小电">厨房小电</a>
+                            </li>
+                            <li :class="{active:subnavText==='爆款推荐'}">
+                                <a href="shop_list.html?type=爆款推荐">爆款推荐</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="tbody">
-            <div class="containe">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="images/logo02.png" alt="文的电器">
-                    </a>
-                </div>
-                <h1>
-                    <a href="index.html"><img src="images/logo_title02.png" alt=""></a>
-                </h1>
-                <div>
-                    <form class="search">
-                        <input type="text" name="search" value="电饭煲">
-                        <button>搜索</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="nav">
-            <div class="containe">
-                <div class="menu">
-                    <h2>所有产品分类 <img src="images/arrows_icon2.png" alt=""></h2>
-                    <ul class="submenu">
-                        <li>
-                            <h3>厨房小电</h3>
-                            <ul>
-                                <li>
-                                    <a href="shop_list.html">电饭煲</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">电磁炉炉</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">电压力锅</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">电火锅</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><i></i></li>
-                        <li>
-                            <h3>炊具炖锅</h3>
-                            <ul>
-                                <li>
-                                    <a href="shop_list.html">烹任锅具</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">炒锅</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">压力锅</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">蒸锅</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">炖锅</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><i></i></li>
-                        <li>
-                            <h3>养生水杯</h3>
-                            <ul>
-                                <li>
-                                    <a href="shop_list.html">电热水壶</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">养生壶</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">豆浆机</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">保温壶</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><i></i></li>
-                        <li>
-                            <h3>热卖产品</h3>
-                            <ul>
-                                <li>
-                                    <a href="shop_list.html">电饭煲</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">电压力锅</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">炖锅</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">电热水壶</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <ul class="subnav">
-                    <li>
-                        <a href="index.html">首页</a>
-                    </li>
-                    <li>
-                        <a href="shop_list.html">厨房小电</a>
-                    </li>
-                    <li>
-                        <a href="shop_list.html">炊具炖锅</a>
-                    </li>
-                    <li>
-                        <a href="shop_list.html">养生水杯</a>
-                    </li>
-                    <li>
-                        <a href="shop_list.html">爆款推荐</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
     <div id="middle">
         <ul class="crumbs">
             <li><a href="index.html">首页></a></li>
@@ -165,26 +203,23 @@
             <div class="order_info">
                 <div class="thead">
                     <div class="note">
-                        <h3>订单提交成功，请尽快付款！订单号：<span>53225564719</span></h3>
-                        <p>请您在24小时内完成支付， 否则订单会被自动取消(库存紧俏商品支付时限以订单详情页为准)。</p>
+                        <h3>订单提交成功，请尽快付款！订单号：<span>{{orderId}}</span></h3>
+                        <!-- <p>请您在24小时内完成支付， 否则订单会被自动取消(库存紧俏商品支付时限以订单详情页为准)。</p> -->
                     </div>
                     <div class="msg">
-                        <span class="money">应付金额：<em>1196.00</em> 元</span>
+                        <span class="money">应付金额：<em>{{orderInfo.order_total_price}}</em> 元</span>
                         <span>收起详情</span>
                     </div>
                 </div>
                 <ul class="details">
                     <li>
-                        <h4>收货地址：</h4><span>湖北武汉市武昌区中南路街道虎泉街工程大学</span></li>
+                        <h4>收货地址：</h4><span>{{orderInfo.address}}</span></li>
                     <li>
-                        <h4>收货人：</h4><span>董小迎 188****7783</span></li>
+                        <h4>收货人：</h4><span>{{orderInfo.receiver}} {{orderInfo.phone}}</span></li>
                     <li class="pro_info">
                         <h4>商品名称：</h4>
                         <ul>
-                            <li>苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭 黑色</li>
-                            <li>苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭 黑色</li>
-                            <li>苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭 黑色</li>
-                            <li>苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭 褐色</li>
+                            <li v-for="(pro,i) in orderInfo.proList">{{pro.goods_name}} {{pro.goods_capacity}} {{pro.goods_color}}</li>
                         </ul>
                     </li>
                 </ul>
@@ -241,7 +276,7 @@
                     </li> -->
                 </ul>
                 <!-- <a class="add_card" href="javascript:void(0)">添加新卡/网银支付</a> -->
-                <form class="paying" method="POST">
+                <form class="paying" v-on:submit.prevent="paying">
                     <label for="pay_pwd">请输入6位数字支付密码</label>
                     <div>
                         <div class="pwd">
@@ -252,9 +287,9 @@
                             <input type="password" maxlength="1" readonly>
                             <input type="password" maxlength="1" readonly>
                         </div>
-                        <a href="javascript:void(0)">忘记支付密码？</a>
+                        <!-- <a href="javascript:void(0)">忘记支付密码？</a> -->
                     </div>
-                    <input type="submit" value="立即支付">
+                    <input type="submit" value="立即支付" >
                 </form>
             </div>
             <div class="pay_style">
@@ -346,6 +381,7 @@
     </div>
     <script src="js/jquery-1.7.1.min.js"></script>
     <script src="js/public.js"></script>
+    <script src="js/md5.min.js"></script>
     <script src="js/pay.js"></script>
 </body>
 

@@ -1,14 +1,13 @@
 $(function() {
+    var ym = getYM();
+    $('.yimg>img').attr('src',ym.url).attr('alt',ym.alt);
     // 点击验证码更换
     (function() {
         var i = 1;
         var yzmlen = yzm.length;
         $('.yicon>span').click(function() {
-            if (i > yzmlen - 1) {
-                i = 0;
-            }
-            $('.yimg').find('img').attr({ src: yzm[i].src, alt: yzm[i].alt });
-            i++;
+            var ym = getYM();
+            $('.yimg>img').attr('src',ym.url).attr('alt',ym.alt);
         });
     })();
     placeholder($('.yicon>input'), '验证码');
@@ -25,11 +24,11 @@ $(function() {
         var that = obj[0];
         var aw = obj.siblings('em');
         var val = obj.val();
-        if (ishadval('username', val)) {
-            aw.html('此会员名已存在').css({ "color": "#B90101", "display": "block" });
-            that.checks = false;
-            return false;
-        }
+        // if (ishadval('username', val)) {
+        //     aw.html('此会员名已存在').css({ "color": "#B90101", "display": "block" });
+        //     that.checks = false;
+        //     return false;
+        // }
         return true;
     });
     // 手机
@@ -42,11 +41,11 @@ $(function() {
             that.checks = false;
             return false;
         }
-        if (ishadval('phone', val)) {
-            aw.html('此手机号已存在').css({ "color": "#B90101", "display": "block" });
-            that.checks = false;
-            return false;
-        }
+        // if (ishadval('phone', val)) {
+        //     aw.html('此手机号已存在').css({ "color": "#B90101", "display": "block" });
+        //     that.checks = false;
+        //     return false;
+        // }
         return true;
     });
     // 邮箱
@@ -59,11 +58,11 @@ $(function() {
             that.checks = false;
             return false;
         }
-        if (ishadval('email', val)) {
-            aw.html('此邮箱号已存在').css({ "color": "#B90101", "display": "block" });
-            that.checks = false;
-            return false;
-        }
+        // if (ishadval('email', val)) {
+        //     aw.html('此邮箱号已存在').css({ "color": "#B90101", "display": "block" });
+        //     that.checks = false;
+        //     return false;
+        // }
         return true;
     });
     // 密码
@@ -94,13 +93,41 @@ $(function() {
         }
         return true;
     });
+    // 支付密码
+    Check($("#paywd"), '支付密码', function(obj) {
+        var that = obj[0];
+        var aw = obj.siblings('em');
+        var val = obj.val();
+        if (val.length !== 6) {
+            aw.html('支付密码必须为6位').css({ "color": "#B90101", "display": "block" });
+            that.checks = false;
+            return false;
+        }else if(!Number(val)){
+            aw.html('支付密码必须数字').css({ "color": "#B90101", "display": "block" });
+            that.checks = false;
+            return false;
+        }
+        return true;
+    });
+    // 在此输入支付密码
+    Check($("#repaywd"), '支付密码', function(obj) {
+        var that = obj[0];
+        var aw = obj.siblings('em');
+        var val = obj.val();
+        if (val !== $("#paywd").val()) {
+            aw.html('两次输入的支付密码不相同').css({ "color": "#B90101", "display": "block" });
+            that.checks = false;
+            return false;
+        }
+        return true;
+    });
     // 验证码
     Check($("#yicon"), '验证码', function(obj) {
         var that = obj[0];
         var aw = obj.siblings('em');
         var yyzm = $('.yimg>img').attr('alt');
         var val = obj.val();
-        if (val.toLowerCase() !== yyzm) {
+        if (val.toLowerCase() !== yyzm.toLowerCase()) {
             aw.html('验证码输入错误').css({ "color": "#B90101", "display": "block" });
             that.checks = false;
             $('.yimg').trigger('click');
@@ -109,7 +136,7 @@ $(function() {
         return true;
     });
     // 提交
-    $('.register').submit(function() {
+    $('#register').click(function() {
         // 会员名
         if (!$("#username")[0].checks) {
             $("#username").focus();
@@ -135,6 +162,16 @@ $(function() {
             $("#repwd").focus();
             return false;
         }
+        // 支付密码
+        if (!$("#paywd")[0].checks) {
+            $("#paywd").focus();
+            return false;
+        }
+        // 确认支付密码
+        if (!$("#repaywd")[0].checks) {
+            $("#repaywd").focus();
+            return false;
+        }
         // 验证码
         if (!$("#yicon")[0].checks) {
             $("#yicon").focus();
@@ -145,15 +182,22 @@ $(function() {
             alert('请阅读并同意《用户协议》！');
             return false;
         }
-        // 保存在本地存储
-        var obj = {
-            username: $('#username').val(),
-            phone: $('#phone').val(),
-            email: $('#email').val(),
-            pwd: md5($('#pwd').val()),
-        }
-        localStorage.setItem("wduserinfo", localStorage.getItem("wduserinfo") ? localStorage.getItem("wduserinfo") + "&" + JSON.stringify(obj) : JSON.stringify(obj));
-        location.href = "login.html";
+        // post到后台
+        http.post('/userReg',{
+            phone:$('#phone').val(),
+            userName:$('#username').val(),
+            email:$('#email').val(),
+            pwd:md5($('#pwd').val()),
+            payPwd:md5($('#paywd').val())
+        },function(res){
+            if(res.status!==1){
+                alert(res.msg);
+                return;
+            }
+            alert('注册成功,正在登录。。。');
+            setToken(res.data.token)
+            location.href = 'user.html';
+        });
         return false;
     });
 });

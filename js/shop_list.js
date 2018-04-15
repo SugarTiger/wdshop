@@ -154,6 +154,13 @@ new Vue({
                 return;
             }
             console.log(proId);
+            http.post('/updateCartPro',{
+                qty:1,
+                proId:proId,
+                type:1
+            },function(res){
+                
+            })
         },
         proSort:function(){
             this.proList=this.temList

@@ -275,6 +275,7 @@ $telFontSize:36px;
                     font-size: $navClassifyH3FontSize;
                     background-color: #FDE1E1;
                     margin-right: 11px;
+                    cursor: pointer;
                 }
                 a:first-of-type {
                     background-color: $activeBgColor;
@@ -369,6 +370,7 @@ $telFontSize:36px;
     }
     .section_bottom {
         overflow: hidden;
+        padding-bottom: 30px;
         .sidebar {
             background-color: #F7F6F6;
             width: 252px;
@@ -496,7 +498,8 @@ $telFontSize:36px;
                             width: 100%;
                             img {
                                 display: block;
-                                width: 100%;
+                                width: 230px;
+                                margin: 0 auto;
                             }
                         }
                         p {

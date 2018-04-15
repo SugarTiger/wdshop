@@ -37,7 +37,7 @@
   line-height: 38px;
   font-size: 14px;
   color: #B90101;
-  width: 73px;
+  width: 105px;
   margin-right: 10px;
 }
 
@@ -79,7 +79,8 @@
 }
 
 #middle .main .register .yicon > span:first-of-type img {
-  width: 100%;
+  width: 87px;
+  height: 38px;
 }
 
 #middle .main .register .yicon > span:last-of-type {
@@ -133,7 +134,7 @@
 #middle .main .register > input {
   width: 391px;
   height: 54px;
-  margin: 0 0 45px 27.5px;
+  margin: 0 0 45px 52.5px;
   color: #fff;
   font-size: 20px;
   background-color: #B90101;

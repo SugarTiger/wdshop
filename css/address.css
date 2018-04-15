@@ -116,12 +116,12 @@
   margin-left: 24px;
 }
 
-#middle .main #add_addr > form > div {
+#middle .main #add_addr > div > div {
   margin-top: 10px;
   overflow: hidden;
 }
 
-#middle .main #add_addr > form > div label {
+#middle .main #add_addr > div > div label {
   font-size: 14px;
   color: #666;
   line-height: 27px;
@@ -131,7 +131,7 @@
   width: 80px;
 }
 
-#middle .main #add_addr > form > div input {
+#middle .main #add_addr > div > div input {
   height: 25px;
   border: 1px solid #b5b5b5;
   color: #666;
@@ -140,34 +140,34 @@
   float: left;
 }
 
-#middle .main #add_addr > form > div > span {
+#middle .main #add_addr > div > div > span {
   color: #B90101;
   font-size: 14px;
   margin-left: 10px;
 }
 
-#middle .main #add_addr > form > div #addruser {
+#middle .main #add_addr > div > div #addruser {
   width: 157px;
 }
 
-#middle .main #add_addr > form > div #area {
+#middle .main #add_addr > div > div #area {
   width: 190px;
 }
 
-#middle .main #add_addr > form > div #addr_details {
+#middle .main #add_addr > div > div #addr_details {
   width: 392px;
 }
 
-#middle .main #add_addr > form > div #phone,
-#middle .main #add_addr > form > div #tel {
+#middle .main #add_addr > div > div #phone,
+#middle .main #add_addr > div > div #tel {
   width: 182px;
 }
 
-#middle .main #add_addr > form > div #email {
+#middle .main #add_addr > div > div #email {
   width: 295px;
 }
 
-#middle .main #add_addr > form > button {
+#middle .main #add_addr > div > button {
   font-size: 14px;
   color: #fff;
   height: 27px;
@@ -177,6 +177,14 @@
   background-color: #B90101;
   margin: 24px 0 0 21px;
   cursor: pointer;
+}
+
+#middle .main #add_addr > div > button:disabled {
+  opacity: 0.5;
+}
+
+#middle .main .addrs {
+  padding-bottom: 20px;
 }
 
 #middle .main .addrs > li {

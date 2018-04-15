@@ -11,150 +11,188 @@
 </head>
 
 <body>
-    <div id="header">
-        <div class="top">
-            <div class="containe">
-                <div class="left">
-                    <a href="index.html"><img src="images/home_icon.png" alt="">文的首页</a>
-                    |
-                    <span class="loginzt">
-                        <a href="login.html">登录</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="register.html">免费注册</a>
-                    </span>
+        <div id="header">
+                <div class="top">
+                    <div class="containe">
+                        <div class="left">
+                            <a href="index.html">
+                                <img src="images/home_icon.png" alt="">文的首页</a>
+                            |
+                            <span class="loginzt">
+                                <a href="login.html" v-if="!isLogin">登录</a>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="#" v-if="isLogin" @click="logout">退出登录</a>
+                                <a href="register.html" v-else>免费注册</a>
+                            </span>
+                        </div>
+                        <ul class="shop" v-if="isLogin">
+                            <li>
+                                <a href="order.html">我的订单</a>
+                            </li>
+                            <li>
+                                <a href="user.html">我的文的</a>
+                            </li>
+                            <li>|</li>
+                            <li>
+                                <a href="shop_cart.html">购物车</a>
+                                <sup>{{cartCount}}</sup>
+                            </li>
+                            <li>|</li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img src="images/favorite_icon.png" alt="">收藏夹</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">服务中心</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <ul class="shop">
-                    <li><a href="order.html">我的订单</a></li>
-                    <li><a href="user.html">我的文的</a></li>
-                    <li>|</li>
-                    <li><a href="shop_cart.html">购物车</a><sup>0</sup></li>
-                    <li>|</li>
-                    <li>
-                        <a href="javascript:void(0)"><img src="images/favorite_icon.png" alt="">收藏夹</a>
-                    </li>
-                    <li><a href="javascript:void(0)">服务中心</a></li>
-                </ul>
+                <div class="in_tbody">
+                    <div class="containe">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img :src="logoImg" alt="文的电器">
+                            </a>
+                        </div>
+                        <div>
+                            <h1>
+                                <a href="index.html">
+                                    <img src="images/logo_title.png" alt="">
+                                </a>
+                            </h1>
+                            <div class="search">
+                                <input type="text" name="search" placeholder="请输入关键字搜索" v-model="keyWord">
+                                <button @click="searchPro">搜索</button>
+                            </div>
+                        </div>
+                        <div class="header_ad">
+                            <a href="shop_list.html">
+                                <img src="images/pro1.png" alt="">
+                            </a>
+                            <a href="shop_list.html">
+                                <img src="images/pro2.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav">
+                    <div class="containe">
+                        <div class="menu">
+                            <h2 class="active">所有产品分类
+                                <img src="images/arrows_icon.png" alt="">
+                            </h2>
+                            <ul class="submenu">
+                                <li>
+                                    <h3>
+                                        <a href="shop_list.html">厨房小电</a>
+                                    </h3>
+                                    <ul>
+                                        <li>
+                                            <a href="shop_list.html">电饭煲</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">电磁炉炉</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">电压力锅</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">电火锅</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <i></i>
+                                </li>
+                                <li>
+                                    <h3>
+                                        <a href="shop_list.html">炊具炖锅</a>
+                                    </h3>
+                                    <ul>
+                                        <li>
+                                            <a href="shop_list.html">烹任锅具</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">炒锅</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">压力锅</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">蒸锅</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">炖锅</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <i></i>
+                                </li>
+                                <li>
+                                    <h3>
+                                        <a href="shop_list.html">养生水杯</a>
+                                    </h3>
+                                    <ul>
+                                        <li>
+                                            <a href="shop_list.html">电热水壶</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">养生壶</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">豆浆机</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">保温壶</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <i></i>
+                                </li>
+                                <li>
+                                    <h3>
+                                        <a href="shop_list.html">热卖产品</a>
+                                    </h3>
+                                    <ul>
+                                        <li>
+                                            <a href="shop_list.html">电饭煲</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">电压力锅</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">炖锅</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop_list.html">电热水壶</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="subnav">
+                            <li>
+                                <a href="index.html">首页</a>
+                            </li>
+                            <li :class="{active:subnavText==='商品列表'}">
+                                <a href="shop_list.html?type=商品列表">商品列表</a>
+                            </li>
+                            <li :class="{active:subnavText==='炊具炖锅'}">
+                                <a href="shop_list.html?type=炊具炖锅">炊具炖锅</a>
+                            </li>
+                            <li :class="{active:subnavText==='厨房小电'}">
+                                <a href="shop_list.html?type=厨房小电">厨房小电</a>
+                            </li>
+                            <li :class="{active:subnavText==='爆款推荐'}">
+                                <a href="shop_list.html?type=爆款推荐">爆款推荐</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="tbody">
-            <div class="containe">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="images/logo02.png" alt="文的电器">
-                    </a>
-                </div>
-                <h1>
-                    <a href="index.html"><img src="images/logo_title02.png" alt=""></a>
-                </h1>
-                <div>
-                    <form class="search">
-                        <input type="text" name="search" value="电饭煲">
-                        <button>搜索</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="nav">
-            <div class="containe">
-                <div class="menu">
-                    <h2>所有产品分类 <img src="images/arrows_icon2.png" alt=""></h2>
-                    <ul class="submenu">
-                        <li>
-                            <h3>厨房小电</h3>
-                            <ul>
-                                <li>
-                                    <a href="shop_list.html">电饭煲</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">电磁炉炉</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">电压力锅</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">电火锅</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><i></i></li>
-                        <li>
-                            <h3>炊具炖锅</h3>
-                            <ul>
-                                <li>
-                                    <a href="shop_list.html">烹任锅具</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">炒锅</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">压力锅</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">蒸锅</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">炖锅</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><i></i></li>
-                        <li>
-                            <h3>养生水杯</h3>
-                            <ul>
-                                <li>
-                                    <a href="shop_list.html">电热水壶</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">养生壶</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">豆浆机</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">保温壶</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><i></i></li>
-                        <li>
-                            <h3>热卖产品</h3>
-                            <ul>
-                                <li>
-                                    <a href="shop_list.html">电饭煲</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">电压力锅</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">炖锅</a>
-                                </li>
-                                <li>
-                                    <a href="shop_list.html">电热水壶</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <ul class="subnav">
-                    <li>
-                        <a href="index.html">首页</a>
-                    </li>
-                    <li>
-                        <a href="shop_list.html">厨房小电</a>
-                    </li>
-                    <li>
-                        <a href="shop_list.html">炊具炖锅</a>
-                    </li>
-                    <li>
-                        <a href="shop_list.html">养生水杯</a>
-                    </li>
-                    <li>
-                        <a href="shop_list.html">爆款推荐</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
     <div id="middle">
         <ul class="crumbs">
             <li><a href="index.html">首页></a></li>
@@ -189,43 +227,21 @@
                 <div class="site_info">
                     <div>
                         <h3>收货人信息</h3>
-                        <a href="address.html" class="add_site">新增收货地址</a>
+                        <a class="add_site" @click="toAddAddress">新增收货地址</a>
                     </div>
-                    <ul class="site_list">
-                        <li class="active">
-                            <span class="simple">罗小迪 湖北</span>
-                            <span class="name">罗小迪</span>
-                            <span class="site">湖北省武汉市洪山区关山鲁磨路联峰广场1201多迪</span>
-                            <span class="tel">188*****783</span>
-                            <span class="edit"><a href="address.html">编辑</a></span>
-                            <span class="default">设为默认地址</span>
-                        </li>
-                        <li>
-                            <span class="simple">李思哲 湖北</span>
-                            <span class="name">李思哲</span>
-                            <span class="site">湖北省武汉市洪山区关山鲁磨路联峰广场1202多迪</span>
-                            <span class="tel">133*****773</span>
-                            <span class="edit"><a href="address.html">编辑</a></span>
-                            <span class="default">设为默认地址</span>
-                        </li>
-                        <li>
-                            <span class="simple">罗大迪 湖北</span>
-                            <span class="name">罗大迪</span>
-                            <span class="site">湖北省武汉市洪山区关山鲁磨路联峰广场1203多迪</span>
-                            <span class="tel">188*****783</span>
-                            <span class="edit"><a href="address.html">编辑</a></span>
-                            <span class="default">设为默认地址</span>
-                        </li>
-                        <li>
-                            <span class="simple">张三李 湖北</span>
-                            <span class="name">张三李</span>
-                            <span class="site">湖北省武汉市洪山区关山鲁磨路联峰广场1204多迪</span>
-                            <span class="tel">134*****853</span>
-                            <span class="edit"><a href="address.html">编辑</a></span>
-                            <span class="default">设为默认地址</span>
+                    <ul class="site_list" v-if="addressList.length!==0" v-show="isShowAddress">
+                        <li :class="{active:selectAddressId===item.address_id}" v-for="(item ,i ) in addressList" :key="i" @click="selectTheAddress(item.address_id,i)">
+                            <span class="simple">{{item.address_receiver}} {{item.address_area}}</span>
+                            <span class="name">{{item.address_receiver}}</span>
+                            <span class="site">{{item.address_area}}{{item.address_details}}</span>
+                            <span class="tel">{{item.address_phone}}</span>
+                            <span class="edit"><a @click="toAddress(item.address_id)" :href="'address.html?addressIndex='+i">编辑</a></span>
+                            <span class="default" @click="setDrfaultAddress(item.address_id,i)" v-if="!item.address_default">设为默认地址</span>
+                            <span class="default" style="color:red" v-else>默认地址</span>
                         </li>
                     </ul>
-                    <span class="up_site">收起地址</span>
+                    <h5 style="text-align:center;" v-else>您还没添加收货地址，点击右上角 “新增收货地址” 吧</h5>
+                    <span class="up_site" @click="isShowAddress=!isShowAddress">{{isShowAddress?'收起':'展开'}}地址</span>
                     <i></i>
                 </div>
                 <div class="order_info">
@@ -239,140 +255,56 @@
                         <li>小计</li>
                     </ul>
                     <div class="items">
-                        <h3>苏珀尔旗舰店</h3>
+                        <!-- <h3>苏珀尔旗舰店</h3> -->
                         <ul class="item">
-                            <li>
-                                <input type="hidden" value="">
+                            <li v-for="(item,i) in proList" :key="i">
                                 <div class="info ">
-                                    <a href="pro_details.html ">
-                                        <img src="images/prow1.png" alt=" ">
+                                    <a :href="'pro_details.html?proId='+item.goods_id">
+                                        <img :src="imgServer+item.goods_img[0]" alt=" ">
                                     </a>
                                     <div>
-                                        <a href="pro_details.html ">苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭</a>
+                                        <a :href="'pro_details.html?proId='+item.goods_id">{{item.goods_name}}</a>
                                         <p><img src="images/7_icon.png " alt=" ">支持7天无理由退货</p>
                                         <p><img src="images/bao_icon.png " alt=" ">选廷保</p>
                                     </div>
                                 </div>
-                                <span class="color ">颜色分类：<span>黑色</span></span>
-                                <span class="price ">￥299.00</span>
-                                <span class="count ">1</span>
-                                <span class="tips">省700，全国联保</span>
+                                <span class="color ">颜色分类：<span>{{item.goods_color}}</span></span>
+                                <span class="price ">￥{{item.goods_price}}</span>
+                                <span class="count ">{{orderProList[i].qty}}</span>
+                                <span class="tips">全国联保</span>
                                 <div class="subtotal ">
-                                    <em>￥299.00</em>
-                                    <span>5.3kg</span>
-                                </div>
-                            </li>
-                            <li>
-                                <input type="hidden" value="">
-                                <div class="info ">
-                                    <a href="pro_details.html ">
-                                        <img src="images/prow1.png" alt=" ">
-                                    </a>
-                                    <div>
-                                        <a href="pro_details.html ">苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭</a>
-                                        <p><img src="images/7_icon.png " alt=" ">支持7天无理由退货</p>
-                                        <p><img src="images/bao_icon.png " alt=" ">选廷保</p>
-                                    </div>
-                                </div>
-                                <span class="color ">颜色分类：<span>黑色</span></span>
-                                <span class="price ">￥299.00</span>
-                                <span class="count ">1</span>
-                                <span class="tips">省700，全国联保</span>
-                                <div class="subtotal ">
-                                    <em>￥299.00</em>
-                                    <span>5.3kg</span>
-                                </div>
-                            </li>
-                            <li>
-                                <input type="hidden" value="">
-                                <div class="info ">
-                                    <a href="pro_details.html ">
-                                        <img src="images/prow1.png" alt=" ">
-                                    </a>
-                                    <div>
-                                        <a href="pro_details.html ">苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭</a>
-                                        <p><img src="images/7_icon.png " alt=" ">支持7天无理由退货</p>
-                                        <p><img src="images/bao_icon.png " alt=" ">选廷保</p>
-                                    </div>
-                                </div>
-                                <span class="color ">颜色分类：<span>黑色</span></span>
-                                <span class="price ">￥299.00</span>
-                                <span class="count ">1</span>
-                                <span class="tips">省700，全国联保</span>
-                                <div class="subtotal ">
-                                    <em>￥299.00</em>
-                                    <span>5.3kg</span>
+                                    <em>￥{{item.goods_price * orderProList[i].qty}}</em>
+                                    <!-- <span>{{item.goods_capacity}}</span> -->
                                 </div>
                             </li>
                         </ul>
                         <div class="result">
                             <div>
-                                <div class="bill">
-                                    发票抬头：<span class="name">罗小迪</span>
-                                    <span class="edit">修改</span>
-                                </div>
                                 <form>
                                     <label>给卖家留言：</label>
-                                    <textarea class="msg">选填：对本次交易的说明（建议直填写已和卖家协商一致的内容）</textarea>
+                                    <textarea class="msg" v-model="orderNote" placeholder="选填：对本次交易的说明（建议直填写已和卖家协商一致的内容）"></textarea>
                                 </form>
                             </div>
                             <div>
                                 <span class="mode">运送方式：<span>普通配送   快递   免邮</span></span>
                                 <span class="safe">运费险：<span>卖家赠送，确认收货前退货，可获保赔付</span></span>
                             </div>
-                            <span class="sum">店铺合计（含运费）<em>￥897.00 </em></span>
-                        </div>
-                    </div>
-                    <div class="items">
-                        <h3>美的旗舰店</h3>
-                        <ul class="item">
-                            <li>
-                                <input type="hidden" value="">
-                                <div class="info ">
-                                    <a href="pro_details.html ">
-                                        <img src="images/prow1.png" alt=" ">
-                                    </a>
-                                    <div>
-                                        <a href="pro_details.html ">苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭</a>
-                                        <p><img src="images/7_icon.png " alt=" ">支持7天无理由退货</p>
-                                        <p><img src="images/bao_icon.png " alt=" ">选廷保</p>
-                                    </div>
-                                </div>
-                                <span class="color ">颜色分类：<span>黑色</span></span>
-                                <span class="price ">￥299.00</span>
-                                <span class="count ">1</span>
-                                <span class="tips">省700，全国联保</span>
-                                <div class="subtotal ">
-                                    <em>￥299.00</em>
-                                    <span>5.3kg</span>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="result">
-                            <div>
-                                <div class="bill">
-                                    发票抬头：<span class="name">罗小迪</span>
-                                    <span class="edit">修改</span>
-                                </div>
-                                <form>
-                                    <label>给卖家留言：</label>
-                                    <textarea class="msg">选填：对本次交易的说明（建议直填写已和卖家协商一致的内容）</textarea>
-                                </form>
-                            </div>
-                            <div>
-                                <span class="mode">运送方式：<span>普通配送   快递   免邮</span></span>
-                                <span class="safe">运费险：<span>卖家赠送，确认收货前退货，可获保赔付</span></span>
-                            </div>
-                            <span class="sum">店铺合计（含运费）<em>￥897.00 </em></span>
+                            <span class="sum">合计（含运费）<em>￥{{totalPrice}} </em></span>
                         </div>
                     </div>
                 </div>
                 <div class="part">
-                    <p class="result_price">应付总额：<em>￥1196.00</em></p>
-                    <p class="result_site">寄送至：<span>湖北省武汉市洪山区关山鲁磨路联峰广场1203多迪</span></p>
-                    <p class="user">收货人：<span>罗小迪188*****783</span></p>
+                    <p class="result_price">应付总额：<em>￥{{totalPrice}}</em></p>
+                    <p class="result_site">寄送至：
+                        <span v-if="selectAddressId!==''">{{addressList[index].address_area}}{{addressList[index].address_details}}</span>
+                        <span v-else>空</span>
+                    </p>
+                    <p class="user">收货人：
+                        <span v-if="selectAddressId!==''">{{addressList[index].address_receiver}} {{addressList[index].address_phone}}</span>
+                        <span v-else>空</span>
+                    </p>
                 </div>
-                <a href="pay.html" class="sub">提交订单</a>
+                <button @click="confirm" :disabled="!isCanSub" class="sub">提交订单</button>
             </div>
         </div>
     </div>
