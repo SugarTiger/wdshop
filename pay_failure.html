@@ -18,49 +18,56 @@
                     <a href="index.html"><img src="images/home_icon.png" alt="">文的首页</a>
                     |
                     <span class="loginzt">
-                        <a href="login.html">登录</a>
+                        <a href="login.html" v-if="!isLogin">登录</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="register.html">免费注册</a>
+                        <a  href="#" v-if="isLogin" @click="logout">退出登录</a>
+                        <a href="register.html" v-else>免费注册</a>
                     </span>
                 </div>
-                <ul class="shop">
+                <ul class="shop" v-if="isLogin">
                     <li><a href="order.html">我的订单</a></li>
                     <li><a href="user.html">我的文的</a></li>
                     <li>|</li>
-                    <li><a href="shop_cart.html">购物车</a><sup>0</sup></li>
-                    <li>|</li>
+                    <li><a href="shop_cart.html">购物车</a><sup>{{cartCount}}</sup></li>
+                    <!-- <li>|</li>
                     <li>
                         <a href="javascript:void(0)"><img src="images/favorite_icon.png" alt="">收藏夹</a>
                     </li>
-                    <li><a href="javascript:void(0)">服务中心</a></li>
+                    <li><a href="javascript:void(0)">服务中心</a></li> -->
                 </ul>
             </div>
         </div>
-        <div class="tbody">
+        <div class="in_tbody">
             <div class="containe">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="images/logo02.png" alt="文的电器">
+                        <img :src="logoImg" alt="文的电器">
                     </a>
                 </div>
-                <h1>
-                    <a href="index.html"><img src="images/logo_title02.png" alt=""></a>
-                </h1>
                 <div>
-                    <form class="search">
-                        <input type="text" name="search" value="电饭煲">
-                        <button>搜索</button>
-                    </form>
+                    <h1>
+                        <a href="index.html">
+                            <img src="images/logo_title.png" alt="">
+                        </a>
+                    </h1>
+                    <div class="search">
+                        <input type="text" name="search" placeholder="请输入关键字搜索" v-model="keyWord">
+                        <button @click="searchPro">搜索</button>
+                    </div>
+                </div>
+                <div class="header_ad">
+                    <a href="shop_list.html"><img src="images/pro1.png" alt=""></a>
+                    <a href="shop_list.html"><img src="images/pro2.png" alt=""></a>
                 </div>
             </div>
         </div>
         <div class="nav">
             <div class="containe">
                 <div class="menu">
-                    <h2>所有产品分类 <img src="images/arrows_icon2.png" alt=""></h2>
+                    <h2 class="active">所有产品分类 <img src="images/arrows_icon.png" alt=""></h2>
                     <ul class="submenu">
                         <li>
-                            <h3>厨房小电</h3>
+                            <h3><a href="shop_list.html">厨房小电</a></h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">电饭煲</a>
@@ -78,7 +85,7 @@
                         </li>
                         <li><i></i></li>
                         <li>
-                            <h3>炊具炖锅</h3>
+                            <h3><a href="shop_list.html">炊具炖锅</a></h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">烹任锅具</a>
@@ -99,7 +106,7 @@
                         </li>
                         <li><i></i></li>
                         <li>
-                            <h3>养生水杯</h3>
+                            <h3><a href="shop_list.html">养生水杯</a></h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">电热水壶</a>
@@ -117,7 +124,7 @@
                         </li>
                         <li><i></i></li>
                         <li>
-                            <h3>热卖产品</h3>
+                            <h3><a href="shop_list.html">热卖产品</a></h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">电饭煲</a>
@@ -136,20 +143,20 @@
                     </ul>
                 </div>
                 <ul class="subnav">
-                    <li>
+                    <li class="active">
                         <a href="index.html">首页</a>
                     </li>
                     <li>
-                        <a href="shop_list.html">厨房小电</a>
+                        <a href="shop_list.html?type=商品列表">商品列表</a>
                     </li>
                     <li>
-                        <a href="shop_list.html">炊具炖锅</a>
+                        <a href="shop_list.html?type=炊具炖锅">炊具炖锅</a>
                     </li>
                     <li>
-                        <a href="shop_list.html">养生水杯</a>
+                        <a href="shop_list.html?type=厨房小电">厨房小电</a>
                     </li>
                     <li>
-                        <a href="shop_list.html">爆款推荐</a>
+                        <a href="shop_list.html?type=爆款推荐">爆款推荐</a>
                     </li>
                 </ul>
             </div>

@@ -15,52 +15,75 @@
         <div class="top">
             <div class="containe">
                 <div class="left">
-                    <a href="index.html"><img src="images/home_icon.png" alt="">文的首页</a>
+                    <a href="index.html">
+                        <img src="images/home_icon.png" alt="">文的首页</a>
                     |
                     <span class="loginzt">
-                        <a href="login.html">登录</a>
+                        <a href="login.html" v-if="!isLogin">登录</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="register.html">免费注册</a>
+                        <a href="#" v-if="isLogin" @click="logout">退出登录</a>
+                        <a href="register.html" v-else>免费注册</a>
                     </span>
                 </div>
-                <ul class="shop">
-                    <li><a href="order.html">我的订单</a></li>
-                    <li><a href="user.html">我的文的</a></li>
+                <ul class="shop" v-if="isLogin">
+                    <li>
+                        <a href="order.html">我的订单</a>
+                    </li>
+                    <li>
+                        <a href="user.html">我的文的</a>
+                    </li>
                     <li>|</li>
-                    <li><a href="shop_cart.html">购物车</a><sup>0</sup></li>
-                    <li>|</li>
+                    <li>
+                        <a href="shop_cart.html">购物车</a>
+                        <sup>{{cartCount}}</sup>
+                    </li>
+                    <!-- <li>|</li>
                     <li>
                         <a href="javascript:void(0)"><img src="images/favorite_icon.png" alt="">收藏夹</a>
                     </li>
-                    <li><a href="javascript:void(0)">服务中心</a></li>
+                    <li><a href="javascript:void(0)">服务中心</a></li> -->
                 </ul>
             </div>
         </div>
-        <div class="tbody">
+        <div class="in_tbody">
             <div class="containe">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="images/logo02.png" alt="文的电器">
+                        <img :src="logoImg" alt="文的电器">
                     </a>
                 </div>
-                <h1>
-                    <a href="index.html"><img src="images/logo_title02.png" alt=""></a>
-                </h1>
                 <div>
-                    <form class="search">
-                        <input type="text" name="search" value="电饭煲">
-                        <button>搜索</button>
-                    </form>
+                    <h1>
+                        <a href="index.html">
+                            <img src="images/logo_title.png" alt="">
+                        </a>
+                    </h1>
+                    <div class="search">
+                        <input type="text" name="search" placeholder="请输入关键字搜索" v-model="keyWord">
+                        <button @click="searchPro">搜索</button>
+                    </div>
+                </div>
+                <div class="header_ad">
+                    <a href="shop_list.html">
+                        <img src="images/pro1.png" alt="">
+                    </a>
+                    <a href="shop_list.html">
+                        <img src="images/pro2.png" alt="">
+                    </a>
                 </div>
             </div>
         </div>
         <div class="nav">
             <div class="containe">
                 <div class="menu">
-                    <h2>所有产品分类 <img src="images/arrows_icon2.png" alt=""></h2>
+                    <h2 class="active">所有产品分类
+                        <img src="images/arrows_icon.png" alt="">
+                    </h2>
                     <ul class="submenu">
                         <li>
-                            <h3>厨房小电</h3>
+                            <h3>
+                                <a href="shop_list.html">厨房小电</a>
+                            </h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">电饭煲</a>
@@ -76,9 +99,13 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><i></i></li>
                         <li>
-                            <h3>炊具炖锅</h3>
+                            <i></i>
+                        </li>
+                        <li>
+                            <h3>
+                                <a href="shop_list.html">炊具炖锅</a>
+                            </h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">烹任锅具</a>
@@ -97,9 +124,13 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><i></i></li>
                         <li>
-                            <h3>养生水杯</h3>
+                            <i></i>
+                        </li>
+                        <li>
+                            <h3>
+                                <a href="shop_list.html">养生水杯</a>
+                            </h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">电热水壶</a>
@@ -115,9 +146,13 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><i></i></li>
                         <li>
-                            <h3>热卖产品</h3>
+                            <i></i>
+                        </li>
+                        <li>
+                            <h3>
+                                <a href="shop_list.html">热卖产品</a>
+                            </h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">电饭煲</a>
@@ -140,16 +175,16 @@
                         <a href="index.html">首页</a>
                     </li>
                     <li>
-                        <a href="shop_list.html">厨房小电</a>
+                        <a href="shop_list.html?type=商品列表">商品列表</a>
                     </li>
                     <li>
-                        <a href="shop_list.html">炊具炖锅</a>
+                        <a href="shop_list.html?type=炊具炖锅">炊具炖锅</a>
                     </li>
                     <li>
-                        <a href="shop_list.html">养生水杯</a>
+                        <a href="shop_list.html?type=厨房小电">厨房小电</a>
                     </li>
                     <li>
-                        <a href="shop_list.html">爆款推荐</a>
+                        <a href="shop_list.html?type=爆款推荐">爆款推荐</a>
                     </li>
                 </ul>
             </div>
@@ -166,29 +201,29 @@
             <ul class="title">
                 <li>商品</li>
                 <li>商品编号</li>
-                <li>商品数量</li>
-                <li>购买时间</li>
+                <li>容量</li>
+                <li>颜色</li>
                 <li>评价状态</li>
             </ul>
             <ul class="pro_list">
                 <li>
                     <div>
-                        <a href="pro_details.html">
-                            <img src="images/pro3_1_1.png" alt="">
+                        <a :href="'pro_details.html?proId='+proD.goods_id">
+                            <img :src="imgServer+proD.goods_img[0]" alt="">
                         </a>
                         <div>
-                            <a href="pro_details.html">苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭</a>
+                            <a :href="'pro_details.html?proId='+proD.goods_id">{{proD.goods_name}}</a>
                             <p><img src="images/7_icon.png" alt="">支持7天无理由退货</p>
                             <p><img src="images/bao_icon.png" alt="">选廷保</p>
                         </div>
                     </div>
-                    <span>1057573</span>
-                    <span>1</span>
-                    <span>2017-02-15</span>
+                    <span>{{proD.goods_id}}</span>
+                    <span>{{proD.goods_capacity}}</span>
+                    <span>{{proD.goods_color}}</span>
                     <span><a href="#edit_com">发表评价</a></span>
                 </li>
             </ul>
-            <div class="summary">
+            <!-- <div class="summary">
                 <h3>累计评价（17856）</h3>
                 <div class="grade">
                     <h5>好评度</h5>
@@ -206,13 +241,13 @@
                     <li><a href="javascript:void(0)">预约功能(778)</a></li>
                     <li><a href="javascript:void(0)">还可以吧(362)</a></li>
                 </ul>
-            </div>
+            </div> -->
             <div id="edit_com" class="edit_com">
-                <form>
+                <div>
                     <div class="grading">
                         <label><span>*</span>评分：</label>
                         <div class="describe">
-                            <h6>与描述相符</h6>
+                            <h6>商品评分</h6>
                             <ul>
                                 <li></li>
                                 <li></li>
@@ -220,38 +255,16 @@
                                 <li></li>
                                 <li></li>
                             </ul>
-                            <input type="hidden" value='0' name="describe" />
-                        </div>
-                        <div class="mer_serve">
-                            <h6>商家服务</h6>
-                            <ul>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                            <input type="hidden" value='0' name="mer_serve" />
-                        </div>
-                        <div class="log_serve">
-                            <h6>物流服务</h6>
-                            <ul>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                            <input type="hidden" value='0' name="log_serve" />
+                            <input type="hidden" value='0' name="describe" id="fff"/>
                         </div>
                     </div>
                     <div class="com_txt">
                         <label><span>*</span>详细说明：</label>
-                        <textarea name="com_txt"></textarea>
+                        <textarea name="com_txt" v-model='commentText' placeholder="请输入详细评论！"></textarea>
                     </div>
                     <span>10-500字</span>
-                    <input type="submit" value="提交评价" class="sub" />
-                </form>
+                    <input type="submit" value="提交评价" class="sub" @click="onSubmit" />
+                </div>
             </div>
         </div>
     </div>

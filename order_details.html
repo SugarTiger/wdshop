@@ -232,8 +232,8 @@
                             <i></i>
                         </li>
                         <li :class="{done:orderInfo.order_status>3}">
-                            <span>等待收货</span>
-                            <span class="date" v-if="orderInfo.order_shou_time">{{orderInfo.order_shou_time | formTime}}</span>
+                            <span>确认收货</span>
+                            <span class="date" v-if="orderInfo.order_sh_time">{{orderInfo.order_sh_time | formTime}}</span>
                             <i></i>
                         </li>
                         <li :class="{done:orderInfo.order_status>4}">
@@ -241,12 +241,9 @@
                             <span class="date" v-if="orderInfo.order_done_time">{{orderInfo.order_done_time | formTime}}</span>
                         </li>
                     </ul>
-                    <p>会员成长值
-                        <span>+41</span>
-                    </p>
                 </div>
             </div>
-            <div class="ad_info">
+            <div class="ad_info" v-if="orderInfo.order_status>2">
                 <div>
                     <a href="#">
                         <img src="./images/kd.png" alt="">
@@ -259,18 +256,15 @@
                     <h3>物流信息</h3>
                     <ul>
                         <li>快递公司：
-                            <span>中通</span>
+                            <span>{{orderInfo.kd_gs}}</span>
                         </li>
                         <li>运单号码：
-                            <span>414846710646</span>
+                            <span>{{orderInfo.order_wl_num}}</span>
                         </li>
                         <li>
                             <h5>物流跟踪：</h5>
                             <ul>
-                                <li>2016-10-17 14:16:29您的订单由第三方卖家拣货完毕，待出库交付中通速递，运单号为414846710646</li>
-                                <li>2016-10-17 14:12:09第三方卖家已经开始拣货</li>
-                                <li>2016-10-16 20:25:07您的订单已进入第三方卖家库房，准备出库</li>
-                                <li>2016-10-16 20:23:52您提交了订单，请等待第三方卖家系统确认</li>
+                                <li>{{orderInfo.order_send_time | formTime}} 您的订单由第三方卖家拣货完毕，待出库交付{{orderInfo.kd_gs}}速递，运单号为{{orderInfo.order_wl_num}}</li>
                             </ul>
                         </li>
                     </ul>
@@ -281,15 +275,15 @@
                     <dt>收货人信息</dt>
                     <dd>
                         <h6>收货人：</h6>
-                        <span>罗小迪</span>
+                        <span>{{orderInfo.receiver}}</span>
                     </dd>
                     <dd>
                         <h6>地址：</h6>
-                        <span>湖北省武汉市洪山区关山鲁磨路联峰广场1203多迪</span>
+                        <span>{{orderInfo.address}}</span>
                     </dd>
                     <dd>
                         <h6>手机号码：</h6>
-                        <span>188****7783</span>
+                        <span>{{orderInfo.phone}}</span>
                     </dd>
                 </dl>
                 <dl>
@@ -300,7 +294,7 @@
                     </dd>
                     <dd>
                         <h6>运费：</h6>
-                        <span>¥0.00</span>
+                        <span>¥ {{orderInfo.order_postage}} 元</span>
                     </dd>
                 </dl>
                 <dl>
@@ -311,23 +305,19 @@
                     </dd>
                     <dd>
                         <h6>商品总额：</h6>
-                        <span>¥42.50</span>
+                        <span>¥ {{orderInfo.order_total_price - orderInfo.Fmoney}}</span>
                     </dd>
                     <dd>
                         <h6>应支付金额：</h6>
-                        <span>¥42.50</span>
+                        <span>¥ {{orderInfo.order_total_price}}</span>
                     </dd>
                     <dd>
                         <h6>运费金额：</h6>
-                        <span>¥0.00</span>
-                    </dd>
-                    <dd>
-                        <h6>优惠券：</h6>
-                        <span>¥0.00</span>
+                        <span>¥ {{orderInfo.order_postage}}</span>
                     </dd>
                     <dd>
                         <h6>订单优惠：</h6>
-                        <span>¥0.00</span>
+                        <span>¥ {{orderInfo.Fmoney}}</span>
                     </dd>
                 </dl>
                 <dl>
@@ -347,35 +337,35 @@
                 </dl>
             </div>
             <div class="pro_info">
-                <h3>苏泊尔的旗舰店</h3>
+                <h3></h3>
                 <div class="list">
                     <ul class="title">
                         <li>商品</li>
                         <li>商品编号</li>
-                        <li>文的价</li>
+                        <li>单价</li>
                         <li>商品数量</li>
                         <li>操作</li>
                     </ul>
                     <ul class="pro_list">
-                        <li>
+                        <li v-for="(pro,i) in orderInfo.proList">
                             <div>
-                                <a href="pro_details.html">
-                                    <img src="images/pro3_1_1.png" alt="">
+                                <a :href="'pro_details.html?proId='+pro.goods_id">
+                                    <img :src="imgServer+pro.goods_img[0]" alt="">
                                 </a>
                                 <div>
-                                    <a href="pro_details.html">苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭</a>
+                                    <a :href="'pro_details.html?proId='+pro.goods_id">苏泊尔（SUPOR）电饭煲 电饭锅 4L容量全景视窗 一键柴火饭</a>
                                     <p>
                                         <img src="images/7_icon.png" alt="">支持7天无理由退货</p>
                                     <p>
                                         <img src="images/bao_icon.png" alt="">选廷保</p>
                                 </div>
                             </div>
-                            <span>1057573</span>
-                            <span>1</span>
-                            <span>2017-02-15</span>
+                            <span>{{pro.goods_id}}</span>
+                            <span>{{pro.goods_price}}</span>
+                            <span>{{pro.goods_quantity}}</span>
                             <span>
-                                <a href="javascript:void(0)">申请售后</a>
-                                <a href="confirm_order.html">立即购买</a>
+                                <a href='javascript:void(0)' @click="toSubOrder(pro.goods_id)">立即购买</a>
+                                <a :href="'comment.html?proId='+pro.goods_id+'&orderId='+orderInfo.order_id" v-if="orderInfo.order_status===4" class="com">去评价</a>
                             </span>
                         </li>
                     </ul>
@@ -383,15 +373,15 @@
                 <div class="result">
                     <div>
                         <h6>商品总额：</h6>
-                        <span>¥299.00</span>
+                        <span>¥ {{orderInfo.order_total_price - orderInfo.Fmoney}} 元</span>
                     </div>
                     <div>
                         <h6>运&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;费：</h6>
-                        <span>¥0.00</span>
+                        <span>¥ {{orderInfo.order_postage}} 元</span>
                     </div>
                     <div class="all_price">
                         <h6>应付总额：</h6>
-                        <span>¥299.00</span>
+                        <span>¥ {{orderInfo.order_total_price}} 元</span>
                     </div>
                 </div>
             </div>
@@ -550,7 +540,8 @@
         new Vue({
             el: "#middle",
             data: {
-                orderInfo: {}
+                orderInfo: {},
+                imgServer:imgServer
             },
             mounted: function () {
                 var orderId = GetRequest().orderId;
@@ -568,6 +559,9 @@
                     }, function (res) {
                         that.orderInfo = res.data
                     });
+                },
+                toSubOrder:function(proId){
+                    location.href = 'confirm_order.html?orderPro=[{"qty":1,"proId":'+proId+'}]'
                 }
             },
             filters: {

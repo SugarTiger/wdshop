@@ -196,36 +196,36 @@
   margin-bottom: 33px;
 }
 
-#middle .containe .edit_com > form {
+#middle .containe .edit_com > div {
   overflow: hidden;
 }
 
-#middle .containe .edit_com > form label span {
+#middle .containe .edit_com > div label span {
   color: #B90101;
   margin-right: 9px;
 }
 
-#middle .containe .edit_com > form .grading {
+#middle .containe .edit_com > div .grading {
   width: 245px;
   overflow: hidden;
 }
 
-#middle .containe .edit_com > form .grading > label {
+#middle .containe .edit_com > div .grading > label {
   float: left;
 }
 
-#middle .containe .edit_com > form .grading .describe,
-#middle .containe .edit_com > form .grading .mer_serve,
-#middle .containe .edit_com > form .grading .log_serve {
+#middle .containe .edit_com > div .grading .describe,
+#middle .containe .edit_com > div .grading .mer_serve,
+#middle .containe .edit_com > div .grading .log_serve {
   width: 178px;
   float: right;
   overflow: hidden;
   height: 25px;
 }
 
-#middle .containe .edit_com > form .grading .describe h6,
-#middle .containe .edit_com > form .grading .mer_serve h6,
-#middle .containe .edit_com > form .grading .log_serve h6 {
+#middle .containe .edit_com > div .grading .describe h6,
+#middle .containe .edit_com > div .grading .mer_serve h6,
+#middle .containe .edit_com > div .grading .log_serve h6 {
   font-weight: normal;
   float: left;
   text-align: right;
@@ -233,16 +233,16 @@
   line-height: 18px;
 }
 
-#middle .containe .edit_com > form .grading .describe ul,
-#middle .containe .edit_com > form .grading .mer_serve ul,
-#middle .containe .edit_com > form .grading .log_serve ul {
+#middle .containe .edit_com > div .grading .describe ul,
+#middle .containe .edit_com > div .grading .mer_serve ul,
+#middle .containe .edit_com > div .grading .log_serve ul {
   overflow: hidden;
   float: right;
 }
 
-#middle .containe .edit_com > form .grading .describe ul li,
-#middle .containe .edit_com > form .grading .mer_serve ul li,
-#middle .containe .edit_com > form .grading .log_serve ul li {
+#middle .containe .edit_com > div .grading .describe ul li,
+#middle .containe .edit_com > div .grading .mer_serve ul li,
+#middle .containe .edit_com > div .grading .log_serve ul li {
   float: left;
   width: 18px;
   height: 18px;
@@ -253,19 +253,19 @@
   cursor: pointer;
 }
 
-#middle .containe .edit_com > form .com_txt {
+#middle .containe .edit_com > div .com_txt {
   width: 841px;
 }
 
-#middle .containe .edit_com > form .com_txt label {
+#middle .containe .edit_com > div .com_txt label {
   vertical-align: top;
 }
 
-#middle .containe .edit_com > form .com_txt label span {
+#middle .containe .edit_com > div .com_txt label span {
   vertical-align: top;
 }
 
-#middle .containe .edit_com > form .com_txt textarea {
+#middle .containe .edit_com > div .com_txt textarea {
   border: 1px solid #BFBFBF;
   width: 744px;
   height: 149px;
@@ -276,7 +276,7 @@
   outline: none;
 }
 
-#middle .containe .edit_com > form > span {
+#middle .containe .edit_com > div > span {
   display: block;
   width: calc(100% - 9px);
   text-align: right;
@@ -286,7 +286,7 @@
   padding-right: 9px;
 }
 
-#middle .containe .edit_com > form .sub {
+#middle .containe .edit_com > div .sub {
   display: block;
   color: #fff;
   font-size: 14px;

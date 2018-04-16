@@ -15,36 +15,25 @@
         <div class="top">
             <div class="containe">
                 <div class="left">
-                    <a href="index.html">
-                        <img src="images/home_icon.png" alt="">文的首页</a>
+                    <a href="index.html"><img src="images/home_icon.png" alt="">文的首页</a>
                     |
                     <span class="loginzt">
                         <a href="login.html" v-if="!isLogin">登录</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="#" v-if="isLogin" @click="logout">退出登录</a>
+                        <a  href="#" v-if="isLogin" @click="logout">退出登录</a>
                         <a href="register.html" v-else>免费注册</a>
                     </span>
                 </div>
                 <ul class="shop" v-if="isLogin">
-                    <li>
-                        <a href="order.html">我的订单</a>
-                    </li>
-                    <li>
-                        <a href="user.html">我的文的</a>
-                    </li>
+                    <li><a href="order.html">我的订单</a></li>
+                    <li><a href="user.html">我的文的</a></li>
                     <li>|</li>
+                    <li><a href="shop_cart.html">购物车</a><sup>{{cartCount}}</sup></li>
+                    <!-- <li>|</li>
                     <li>
-                        <a href="shop_cart.html">购物车</a>
-                        <sup>{{cartCount}}</sup>
+                        <a href="javascript:void(0)"><img src="images/favorite_icon.png" alt="">收藏夹</a>
                     </li>
-                    <li>|</li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <img src="images/favorite_icon.png" alt="">收藏夹</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">服务中心</a>
-                    </li>
+                    <li><a href="javascript:void(0)">服务中心</a></li> -->
                 </ul>
             </div>
         </div>

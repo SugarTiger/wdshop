@@ -281,6 +281,7 @@
                             <div class="handle">
                                 <a :href="'order_details.html?orderId='+orderList[0].order_id">查看订单详情</a>
                                 <a :href="'pay.html?orderId='+orderList[0].order_id" v-if="orderList[0].order_status===1">去付款</a>
+                                <a :href="'comment.html?proId='+orderList[0].proList[0].goods_id+'&orderId='+orderList[0].order_id" v-if="orderList[0].order_status===4">去评价</a>
                                 <span class="del" v-if="orderList[0].order_status===3"  @click="updateOrder(orderList[0].order_id,4)">确认收货</span>
                                 <span class="del" style="color:red;" v-if="orderList[0].order_status===1||orderList[0].order_status===2" @click="updateOrder(orderList[0].order_id,0)">取消订单</span>
                             </div>

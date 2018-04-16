@@ -15,52 +15,75 @@
         <div class="top">
             <div class="containe">
                 <div class="left">
-                    <a href="index.html"><img src="images/home_icon.png" alt="">文的首页</a>
+                    <a href="index.html">
+                        <img src="images/home_icon.png" alt="">文的首页</a>
                     |
                     <span class="loginzt">
-                        <a href="login.html">登录</a>
+                        <a href="login.html" v-if="!isLogin">登录</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="register.html">免费注册</a>
+                        <a href="#" v-if="isLogin" @click="logout">退出登录</a>
+                        <a href="register.html" v-else>免费注册</a>
                     </span>
                 </div>
-                <ul class="shop">
-                    <li><a href="order.html">我的订单</a></li>
-                    <li><a href="user.html">我的文的</a></li>
+                <ul class="shop" v-if="isLogin">
+                    <li>
+                        <a href="order.html">我的订单</a>
+                    </li>
+                    <li>
+                        <a href="user.html">我的文的</a>
+                    </li>
                     <li>|</li>
-                    <li><a href="shop_cart.html">购物车</a><sup>0</sup></li>
-                    <li>|</li>
+                    <li>
+                        <a href="shop_cart.html">购物车</a>
+                        <sup>{{cartCount}}</sup>
+                    </li>
+                    <!-- <li>|</li>
                     <li>
                         <a href="javascript:void(0)"><img src="images/favorite_icon.png" alt="">收藏夹</a>
                     </li>
-                    <li><a href="javascript:void(0)">服务中心</a></li>
+                    <li><a href="javascript:void(0)">服务中心</a></li> -->
                 </ul>
             </div>
         </div>
-        <div class="tbody">
+        <div class="in_tbody">
             <div class="containe">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="images/logo02.png" alt="文的电器">
+                        <img :src="logoImg" alt="文的电器">
                     </a>
                 </div>
-                <h1>
-                    <a href="index.html"><img src="images/logo_title02.png" alt=""></a>
-                </h1>
                 <div>
-                    <form class="search">
-                        <input type="text" name="search" value="电饭煲">
-                        <button>搜索</button>
-                    </form>
+                    <h1>
+                        <a href="index.html">
+                            <img src="images/logo_title.png" alt="">
+                        </a>
+                    </h1>
+                    <div class="search">
+                        <input type="text" name="search" placeholder="请输入关键字搜索" v-model="keyWord">
+                        <button @click="searchPro">搜索</button>
+                    </div>
+                </div>
+                <div class="header_ad">
+                    <a href="shop_list.html">
+                        <img src="images/pro1.png" alt="">
+                    </a>
+                    <a href="shop_list.html">
+                        <img src="images/pro2.png" alt="">
+                    </a>
                 </div>
             </div>
         </div>
         <div class="nav">
             <div class="containe">
                 <div class="menu">
-                    <h2>所有产品分类 <img src="images/arrows_icon2.png" alt=""></h2>
+                    <h2 class="active">所有产品分类
+                        <img src="images/arrows_icon.png" alt="">
+                    </h2>
                     <ul class="submenu">
                         <li>
-                            <h3>厨房小电</h3>
+                            <h3>
+                                <a href="shop_list.html">厨房小电</a>
+                            </h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">电饭煲</a>
@@ -76,9 +99,13 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><i></i></li>
                         <li>
-                            <h3>炊具炖锅</h3>
+                            <i></i>
+                        </li>
+                        <li>
+                            <h3>
+                                <a href="shop_list.html">炊具炖锅</a>
+                            </h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">烹任锅具</a>
@@ -97,9 +124,13 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><i></i></li>
                         <li>
-                            <h3>养生水杯</h3>
+                            <i></i>
+                        </li>
+                        <li>
+                            <h3>
+                                <a href="shop_list.html">养生水杯</a>
+                            </h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">电热水壶</a>
@@ -115,9 +146,13 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><i></i></li>
                         <li>
-                            <h3>热卖产品</h3>
+                            <i></i>
+                        </li>
+                        <li>
+                            <h3>
+                                <a href="shop_list.html">热卖产品</a>
+                            </h3>
                             <ul>
                                 <li>
                                     <a href="shop_list.html">电饭煲</a>
@@ -140,16 +175,16 @@
                         <a href="index.html">首页</a>
                     </li>
                     <li>
-                        <a href="shop_list.html">厨房小电</a>
+                        <a href="shop_list.html?type=商品列表">商品列表</a>
                     </li>
                     <li>
-                        <a href="shop_list.html">炊具炖锅</a>
+                        <a href="shop_list.html?type=炊具炖锅">炊具炖锅</a>
                     </li>
                     <li>
-                        <a href="shop_list.html">养生水杯</a>
+                        <a href="shop_list.html?type=厨房小电">厨房小电</a>
                     </li>
                     <li>
-                        <a href="shop_list.html">爆款推荐</a>
+                        <a href="shop_list.html?type=爆款推荐">爆款推荐</a>
                     </li>
                 </ul>
             </div>
@@ -157,27 +192,29 @@
     </div>
     <div id="middle">
         <ul class="crumbs">
-            <li><a href="index.html">首页></a></li>
-            <li><a href="shop_cart.html">我的购物车</a></li>
+            <li>
+                <a href="index.html">首页></a>
+            </li>
+            <li>
+                <a href="shop_cart.html">我的购物车</a>
+            </li>
         </ul>
         <div class="containe">
             <div class="shop_cart">
                 <div class="cart_nav">
                     <ul>
                         <li class="active">全部商品</li>
-                        <li>降价商品</li>
-                        <li>库存紧张</li>
                     </ul>
-                    <div class="dc">
+                    <!-- <div class="dc">
                         <span>配送至</span>
                         <select>
                             <option value="北京朝阳区三环内">北京朝阳区三环内</option>
                         </select>
-                    </div>
+                    </div> -->
                 </div>
                 <ul class="title">
-                    <li class="all_select">
-                        <span class="boxchecked"></span>
+                    <li class="all_select" @click="allTocheck">
+                        <span :class="{boxchecked:allChecked}"></span>
                         <input type="checkbox" checked>
                         <h3>全选</h3>
                     </li>
@@ -188,28 +225,74 @@
                     <li>操作</li>
                 </ul>
                 <div class="cart_main">
+                    <div class="items">
+                        <!-- <div class="all_select">
+                                    <span class="boxchecked"></span>
+                                    <input type="checkbox"  checked="checked" >
+                                    <h3>染发膏</h3>
+                                </div> -->
+                        <ul class="item">
+                            <li v-for="(pro,i) in  cartList" :class="{checked:pro.checked}">
+                                <div class="checkbox" @click="checkPro(i)">
+                                    <span :class="{boxchecked:pro.checked}"></span>
+                                    <input type="checkbox" checked="checked">
+                                </div>
+                                <div class="info">
+                                    <a :href="'pro_details.html?proId='+pro.goods_id">
+                                        <img :src="imgServer+pro.goods_img[0]" alt="">
+                                    </a>
+                                    <div>
+                                            <a :href="'pro_details.html?proId='+pro.goods_id">{{pro.goods_name}}</a>
+                                        <p>
+                                            <img src="images/7_icon.png" alt="">支持7天无理由退货</p>
+                                        <p>
+                                            <img src="images/bao_icon.png" alt="">选廷保</p>
+                                    </div>
+                                    <span class="color">颜色分类：
+                                        <span>{{pro.goods_color}}</span>
+                                    </span>
+                                </div>
+                                <span class="price">{{pro.goods_price}}</span>
+                                <div class="count">
+                                    <button class="down" @click="downQty(i)">-</button>
+                                    <input type="text" :value="pro.goods_quantity">
+                                    <button class="add" @click="addQty(i)">+</button>
+                                </div>
+                                <div class="subtotal">
+                                    <em>￥ {{pro.goods_price * pro.goods_quantity}} 元</em>
+                                </div>
+                                <div class="handle">
+                                    <span class="del" @click="removePro(i)">删除</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                     <div class="result">
                         <div class="handler">
-                            <div class="all_select">
-                                <span class="boxchecked"></span>
+                            <div class="all_select"  @click="allTocheck">
+                                <span :class="{boxchecked:allChecked}"></span>
                                 <input type="checkbox" checked>
                                 <h3>全选</h3>
                             </div>
-                            <span class="del_check">删除选中产品</span>
-                            <span class="like_check">移到我的收藏</span>
+                            <span class="del_check" @click="removeAllPro">删除选中产品</span>
                         </div>
                         <div class="sum">
-                            <span class="num">已选商品<em>4</em>件<img src="images/arrows_icon4.png" alt=""></span>
-                            <span class="allprice">合计(不含运费)：<em>1196.00</em></span>
+                            <span class="num">已选商品
+                                <em>{{checkedCount}}</em>件
+                                <img src="images/arrows_icon4.png" alt="">
+                            </span>
+                            <span class="allprice">合计(不含运费)：
+                                <em>{{sum}}</em>
+                            </span>
                         </div>
-                        <a href="confirm_order.html">
+                        <a href="javascript:void(0)" @click="toSubOrder" :style="{opacity:this.checkedCount===0?0.5:1}">
                             结算
                         </a>
                     </div>
                 </div>
             </div>
             <div class="you_like">
-                <h3>猜你喜欢</h3>
+                <!-- <h3>猜你喜欢</h3>
                 <ul>
                     <li>
                         <a href="pro_details.html"><img src="images/pro4.png" alt=""></a><span>￥299.00</span></li>
@@ -219,71 +302,142 @@
                         <a href="pro_details.html"><img src="images/pro8.png" alt=""></a><span>￥299.00</span></li>
                     <li>
                         <a href="pro_details.html"><img src="images/pro8.png" alt=""></a><span>￥299.00</span></li>
-                </ul>
+                </ul> -->
             </div>
         </div>
     </div>
     <div id="footer">
         <ul class="footer_head">
             <li>
-                <a href="#"><img src="images/b_icon1.png" alt=""></a>
-                <h4><a href="#">正品保障</a></h4><br/>
-                <span><a href="#">正品保障，提供发票</a></span>
+                <a href="#">
+                    <img src="images/b_icon1.png" alt="">
+                </a>
+                <h4>
+                    <a href="#">正品保障</a>
+                </h4>
+                <br/>
+                <span>
+                    <a href="#">正品保障，提供发票</a>
+                </span>
             </li>
             <li>
-                <a href="#"><img src="images/b_icon2.png" alt=""></a>
-                <h4><a href="#">急速物流</a></h4><br/>
-                <span><a href="#">急速物流，急速送达</a></span>
+                <a href="#">
+                    <img src="images/b_icon2.png" alt="">
+                </a>
+                <h4>
+                    <a href="#">急速物流</a>
+                </h4>
+                <br/>
+                <span>
+                    <a href="#">急速物流，急速送达</a>
+                </span>
             </li>
             <li>
-                <a href="#"><img src="images/b_icon3.png" alt=""></a>
-                <h4><a href="#">无忧售后</a></h4><br/>
-                <span><a href="#">七天无理由退换货</a></span>
+                <a href="#">
+                    <img src="images/b_icon3.png" alt="">
+                </a>
+                <h4>
+                    <a href="#">无忧售后</a>
+                </h4>
+                <br/>
+                <span>
+                    <a href="#">七天无理由退换货</a>
+                </span>
             </li>
             <li>
-                <a href="#"><img src="images/b_icon4.png" alt=""></a>
-                <h4><a href="#">特色服务</a></h4><br/>
-                <span><a href="#">为您呈现不一样的服务</a></span>
+                <a href="#">
+                    <img src="images/b_icon4.png" alt="">
+                </a>
+                <h4>
+                    <a href="#">特色服务</a>
+                </h4>
+                <br/>
+                <span>
+                    <a href="#">为您呈现不一样的服务</a>
+                </span>
             </li>
             <li>
-                <a href="#"><img src="images/b_icon5.png" alt=""></a>
-                <h4><a href="#">帮助中心</a></h4><br/>
-                <span><a href="#">你的购物管家</a></span>
+                <a href="#">
+                    <img src="images/b_icon5.png" alt="">
+                </a>
+                <h4>
+                    <a href="#">帮助中心</a>
+                </h4>
+                <br/>
+                <span>
+                    <a href="#">你的购物管家</a>
+                </span>
             </li>
         </ul>
         <div class="footer_main">
             <dl>
                 <dt>购物指南</dt>
-                <dd><a href="javascript:void(0)">购物需知</a></dd>
-                <dd><a href="javascript:void(0)">交易条款</a></dd>
-                <dd><a href="javascript:void(0)">购物流程</a></dd>
+                <dd>
+                    <a href="javascript:void(0)">购物需知</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">交易条款</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">购物流程</a>
+                </dd>
             </dl>
             <dl>
                 <dt>支付方式</dt>
-                <dd><a href="javascript:void(0)">银行卡支付</a></dd>
-                <dd><a href="javascript:void(0)">支付宝支付</a></dd>
-                <dd><a href="javascript:void(0)">微信支付</a></dd>
-                <dd><a href="javascript:void(0)">快捷支付</a></dd>
+                <dd>
+                    <a href="javascript:void(0)">银行卡支付</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">支付宝支付</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">微信支付</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">快捷支付</a>
+                </dd>
             </dl>
             <dl>
                 <dt>客户服务</dt>
-                <dd><a href="javascript:void(0)">服务中心</a></dd>
-                <dd><a href="javascript:void(0)">24小时服务</a></dd>
-                <dd><a href="javascript:void(0)">联系客服</a></dd>
+                <dd>
+                    <a href="javascript:void(0)">服务中心</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">24小时服务</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">联系客服</a>
+                </dd>
             </dl>
             <dl>
                 <dt>关于我们</dt>
-                <dd><a href="javascript:void(0)">平价介绍</a></dd>
-                <dd><a href="javascript:void(0)">招商加盟</a></dd>
-                <dd><a href="javascript:void(0)">申请加入</a></dd>
-                <dd><a href="javascript:void(0)">联系我们</a></dd>
-                <dd><a href="javascript:void(0)">新闻中心</a></dd>
+                <dd>
+                    <a href="javascript:void(0)">平价介绍</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">招商加盟</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">申请加入</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">联系我们</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">新闻中心</a>
+                </dd>
             </dl>
             <dl>
                 <dt>常见问题</dt>
-                <dd><a href="javascript:void(0)">下单后可以修改订单吗？</a></dd>
-                <dd><a href="javascript:void(0)">订单如保取消</a></dd>
-                <dd><a href="javascript:void(0)">出货后几可以到货</a></dd>
+                <dd>
+                    <a href="javascript:void(0)">下单后可以修改订单吗？</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">订单如保取消</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0)">出货后几可以到货</a>
+                </dd>
             </dl>
             <div>
                 <span class="tel">400-876-0703</span>

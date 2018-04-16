@@ -37,14 +37,11 @@
                         <a href="shop_cart.html">购物车</a>
                         <sup>{{cartCount}}</sup>
                     </li>
-                    <li>|</li>
+                    <!-- <li>|</li>
                     <li>
-                        <a href="javascript:void(0)">
-                            <img src="images/favorite_icon.png" alt="">收藏夹</a>
+                        <a href="javascript:void(0)"><img src="images/favorite_icon.png" alt="">收藏夹</a>
                     </li>
-                    <li>
-                        <a href="javascript:void(0)">服务中心</a>
-                    </li>
+                    <li><a href="javascript:void(0)">服务中心</a></li> -->
                 </ul>
             </div>
         </div>
@@ -177,16 +174,16 @@
                     <li>
                         <a href="index.html">首页</a>
                     </li>
-                    <li :class="{active:subnavText==='商品列表'}">
+                    <li>
                         <a href="shop_list.html?type=商品列表">商品列表</a>
                     </li>
-                    <li :class="{active:subnavText==='炊具炖锅'}">
+                    <li>
                         <a href="shop_list.html?type=炊具炖锅">炊具炖锅</a>
                     </li>
-                    <li :class="{active:subnavText==='厨房小电'}">
+                    <li>
                         <a href="shop_list.html?type=厨房小电">厨房小电</a>
                     </li>
-                    <li :class="{active:subnavText==='爆款推荐'}">
+                    <li>
                         <a href="shop_list.html?type=爆款推荐">爆款推荐</a>
                     </li>
                 </ul>
@@ -309,7 +306,7 @@
                                 <a href="javascript:void(0)" v-if="j===0&&(order.order_status===1||order.order_status===2)" @click="updateOrder(order.order_id,0,i)" class="com" style="color:red">取消订单</a>
                                 <a href="javascript:void(0)" v-if="j===0&&(order.order_status===3)" @click="updateOrder(order.order_id,4,i)" class="com">确认收货</a>
                                 <a href="javascript:void(0)" class="com" v-if="j===0&&(order.order_status===0||order.order_status===5)" @click="removeOrder(order.order_id,i)" style="color:red">删除订单</a>
-                                <a :href="'comment.html?proId='+pro.goods_id" v-if="order.order_status===4" class="com">去评价</a>
+                                <a :href="'comment.html?proId='+pro.goods_id+'&orderId='+order.order_id" v-if="order.order_status===4" class="com">去评价</a>
                             </div>
                         </div>
                     </li>
