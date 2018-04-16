@@ -2,15 +2,11 @@ $(function() {
     var ym = getYM();
     $('.yimg>img').attr('src',ym.url).attr('alt',ym.alt);
     // 点击验证码更换
-    (function() {
-        var i = 1;
-        var yzmlen = yzm.length;
-        $('.yicon>span').click(function() {
-            var ym = getYM();
-            $('.yimg>img').attr('src',ym.url).attr('alt',ym.alt);
-            return;
-        });
-    })();
+    $('.yicon>span').click(function() {
+        var ym = getYM();
+        $('.yimg>img').attr('src',ym.url).attr('alt',ym.alt);
+        return;
+    });
     placeholder($('.loginname>input'), '手机号/邮箱');
     placeholder($('.pwd>input'), '密码', true);
     placeholder($('.yicon>input'), '验证码');

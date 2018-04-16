@@ -69,6 +69,10 @@ html {
                         position: relative;
                         float: left;
                         min-width: 90px;
+                        opacity: 0.3;
+                        &.done{
+                            opacity: 1;
+                        }
                         >i {
                             float: left;
                             height: 19px;
@@ -86,6 +90,7 @@ html {
                         }
                         .date {
                             top: 19px;
+                            width: 78px;
                         }
                         .time {
                             top: 38px;
