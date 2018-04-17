@@ -83,15 +83,27 @@ $(function () {
                     orderNote: this.orderNote, // 订单备注
                     postage: 0 //运费
                 })
+                var that = this;
+                var timeOut;
                 http.post('/confirmOrder', {
                     proList: this.orderProList,
                     addressId: this.selectAddressId, //地址Id
                     orderNote: this.orderNote, // 订单备注
                     postage: 0 //运费
                 }, function (res) {
-                    setTimeout(function(){
-                        location.href = "pay.html?orderId="+ res.data.orderInfo.order_id
-                    },0)
+                    that.orderProList.map(function(item){
+                        http.post('/delCartPro', {
+                            proId: item.proId
+                        },function(){
+                            if(!!timeOut){
+                                clearTimeout(timeOut);
+                            }
+                            timeOut = setTimeout(function(){
+                                location.href = "pay.html?orderId="+ res.data.orderInfo.order_id
+                                timeOut = null;
+                            },100)
+                        })
+                    })
                 })
             }
         }
