@@ -1,18 +1,105 @@
+// 处理token
+function getsec(time) { //转换时间，单位为小时3
+    return time * 60 * 60 * 1000
+}
+
+
+// 写 cookies
+var setCookie = function setCookie(name, value, time) {
+    if (time) {
+        var strsec = getsec(time);
+        var exp = new Date();
+        exp.setTime(exp.getTime() + parseInt(strsec));
+        document.cookie = name +
+            "=" +
+            escape(value) +
+            ";expires=" +
+            exp.toGMTString();
+    } else {
+        document.cookie = name + "=" + escape(value);
+    }
+};
+
+// 读 cookies
+var getCookie = function (name) {
+    var reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+    var arr = document.cookie.match(reg);
+    return arr ? unescape(arr[2]) : null;
+};
+
+// 删 cookies
+var delCookie = function (name) {
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 1);
+    var cval = getCookie(name);
+    if (cval != null) {
+        document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+    }
+};
+
+// 获取Token
+var getToken = function () {
+    if (window.sessionStorage && window.sessionStorage.wdUser) {
+        return window.sessionStorage.wdUser;
+    } else if (window.localStorage && window.localStorage.wdUser) {
+        return window.localStorage.wdUser;
+    } else if (window.document.cookie) {
+        return getCookie("wdUser");
+    }
+};
+
+// 设置Token
+var setToken = function (token, rememberTime) {
+    if (window.sessionStorage) {
+        window.sessionStorage.wdUser = token;
+    }
+
+    if ((rememberTime && window.localStorage) || !window.sessionStorage) {
+        window.localStorage.wdUser = token;
+    }
+
+    if (
+        window.document.cookie && !window.sessionStorage && !window.localStorage
+    ) {
+        if (rememberTime) {
+            setCookie("wdUser", token, rememberTime);
+        } else {
+            setCookie("wdUser", token);
+        }
+    }
+};
+
+// 删除Token
+var delToken = function () {
+    if (window.sessionStorage && window.sessionStorage.wdUser) {
+        window.sessionStorage.removeItem("wdUser");
+    }
+
+    if (window.localStorage && window.localStorage.wdUser) {
+        window.localStorage.removeItem("wdUser");
+    }
+
+    if (window.document.cookie) {
+        delCookie("wdUser");
+    }
+};
+// 处理token
 // 每次跳转进行路由控制
-// (function(){
-//     var publicRouterList = ['register','login','index','shop_list','pro_details'];
-//     var len = publicRouterList.length;
-//     var isNext = false;
-//     for(var i=0;i<len;i++){
-//         if(location.href.indexOf(publicRouterList[i])!==-1){
-//             isNext = true
-//             break;
-//         }
-//     }
-//     if(!isNext){
-//         location.href = "http://localhost/wdshop/index.html";
-//     }
-// })()
+(function(){
+    if(!!getToken())return;
+    var publicRouterList = ['register','login','index','shop_list','pro_details'];
+    var len = publicRouterList.length;
+    var isNext = false;
+    for(var i=0;i<len;i++){
+        if(location.href.indexOf(publicRouterList[i])!==-1){
+            isNext = true
+            break;
+        }
+    }
+    if(!isNext){
+        location.href = "http://localhost/wdshop/index.html";
+    }
+})()
 // 路由控制
 
 // Vue2
@@ -107,92 +194,6 @@ $(function () {
     })();
 });
 
-// 处理token
-function getsec(time) { //转换时间，单位为小时3
-    return time * 60 * 60 * 1000
-}
-
-
-// 写 cookies
-var setCookie = function setCookie(name, value, time) {
-    if (time) {
-        var strsec = getsec(time);
-        var exp = new Date();
-        exp.setTime(exp.getTime() + parseInt(strsec));
-        document.cookie = name +
-            "=" +
-            escape(value) +
-            ";expires=" +
-            exp.toGMTString();
-    } else {
-        document.cookie = name + "=" + escape(value);
-    }
-};
-
-// 读 cookies
-var getCookie = function (name) {
-    var reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-    var arr = document.cookie.match(reg);
-    return arr ? unescape(arr[2]) : null;
-};
-
-// 删 cookies
-var delCookie = function (name) {
-    var exp = new Date();
-    exp.setTime(exp.getTime() - 1);
-    var cval = getCookie(name);
-    if (cval != null) {
-        document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
-    }
-};
-
-// 获取Token
-var getToken = function () {
-    if (window.sessionStorage && window.sessionStorage.wdUser) {
-        return window.sessionStorage.wdUser;
-    } else if (window.localStorage && window.localStorage.wdUser) {
-        return window.localStorage.wdUser;
-    } else if (window.document.cookie) {
-        return getCookie("wdUser");
-    }
-};
-
-// 设置Token
-var setToken = function (token, rememberTime) {
-    if (window.sessionStorage) {
-        window.sessionStorage.wdUser = token;
-    }
-
-    if ((rememberTime && window.localStorage) || !window.sessionStorage) {
-        window.localStorage.wdUser = token;
-    }
-
-    if (
-        window.document.cookie && !window.sessionStorage && !window.localStorage
-    ) {
-        if (rememberTime) {
-            setCookie("wdUser", token, rememberTime);
-        } else {
-            setCookie("wdUser", token);
-        }
-    }
-};
-
-// 删除Token
-var delToken = function () {
-    if (window.sessionStorage && window.sessionStorage.wdUser) {
-        window.sessionStorage.removeItem("wdUser");
-    }
-
-    if (window.localStorage && window.localStorage.wdUser) {
-        window.localStorage.removeItem("wdUser");
-    }
-
-    if (window.document.cookie) {
-        delCookie("wdUser");
-    }
-};
-// 处理token
 
 // 公共图片baseUrl
 var imgServer = "http://127.0.0.1:3000";
@@ -330,7 +331,7 @@ var headerApp = new Vue({
         })
         if (!!getToken()) {
             // 获取购物车信息
-            that.getCart();
+            // that.getCart();
             that.userName = localStorage.getItem('userName')
             that.isLogin = true;
         }

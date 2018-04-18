@@ -239,7 +239,8 @@
 #middle .hot_goods ul li:first-of-type img,
 #middle .re_goods ul li:first-of-type img,
 #middle .boom_goods ul li:first-of-type img {
-  height: 549.4px;
+  /* height: 549.4px; */
+  height: 548px;
 }
 
 #middle .new_goods ul li:hover,

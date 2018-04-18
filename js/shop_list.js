@@ -117,7 +117,7 @@ new Vue({
         getProList:function(){
             var that = this;
             var query = GetRequest();
-            if(query.type === '商品列表'||query.type === '爆款推荐'||!query.type) delete query.type;
+            if(query.type === '商品列表'||!query.type) delete query.type;
             http.get('/public/getProList',{
                 status:1,
                 type:query.type,

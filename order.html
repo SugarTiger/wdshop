@@ -35,7 +35,6 @@
                     <li>|</li>
                     <li>
                         <a href="shop_cart.html">购物车</a>
-                        <sup>{{cartCount}}</sup>
                     </li>
                     <!-- <li>|</li>
                     <li>
@@ -63,14 +62,14 @@
                         <button @click="searchPro">搜索</button>
                     </div>
                 </div>
-                <div class="header_ad">
+                <!-- <div class="header_ad">
                     <a href="shop_list.html">
                         <img src="images/pro1.png" alt="">
                     </a>
                     <a href="shop_list.html">
                         <img src="images/pro2.png" alt="">
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="nav">
@@ -178,13 +177,13 @@
                         <a href="shop_list.html?type=商品列表">商品列表</a>
                     </li>
                     <li>
-                        <a href="shop_list.html?type=炊具炖锅">炊具炖锅</a>
+                        <a href="shop_list.html?type=电饭锅">电饭锅</a>
                     </li>
                     <li>
-                        <a href="shop_list.html?type=厨房小电">厨房小电</a>
+                        <a href="shop_list.html?type=电压力锅">电压力锅</a>
                     </li>
                     <li>
-                        <a href="shop_list.html?type=爆款推荐">爆款推荐</a>
+                        <a href="shop_list.html?type=电炖锅">电炖锅</a>
                     </li>
                 </ul>
             </div>
@@ -456,9 +455,9 @@
                 </a>
             </div>
         </div>
-        <div class="copyright">
+        <div class="copyright" id="fcopyright">
             <p class="containe">
-                京公网安备 11000002000001号京ICP证030173号违法和不良信息举报电话：010-59922822
+                {{footerText}}
             </p>
         </div>
     </div>
