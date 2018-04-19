@@ -91,19 +91,23 @@ $(function () {
                     orderNote: this.orderNote, // 订单备注
                     postage: 0 //运费
                 }, function (res) {
-                    that.orderProList.map(function(item){
-                        http.post('/delCartPro', {
-                            proId: item.proId
-                        },function(){
-                            if(!!timeOut){
-                                clearTimeout(timeOut);
-                            }
-                            timeOut = setTimeout(function(){
-                                location.href = "pay.html?orderId="+ res.data.orderInfo.order_id
-                                timeOut = null;
-                            },100)
+                    if(GetRequest.formCart){
+                        that.orderProList.map(function(item){
+                            http.post('/delCartPro', {
+                                proId: item.proId
+                            },function(){
+                                if(!!timeOut){
+                                    clearTimeout(timeOut);
+                                }
+                                timeOut = setTimeout(function(){
+                                    location.href = "pay.html?orderId="+ res.data.orderInfo.order_id
+                                    timeOut = null;
+                                },100)
+                            })
                         })
-                    })
+                    }else{
+                        location.href = "pay.html?orderId="+ res.data.orderInfo.order_id
+                    }
                 })
             }
         }

@@ -111,7 +111,7 @@ new Vue({
                     })
                 }
             }
-            location.href = "confirm_order.html?orderPro=" + JSON.stringify(orderPro)
+            location.href = "confirm_order.html?formCart=true&orderPro=" + JSON.stringify(orderPro)
         }
     },
     mounted: function () {
